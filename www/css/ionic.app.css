@@ -9917,7 +9917,8 @@ a.button {
     font-weight: 600; }
 
 .sigupIcon {
-  color: #091b27 !important; }
+  color: #091b27 !important;
+  font-size: 24px !important; }
 
 .nameSignup {
   margin-top: 44px;
@@ -9930,7 +9931,8 @@ a.button {
   .signUpForm label {
     border: none;
     border-bottom: 1px solid lightgrey;
-    padding: 6px 0 5px 0px !important; }
+    padding: 0;
+    margin: 0 5px; }
   .signUpForm input {
     background: transparent; }
 
@@ -9942,7 +9944,7 @@ a.button {
   margin: 0px !important;
   position: relative;
   background: #f2f4f5; }
-  .signUpCard i {
+  .signUpCard .camcon {
     font-size: 30px;
     position: absolute;
     right: 5px;
@@ -9952,4 +9954,71 @@ a.button {
     bottom: 10px;
     text-align: center;
     width: 100%;
-    border-bottom: none !important; }
+    border-bottom: none !important;
+    color: #a1a8ab;
+    font-weight: 600 !important;
+    font-size: 14px; }
+
+.signUpFooter {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #ff414d !important;
+  height: 44px; }
+  .signUpFooter button {
+    border: none;
+    width: 100%;
+    background: transparent !important;
+    padding: 0;
+    margin: 0; }
+
+.signUpAdd {
+  display: block;
+  height: 30px;
+  width: 30px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  padding: 5px 9px; }
+  .signUpAdd .plus {
+    font-size: 20px; }
+
+.mt-10 {
+  margin-top: 10px !important; }
+
+.bar.bar-stable .title {
+  text-align: left !important; }
+
+.dashboardLabel {
+  text-align: center;
+  padding-top: 10px; }
+  .dashboardLabel label {
+    font-weight: 600; }
+
+.roundePrgBar {
+  width: auto;
+  position: relative;
+  padding-bottom: 0px;
+  position: relative;
+  text-align: center;
+  margin: 20px auto; }
+
+.roundedPrgDiv {
+  height: 19px;
+  width: 8px;
+  background: green;
+  position: absolute;
+  top: 7%;
+  left: 47%;
+  z-index: 3;
+  background: #0dbabe; }
+
+.info {
+  font-size: 25px;
+  color: lightgrey;
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  text-align: center; }

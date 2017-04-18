@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
 
@@ -68,5 +68,7 @@ angular.module('starter.controllers', [])
 .controller('VerifyCtrl', function ($scope, $stateParams) {})
 
 .controller('LoginCtrl', function ($scope, $stateParams) {})
+
+.controller('DashboardCtrl', function ($scope, $stateParams) {})
 
 .controller('SignUpCtrl', function ($scope, $stateParams) {});

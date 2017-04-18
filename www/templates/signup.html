@@ -1,15 +1,15 @@
 <ion-view title="Sign up">
   <ion-nav-bar class="bar-stable">
     <ion-nav-buttons side="left">
-      <button class="button button-icon button-clear ion-arrow-left-c sigupIcon">
+      <button class="button button-clear ion-android-arrow-back sigupIcon">
         </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-      <button class="button button-icon button-clear ion-android-more-vertical sigupIcon">
+      <button class="button button-clear ion-android-more-vertical sigupIcon">
         </button>
     </ion-nav-buttons>
   </ion-nav-bar>
-  <ion-content class="has-header signUpForm">
+  <ion-content class="has-header signUpForm has-footer">
     <div class=" ">
       <label class=" item-input ">
     <input type="text" placeholder="Your Name">
@@ -40,22 +40,31 @@
     </div>-->
     <div class="row">
       <div class="col col-50">
-        <div class="card signUpCard">
-          <i class="ion ion-ios-camera-outline"></i>
+        <div class="card signUpCard mt-10">
+          <i class="ion ion-ios-camera-outline camcon"></i>
+          <div class="signUpAdd">
+            <i class="ion ion-ios-plus-empty plus">
+
+            </i>
+          </div>
           <label for="">Add Pan Card</label>
         </div>
       </div>
       <div class="col col-50">
-        <div class="card signUpCard">
-          <i class="ion ion-ios-camera-outline"></i>
+        <div class="card signUpCard mt-10">
+          <i class="ion ion-ios-camera-outline camcon"></i>
+          <div class="signUpAdd">
+            <i class="ion ion-ios-plus-empty plus">
+            </i>
+          </div>
           <label for="">Add Aadhar Card</label>
         </div>
       </div>
     </div>
-    <div class="bar bar-footer">
-      <button class="button button-block button-positive">
-  Block Button
-</button>
-    </div>
   </ion-content>
+  <div class="bar bar-footer signUpFooter">
+    <button class="button button-block button-positive" ui-sref="app.dashboard">
+  Get Started
+</button>
+  </div>
 </ion-view>

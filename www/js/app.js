@@ -79,6 +79,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'SignUpCtrl'
   })
 
+  .state('app.dashboard', {
+    url: '/dashboard',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/dashboard.html',
+        controller: 'DashboardCtrl'
+      }
+    }
+  })
+
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
