@@ -1,0 +1,185 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+.partDiv {
+  display: block;
+  float: right;
+  padding: 5px;
+  width: 45%;
+  background: #f2f4f5;
+  margin: 10px 5px;
+}
+
+.imgDiv {
+  height: 100px;
+  width: 100px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img {
+  width: 100%;
+}
+
+.phnFooter {
+  padding: 0;
+  height: 40px;
+  background: #f2f4f5;
+}
+
+.phnSpan {
+  width: 20%;
+  vertical-align: middle;
+  color: #757575;
+}
+
+.phnText {
+  display: inline-block!important;
+  background: #f2f4f5;
+  width: 80%;
+  padding: 5px!important;
+}
+
+.spanTextDiv {
+  width: 100%;
+}
+
+.phnRow {
+  padding: 0;
+}
+
+.phnCol66 {
+  padding: 5px;
+}
+
+.phnCol33Div {
+  width: 100%;
+  height: 100%;
+  background: red;
+  padding: 5px;
+}
+
+.joinBtn {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: transparent!important;
+  border: transparent;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.otpLabel {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+.otpDiv {
+  left: 50%;
+  position: absolute;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.verifyDiv {
+  display: inline;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  button {
+    border: transparent;
+    line-height: 0px!important;
+    padding: 0px 30px!important;
+    border-radius: 0px!important;
+    background: #ff414d!important;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.resendBtn {
+  display: inline;
+  top: 56%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  button {
+    border: transparent;
+    line-height: 20px!important;
+    padding: 10px 20px!important;
+    border-radius: 0px!important;
+    background: transparent!important;
+    color: black!important;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.sigupIcon {
+  color: #091b27!important;
+}
+
+.nameSignup {
+  margin-top: 44px;
+  border: transparent;
+  border-bottom: 1px solid lightgrey;
+}
+
+.signUpForm {
+  padding-left: 10px;
+  padding-right: 10px;
+  label {
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    padding: 6px 0 5px 0px!important;
+  }
+  input {
+    background: transparent;
+  }
+}
+
+.plcHldr {
+  font-weight: 600;
+}
+
+.signUpCard {
+  height: 100px;
+  margin: 0px!important;
+  position: relative;
+  background: #f2f4f5;
+  i {
+    font-size: 30px;
+    position: absolute;
+    right: 5px;
+    color: #4f5d65;
+  }
+  label {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    border-bottom: none!important;
+  }
+}

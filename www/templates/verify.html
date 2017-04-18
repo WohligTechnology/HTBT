@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-pane>
+    <div class="logorel">
+      <div class="otpDiv">
+        <label for="" class="otpLabel">Enter the 4-digit OTP code you received through SMS</label>
+      </div>
+    </div>
+    <div class="verifyBox">
+      <ion-input type="number" id="otpNumber" class="form-control" pattern="[0-9]{6}" formControlName="otpNumber">
+      </ion-input>
+    </div>
+    <div class="verifyDiv">
+      <button class="button button-assertive" ui-sref='signup'>
+  VERIFY
+</button>
+    </div>
+    <div class="resendBtn">
+      <button class="button button-assertive">
+  Resend Code
+</button>
+    </div>
+    </div>
+  </ion-pane>
+</ion-view>
