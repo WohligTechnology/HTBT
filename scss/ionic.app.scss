@@ -446,3 +446,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
   }
 }
+
+.medal {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  img {
+    height: 100%;
+  }
+}

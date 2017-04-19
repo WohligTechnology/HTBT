@@ -10165,3 +10165,10 @@ a.button {
     font-size: 24px; }
   .notify-header .bar.bar-stable h1 {
     margin-left: 0px; }
+
+.medal {
+  height: 100px;
+  width: 100%;
+  text-align: center; }
+  .medal img {
+    height: 100%; }
