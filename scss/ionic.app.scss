@@ -540,29 +540,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
  }
 }
 
-.popupDiv {
- text-align: center;
- padding: 10px;
- label {
-   color: #ff414d;
-   font-size: 16px;
-   font-weight: 500;
- }
-}
 
-.popupImg {
- text-align: center;
- img {
-   height: 100px;
-   width: 100px;
- }
-}
-
-.popupText {
- text-align: center;
- display: grid;
- margin: 10px
-}
 
 .popupColor {
  color: #727577;
@@ -586,4 +564,3 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
    color: white;
  }
 }
->>>>>>> ba35ad07f4f273075775e1cd1c998388e66f9558
