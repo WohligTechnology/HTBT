@@ -403,8 +403,46 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   }
 }
 
+.priceDiv {
+  background: #0dbabe;
+}
+
 .priceCard {
   .popup-head {
     display: none
+  }
+  .popup-body {
+    padding: 0!important;
+  }
+}
+
+.notify-card {
+  padding: 10px;
+  margin: 15px;
+  label {
+    margin: 5px 0;
+    font-size: 16px;
+    display: block;
+  }
+  p {
+    color: #6b6b6b;
+    text-align: justify;
+  }
+}
+
+.bg-notify {
+  background: #f2f4f5;
+}
+
+.notify-header {
+  .bar.bar-stable {
+    background: white;
+    i {
+      padding: 5px 15px;
+      font-size: 24px;
+    }
+    h1 {
+      margin-left: 0px;
+    }
   }
 }
