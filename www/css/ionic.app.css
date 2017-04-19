@@ -10175,8 +10175,6 @@ a.button {
   text-align: center; }
   .medal img {
     height: 100%; }
-<<<<<<< HEAD
-=======
 
 .hidepager .slider-pager {
   display: none; }
@@ -10239,25 +10237,6 @@ a.button {
 .popupSorry .popup-body {
   padding: 0 !important; }
 
-.popupDiv {
-  text-align: center;
-  padding: 10px; }
-  .popupDiv label {
-    color: #ff414d;
-    font-size: 16px;
-    font-weight: 500; }
-
-.popupImg {
-  text-align: center; }
-  .popupImg img {
-    height: 100px;
-    width: 100px; }
-
-.popupText {
-  text-align: center;
-  display: grid;
-  margin: 10px; }
-
 .popupColor {
   color: #727577; }
 
@@ -10276,4 +10255,3 @@ a.button {
     display: inline-block;
     text-align: center;
     color: white; }
->>>>>>> ba35ad07f4f273075775e1cd1c998388e66f9558
