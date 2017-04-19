@@ -10025,9 +10025,22 @@ a.button {
 
 .overallRupeeDiv {
   text-align: center;
-  top: 34%;
+  top: 25%;
   position: absolute;
   width: 100%; }
 
 .rupeeFont {
   font-size: 50px; }
+
+.sinceDateDiv {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 37%; }
+
+.bottomTopMarRow {
+  border-top: 1px solid lightgrey !important;
+  color: grey;
+  border-bottom: 1px solid lightgrey;
+  margin: 10px 10px;
+  width: auto !important; }
