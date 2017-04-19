@@ -10099,3 +10099,36 @@ a.button {
     color: black;
     font-weight: 500;
     display: block; }
+
+.newCust {
+  text-align: center; }
+  .newCust button {
+    color: white !important;
+    border: 0px !important;
+    background: #ff414d !important;
+    font-size: 13px !important;
+    padding-left: 10px !important; }
+  .newCust .button.icon-left:before {
+    padding-right: 10px !important; }
+
+.oldCust {
+  text-align: center;
+  margin-top: 10px;
+  vertical-align: middle; }
+  .oldCust label {
+    margin-left: 18px; }
+  .oldCust button {
+    color: #7a7b7c !important;
+    border: 0px !important;
+    background: #f2f4f5 !important;
+    font-size: 13px !important;
+    padding-left: 10px !important; }
+
+.ion-custom-user:before {
+  content: url("/img/user.png");
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  font-size: 10px;
+  display: inline-block;
+  margin-top: -18px; }

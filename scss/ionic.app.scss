@@ -19,6 +19,7 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@import "scss/_style";
 .partDiv {
   display: block;
   float: right;
@@ -355,5 +356,47 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     color: black;
     font-weight: 500;
     display: block;
+  }
+}
+
+.newCust {
+  text-align: center;
+  button {
+    color: white!important;
+    border: 0px!important;
+    background: #ff414d!important;
+    font-size: 13px!important;
+    padding-left: 10px!important;
+  }
+  .button.icon-left:before {
+    padding-right: 10px!important;
+  }
+}
+
+.oldCust {
+  text-align: center;
+  margin-top: 10px;
+  vertical-align: middle;
+  label {
+    margin-left: 18px;
+  }
+  button {
+    color: #7a7b7c!important;
+    border: 0px!important;
+    background: #f2f4f5!important;
+    font-size: 13px!important;
+    padding-left: 10px!important;
+  }
+}
+
+.ion-custom-user {
+  &:before {
+    content: url('/img/user.png');
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    font-size: 10px;
+    display: inline-block;
+    margin-top: -18px
   }
 }
