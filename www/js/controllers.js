@@ -69,6 +69,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 
 .controller('LoginCtrl', function ($scope, $stateParams) {})
 
-.controller('DashboardCtrl', function ($scope, $stateParams) {})
+.controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup) {
+  $scope.showPopup = function () {
+    $scope.show = $ionicPopup.show({
+      templateUrl: 'templates/modal/price.html',
+      cssClass: "priceCard",
+      scope: $scope,
+    });
+  }
+  $scope.closePopup = function () {
+    $scope.filter.close();
+  }
+})
 
 .controller('SignUpCtrl', function ($scope, $stateParams) {});

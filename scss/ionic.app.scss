@@ -260,14 +260,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-size: 25px;
   color: lightgrey;
   position: absolute;
-  top: 11%;
+  top: 15%;
   width: 100%;
   text-align: center;
 }
 
 .overallRupeeDiv {
   text-align: center;
-  top: 20%;
+  top: 25%;
   position: absolute;
   width: 100%;
 }
@@ -280,14 +280,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 29%;
+  top: 38%;
 }
 
 .bottomTopMarRow {
   border-top: 1px solid lightgrey!important;
   color: grey;
   border-bottom: 1px solid lightgrey;
-  margin: 10px 10px;
+  margin: 20px;
   width: auto!important;
 }
 
@@ -367,6 +367,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     background: #ff414d!important;
     font-size: 13px!important;
     padding-left: 10px!important;
+    min-height: 35px!important;
   }
   .button.icon-left:before {
     padding-right: 10px!important;
@@ -386,6 +387,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     background: #f2f4f5!important;
     font-size: 13px!important;
     padding-left: 10px!important;
+    min-height: 35px!important;
   }
 }
 
@@ -398,5 +400,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     font-size: 10px;
     display: inline-block;
     margin-top: -18px
+  }
+}
+
+.priceCard {
+  .popup-head {
+    display: none
   }
 }

@@ -10019,13 +10019,13 @@ a.button {
   font-size: 25px;
   color: lightgrey;
   position: absolute;
-  top: 11%;
+  top: 15%;
   width: 100%;
   text-align: center; }
 
 .overallRupeeDiv {
   text-align: center;
-  top: 20%;
+  top: 25%;
   position: absolute;
   width: 100%; }
 
@@ -10036,13 +10036,13 @@ a.button {
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 29%; }
+  top: 38%; }
 
 .bottomTopMarRow {
   border-top: 1px solid lightgrey !important;
   color: grey;
   border-bottom: 1px solid lightgrey;
-  margin: 10px 10px;
+  margin: 20px;
   width: auto !important; }
 
 .colPad {
@@ -10107,7 +10107,8 @@ a.button {
     border: 0px !important;
     background: #ff414d !important;
     font-size: 13px !important;
-    padding-left: 10px !important; }
+    padding-left: 10px !important;
+    min-height: 35px !important; }
   .newCust .button.icon-left:before {
     padding-right: 10px !important; }
 
@@ -10122,7 +10123,8 @@ a.button {
     border: 0px !important;
     background: #f2f4f5 !important;
     font-size: 13px !important;
-    padding-left: 10px !important; }
+    padding-left: 10px !important;
+    min-height: 35px !important; }
 
 .ion-custom-user:before {
   content: url("/img/user.png");
@@ -10132,3 +10134,6 @@ a.button {
   font-size: 10px;
   display: inline-block;
   margin-top: -18px; }
+
+.priceCard .popup-head {
+  display: none; }
