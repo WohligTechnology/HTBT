@@ -10175,22 +10175,3 @@ a.button {
   text-align: center; }
   .medal img {
     height: 100%; }
-
-.popupDiv {
-  text-align: center;
-  padding: 10px; }
-  .popupDiv label {
-    color: #ff414d;
-    font-size: 16px;
-    font-weight: 500; }
-
-.popupImg {
-  text-align: center; }
-  .popupImg img {
-    height: 100px;
-    width: 100px; }
-
-.popupText {
-  text-align: center; }
-  .popupText label {
-    color: #727577; }
