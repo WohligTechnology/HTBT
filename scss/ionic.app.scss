@@ -449,3 +449,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .rel{
   position: relative;
 }
+.medal {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  img {
+    height: 100%;
+  }
+}

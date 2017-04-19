@@ -10168,3 +10168,10 @@ a.button {
 
 .rel {
   position: relative; }
+
+.medal {
+  height: 100px;
+  width: 100%;
+  text-align: center; }
+  .medal img {
+    height: 100%; }
