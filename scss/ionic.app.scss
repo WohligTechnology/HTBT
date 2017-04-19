@@ -259,14 +259,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-size: 25px;
   color: lightgrey;
   position: absolute;
-  top: 15%;
+  top: 11%;
   width: 100%;
   text-align: center;
 }
 
 .overallRupeeDiv {
   text-align: center;
-  top: 25%;
+  top: 20%;
   position: absolute;
   width: 100%;
 }
@@ -279,7 +279,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 37%;
+  top: 29%;
 }
 
 .bottomTopMarRow {
@@ -288,4 +288,72 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   border-bottom: 1px solid lightgrey;
   margin: 10px 10px;
   width: auto!important;
+}
+
+.colPad {
+  padding: 0!important;
+}
+
+.rankLabel {
+  font-size: 24px;
+  font-weight: 500;
+  color: #212121;
+  width: 100%;
+  text-align: center;
+}
+
+.numberDiv {
+  text-align: center;
+  i {
+    font-size: 15px;
+    color: #0dbabe;
+    padding: 0;
+    margin: 0;
+  }
+  span {
+    font-size: 10px;
+    padding: 0;
+  }
+}
+
+.rankDiv {
+  text-align: center;
+  padding-right: 20px;
+  pr {
+    font-size: 12px;
+    color: black;
+    font-weight: 500;
+  }
+}
+
+.lastMonth {
+  text-align: center;
+  label {
+    font-size: 24px;
+    font-weight: 500;
+    color: #212121;
+    width: 100%;
+  }
+  pr {
+    font-size: 12px;
+    color: black;
+    font-weight: 500;
+    display: block;
+  }
+}
+
+.newCustomer {
+  text-align: center;
+  label {
+    font-size: 24px;
+    font-weight: 500;
+    color: #212121;
+    width: 100%;
+  }
+  pr {
+    font-size: 12px;
+    color: black;
+    font-weight: 500;
+    display: block;
+  }
 }
