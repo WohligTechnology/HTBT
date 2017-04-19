@@ -90,4 +90,15 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
   }
 })
 
-.controller('SignUpCtrl', function ($scope, $stateParams) {});
+.controller('SignUpCtrl', function ($scope, $stateParams, $ionicPopup) {
+  $scope.sorryPopup = function () {
+    $scope.show = $ionicPopup.show({
+      templateUrl: 'templates/modal/pincode',
+      cssClass: "priceCard"
+    });
+  }
+  $scope.closePopup = function () {
+    $scope.show.close();
+  }
+
+});
