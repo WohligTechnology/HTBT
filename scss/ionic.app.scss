@@ -459,44 +459,45 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     height: 100%;
   }
 }
-<<<<<<< HEAD
-=======
-.hidepager{
+
+.hidepager {
   .slider-pager {
     display: none;
   }
 }
-.arrowbtn{
+
+.arrowbtn {
   color: #ffd34d;
   position: absolute;
   top: 37%;
   z-index: 999;
-  &:hover{
+  &:hover {
     color: #ffd34d;
   }
 }
-.slide-div{
+
+.slide-div {
   padding: 15px;
-  text-align:justify;
-  h3{
+  text-align: justify;
+  h3 {
     color: white;
   }
   color: white;
 }
 
-.slide-close{
+.slide-close {
   position: absolute;
-    right: 0;
-    top: 0;
+  right: 0;
+  top: 0;
 }
-.rightarr{
+
+.rightarr {
   color: #ffd34d;
   position: absolute;
   top: 37%;
   right: 0;
   z-index: 999;
-
-  &:hover{
+  &:hover {
     color: #ffd34d;
   }
 }
@@ -526,64 +527,64 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     color: #727577;
   }
 }
+
 //pranay
 .popupSorry {
- .popup {
-   width: 100%;
-   margin: 20px;
- }
- .popup-head {
-   display: none
- }
- .popup-body {
-   padding: 0!important;
- }
+  .popup {
+    width: 100%;
+    margin: 20px;
+  }
+  .popup-head {
+    display: none
+  }
+  .popup-body {
+    padding: 0!important;
+  }
 }
 
 .popupDiv {
- text-align: center;
- padding: 10px;
- label {
-   color: #ff414d;
-   font-size: 16px;
-   font-weight: 500;
- }
+  text-align: center;
+  padding: 10px;
+  label {
+    color: #ff414d;
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
 
 .popupImg {
- text-align: center;
- img {
-   height: 100px;
-   width: 100px;
- }
+  text-align: center;
+  img {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 .popupText {
- text-align: center;
- display: grid;
- margin: 10px
+  text-align: center;
+  display: grid;
+  margin: 10px
 }
 
 .popupColor {
- color: #727577;
+  color: #727577;
 }
 
 .popupTextColor {
- font-size: 11px;
- color: #727577;
+  font-size: 11px;
+  color: #727577;
 }
 
 .otpin {
- display: block;
- text-align: center;
- margin: 10px;
- input {
-   height: 30px;
-   width: 30px;
-   background: black;
-   display: inline-block;
-   text-align: center;
-   color: white;
- }
+  display: block;
+  text-align: center;
+  margin: 10px;
+  input {
+    height: 30px;
+    width: 30px;
+    background: black;
+    display: inline-block;
+    text-align: center;
+    color: white;
+  }
 }
->>>>>>> ba35ad07f4f273075775e1cd1c998388e66f9558
