@@ -73,19 +73,25 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
   $scope.showPopup = function () {
     $scope.show = $ionicPopup.show({
       templateUrl: 'templates/modal/price.html',
-      cssClass: "priceCard"
+      cssClass: "priceCard",
+      scope:$scope
     });
   }
   $scope.closePopup = function () {
     $scope.show.close();
   }
-  $scope.options = {
-    loop: false,
-    effect: 'fade',
-    speed: 500,
+  $scope.lockSlide = function () {
+         $ionicSlideBoxDelegate.enableSlide( false );
+     }
+  $scope.myActiveSlide = 1;
+
+  $scope.slidePrevious = function() {
+
+    $ionicSlideBoxDelegate.previous();
   }
 
-  $scope.nextSlide = function () {
+  $scope.slideNext = function() {
+
     $ionicSlideBoxDelegate.next();
   }
 })

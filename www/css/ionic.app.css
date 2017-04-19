@@ -10175,3 +10175,105 @@ a.button {
   text-align: center; }
   .medal img {
     height: 100%; }
+<<<<<<< HEAD
+=======
+
+.hidepager .slider-pager {
+  display: none; }
+
+.arrowbtn {
+  color: #ffd34d;
+  position: absolute;
+  top: 37%;
+  z-index: 999; }
+  .arrowbtn:hover {
+    color: #ffd34d; }
+
+.slide-div {
+  padding: 15px;
+  text-align: justify;
+  color: white; }
+  .slide-div h3 {
+    color: white; }
+
+.slide-close {
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.rightarr {
+  color: #ffd34d;
+  position: absolute;
+  top: 37%;
+  right: 0;
+  z-index: 999; }
+  .rightarr:hover {
+    color: #ffd34d; }
+
+.popupDiv {
+  text-align: center;
+  padding: 10px; }
+  .popupDiv label {
+    color: #ff414d;
+    font-size: 16px;
+    font-weight: 500; }
+
+.popupImg {
+  text-align: center; }
+  .popupImg img {
+    height: 100px;
+    width: 100px; }
+
+.popupText {
+  text-align: center; }
+  .popupText label {
+    color: #727577; }
+
+.popupSorry .popup {
+  width: 100%;
+  margin: 20px; }
+
+.popupSorry .popup-head {
+  display: none; }
+
+.popupSorry .popup-body {
+  padding: 0 !important; }
+
+.popupDiv {
+  text-align: center;
+  padding: 10px; }
+  .popupDiv label {
+    color: #ff414d;
+    font-size: 16px;
+    font-weight: 500; }
+
+.popupImg {
+  text-align: center; }
+  .popupImg img {
+    height: 100px;
+    width: 100px; }
+
+.popupText {
+  text-align: center;
+  display: grid;
+  margin: 10px; }
+
+.popupColor {
+  color: #727577; }
+
+.popupTextColor {
+  font-size: 11px;
+  color: #727577; }
+
+.otpin {
+  display: block;
+  text-align: center;
+  margin: 10px; }
+  .otpin input {
+    height: 30px;
+    width: 30px;
+    background: black;
+    display: inline-block;
+    text-align: center;
+    color: white; }
+>>>>>>> ba35ad07f4f273075775e1cd1c998388e66f9558
