@@ -10010,8 +10010,8 @@ a.button {
   width: 8px;
   background: green;
   position: absolute;
-  top: 7%;
-  left: 47%;
+  top: -2%;
+  left: 48%;
   z-index: 3;
   background: #0dbabe; }
 
@@ -10019,13 +10019,13 @@ a.button {
   font-size: 25px;
   color: lightgrey;
   position: absolute;
-  top: 15%;
+  top: 8%;
   width: 100%;
   text-align: center; }
 
 .overallRupeeDiv {
   text-align: center;
-  top: 25%;
+  top: 30%;
   position: absolute;
   width: 100%; }
 
@@ -10036,7 +10036,7 @@ a.button {
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 38%; }
+  bottom: 35%; }
 
 .bottomTopMarRow {
   border-top: 1px solid lightgrey !important;
@@ -10165,3 +10165,6 @@ a.button {
     font-size: 24px; }
   .notify-header .bar.bar-stable h1 {
     margin-left: 0px; }
+
+.rel {
+  position: relative; }

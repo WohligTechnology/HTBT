@@ -250,8 +250,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   width: 8px;
   background: green;
   position: absolute;
-  top: 7%;
-  left: 47%;
+  top: -2%;
+  left: 48%;
   z-index: 3;
   background: #0dbabe
 }
@@ -260,14 +260,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-size: 25px;
   color: lightgrey;
   position: absolute;
-  top: 15%;
+  top: 8%;
   width: 100%;
   text-align: center;
 }
 
 .overallRupeeDiv {
   text-align: center;
-  top: 25%;
+  top: 30%;
   position: absolute;
   width: 100%;
 }
@@ -280,7 +280,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 38%;
+  bottom: 35%;
 }
 
 .bottomTopMarRow {
@@ -445,4 +445,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
       margin-left: 0px;
     }
   }
+}
+.rel{
+  position: relative;
 }
