@@ -10133,7 +10133,7 @@ a.button {
     min-height: 35px !important; }
 
 .ion-custom-user:before {
-  content: url("/img/user.png");
+  content: url("../img/user.png");
   height: 16px;
   width: 16px;
   vertical-align: middle;

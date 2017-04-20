@@ -96,18 +96,18 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
   }
 })
 
-.controller('SignUpCtrl', function ($scope, $stateParams, $ionicPopup) {
-  $scope.sorryPopup = function () {
-    $scope.sorry = $ionicPopup.show({
-      templateUrl: 'templates/modal/pincode.html',
-      cssClass: "popupSorry",
-      scope: $scope
-    });
-  };
-  $scope.closeSorry = function () {
-    console.log("hello");
-    $scope.sorry.close();
-  };
+.controller('SignUpCtrl', function ($scope, $stateParams) {
+  // $scope.sorryPopup = function () {
+  //   $scope.sorry = $ionicPopup.show({
+  //     templateUrl: 'templates/modal/pincode.html',
+  //     cssClass: "popupSorry",
+  //     scope: $scope
+  //   });
+  // };
+  // $scope.closeSorry = function () {
+  //   console.log("hello");
+  //   $scope.sorry.close();
+  // };
 
   $scope.goBackHandler = function () {
     window.history.back(); //This works

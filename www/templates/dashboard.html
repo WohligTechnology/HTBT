@@ -18,7 +18,7 @@
         semi="false" rounded="true" clockwise="true" responsive="false" iterations="50" animation="easeInOutQuart"></div>
         <div class="roundedPrgDiv"></div>
               <i class="ion ion-information-circled info"></i>
-            <div class="overallRupeeDiv">
+            <div class="overallRupeeDiv" ng-click="showPopup()">
               <label class="rupeeFont" for="">₹ 500</label>
             </div>
             <div class="sinceDateDiv">
@@ -52,7 +52,7 @@
     </div>
 
     <div class="newCust">
-      <button class="button icon-left ion-plus-circled button-positive " ng-click="showPopup()">New Customer</button>
+      <button class="button icon-left ion-plus-circled button-positive " >New Customer</button>
     </div>
     <div class="oldCust">
       <button class="button button-icon ion-custom-user button-positive"><label class="oldCustLabel"  ng-click='price'>Old Customer</label></button>
