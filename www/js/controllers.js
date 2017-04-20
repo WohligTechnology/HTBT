@@ -74,23 +74,23 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
     $scope.show = $ionicPopup.show({
       templateUrl: 'templates/modal/price.html',
       cssClass: "priceCard",
-      scope:$scope
+      scope: $scope
     });
   }
   $scope.closePopup = function () {
     $scope.show.close();
   }
   $scope.lockSlide = function () {
-         $ionicSlideBoxDelegate.enableSlide( false );
-     }
+    $ionicSlideBoxDelegate.enableSlide(false);
+  }
   $scope.myActiveSlide = 1;
 
-  $scope.slidePrevious = function() {
+  $scope.slidePrevious = function () {
 
     $ionicSlideBoxDelegate.previous();
   }
 
-  $scope.slideNext = function() {
+  $scope.slideNext = function () {
 
     $ionicSlideBoxDelegate.next();
   }
@@ -98,13 +98,18 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 
 .controller('SignUpCtrl', function ($scope, $stateParams, $ionicPopup) {
   $scope.sorryPopup = function () {
-    $scope.show = $ionicPopup.show({
+    $scope.sorry = $ionicPopup.show({
       templateUrl: 'templates/modal/pincode.html',
-      cssClass: "popupSorry"
+      cssClass: "popupSorry",
+      scope: $scope
     });
-  }
-  $scope.closePopup = function () {
-    $scope.show.close();
-  }
+  };
+  $scope.closeSorry = function () {
+    console.log("hello");
+    $scope.sorry.close();
+  };
 
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  }
 });
