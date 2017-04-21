@@ -64,6 +64,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 })
 
 .controller('PlaylistCtrl', function ($scope, $stateParams) {})
+.controller('HelpCtrl', function ($scope, $stateParams) {
+  
+})
 
 .controller('VerifyCtrl', function ($scope, $stateParams) {})
 
