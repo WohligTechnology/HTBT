@@ -61,6 +61,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+  .state('app.customerlist', {
+      url: '/customerlist',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/customerlist.html',
+          controller: 'CustomerListCtrl'
+        }
+      }
+    })
     .state('app.playlists', {
       url: '/playlists',
       views: {
