@@ -9937,7 +9937,7 @@ a.button {
   .signUpForm label {
     border: none;
     border-bottom: 1px solid lightgrey;
-    padding: 0;
+    padding: 6px;
     margin: 0 5px; }
   .signUpForm input {
     background: transparent; }
@@ -10145,6 +10145,9 @@ a.button {
 .priceDiv {
   background: #0dbabe; }
 
+.priceCard .popup {
+  width: 80% !important; }
+
 .priceCard .popup-head {
   display: none; }
 
@@ -10331,10 +10334,12 @@ a.button {
   .helpcard .icondiv {
     height: 110px;
     width: 100%;
-    padding: 10px 30px; }
+    padding: 15px 0;
+    display: block;
+    text-align: center; }
     .helpcard .icondiv img {
       height: 100%;
-      width: 100%; }
+      width: auto; }
   .helpcard label {
     text-align: center;
     display: block; }
