@@ -10036,7 +10036,8 @@ a.button {
   width: 100%; }
 
 .rupeeFont {
-  font-size: 50px; }
+  font-size: 50px;
+  font-weight: 600; }
 
 .sinceDateDiv {
   position: absolute;
