@@ -153,7 +153,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .sigupIcon {
   color: #091b27!important;
-  font-size: 24px!important;
+  font-size: 30px!important;
 }
 
 .nameSignup {
@@ -422,9 +422,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 .priceCard {
-  .popup{
+  .popup {
     width: 80%!important;
-
   }
   .popup-head {
     display: none;
@@ -682,3 +681,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 //help and FAQ end
+.nav-height {
+  height: 52px;
+}
+
+.footer-height {
+  height: 46px;
+}
+
+.bar.bar-stable .title {
+  font-size: 20px;
+}
+
+.footer-font {
+  font-size: 15px!important;
+  font-weight: 500px!important;
+}

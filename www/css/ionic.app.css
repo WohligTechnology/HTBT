@@ -9924,7 +9924,7 @@ a.button {
 
 .sigupIcon {
   color: #091b27 !important;
-  font-size: 24px !important; }
+  font-size: 30px !important; }
 
 .nameSignup {
   margin-top: 44px;
@@ -10343,3 +10343,16 @@ a.button {
   .helpcard label {
     text-align: center;
     display: block; }
+
+.nav-height {
+  height: 52px; }
+
+.footer-height {
+  height: 46px; }
+
+.bar.bar-stable .title {
+  font-size: 20px; }
+
+.footer-font {
+  font-size: 15px !important;
+  font-weight: 500px !important; }
