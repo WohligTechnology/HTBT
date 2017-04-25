@@ -151,9 +151,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   color: black!important;
 }
 
-.sigupIcon {
+.sigupIconLeft {
   color: #091b27!important;
-  font-size: 30px!important;
+  font-size: 24px!important;
+  padding: 0 0 0 12px!important;
 }
 
 .nameSignup {
@@ -683,6 +684,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 //help and FAQ end
 .nav-height {
   height: 52px;
+  .bar.bar-stable .title {
+    font-size: 20px;
+    line-height: 48px;
+    text-align: left!important;
+    padding-top: 1px!important;
+  }
 }
 
 .footer-height {
@@ -696,4 +703,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .footer-font {
   font-size: 16px!important;
   font-weight: 500!important;
+}
+
+.sigupRight {
+  color: #091b27!important;
+  font-size: 24px!important;
+  padding: 0px 12px 0 0!important;
+  display: block;
+}
+
+.header-bellFont {
+  color: #091b27 !important;
+  font-size: 32px !important;
+  padding: 0 12px 0 0 !important;
+  display: block;
 }

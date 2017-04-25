@@ -9922,9 +9922,10 @@ a.button {
 .button.button-positive.button-clear {
   color: black !important; }
 
-.sigupIcon {
+.sigupIconLeft {
   color: #091b27 !important;
-  font-size: 30px !important; }
+  font-size: 24px !important;
+  padding: 0 0 0 12px !important; }
 
 .nameSignup {
   margin-top: 44px;
@@ -10346,6 +10347,11 @@ a.button {
 
 .nav-height {
   height: 52px; }
+  .nav-height .bar.bar-stable .title {
+    font-size: 20px;
+    line-height: 48px;
+    text-align: left !important;
+    padding-top: 1px !important; }
 
 .footer-height {
   height: 46px; }
@@ -10356,3 +10362,15 @@ a.button {
 .footer-font {
   font-size: 16px !important;
   font-weight: 500 !important; }
+
+.sigupRight {
+  color: #091b27 !important;
+  font-size: 24px !important;
+  padding: 0px 12px 0 0 !important;
+  display: block; }
+
+.header-bellFont {
+  color: #091b27 !important;
+  font-size: 32px !important;
+  padding: 0 12px 0 0 !important;
+  display: block; }
