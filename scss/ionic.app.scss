@@ -176,7 +176,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     background: transparent;
   }
 }
+.has-header {
+    top: 52px!important;
+}
+.nav-height .bar.bar-stable .title {
+    line-height: 52px!important;
+    font-size: 22px!important;
+}
 
+.bar .title + .buttons {
+    position: absolute!important;
+    top: 5px!important;
+    right: 15px!important;
+    bottom: 5px!important;
+}
 .plcHldr {
   font-weight: 600;
 }
