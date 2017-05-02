@@ -598,6 +598,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     color: white;
 }
 
+.col-30 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
 .slide-close {
     position: absolute;
     right: 0;
@@ -1067,7 +1077,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .order-date {
     font-size: 14px;
     display: block;
-    padding: 0 0 5px 15px;
+    padding: 10px 15px;
 }
 
 .order-jarImg {
@@ -1096,4 +1106,53 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .order-prgress {
     width: 30px!important;
     height: 30px!important;
+}
+
+.borbtm {
+    width: 80%;
+    height: 1px;
+    background: grey;
+    margin-left: 20%;
+}
+
+.rscol {
+  text-align: center;
+  margin-top: 5px;
+    span {
+        color: #6d797e;
+        font-size: 28px;
+        padding: 0 5px;
+    }
+
+    label {
+        color: #ff414d;
+        padding: 0 5px;
+        font-size: 28px;
+    }
+}
+.refils{
+  color: #454545;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 12px;
+  text-align: center;
+  display: block;
+}
+.descTrans{
+  h4{
+    font-size: 18px;
+    margin: 5px 0;
+    color: #454545;
+    font-weight: 600;
+  }
+  label{
+    font-size: 16px;
+    color: #454545;
+  }
+}
+.pastlabel{
+  margin: 20px 0 0 0;
+}
+.whtback{
+  background: white;
 }
