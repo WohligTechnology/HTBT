@@ -70,6 +70,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+  .state('app.earning', {
+      url: '/earning',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/earning.html',
+          controller: 'EarningCtrl'
+        }
+      }
+    })
     .state('app.playlists', {
       url: '/playlists',
       views: {

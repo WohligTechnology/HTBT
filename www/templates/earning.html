@@ -1,0 +1,114 @@
+<ion-view title="Earning">
+  <ion-nav-bar class="bar-stable nav-height">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon sigupIconLeft " menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear ion-android-more-vertical sigupRight">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+    <ion-content class="has-header bgearn">
+        <div class="order-refillDiv">
+            <label class="order-refillcount" for="">₹ 500</label>
+            <label class="order-refilllbl" for="">Since February 1, 2017</label>
+
+        </div>
+        <div class="row order-row ion-contentcolor" ng-init="show=1">
+            <div class="col-33 order-thismonth" ng-click="show=1" ng-class="{'highlight' : show == 1}">
+                This Month
+            </div>
+            <div class="col-33 order-thismonth" ng-click="show=2" ng-class="{'highlight' : show == 2}">
+                Last Month
+            </div>
+            <div class="col-33 order-thismonth" ng-click="show=3" ng-class="{'highlight' : show == 3}">
+                Last 3 Months
+            </div>
+        </div>
+        <div ng-if="show==1">
+          <div class="text-center">
+            <h4>Past Transaction</h4>
+          </div>
+          <div class="">
+            <label class="order-date " for="">February 17, 2017</label>
+            <div class="row order-jarRow">
+                <div class="col-40">
+                    <label class="order-jarslbl" for="">2 Jars</label>
+                </div>
+                <div class="col-33">
+                    <div class="order-tickDiv">
+                    </div>
+                </div>
+            </div>
+            <label class="order-dateProgress" for="">February 17, 2017</label>
+            <div class="row order-jarRow">
+                <div class="col-66">
+                    <label class="order-jarslbl" for="">2 Jars</label>
+                </div>
+                <div class="col-33">
+                    <div class="order-tickDiv">
+                        </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <div ng-if="show==2">
+          <div class="text-center">
+            <h4>Past Transaction</h4>
+          </div>
+          <div class="">
+            <label class="order-date " for="">February 17, 2017</label>
+            <div class="row order-jarRow">
+                <div class="col-40">
+                    <label class="order-jarslbl" for="">2 Jars</label>
+                </div>
+                <div class="col-33">
+                    <div class="order-tickDiv">
+                    </div>
+                </div>
+            </div>
+            <label class="order-dateProgress" for="">February 17, 2017</label>
+            <div class="row order-jarRow">
+                <div class="col-66">
+                    <label class="order-jarslbl" for="">2 Jars</label>
+                </div>
+                <div class="col-33">
+                    <div class="order-tickDiv">
+                        </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <div ng-if="show==3">
+          <div class="text-center">
+            <h4>Past Transaction</h4>
+          </div>
+          <div class="">
+            <label class="order-date " for="">February 17, 2017</label>
+            <div class="row order-jarRow">
+                <div class="col-40">
+                    <label class="order-jarslbl" for="">2 Jars</label>
+                </div>
+                <div class="col-33">
+                    <div class="order-tickDiv">
+                    </div>
+                </div>
+            </div>
+            <label class="order-dateProgress" for="">February 17, 2017</label>
+            <div class="row order-jarRow">
+                <div class="col-66">
+                    <label class="order-jarslbl" for="">2 Jars</label>
+                </div>
+                <div class="col-33">
+                    <div class="order-tickDiv">
+                        </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+
+    </ion-content>

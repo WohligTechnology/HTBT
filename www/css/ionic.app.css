@@ -9819,13 +9819,14 @@ a.button {
   display: block;
   float: right;
   padding: 5px;
-  width: 45%;
+  width: auto;
   background: #f2f4f5;
-  margin: 10px 5px; }
+  margin: 10px 5px;
+  padding-right: 15px; }
 
 .imgDiv {
-  height: 100px;
-  width: 100px;
+  height: auto;
+  width: 40%;
   left: 50%;
   position: absolute;
   top: 50%;
@@ -9842,13 +9843,15 @@ a.button {
 .phnSpan {
   width: 20%;
   vertical-align: middle;
-  color: #757575; }
+  color: #757575;
+  font-size: 17px; }
 
 .phnText {
   display: inline-block !important;
   background: #f2f4f5;
+  font-size: 17px !important;
   width: 80%;
-  padding: 5px !important; }
+  padding: 0 !important; }
 
 .spanTextDiv {
   width: 100%; }
@@ -9857,22 +9860,28 @@ a.button {
   padding: 0; }
 
 .phnCol66 {
-  padding: 5px; }
+  padding: 8px; }
 
 .phnCol33Div {
   width: 100%;
   height: 100%;
-  background: red;
+  background: #ff414d;
   padding: 5px; }
 
 .joinBtn {
   width: 100%;
   height: 100%;
   border-radius: 0;
+  font-size: 16px !important;
+  font-weight: 600 !important;
   background: transparent !important;
+  padding: 0 !important;
   border: transparent;
   font-size: 16px;
   font-weight: 600; }
+
+.bar-footer {
+  height: 50px !important; }
 
 .otpLabel {
   text-align: center;
@@ -9884,23 +9893,24 @@ a.button {
 .otpDiv {
   left: 50%;
   position: absolute;
-  top: 30%;
+  top: 35%;
+  width: 75%;
   transform: translate(-50%, -50%); }
 
 .verifyDiv {
-  top: 120%;
+  top: 124%;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  font-size: 11px;
+  width: 130px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 0;
   line-height: 22px;
-  min-height: 38px; }
+  min-height: 42px; }
 
 .resendBtn {
-  top: 155%;
+  top: 160%;
   position: absolute;
   left: 50%;
   width: 100%;
@@ -10015,15 +10025,15 @@ a.button {
   text-align: center;
   padding-top: 10px; }
   .dashboardLabel label {
-    font-weight: 600; }
+    font-weight: 500;
+    font-size: 20px; }
 
 .roundePrgBar {
   width: auto;
   position: relative;
   padding-bottom: 0;
-  position: relative;
   text-align: center;
-  margin: 20px auto; }
+  margin: 15px auto; }
 
 .roundedPrgDiv {
   height: 19px;
@@ -10035,12 +10045,16 @@ a.button {
   z-index: 3;
   background: #0dbabe; }
 
+.round-progress {
+  height: 180px !important;
+  width: 180px !important; }
+
 .info {
   font-size: 25px;
   color: lightgrey;
   position: absolute;
-  top: 8%;
-  width: 100%;
+  top: 9%;
+  width: 98%;
   text-align: center; }
 
 .overallRupeeDiv {
@@ -10051,19 +10065,21 @@ a.button {
 
 .rupeeFont {
   font-size: 50px;
-  font-weight: 600; }
+  font-weight: 500; }
 
 .sinceDateDiv {
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: 35%; }
+  bottom: 32%; }
+  .sinceDateDiv label {
+    font-size: 12px; }
 
 .bottomTopMarRow {
   border-top: 1px solid lightgrey !important;
   color: grey;
   border-bottom: 1px solid lightgrey;
-  margin: 20px;
+  margin: 15px;
   width: auto !important; }
 
 .colPad {
@@ -10079,17 +10095,17 @@ a.button {
 .numberDiv {
   text-align: center; }
   .numberDiv i {
-    font-size: 15px;
+    font-size: 18px;
     color: #0dbabe;
     padding: 0;
     margin: 0; }
   .numberDiv span {
-    font-size: 10px;
+    font-size: 12px;
     padding: 0; }
 
 .rankDiv {
   text-align: center;
-  padding-right: 20px; }
+  padding-right: 30px; }
   .rankDiv pr {
     font-size: 12px;
     color: black;
@@ -10129,7 +10145,8 @@ a.button {
     background: #ff414d !important;
     font-size: 13px !important;
     padding-left: 10px !important;
-    min-height: 35px !important; }
+    min-height: 35px !important;
+    box-shadow: 1px 2px 0 0 lightgrey; }
   .newCust .button.icon-left:before {
     padding-right: 10px !important; }
 
@@ -10145,7 +10162,8 @@ a.button {
     background: #f2f4f5 !important;
     font-size: 13px !important;
     padding-left: 10px !important;
-    min-height: 35px !important; }
+    min-height: 35px !important;
+    box-shadow: 1px 2px 0 0 lightgrey; }
 
 .ion-custom-user:before {
   content: url("../img/user.png");
@@ -10160,7 +10178,14 @@ a.button {
   background: #0dbabe; }
 
 .priceCard .popup {
-  width: 80% !important; }
+  width: 90% !important; }
+
+.priceCard .popup-container {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px); }
 
 .priceCard .popup-head {
   display: none; }
@@ -10194,7 +10219,7 @@ a.button {
   position: relative; }
 
 .medal {
-  height: 100px;
+  height: 80px;
   width: 100%;
   text-align: center; }
   .medal img {
@@ -10209,17 +10234,29 @@ a.button {
 .arrowbtn {
   color: #ffd34d;
   position: absolute;
-  top: 37%;
+  top: 40%;
+  left: 2%;
   z-index: 999; }
   .arrowbtn:hover {
     color: #ffd34d; }
 
+.medl-div .button .icon:before,
+.medl-div .button.icon-left:before,
+.medl-div .button.icon-right:before,
+.medl-div .button.icon:before {
+  font-size: 24px !important; }
+
 .slide-div {
-  padding: 15px;
+  padding: 10px;
   text-align: justify;
   color: white; }
   .slide-div h3 {
-    color: white; }
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px !important; }
+  .slide-div p {
+    line-height: 15px;
+    padding: 0; }
 
 .slide-close {
   position: absolute;
@@ -10229,11 +10266,17 @@ a.button {
 .rightarr {
   color: #ffd34d;
   position: absolute;
-  top: 37%;
-  right: 0;
+  top: 40%;
+  right: 2%;
   z-index: 999; }
   .rightarr:hover {
     color: #ffd34d; }
+
+.button .icon:before,
+.button.icon-left:before,
+.button.icon-right:before,
+.button.icon:before {
+  font-size: 24px !important; }
 
 .popupDiv {
   text-align: center;
@@ -10293,20 +10336,11 @@ a.button {
 .otpin {
   display: block;
   text-align: center;
-  margin: 10px;
-  display: block;
-  text-align: center;
   margin: 10px; }
   .otpin input {
-    height: 30px;
-    width: 30px;
-    background: black;
-    display: inline-block;
-    text-align: center;
-    color: white; }
-  .otpin input {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    box-shadow: 1px 2px 0 0 lightgrey;
+    width: 40px;
     background: #f2f4f5;
     display: inline-block;
     text-align: center;
@@ -10337,7 +10371,7 @@ a.button {
 
 .brs-txt {
   color: #ff414d;
-  margin: 0px 15px;
+  margin: 0 15px;
   display: block;
   font-size: 16px; }
 
@@ -10358,8 +10392,17 @@ a.button {
     text-align: center;
     display: block; }
 
-.nav-height {
+.nonav {
   height: 52px; }
+  .nonav .bar.bar-stable .title {
+    font-size: 20px;
+    line-height: 48px;
+    text-align: left !important;
+    padding-top: 1px !important; }
+
+.nav-height {
+  height: 52px;
+  box-shadow: 1px 2px 0 0 lightgrey; }
   .nav-height .bar.bar-stable .title {
     font-size: 20px;
     line-height: 48px;
@@ -10379,7 +10422,7 @@ a.button {
 .sigupRight {
   color: #091b27 !important;
   font-size: 24px !important;
-  padding: 0px 12px 0 0 !important;
+  padding: 0 12px 0 0 !important;
   display: block; }
 
 .header-bellFont {
@@ -10387,3 +10430,212 @@ a.button {
   font-size: 32px !important;
   padding: 0 12px 0 0 !important;
   display: block; }
+
+.menu-displaypic {
+  background: #c6cbdf;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  left: 8%; }
+
+.menu-displayName {
+  position: absolute;
+  bottom: 25%;
+  left: 8%;
+  font-size: 16px; }
+
+.menu-settings {
+  position: absolute;
+  bottom: 13%;
+  left: 8%;
+  font-size: 16px; }
+
+.menu-bgcolor {
+  background: #f2f4f5; }
+
+.menu-div {
+  padding: 25px 0 0 25px; }
+
+.menu-helpdiv {
+  padding: 0 0 0 25px; }
+
+.menu-label {
+  font-size: 20px; }
+
+.menu-hr {
+  margin: 20px;
+  color: #a1a8ad; }
+
+.menu-header .menu .bar-header {
+  height: 200px;
+  background: white !important; }
+
+.menu-header .bar-stable {
+  height: 200px !important;
+  background: white !important; }
+
+.menu-header .hasmenuhead {
+  top: 200px !important; }
+
+.bar.bar-stable {
+  background: white; }
+
+.custlist .tabs {
+  background: white;
+  box-shadow: 1px 2px 0 0 lightgrey; }
+
+.custlist .tab-item.activated,
+.custlist .tab-item.active,
+.custlist .tab-item.tab-item-active {
+  border-bottom: 2px solid #ff414d; }
+
+.custlist .tab-item {
+  max-width: 100%; }
+
+.hastabstop {
+  top: 190px !important;
+  bottom: 0 !important; }
+
+.cust-search {
+  top: 93px;
+  z-index: 9;
+  position: absolute;
+  width: 100%;
+  padding: 30px 20px;
+  background: #f2f4f5;
+  height: 97px; }
+  .cust-search .item {
+    padding: 5px 30px 5px 20px;
+    border-radius: 30px;
+    border: none; }
+  .cust-search .item-note {
+    font-size: 20px;
+    color: #c5cbdf; }
+
+.custimg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #c6cbdf;
+  margin: 12px auto; }
+
+.custlist {
+  padding: 7px 0;
+  border-bottom: 1px solid #d2d2d2; }
+  .custlist h5 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #6d797e; }
+  .custlist h4 {
+    margin: 5px 0;
+    color: #212121; }
+
+.pad0 {
+  padding: 0; }
+
+.custarr {
+  position: relative;
+  float: right;
+  right: 20%;
+  bottom: 60%; }
+  .custarr i {
+    color: #6d797e;
+    font-size: 22px;
+    position: absolute; }
+
+.custgear {
+  position: relative;
+  float: right;
+  right: 20%;
+  bottom: 60%; }
+  .custgear i {
+    color: #c7cde0;
+    font-size: 22px;
+    position: absolute; }
+
+.order-refillDiv {
+  background: transparent;
+  height: 160px;
+  text-align: center;
+  padding: 40px; }
+
+.order-refilllbl {
+  color: black;
+  font-size: 18px;
+  font-weight: 500; }
+
+.bgearn {
+  background: #f2f4f5; }
+
+.order-refillcount {
+  display: block;
+  font-size: 60px;
+  font-weight: 500;
+  color: black;
+  padding: 0;
+  margin: 0;
+  line-height: 60px; }
+
+.order-thismonth {
+  background: white;
+  text-align: center;
+  padding: 15px 0;
+  width: auto;
+  margin-right: 1px;
+  font-size: 14px !important;
+  line-height: 8px;
+  height: 40px;
+  font-weight: 500; }
+
+.order-row {
+  margin: 5px !important;
+  width: auto !important; }
+
+.order-div {
+  height: 45px;
+  width: 1px;
+  display: inline-block;
+  vertical-align: middle; }
+
+.highlight {
+  background: #ff414d;
+  color: white; }
+
+.order-monthsDiv {
+  background: white;
+  padding: 22px;
+  margin: 5px 0; }
+
+.order-jarslbl {
+  font-size: 18px;
+  font-weight: 500 !important; }
+
+.order-date {
+  font-size: 14px;
+  display: block;
+  padding: 0 0 5px 15px; }
+
+.order-jarImg {
+  height: 100%;
+  width: 100%; }
+
+.order-jarRow {
+  background: white;
+  padding: 15px; }
+
+.order-tickDiv {
+  width: 30px;
+  height: 30px;
+  margin: 0 7px 0 auto; }
+
+.order-dateProgress {
+  margin-top: 5px;
+  font-size: 14px;
+  display: block;
+  padding: 5px 15px; }
+
+.order-prgress {
+  width: 30px !important;
+  height: 30px !important; }

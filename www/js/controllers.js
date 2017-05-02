@@ -70,6 +70,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 .controller('CustomerListCtrl', function ($scope, $stateParams) {
 
 })
+.controller('EarningCtrl', function ($scope, $stateParams) {
+
+})
 
 .controller('VerifyCtrl', function ($scope, $stateParams) {})
 
@@ -79,7 +82,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
   $scope.showPopup = function () {
     $scope.show = $ionicPopup.show({
       templateUrl: 'templates/modal/price.html',
-      cssClass: "priceCard",
+      cssClass: "priceCard ",
       scope: $scope
     });
   }
