@@ -9,251 +9,221 @@
       </button>
     </ion-nav-buttons>
   </ion-nav-bar>
-    <ion-content class="has-header bgearn">
-        <div class="order-refillDiv">
-            <label class="order-refillcount" for="">₹ 500</label>
-            <label class="order-refilllbl" for="">Since February 1, 2017</label>
-
-        </div>
-        <div class="row order-row ion-contentcolor" ng-init="show=1">
-            <div class="col-33 order-thismonth" ng-click="show=1" ng-class="{'highlight' : show == 1}">
-                This Month
+  <ion-content class="has-header bgearn">
+    <div class="earnings-refillDiv">
+      <label class="earnings-count" for="">₹ 500</label>
+      <label class="order-refilllbl" for="">Since February 1, 2017</label>
+    </div>
+    <div class="row order-row ion-contentcolor" ng-init="show=1">
+      <div class="col-33 order-thismonth" ng-click="show=1" ng-class="{'highlight' : show == 1}">
+        This Month
+      </div>
+      <div class="col-33 order-thismonth" ng-click="show=2" ng-class="{'highlight' : show == 2}">
+        Last Month
+      </div>
+      <div class="col-33 order-thismonth" ng-click="show=3" ng-class="{'highlight' : show == 3}">
+        Last 3 Months
+      </div>
+    </div>
+    <div ng-if="show==1">
+      <div class="text-center">
+        <h4 class="earnings-past">Past Transaction</h4>
+      </div>
+      <div class="">
+        <label class="earning-Date" for="">February 17, 2017</label>
+        <div class="whtback">
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
             </div>
-            <div class="col-33 order-thismonth" ng-click="show=2" ng-class="{'highlight' : show == 2}">
-                Last Month
+            <div class="col-25">
+              <label for="" class="refils">2 Refills</label>
             </div>
-            <div class="col-33 order-thismonth" ng-click="show=3" ng-class="{'highlight' : show == 3}">
-                Last 3 Months
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">10</label>
+              </div>
             </div>
-        </div>
-        <div ng-if="show==1">
-          <div class="text-center">
-            <h4 class="pastlabel">Past Transaction</h4>
           </div>
-          <div class="">
-            <label class="order-date " for="">February 17, 2017</label>
-            <div class="whtback">
-              <div class="row order-jarRow">
-                  <div class="col-50">
-                    <div class="descTrans">
-                      <h4>Name</h4>
-                      <label for="">Contact Number</label>
-                    </div>
-
-                  </div>
-                  <div class="col-25">
-                      <label for="" class="refils">2 Refills</label>
-                  </div>
-                  <div class="col-25">
-                    <div class="rscol">
-                        <span>₹</span><label for="">10</label>
-                    </div>
-                  </div>
-              </div>
-              <div class="borbtm">
-              </div>
-
-              <div class="row order-jarRow">
-                  <div class="col-50">
-                    <div class="descTrans">
-                      <h4>Name</h4>
-                      <label for="">Contact Number</label>
-                    </div>
-
-                  </div>
-                  <div class="col-25">
-                      <label for="" class="refils">2 Refills</label>
-                  </div>
-                  <div class="col-25">
-                    <div class="rscol">
-                        <span>₹</span><label for="">10</label>
-                    </div>
-                  </div>
-              </div>
-              <div class="borbtm">
-              </div>
-            </div>
-
-            </div>
-          <div class="">
-            <label class="order-date " for="">February 17, 2017</label>
-            <div class="row order-jarRow">
-                <div class="col-50">
-                  <div class="descTrans">
-                    <h4>Name</h4>
-                    <label for="">Contact Number</label>
-                  </div>
-
-                </div>
-                <div class="col-25">
-                    <label for="" class="refils">2 Refills</label>
-                </div>
-                <div class="col-25">
-                  <div class="rscol">
-                      <span>₹</span><label for="">10</label>
-                  </div>
-                </div>
-            </div>
-            <div class="borbtm">
-            </div>
-
-
-            </div>
-
-
-        </div>
-        <div ng-if="show==2">
-          <div class="text-center">
-            <h4 class="pastlabel">Past Transaction</h4>
+          <div class="borbtm">
           </div>
-          <div class="">
-            <label class="order-date " for="">February 17, 2017</label>
-            <div class="whtback">
-              <div class="row order-jarRow">
-                  <div class="col-50">
-                    <div class="descTrans">
-                      <h4>Name</h4>
-                      <label for="">Contact Number</label>
-                    </div>
-
-                  </div>
-                  <div class="col-25">
-                      <label for="" class="refils">2 Refills</label>
-                  </div>
-                  <div class="col-25">
-                    <div class="rscol">
-                        <span>₹</span><label for="">10</label>
-                    </div>
-                  </div>
-              </div>
-              <div class="borbtm">
-              </div>
-
-              <div class="row order-jarRow">
-                  <div class="col-50">
-                    <div class="descTrans">
-                      <h4>Name</h4>
-                      <label for="">Contact Number</label>
-                    </div>
-
-                  </div>
-                  <div class="col-25">
-                      <label for="" class="refils">2 Refills</label>
-                  </div>
-                  <div class="col-25">
-                    <div class="rscol">
-                        <span>₹</span><label for="">10</label>
-                    </div>
-                  </div>
-              </div>
-              <div class="borbtm">
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
               </div>
             </div>
-
+            <div class="col-25">
+              <label for="" class="refils">2 Refills</label>
             </div>
-          <div class="">
-            <label class="order-date " for="">February 17, 2017</label>
-            <div class="row order-jarRow">
-                <div class="col-50">
-                  <div class="descTrans">
-                    <h4>Name</h4>
-                    <label for="">Contact Number</label>
-                  </div>
-
-                </div>
-                <div class="col-25">
-                    <label for="" class="refils">2 Refills</label>
-                </div>
-                <div class="col-25">
-                  <div class="rscol">
-                      <span>₹</span><label for="">10</label>
-                  </div>
-                </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">10</label>
+              </div>
             </div>
-            <div class="borbtm">
-            </div>
-
-
-            </div>
-
-
-        </div>
-        <div ng-if="show==3">
-          <div class="text-center">
-            <h4 class="pastlabel">Past Transaction</h4>
           </div>
-          <div class="">
-            <label class="order-date " for="">February 17, 2017</label>
-            <div class="whtback">
-              <div class="row order-jarRow">
-                  <div class="col-50">
-                    <div class="descTrans">
-                      <h4>Name</h4>
-                      <label for="">Contact Number</label>
-                    </div>
-
-                  </div>
-                  <div class="col-25">
-                      <label for="" class="refils">2 Refills</label>
-                  </div>
-                  <div class="col-25">
-                    <div class="rscol">
-                        <span>₹</span><label for="">10</label>
-                    </div>
-                  </div>
-              </div>
-              <div class="borbtm">
-              </div>
-
-              <div class="row order-jarRow">
-                  <div class="col-50">
-                    <div class="descTrans">
-                      <h4>Name</h4>
-                      <label for="">Contact Number</label>
-                    </div>
-
-                  </div>
-                  <div class="col-25">
-                      <label for="" class="refils">2 Refills</label>
-                  </div>
-                  <div class="col-25">
-                    <div class="rscol">
-                        <span>₹</span><label for="">10</label>
-                    </div>
-                  </div>
-              </div>
-              <div class="borbtm">
-              </div>
-            </div>
-
-            </div>
-          <div class="">
-            <label class="order-date " for="">February 17, 2017</label>
-            <div class="row order-jarRow">
-                <div class="col-50">
-                  <div class="descTrans">
-                    <h4>Name</h4>
-                    <label for="">Contact Number</label>
-                  </div>
-
-                </div>
-                <div class="col-25">
-                    <label for="" class="refils">2 Refills</label>
-                </div>
-                <div class="col-25">
-                  <div class="rscol">
-                      <span>₹</span><label for="">10</label>
-                  </div>
-                </div>
-            </div>
-            <div class="borbtm">
-            </div>
-
-
-            </div>
-
-
+          <div class="borbtm">
+          </div>
         </div>
-
-
-    </ion-content>
+      </div>
+      <div class="">
+        <label class="earning-Date" for="">February 17, 2017</label>
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">2 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">10</label>
+            </div>
+          </div>
+        </div>
+        <div class="borbtm">
+        </div>
+      </div>
+    </div>
+    <div ng-if="show==2">
+      <div class="text-center">
+        <h4 class="pastlabel">Past Transaction</h4>
+      </div>
+      <div class="">
+        <label class="order-date " for="">February 17, 2017</label>
+        <div class="whtback">
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">2 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">10</label>
+              </div>
+            </div>
+          </div>
+          <div class="borbtm">
+          </div>
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">2 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">10</label>
+              </div>
+            </div>
+          </div>
+          <div class="borbtm">
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <label class="order-date " for="">February 17, 2017</label>
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">2 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">10</label>
+            </div>
+          </div>
+        </div>
+        <div class="borbtm">
+        </div>
+      </div>
+    </div>
+    <div ng-if="show==3">
+      <div class="text-center">
+        <h4 class="pastlabel">Past Transaction</h4>
+      </div>
+      <div class="">
+        <label class="order-date " for="">February 17, 2017</label>
+        <div class="whtback">
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">2 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">10</label>
+              </div>
+            </div>
+          </div>
+          <div class="borbtm">
+          </div>
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">2 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">10</label>
+              </div>
+            </div>
+          </div>
+          <div class="borbtm">
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <label class="order-date " for="">February 17, 2017</label>
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">2 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">10</label>
+            </div>
+          </div>
+        </div>
+        <div class="borbtm">
+        </div>
+      </div>
+    </div>
+  </ion-content>

@@ -1,134 +1,146 @@
 <ion-view title="Customer list">
-    <ion-nav-bar class="bar-stable nonav">
-        <ion-nav-buttons side="left">
-            <button class="button button-icon button-clear ion-navicon sigupIconLeft " menu-toggle="left">
+  <ion-nav-bar class="bar-stable nonav">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon sigupIconLeft " menu-toggle="left">
         </button>
-        </ion-nav-buttons>
-        <ion-nav-buttons side="right">
-          <button class="button button-clear ion-android-more-vertical sigupRight">
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear ion-android-more-vertical sigupRight">
           </button>
-        </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-tabs class="tab-button tab-header has-header tabs-top custlist">
-
-        <ion-tab title="EXISTING">
-
-            <ion-content class="hastabstop has-notabs has-tabs ">
-                <div class="row pad0">
-                  <div class="col-20">
-                    <div class="custimg">
-                      <img src="" alt="">
-                    </div>
-                  </div>
-                  <div class="col-80">
-                      <div class="custlist">
-                        <h4>Name</h4>
-                        <h5>Local</h5>
-                        <h5>Contact no.</h5>
-                      </div>
-                      <div class="custarr">
-                        <i class="ion ion-chevron-right item-note "></i>
-                      </div>
-                  </div>
-                </div>
-                <div class="row pad0">
-                  <div class="col-20">
-                    <div class="custimg">
-                      <img src="" alt="">
-                    </div>
-                  </div>
-                  <div class="col-80">
-                      <div class="custlist">
-                        <h4>Name</h4>
-                        <h5>Local</h5>
-                        <h5>Contact no.</h5>
-                      </div>
-                      <div class="custarr">
-                        <i class="ion ion-chevron-right item-note "></i>
-                      </div>
-                  </div>
-                </div>
-                <div class="row pad0">
-                  <div class="col-20">
-                    <div class="custimg">
-                      <img src="" alt="">
-                    </div>
-                  </div>
-                  <div class="col-80">
-                      <div class="custlist">
-                        <h4>Name</h4>
-                        <h5>Local</h5>
-                        <h5>Contact no.</h5>
-                      </div>
-                      <div class="custarr">
-                        <i class="ion ion-chevron-right item-note "></i>
-                      </div>
-                  </div>
-                </div>
-
-
-            </ion-content>
-        </ion-tab>
-        <ion-tab title="PENDING">
-            <ion-content class="hastabstop has-notabs has-tabs ">
-              <div class="row pad0">
-                <div class="col-20">
-                  <div class="custimg">
-                    <img src="" alt="">
-                  </div>
-                </div>
-                <div class="col-80">
-                    <div class="custlist">
-                      <h4>Name</h4>
-                      <h5>Local</h5>
-                      <h5>Contact no.</h5>
-                    </div>
-                    <div class="custgear">
-                      <i class="ion ion-android-settings item-note "></i>
-                    </div>
-                </div>
-              </div>
-              <div class="row pad0">
-                <div class="col-20">
-                  <div class="custimg">
-                    <img src="" alt="">
-                  </div>
-                </div>
-                <div class="col-80">
-                    <div class="custlist">
-                      <h4>Name</h4>
-                      <h5>Local</h5>
-                      <h5>Contact no.</h5>
-                    </div>
-                    <div class="custgear">
-                      <i class="ion ion-android-settings item-note "></i>
-                    </div>
-                </div>
-              </div>
-              <div class="row pad0">
-                <div class="col-20">
-                  <div class="custimg">
-                    <img src="" alt="">
-                  </div>
-                </div>
-                <div class="col-80">
-                    <div class="custlist">
-                      <h4>Name</h4>
-                      <h5>Local</h5>
-                      <h5>Contact no.</h5>
-                    </div>
-                    <div class="custgear">
-                      <i class="ion ion-android-settings item-note "></i>
-                    </div>
-                </div>
-              </div>
-            </ion-content>
-        </ion-tab>
-      </ion-tabs>
-      <div class="cust-search">
-        <label class="item item-input">
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-tabs class="tab-button tab-header has-header tabs-top custlisttab" ui-sref="app.customerlist">
+    <ion-tab title="EXISTING">
+      <ion-content class="hastabstop has-notabs has-tabs ">
+        <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Balance: 4 Jars</h6>
+            </div>
+            <div class="custarr">
+              <i class="ion ion-chevron-right item-note "></i>
+            </div>
+          </div>
+        </div>
+        <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Balance: 1 Jar</h6>
+            </div>
+            <div class="custarr">
+              <i class="ion ion-chevron-right item-note "></i>
+            </div>
+          </div>
+        </div>
+        <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Balance: 3 Jars</h6>
+            </div>
+            <div class="custarr">
+              <i class="ion ion-chevron-right item-note "></i>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-tab>
+    <ion-tab title="PENDING" ng-init="show=0">
+      <ion-content class="hastabstop has-notabs has-tabs " >
+        <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+            </div>
+            <div class="custgear " ng-click="show=1">
+              <i class="ion ion-android-settings item-note "></i>
+                <div class="card popcard" ng-if="show==1">
+              <label for="">share link</label> <br>
+               <label for="">Delete</label>
+            </div>
+          
+            </div>
+          
+          </div>
+        </div>
+        <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+            </div>
+          <div class="custgear " ng-click="show=2">
+              <i class="ion ion-android-settings item-note "></i>
+                <div class="card popcard" ng-if="show==2">
+              <label for="">share link</label> <br>
+               <label for="">Delete</label>
+            </div>
+          
+            </div>
+          </div>
+        </div>
+         <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+            </div>
+       <div class="custgear " ng-click="show=3">
+              <i class="ion ion-android-settings item-note "></i>
+                <div class="card popcard" ng-if="show==3">
+              <label for="">share link</label> <br>
+               <label for="">Delete</label>
+            </div>
+          
+            </div>
+          </div>
+        </div>
+       
+      </div>
+        
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
+  <div class="cust-search">
+    <label class="item item-input">
           <input type="text" placeholder="Search by Name/Number">
           <i class="icon ion-android-search placeholder-icon item-note"></i>
         </label>
-      </div>
+  </div>
 </ion-view>
