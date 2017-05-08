@@ -5,11 +5,31 @@
         </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-      <button class="button button-clear ion-android-more-vertical sigupRight">
+      <button class="button button-clear ion-android-more-vertical sigupRight" ng-click="popover.show($event)">
       </button>
     </ion-nav-buttons>
   </ion-nav-bar>
   <ion-content class="has-header bgearn">
+
+    <html ng-app="ionicApp">
+ 
+  <body class="platform-ios" ng-controller="AppCtrl">
+    <script id="templates/popover.html"  type="text/ng-template">
+      <ion-popover-view class="menupop">
+        <ion-content>
+          <div class="list">
+           
+            <a class="item pad5" ui-sref='app.help' ng-click="closePopover()" >
+              Help
+            </a>
+          </div>
+        </ion-content>
+      </ion-popover-view>
+    </script>
+    
+  </body>
+</html>
+
     <div class="earnings-refillDiv">
       <label class="earnings-count" for="">₹ 500</label>
       <label class="order-refilllbl" for="">Since February 1, 2017</label>

@@ -24,6 +24,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
     $scope.modal.hide();
   };
 
+
+
   // Open the login modal
   $scope.login = function () {
     $scope.modal.show();
@@ -40,6 +42,63 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
     }, 1000);
   };
 })
+.controller('BrowseMoreCtrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('ReviewCtrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('CheckoutCtrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('AddonsCtrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('Subpage3Ctrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+
+.controller('Subpage1Ctrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('AuthPaymentCtrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('BrowseCtrl', function ($scope, $ionicSlideBoxDelegate) {
+    $scope.nextSlide = function () {
+      $ionicSlideBoxDelegate.next();
+    };
+    $scope.goBackHandler = function () {
+      window.history.back(); //This works
+    };
+  })
+
+  .controller('ProductSpecsCtrl', function ($scope, $stateParams) {
+    $scope.goBackHandler = function () {
+      window.history.back(); //This works
+    };
+  })
 
 .controller('PlaylistsCtrl', function ($scope) {
   $scope.playlists = [{
@@ -64,13 +123,40 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 })
 
 .controller('PlaylistCtrl', function ($scope, $stateParams) {})
-.controller('HelpCtrl', function ($scope, $stateParams) {
+.controller('HelpCtrl', function ($scope) {
+   $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  }
+
+
 
 })
-.controller('CustomerListCtrl', function ($scope, $stateParams) {
+.controller('CustomerListCtrl', function ($scope, $stateParams, $ionicPopover) {
+  $ionicPopover.fromTemplateUrl('templates/popover.html', {
+    scope: $scope,
+    cssClass: 'menupop',
 
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+  $scope.closePopover = function() {
+      $scope.popover.hide();
+   };
 })
-.controller('EarningCtrl', function ($scope, $stateParams) {
+.controller('EarningCtrl', function ($scope, $stateParams, $ionicPopover) {
+
+  $ionicPopover.fromTemplateUrl('templates/popover.html', {
+    scope: $scope,
+    cssClass: 'menupop',
+
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+  $scope.closePopover = function() {
+      $scope.popover.hide();
+   };
 
 })
 

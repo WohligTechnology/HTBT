@@ -34,6 +34,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
+  .state('app.browse-more', {
+      url: '/browse-more',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/browse-more.html',
+          controller: 'BrowseMoreCtrl'
+        }
+      }
+    })
 
   .state('app.search', {
     url: '/search',
@@ -45,13 +54,85 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
+    url: '/browse',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/browse.html',
+        controller: 'BrowseCtrl'
       }
-    })
+    }
+  })
+
+  .state('app.productSpecs', {
+    url: '/productSpecs',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/productSpecs.html',
+        controller: 'ProductSpecsCtrl'
+      }
+    }
+  })
+
+  .state('app.auth-payment', {
+    url: '/auth-payment',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/auth-payment.html',
+        controller: 'AuthPaymentCtrl'
+      }
+    }
+  })
+
+  .state('app.subpage3', {
+    url: '/subpage3',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/subpage3.html',
+        controller: 'Subpage3Ctrl'
+      }
+    }
+  })
+
+  .state('app.checkout', {
+    url: '/checkout',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/checkout.html',
+        controller: 'CheckoutCtrl'
+      }
+    }
+  })
+
+  .state('app.addons', {
+    url: '/add-ons',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/add-ons.html',
+        controller: 'AddonsCtrl'
+      }
+    }
+  })
+
+  .state('app.subpage1', {
+    url: '/subpage1',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/subpage1.html',
+        controller: 'Subpage1Ctrl'
+      }
+    }
+  })
+
+  .state('app.review', {
+    url: '/review',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/review.html',
+        controller: 'ReviewCtrl'
+      }
+    }
+  })
+
   .state('app.help', {
       url: '/help',
       views: {
