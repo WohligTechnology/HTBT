@@ -10081,8 +10081,7 @@ a.button {
   border-top: 1px solid lightgrey !important;
   color: grey;
   border-bottom: 1px solid lightgrey;
-  margin: 15px;
-  margin-bottom: 6%;
+  margin: 15px 15px 6%;
   width: auto !important; }
 
 .colPad {
@@ -10140,9 +10139,21 @@ a.button {
     font-weight: 500;
     display: block; }
 
+.item-complex .item-content, .item-radio .item-content {
+  padding: 0; }
+
+.bbtrans {
+  border-bottom: 1px solid transparent !important; }
+
 .newCust {
   text-align: center;
-  padding: 10px 0 10px 0; }
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 10px;
+  vertical-align: middle;
+  width: 42%;
+  display: block;
+  margin: 0 auto; }
   .newCust button {
     color: white !important;
     border: 0px !important;
@@ -10157,7 +10168,13 @@ a.button {
 .oldCust {
   text-align: center;
   margin-top: 10px;
-  vertical-align: middle; }
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 10px;
+  vertical-align: middle;
+  width: 42%;
+  display: block;
+  margin: 0 auto; }
   .oldCust label {
     margin-left: 16px;
     font-size: 16px !important; }
@@ -10448,7 +10465,7 @@ a.button {
 .header-bellFont {
   color: #091b27 !important;
   font-size: 32px !important;
-  padding: 0px !important;
+  padding: 0 !important;
   display: block; }
 
 .menu-displaypic {
@@ -10483,7 +10500,7 @@ a.button {
   padding: 18px 0 0 25px; }
 
 .menu-helpdiv {
-  padding: 0px 0 0 25px; }
+  padding: 0 0 0 25px; }
 
 .menu-label {
   font-size: 16px;
@@ -10711,7 +10728,7 @@ a.button {
   color: #454545; }
 
 .pastlabel {
-  margin: 20px 0 0 0; }
+  margin: 20px 0 0; }
 
 .whtback {
   background: white; }
@@ -10720,7 +10737,7 @@ a.button {
   background: transparent;
   height: 160px;
   text-align: center;
-  padding: 20px 0 0 0; }
+  padding: 20px 0 0; }
 
 .earnings-count {
   display: block;
@@ -10735,10 +10752,10 @@ a.button {
 .earning-Date {
   font-size: 14px;
   display: block;
-  padding: 10px 15px 2px 15px; }
+  padding: 10px 15px 2px; }
 
 .earnings-past {
-  margin: 15px 0 0 0; }
+  margin: 15px 0 0; }
 
 .cust-bt {
   padding: 7px 0;
@@ -10830,7 +10847,7 @@ a.button {
   font-size: 24px; }
 
 .browse-grid {
-  padding: 20px 0 0 0;
+  padding: 20px 0 0;
   text-align: center;
   background: white; }
 
@@ -11184,7 +11201,7 @@ a.button {
   padding: 18px 0 0 25px; }
 
 .menu-helpdiv {
-  padding: 0px 0 0 25px; }
+  padding: 0 0 0 25px; }
 
 .menu-label {
   font-size: 16px;
@@ -11228,7 +11245,7 @@ a.button {
   text-align: center;
   background: #e1e1e1;
   padding: 15px;
-  margin: 15px 10px 0 10px; }
+  margin: 15px 10px 0; }
   .chkout-planDiv .label {
     font-size: 16px;
     font-weight: 400; }
@@ -11243,7 +11260,7 @@ a.button {
 .chkout-subheight {
   height: 150px;
   background: white;
-  margin: 0 10px 0 10px;
+  margin: 0 10px;
   width: auto; }
 
 .chkout-bgcolor {
@@ -11276,7 +11293,7 @@ a.button {
 
 .chkoutcoupon {
   background: white;
-  margin: 20px 10px 20px 10px;
+  margin: 20px 10px;
   width: auto; }
   .chkoutcoupon label {
     height: 100%;
@@ -11306,7 +11323,7 @@ a.button {
 
 .bgrowQuant {
   background: white;
-  margin: 20px 10px 0 10px;
+  margin: 20px 10px 0;
   width: auto; }
 
 .bgchkoutcol502 {
@@ -11336,7 +11353,7 @@ a.button {
 
 .mainmar25-50 {
   text-align: center;
-  padding: 50px 23px 0 23px; }
+  padding: 50px 23px 0; }
   .mainmar25-50 label {
     font-size: 18px;
     font-weight: 500; }
@@ -11391,7 +11408,7 @@ a.button {
   font-size: 22px;
   position: absolute;
   float: right;
-  right: 0%;
+  right: 0;
   top: 25%; }
 
 .mid-day {
@@ -11422,7 +11439,7 @@ a.button {
 .header {
   text-align: center;
   font-size: 18px;
-  padding: 50px 0 20px 0;
+  padding: 50px 0 20px;
   font-weight: 400;
   color: #212121; }
 
@@ -11433,10 +11450,10 @@ a.button {
   padding-bottom: 0; }
 
 .col-margin {
-  margin: 15px 0 15px 0; }
+  margin: 15px 0; }
 
 .col-50pad {
-  padding: 8px 10px 4px 10px; }
+  padding: 8px 10px 4px; }
 
 .col-40pad {
   padding: 15px 5px; }
@@ -11468,7 +11485,7 @@ a.button {
 
 .lbl88 {
   font-size: 26px;
-  padding: 0px 0 0 5px;
+  padding: 0 0 0 5px;
   font-weight: 500;
   color: #ff414d; }
 
@@ -11528,12 +11545,12 @@ a.button {
     width: 130px;
     padding: 0 5px 15px; }
   .add-ons-item .cont-addon {
-    padding: 0px 140px 0 0;
+    padding: 0 140px 0 0;
     position: absolute;
     top: 50%;
     transform: translateY(-50%); }
     .add-ons-item .cont-addon p {
-      padding: 8px 0px;
+      padding: 8px 0;
       margin-bottom: 0; }
     .add-ons-item .cont-addon h4 {
       font-size: 20px; }
@@ -11541,7 +11558,7 @@ a.button {
 .review-height {
   height: 150px;
   background: white;
-  margin: 15px 15px 0 15px;
+  margin: 15px 15px 0;
   width: auto; }
 
 .reviewdiv {
@@ -11564,7 +11581,7 @@ a.button {
 .review-closebutton {
   position: absolute;
   right: 15px !important;
-  top: 0px; }
+  top: 0; }
   .review-closebutton:before {
     font-size: 25px !important; }
 
@@ -11576,7 +11593,7 @@ a.button {
     font-size: 16px;
     color: #ff414d; }
   .custom p {
-    margin: 5px 0 0 0px !important;
+    margin: 5px 0 0 !important;
     line-height: 1;
     font-size: 12px; }
   .custom hr {
@@ -11640,22 +11657,22 @@ p.onceLblr {
   margin-top: 5px; }
 
 .h4padcol {
-  margin: 0px !important;
+  margin: 0 !important;
   font-size: 30px !important; }
 
 .sub3rowcard {
   background: #ff414d;
   margin: 20px auto; }
   .sub3rowcard h4 {
-    margin: 0px 0px 0px 10px !important;
+    margin: 0 0 0 10px !important;
     color: white; }
   .sub3rowcard p {
-    margin: 0px 0px 0px 10px !important;
+    margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
     line-height: 1; }
   .sub3rowcard span {
-    margin: 0px 0px 0px 10px !important;
+    margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
     display: block; }
@@ -11689,8 +11706,7 @@ p.onceLblr {
 
 .add {
   padding: 0;
-  margin: 0;
-  margin-left: -6px; }
+  margin: 0 0 0 -6px; }
   .add i {
     margin: 5px;
     font-size: 14px;
@@ -11730,7 +11746,7 @@ p.onceLblr {
   height: 150px !important;
   width: 150px !important;
   background-color: #fff;
-  border-radius: 0px;
+  border-radius: 0;
   float: right; }
 
 .platform-ios .popover-arrow {
@@ -11758,7 +11774,8 @@ p.onceLblr {
 .noborder {
   border: none !important; }
 
-.borderR .checkbox input:before, .borderR .checkbox-icon:before {
+.borderR .checkbox input:before,
+.borderR .checkbox-icon:before {
   display: table;
   width: 60%;
   height: 60%;
@@ -11770,7 +11787,8 @@ p.onceLblr {
   -webkit-transition: background-color 20ms ease-in-out;
   transition: background-color 20ms ease-in-out; }
 
-.checkbox input:after, .checkbox-icon:after {
+.checkbox input:after,
+.checkbox-icon:after {
   -webkit-transition: opacity 0.05s ease-in-out;
   transition: opacity 0.05s ease-in-out;
   -webkit-transform: rotate(-45deg);
@@ -11870,7 +11888,7 @@ p.onceLblr {
   color: #6d797e; }
 
 .confirm-checkmark {
-  margin: 70px 30px 0 30px;
+  margin: 70px 30px 0;
   width: auto;
   text-align: center; }
   .confirm-checkmark img {
@@ -11903,7 +11921,7 @@ p.onceLblr {
   margin-top: 5px; }
 
 .confirmtick-div {
-  margin: 0px 30px 0 30px;
+  margin: 0 30px;
   width: auto;
   text-align: center; }
   .confirmtick-div img {
@@ -11976,7 +11994,7 @@ p.onceLblr {
   background: transparent;
   height: 160px;
   text-align: center;
-  padding: 40px 0 0 0; }
+  padding: 40px 0 0; }
 
 .credit-date {
   color: white;
@@ -11984,7 +12002,7 @@ p.onceLblr {
   font-weight: 500; }
 
 .auth-card {
-  margin: 0px !important; }
+  margin: 0 !important; }
 
 .auth-textbox {
   bottom: 8%;
@@ -11992,7 +12010,7 @@ p.onceLblr {
   font-size: 12px; }
 
 .large-div {
-  margin: 20px 30px 0 30px;
+  margin: 20px 30px 0;
   width: auto;
   text-align: center; }
   .large-div img {

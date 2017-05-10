@@ -259,4 +259,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
+})
+.directive('focusMe', function($timeout) {
+  return {
+    link: function(scope, element, attrs) {
+
+      $timeout(function() {
+        element[0].focus();
+      });
+    }
+  };
 });
