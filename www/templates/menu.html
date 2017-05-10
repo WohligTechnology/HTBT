@@ -7,20 +7,24 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button button-clear ion-android-more-vertical sigupRight" ng-click="popover.show($event)">
+        </button>
+      </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
-  <ion-side-menu side="left" class="menu-header">
+  <ion-side-menu side="left" class="menu-header" >
     <ion-header-bar class="bar-stable">
       <div class="menu-displaypic">
-        <img class="menu-displayimg" src="img/distributorprofile.png" alt="">
+        <img class="menu-displayimg" src="img/distributorprofile.png" alt="" >
       </div>
       <div>
         <label class="menu-displayName" for="">Distributor Name</label>
-        <label class="menu-settings" for="">Settings</label>
+        <label class="menu-settings" for="" menu-close ui-sref="app.profile">Profile</label>
       </div>
     </ion-header-bar>
-    <ion-content class="hasmenuhead menu-bgcolor">
+    <ion-content class="hasmenuhead menu-bgcolor" >
       <!--<ion-item menu-close ui-sref="login">
         Login
       </ion-item>
@@ -42,13 +46,17 @@
       <div class="menu-div" menu-close ui-sref="app.earning">
         <label class="menu-label" for="">Earnings</label>
       </div>
+      <div class="menu-div" menu-close ui-sref="app.credits">
+        <label class="menu-label" for="">Credits</label>
+      </div>
       <hr class="menu-hr">
       <div class="menu-helpdiv" menu-close ui-sref="app.help">
         <label class="menu-label" for="">Help</label>
       </div>
     </ion-content>
   </ion-side-menu>
-  <ion-side-menu class=" notify-header" side="right">
+  <!-- <pane side-menu-content drag-content="false"> -->
+  <ion-side-menu class=" notify-header" side="right" >
     <ion-header-bar class="bar-stable">
       <i class="ion ion-android-close" menu-close></i>
       <h1 class="title">Notifications</h1>

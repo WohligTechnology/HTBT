@@ -1,4 +1,4 @@
-<ion-view title="Earning">
+<ion-view title="Credits">
   <!-- <ion-nav-bar class="bar-stable nav-height">
     <ion-nav-buttons side="left">
       <button class="button button-icon button-clear ion-navicon sigupIconLeft " menu-toggle="left">
@@ -11,12 +11,33 @@
   </ion-nav-bar> -->
   <ion-content class="has-header bgearn">
 
+    <!-- <html ng-app="ionicApp">
 
+  <body class="platform-ios" ng-controller="AppCtrl">
+    <script id="templates/popover.html"  type="text/ng-template">
+      <ion-popover-view class="menupop">
+        <ion-content>
+          <div class="list">
 
-    <div class="earnings-refillDiv">
-      <label class="earnings-count" for="">₹ 500</label>
-      <label class="order-refilllbl" for="">Since February 1, 2017</label>
-    </div>
+            <a class="item pad5" ui-sref='app.help' ng-click="closePopover()" >
+              Help
+            </a>
+          </div>
+        </ion-content>
+      </ion-popover-view>
+    </script>
+
+  </body>
+</html> -->
+
+<div class="backdropImg">
+  <div class="credits-refillDiv">
+    <label for="" class="credits-out">Outstanding credits</label>
+    <label class="credits-rup" for="">₹ 5000</label>
+    <label class="order-refilllbl" for="">Since February 1, 2017</label>
+  </div>
+</div>
+
     <div class="row order-row ion-contentcolor" ng-init="show=1">
       <div class="col-33 order-thismonth" ng-click="show=1" ng-class="{'highlight' : show == 1}">
         This Month
@@ -30,10 +51,10 @@
     </div>
     <div ng-if="show==1">
       <div class="text-center">
-        <h4 class="earnings-past">Past Transaction</h4>
+        <h4 class="pastlabel">Past Transaction</h4>
       </div>
       <div class="">
-        <label class="earning-Date" for="">February 17, 2017</label>
+        <label class="order-date " for="">February 17, 2017</label>
         <div class="whtback">
           <div class="row order-jarRow">
             <div class="col-50">
@@ -43,11 +64,11 @@
               </div>
             </div>
             <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
+              <label for="" class="refils">40 Refills</label>
             </div>
             <div class="col-25">
               <div class="rscol">
-                <span>₹</span><label for="">10</label>
+                <span>₹</span><label for="">3600</label>
               </div>
             </div>
           </div>
@@ -61,20 +82,20 @@
               </div>
             </div>
             <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
+              <label for="" class="refils">40 Refills</label>
             </div>
             <div class="col-25">
               <div class="rscol">
-                <span>₹</span><label for="">10</label>
+                <span>₹</span><label for="">3600</label>
               </div>
             </div>
           </div>
-          <div class="borbtm">
-          </div>
+          <!-- <div class="borbtm">
+          </div> -->
         </div>
       </div>
       <div class="">
-        <label class="earning-Date" for="">February 17, 2017</label>
+          <label class="order-date " for="">February 17, 2017</label>
         <div class="row order-jarRow">
           <div class="col-50">
             <div class="descTrans">
@@ -83,16 +104,16 @@
             </div>
           </div>
           <div class="col-25">
-            <label for="" class="refils">2 Refills</label>
+            <label for="" class="refils">40 Refills</label>
           </div>
           <div class="col-25">
             <div class="rscol">
-              <span>₹</span><label for="">10</label>
+              <span>₹</span><label for="">3600</label>
             </div>
           </div>
         </div>
-        <div class="borbtm">
-        </div>
+        <!-- <div class="borbtm">
+        </div> -->
       </div>
     </div>
     <div ng-if="show==2">
@@ -110,11 +131,11 @@
               </div>
             </div>
             <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
+              <label for="" class="refils">40 Refills</label>
             </div>
             <div class="col-25">
               <div class="rscol">
-                <span>₹</span><label for="">10</label>
+                <span>₹</span><label for="">3600</label>
               </div>
             </div>
           </div>
@@ -128,16 +149,16 @@
               </div>
             </div>
             <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
+              <label for="" class="refils">40 Refills</label>
             </div>
             <div class="col-25">
               <div class="rscol">
-                <span>₹</span><label for="">10</label>
+                <span>₹</span><label for="">3600</label>
               </div>
             </div>
           </div>
-          <div class="borbtm">
-          </div>
+          <!-- <div class="borbtm">
+          </div> -->
         </div>
       </div>
       <div class="">
@@ -150,16 +171,16 @@
             </div>
           </div>
           <div class="col-25">
-            <label for="" class="refils">2 Refills</label>
+            <label for="" class="refils">40 Refills</label>
           </div>
           <div class="col-25">
             <div class="rscol">
-              <span>₹</span><label for="">10</label>
+              <span>₹</span><label for="">3600</label>
             </div>
           </div>
         </div>
-        <div class="borbtm">
-        </div>
+        <!-- <div class="borbtm">
+        </div> -->
       </div>
     </div>
     <div ng-if="show==3">
@@ -177,17 +198,18 @@
               </div>
             </div>
             <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
+              <label for="" class="refils">40 Refills</label>
             </div>
             <div class="col-25">
               <div class="rscol">
-                <span>₹</span><label for="">10</label>
+                <span>₹</span><label for="">3600</label>
               </div>
             </div>
           </div>
           <div class="borbtm">
           </div>
           <div class="row order-jarRow">
+
             <div class="col-50">
               <div class="descTrans">
                 <h4>Name</h4>
@@ -195,16 +217,16 @@
               </div>
             </div>
             <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
+              <label for="" class="refils">40 Refills</label>
             </div>
             <div class="col-25">
               <div class="rscol">
-                <span>₹</span><label for="">10</label>
+                <span>₹</span><label for="">3600</label>
               </div>
             </div>
           </div>
-          <div class="borbtm">
-          </div>
+          <!-- <div class="borbtm">
+          </div> -->
         </div>
       </div>
       <div class="">
@@ -217,16 +239,16 @@
             </div>
           </div>
           <div class="col-25">
-            <label for="" class="refils">2 Refills</label>
+            <label for="" class="refils">40 Refills</label>
           </div>
           <div class="col-25">
             <div class="rscol">
-              <span>₹</span><label for="">10</label>
+              <span>₹</span><label for="">3600</label>
             </div>
           </div>
         </div>
-        <div class="borbtm">
-        </div>
+        <!-- <div class="borbtm">
+        </div> -->
       </div>
     </div>
   </ion-content>

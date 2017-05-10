@@ -44,6 +44,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
+    .state('app.confirm', {
+        url: '/confirm',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/confirmation.html',
+            controller: 'ConfirmationCtrl'
+          }
+        }
+      })
+
+    .state('app.profile', {
+        url: '/profile',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/profile.html',
+            controller: 'ProfileCtrl'
+          }
+        }
+      })
+
   .state('app.search', {
     url: '/search',
     views: {
@@ -160,6 +180,37 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+
+    .state('app.verification', {
+        url: '/verification',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/verification.html',
+            controller: 'VerificationCtrl'
+          }
+        }
+      })
+
+      .state('app.credits', {
+          url: '/credits',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/credits.html',
+              controller: 'CreditsCtrl'
+            }
+          }
+        })
+
+        .state('app.requirement', {
+            url: '/requirement',
+            views: {
+              'menuContent': {
+                templateUrl: 'templates/requirement.html',
+                controller: 'RequirementCtrl'
+              }
+            }
+          })
+
     .state('app.playlists', {
       url: '/playlists',
       views: {

@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover,$timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -24,7 +24,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
     $scope.modal.hide();
   };
 
+  $ionicPopover.fromTemplateUrl('templates/modal/popover.html', {
+    scope: $scope,
+    cssClass: 'menupop',
 
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+  $scope.closePopover = function() {
+      $scope.popover.hide();
+   };
 
   // Open the login modal
   $scope.login = function () {
@@ -41,8 +51,30 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
       $scope.closeLogin();
     }, 1000);
   };
+
 })
 .controller('BrowseMoreCtrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+
+  $ionicSideMenuDelegate.canDragContent(false);
+})
+
+
+.controller('VerificationCtrl', function ($scope, $stateParams) {
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
+.controller('RequirementCtrl', function ($scope, $stateParams) {
   $scope.goBackHandler = function () {
     window.history.back(); //This works
   };
@@ -54,10 +86,25 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
   };
 })
 
-.controller('CheckoutCtrl', function ($scope, $stateParams) {
+.controller('CheckoutCtrl', function ($scope, $stateParams, $ionicPopover) {
   $scope.goBackHandler = function () {
     window.history.back(); //This works
   };
+
+  $scope.show='';
+    $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
+      scope: $scope,
+      cssClass: 'menupop',
+
+    }).then(function(terms) {
+      $scope.terms = terms;
+    });
+
+
+
+    $scope.closePopover = function() {
+        $scope.terms.hide();
+     };
 })
 
 .controller('AddonsCtrl', function ($scope, $stateParams) {
@@ -126,13 +173,24 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 .controller('HelpCtrl', function ($scope) {
    $scope.goBackHandler = function () {
     window.history.back(); //This works
-  }
+  };
 
 
 
 })
-.controller('CustomerListCtrl', function ($scope, $stateParams, $ionicPopover) {
-  $ionicPopover.fromTemplateUrl('templates/popover.html', {
+
+.controller('ProfileCtrl', function ($scope) {
+   $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+
+
+
+})
+
+.controller('CustomerListCtrl', function ($scope, $ionicLoading, $ionicPopover) {
+$scope.show='';
+  $ionicPopover.fromTemplateUrl('templates/modal/popover.html', {
     scope: $scope,
     cssClass: 'menupop',
 
@@ -143,8 +201,27 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
   $scope.closePopover = function() {
       $scope.popover.hide();
    };
+
+$scope.show='';
+  $ionicPopover.fromTemplateUrl('templates/modal/dropdown.html', {
+    scope: $scope,
+    cssClass: 'menupop',
+
+  }).then(function(dropdown) {
+    $scope.dropdown = dropdown;
+  });
+
+
+
+  $scope.closePopover = function() {
+      $scope.dropdown.hide();
+   };
+
+
 })
-.controller('EarningCtrl', function ($scope, $stateParams, $ionicPopover) {
+.controller('EarningCtrl', function ($scope, $stateParams, $ionicPopover, $ionicSideMenuDelegate) {
+
+$ionicSideMenuDelegate.canDragContent(false);
 
   $ionicPopover.fromTemplateUrl('templates/popover.html', {
     scope: $scope,
@@ -162,6 +239,13 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
 
 .controller('VerifyCtrl', function ($scope, $stateParams) {})
 
+.controller('ConfirmationCtrl', function ($scope, $stateParams) {
+
+  $scope.goBackHandler = function () {
+    window.history.back(); //This works
+  };
+})
+
 .controller('LoginCtrl', function ($scope, $stateParams) {})
 
 .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, $ionicSlideBoxDelegate) {
@@ -171,40 +255,43 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
       cssClass: "priceCard ",
       scope: $scope
     });
-  }
+  };
   $scope.closePopup = function () {
     $scope.show.close();
-  }
+  };
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
-  }
+  };
   $scope.myActiveSlide = 1;
 
   $scope.slidePrevious = function () {
 
     $ionicSlideBoxDelegate.previous();
-  }
+  };
 
   $scope.slideNext = function () {
 
     $ionicSlideBoxDelegate.next();
-  }
+  };
 })
 
-.controller('SignUpCtrl', function ($scope, $stateParams) {
-  // $scope.sorryPopup = function () {
-  //   $scope.sorry = $ionicPopup.show({
-  //     templateUrl: 'templates/modal/pincode.html',
-  //     cssClass: "popupSorry",
-  //     scope: $scope
-  //   });
-  // };
-  // $scope.closeSorry = function () {
-  //   console.log("hello");
-  //   $scope.sorry.close();
-  // };
+.controller('SignUpCtrl', function ($scope, $stateParams, $ionicPopover) {
+  $scope.show='';
+    $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
+      scope: $scope,
+      cssClass: 'menupop',
+
+    }).then(function(terms) {
+      $scope.terms = terms;
+    });
+
+
+
+    $scope.closePopover = function() {
+        $scope.terms.hide();
+     };
 
   $scope.goBackHandler = function () {
     window.history.back(); //This works
-  }
+  };
 });
