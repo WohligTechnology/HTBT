@@ -201,6 +201,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     line-height: 52px!important;
     font-size: 22px!important;
     height: 100%;
+    left: 40px!important;
+    right: 60px!important;
+
 }
 
 .bar .title+.buttons {
@@ -208,6 +211,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     top: 5px!important;
     right: 15px!important;
     bottom: 5px!important;
+
+
 }
 
 .plcHldr {
@@ -439,14 +444,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     text-align: center;
     margin-top: 10px;
     vertical-align: middle;
-    width: 42%;
+    width: 48%;
     display: block;
     margin: 0 auto;
     button {
         color: white!important;
         border: 0px!important;
         background: #ff414d!important;
-        font-size: 15px!important;
+        font-size: 13px!important;
         padding-left: 10px !important;
         min-height: 35px!important;
         box-shadow: 1px 2px 0 0 lightgrey;
@@ -464,13 +469,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     text-align: center;
     margin-top: 10px;
     vertical-align: middle;
-    width: 42%;
+    width: 48%;
     display: block;
     margin: 0 auto;
 
     label {
         margin-left: 16px;
-        font-size: 16px!important;
+        font-size: 15px!important;
     }
 
     button {
@@ -841,13 +846,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     height: 52px;
     box-shadow: 1px 2px 0 0 lightgrey;
 
+
     .bar.bar-stable .title {
         font-size: 20px;
         line-height: 48px;
         text-align: left!important;
         padding-top: 1px !important;
+          // left: 40px!important;
     }
 }
+
+
+// .nav-height .bar.bar-stable .title{
+//   left:40px!important;
+// }
 
 .footer-height {
     height: 46px;
@@ -1267,7 +1279,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     margin-left: 0px !important;
     opacity: 1!important;
     position: absolute;
-    top: 25%;
+    top:50%;
     left: 50%;
     z-index: 10;
     display: block;
@@ -1276,6 +1288,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     height: 60px!important;
     width: 100px!important;
     background-color: #fff;
+
+
+}
+
+.popover-backdrop.active {
+background-color: rgba(0, 0, 0, 0.6)!important;
 }
 
 .pad5 {
@@ -1674,7 +1692,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 .auth-otprow {
-    background: #f2f4f5;
+    background: white;
     width: 100%;
     padding: 0 10px;
     margin: 20px 0;
@@ -1683,7 +1701,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .auth-otpcol1Lbl {
     border: none;
     padding: 5px;
-    background: #f2f4f5;
+    background: white;
     width: 100%;
 
     input {
@@ -1729,6 +1747,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .nav-height .bar.bar-stable .title {
     line-height: 52px!important;
     font-size: 22px!important;
+
 }
 
 .bar .title+.buttons {
@@ -2616,8 +2635,8 @@ p.onceLblr {
     top: 15%!important;
     left: 5%!important;
     position: absolute;
-    top: 25%;
-    left: 50%;
+    top: 50%!important;
+    left: 50%!important;
     z-index: 10;
     display: block;
     margin-top: 12px;
@@ -2629,6 +2648,8 @@ p.onceLblr {
     border-radius: 0!important;
     opacity: 0;
     text-align: justify;
+    transform: translate(-50%, -50%)!important;
+
 }
 
 .termspr {
@@ -2745,6 +2766,12 @@ p.onceLblr {
     color: #6d797e;
 }
 //common classes
+
+.disblock{
+  display:inline-block!important;
+      padding: 0!important;
+}
+
 .center {
     text-align: center;
 }
@@ -2759,6 +2786,10 @@ p.onceLblr {
 
 .mrt {
     margin-top: 10px;
+}
+
+.hasterms{
+  bottom: 90px;
 }
 //verification
 .veri-under {
@@ -2828,6 +2859,14 @@ p.onceLblr {
     font-size: 18px;
     font-weight: 500;
 }
+
+
+
+.paid-button{
+  padding: 30px;
+width: 100%;
+}
+
 //authorize
 .auth-card {
     margin: 0 !important;
@@ -2839,6 +2878,8 @@ p.onceLblr {
     font-size: 12px;
 }
 
+
+//largerequirement
 .large-div {
     margin: 20px 30px 0;
     width: auto;
@@ -2863,4 +2904,20 @@ p.onceLblr {
     font-weight: 500;
     color: #ff414d;
     padding-bottom: 20px;
+}
+.hasterms{
+  bottom: 90px;
+}
+
+
+
+
+  textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+      color: green!important;
+  }
+
+
+
+.color{
+color: green!important
 }

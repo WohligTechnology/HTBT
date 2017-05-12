@@ -23,11 +23,33 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 })
 
 
+.config(function ($stateProvider, $urlRouterProvider, ionicDatePickerProvider) {
+  var datePickerObj = {
+    inputDate: new Date(),
+    titleLabel: 'Select a Date',
+    setLabel: 'Set',
+    todayLabel: 'Today',
+    closeLabel: 'Close',
+    mondayFirst: false,
+    weeksList: ["S", "M", "T", "W", "T", "F", "S"],
+    monthsList: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
+    templateType: 'popup',
+    from: new Date(2012, 8, 1),
+    to: new Date(2018, 8, 1),
+    showTodayButton: true,
+    dateFormat: 'dd MMMM yyyy',
+    closeOnSelect: false,
+    disableWeekdays: []
+  };
+  ionicDatePickerProvider.configDatePicker(datePickerObj);
+})
+
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
 
     .state('app', {
+      cache:false,
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -35,6 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.browse-more', {
+    cache:false,
       url: '/browse-more',
       views: {
         'menuContent': {
@@ -45,6 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.confirm', {
+      cache:false,
         url: '/confirm',
         views: {
           'menuContent': {
@@ -55,6 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       })
 
     .state('app.profile', {
+      cache:false,
         url: '/profile',
         views: {
           'menuContent': {
@@ -65,6 +90,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       })
 
   .state('app.search', {
+    cache:false,
     url: '/search',
     views: {
       'menuContent': {
@@ -84,6 +110,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.productSpecs', {
+    cache:false,
     url: '/productSpecs',
     views: {
       'menuContent': {
@@ -94,6 +121,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.auth-payment', {
+    cache:false,
     url: '/auth-payment',
     views: {
       'menuContent': {
@@ -104,6 +132,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.subpage3', {
+    cache:false,
     url: '/subpage3',
     views: {
       'menuContent': {
@@ -114,6 +143,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.checkout', {
+    cache:false,
     url: '/checkout',
     views: {
       'menuContent': {
@@ -124,6 +154,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.addons', {
+    cache:false,
     url: '/add-ons',
     views: {
       'menuContent': {
@@ -134,6 +165,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.subpage1', {
+    cache:false,
     url: '/subpage1',
     views: {
       'menuContent': {
@@ -144,6 +176,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.review', {
+    cache:false,
     url: '/review',
     views: {
       'menuContent': {
@@ -154,6 +187,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.help', {
+    cache:false,
       url: '/help',
       views: {
         'menuContent': {
@@ -163,6 +197,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
   .state('app.customerlist', {
+    cache:false,
       url: '/customerlist',
       views: {
         'menuContent': {
@@ -172,6 +207,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
   .state('app.earning', {
+    cache:false,
       url: '/earning',
       views: {
         'menuContent': {
@@ -182,6 +218,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.verification', {
+      cache:false,
         url: '/verification',
         views: {
           'menuContent': {
@@ -192,6 +229,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       })
 
       .state('app.credits', {
+        cache:false,
           url: '/credits',
           views: {
             'menuContent': {
@@ -202,6 +240,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         })
 
         .state('app.requirement', {
+          cache:false,
             url: '/requirement',
             views: {
               'menuContent': {
@@ -221,24 +260,28 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
     .state('login', {
+      cache:false,
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
     })
 
   .state('verify', {
+    cache:false,
     url: '/verify',
     templateUrl: 'templates/verify.html',
     controller: 'VerifyCtrl'
   })
 
   .state('signup', {
+    cache:false,
     url: '/signup',
     templateUrl: 'templates/signup.html',
     controller: 'SignUpCtrl'
   })
 
   .state('app.dashboard', {
+    cache:false,
     url: '/dashboard',
     views: {
       'menuContent': {

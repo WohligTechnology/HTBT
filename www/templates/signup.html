@@ -9,10 +9,14 @@
         </button>
     </ion-nav-buttons>
   </ion-nav-bar>
-  <ion-content class="has-header signUpForm has-footer">
+  <ion-content class="has-header signUpForm hasterms">
+
+    <form  ng-submit="signup()" name="userForm"></form>
     <div class=" ">
       <label class=" item-input ">
-    <input type="text" placeholder="Your Name">
+    <input type="text" placeholder="Your Name"  ng-model="signupForm.name" name="name" required>
+    <p class="error-msg" ng-show="userForm.name.$error.required && userForm.name.$touched">Please Enter Your Name.</p>
+
   </label>
       <label class=" item-input ">
     <input type="text" placeholder="Email Id (Optional)">
@@ -81,8 +85,10 @@
  </label>
 </li>
   <div class="bar bar-footer footer-height signUpFooter">
-    <button class="button button-block button-positive footer-font" ui-sref="app.verification">
+    <button class="button button-block button-positive footer-font"  type="submit">
   Get Started
 </button>
   </div>
+</form>
+
 </ion-view>

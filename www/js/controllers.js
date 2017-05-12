@@ -1,6 +1,6 @@
-angular.module('starter.controllers', ['angular-svg-round-progressbar'])
+angular.module('starter.controllers', ['angular-svg-round-progressbar','starter.services', 'ionic-datepicker'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover,$timeout) {
+.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover,$timeout, $state, MyServices) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -84,9 +84,36 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
   $scope.goBackHandler = function () {
     window.history.back(); //This works
   };
+
+  var ipObj1 = {
+      callback: function (val) {  //Mandatory
+        console.log('Return value from the datepicker popup is : ' + val, new Date(val));
+      },
+      disabledDates: [            //Optional
+        new Date(2016, 2, 16),
+        new Date(2015, 3, 16),
+        new Date(2015, 4, 16),
+        new Date(2015, 5, 16),
+        new Date('Wednesday, August 12, 2015'),
+        new Date("08-16-2016"),
+        new Date(1439676000000)
+      ],
+      from: new Date(2012, 1, 1), //Optional
+      to: new Date(2016, 10, 30), //Optional
+      inputDate: new Date(),      //Optional
+      mondayFirst: true,          //Optional
+      disableWeekdays: [0],       //Optional
+      closeOnSelect: false,       //Optional
+      templateType: 'popup'       //Optional
+    };
+
+    $scope.openDatePicker = function(){
+      ionicDatePicker.openDatePicker(ipObj1);
+    };
+
 })
 
-.controller('CheckoutCtrl', function ($scope, $stateParams, $ionicPopover) {
+.controller('CheckoutCtrl', function ($scope, $stateParams, $ionicPopover, ionicDatePicker) {
   $scope.goBackHandler = function () {
     window.history.back(); //This works
   };
@@ -105,6 +132,33 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar'])
     $scope.closePopover = function() {
         $scope.terms.hide();
      };
+
+     var ipObj1 = {
+         callback: function (val) {  //Mandatory
+           console.log('Return value from the datepicker popup is : ' + val, new Date(val));
+         },
+         disabledDates: [            //Optional
+           new Date(2016, 2, 16),
+           new Date(2015, 3, 16),
+           new Date(2015, 4, 16),
+           new Date(2015, 5, 16),
+           new Date('Wednesday, August 12, 2015'),
+           new Date("08-16-2016"),
+           new Date(1439676000000)
+         ],
+         from: new Date(2012, 1, 1), //Optional
+         to: new Date(2016, 10, 30), //Optional
+         inputDate: new Date(),      //Optional
+         mondayFirst: true,          //Optional
+         disableWeekdays: [0],       //Optional
+         closeOnSelect: false,       //Optional
+         templateType: 'popup'       //Optional
+       };
+
+       $scope.openDatePicker = function(){
+         ionicDatePicker.openDatePicker(ipObj1);
+       };
+
 })
 
 .controller('AddonsCtrl', function ($scope, $stateParams) {
@@ -248,7 +302,8 @@ $ionicSideMenuDelegate.canDragContent(false);
 
 .controller('LoginCtrl', function ($scope, $stateParams) {})
 
-.controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, $ionicSlideBoxDelegate) {
+.controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, $ionicSlideBoxDelegate ) {
+
   $scope.showPopup = function () {
     $scope.show = $ionicPopup.show({
       templateUrl: 'templates/modal/price.html',
@@ -275,7 +330,7 @@ $ionicSideMenuDelegate.canDragContent(false);
   };
 })
 
-.controller('SignUpCtrl', function ($scope, $stateParams, $ionicPopover) {
+.controller('SignUpCtrl', function ($scope, $stateParams, $ionicPopover, $state, MyServices) {
   $scope.show='';
     $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
       scope: $scope,
