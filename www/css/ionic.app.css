@@ -9943,6 +9943,9 @@ a.button {
   border: transparent;
   border-bottom: 1px solid lightgrey; }
 
+.iptext {
+  color: black !important; }
+
 .signUpForm {
   padding-left: 10px;
   padding-right: 10px; }
@@ -9951,6 +9954,8 @@ a.button {
     border-bottom: 1px solid lightgrey;
     padding: 6px;
     margin: 0 5px; }
+  .signUpForm .input[type="text"] {
+    color: black !important; }
   .signUpForm input {
     background: transparent; }
 
@@ -12051,7 +12056,21 @@ p.onceLblr {
   bottom: 90px; }
 
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
-  color: green !important; }
+  color: black !important; }
+
+.error-msg {
+  margin: 10px;
+  color: red !important; }
 
 .color {
   color: green !important; }
+
+.pan-adh-img {
+  height: 100%;
+  width: 100%;
+  background: red;
+  position: relative;
+  /* bottom: 110px; */
+  top: 10px; }
+  .pan-adh-img img {
+    width: 100%; }

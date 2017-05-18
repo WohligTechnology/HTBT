@@ -1,6 +1,8 @@
-angular.module('starter.controllers', ['angular-svg-round-progressbar','starter.services', 'ionic-datepicker'])
+angular.module('starter.controllers', ['angular-svg-round-progressbar','starter.services', 'ionic-datepicker', 'ngCordova'])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover,$timeout, $state, MyServices) {
+
+
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -242,7 +244,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar','starter.
 
 })
 
-.controller('CustomerListCtrl', function ($scope, $ionicLoading, $ionicPopover) {
+.controller('CustomerListCtrl', function ($scope, $state,$ionicLoading, $ionicPopover) {
+  $scope.next =function(){
+    $state.go('app.subpage1');
+  }
 $scope.show='';
   $ionicPopover.fromTemplateUrl('templates/modal/popover.html', {
     scope: $scope,
@@ -330,7 +335,8 @@ $ionicSideMenuDelegate.canDragContent(false);
   };
 })
 
-.controller('SignUpCtrl', function ($scope, $stateParams, $ionicPopover, $state, MyServices) {
+.controller('SignUpCtrl', function ($scope, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {
+  $scope.signup = {}
   $scope.show='';
     $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
       scope: $scope,
@@ -349,4 +355,103 @@ $ionicSideMenuDelegate.canDragContent(false);
   $scope.goBackHandler = function () {
     window.history.back(); //This works
   };
+  $scope.signupForm ={};
+   $scope.signup = function() {
+    console.log("djfgjk",$scope.signupForm);
+    MyServices.signup($scope.signupForm, function(data) {
+
+      console.log(data);
+      if (data.status == "OK") {
+        $state.go('app.verification');
+      } else {
+       
+        // $scope.showAlert(data.status, 'login', 'Error Message');
+      }
+    });
+  }
+
+    $scope.showActionsheet = function(card) {
+    console.log(card);
+    $ionicActionSheet.show({
+      //  titleText: 'choose option',
+      buttons: [{
+        text: '<i class="icon ion-ios-camera-outline"></i> Choose from gallery'
+      }, {
+        text: '<i class="icon ion-images"></i> Take from camera'
+      }, ],
+      //  destructiveText: 'Delete',
+      cancelText: 'Cancel',
+      cancel: function() {
+        console.log('CANCELLED');
+      },
+      buttonClicked: function(index) {
+        console.log('BUTTON CLICKED', index);
+        if (index === 0) {
+          $scope.getImageSaveContact(card);
+        } else {
+          $scope.openCamera(card);
+        }
+        return true;
+      },
+      destructiveButtonClicked: function() {
+        console.log('DESTRUCT');
+        return true;
+      }
+    });
+  };
+
+      $scope.openCamera = function(card) {
+      var cameraOptions = {
+        quality: 90,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: 0,
+        targetWidth: 1200,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: true,
+        correctOrientation: true
+      };
+      $cordovaCamera.getPicture(cameraOptions).then(function(imageData) {
+        $scope.imageSrc = "data:image/jpeg;base64," + imageData;
+        console.log($scope.imageSrc);
+        $scope.uploadImage($scope.imageSrc,card);
+      }, function(err) {
+
+        console.log(err);
+      });
+    };
+
+      $scope.getImageSaveContact = function(card) {
+      // Image picker will load images according to these settings
+      var options = {
+        maximumImagesCount: 1, // Max number of selected images
+        width: 800,
+        height: 800,
+        quality: 80 // Higher is better
+      };
+      $cordovaImagePicker.getPictures(options).then(function(results) {
+        console.log(results);
+        $scope.uploadImage(results[0],card);
+      }, function(error) {
+        console.log('Error: ' + JSON.stringify(error)); // In case of error
+      });
+    };
+
+    $scope.uploadImage = function(imageURI, card) {
+    console.log('imageURI', imageURI);
+    // $scope.showLoading('Uploading Image...', 10000);
+    $cordovaFileTransfer.upload(adminurl + 'upload', imageURI)
+      .then(function(result) {
+        // Success!
+        // $scope.hideLoading();
+        result.response = JSON.parse(result.response);
+        console.log(result.response.data[0]);
+        if(card == 'pan'){
+            $scope.signupForm.panCard =result.response.data[0];
+        }else{
+             $scope.signupForm.adharCard =result.response.data[0];
+        }
+      }
+      )};
 });

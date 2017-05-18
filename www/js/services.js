@@ -29,9 +29,9 @@ angular.module('starter.services', [])
 
 
     signup: function (data,callback) {
-
+console.log(data);
         $http({
-          url: adminurl + 'user/save',
+          url: adminurl + 'User/saveUserData',
           method: 'POST',
           withCredentials: true,
           data: data

@@ -177,6 +177,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     border-bottom: 1px solid lightgrey;
 }
 
+.iptext{
+    color: black!important;
+}
+
 .signUpForm {
     padding-left: 10px;
     padding-right: 10px;
@@ -188,6 +192,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
         margin: 0 5px;
     }
 
+.input[type="text"]{
+    color: black!important;
+}
     input {
         background: transparent;
     }
@@ -2913,11 +2920,29 @@ width: 100%;
 
 
   textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
-      color: green!important;
+      color: black!important;
   }
 
+.error-msg {
+  margin: 10px;
+  color: red !important; 
+  }
 
 
 .color{
 color: green!important
+}
+
+//
+
+.pan-adh-img{
+     height: 100%;
+    width: 100%;
+    background: red;
+    position: relative;
+    /* bottom: 110px; */
+    top: 10px;
+    img{
+        width: 100%
+    }
 }

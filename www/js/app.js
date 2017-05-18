@@ -165,7 +165,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.subpage1', {
-    cache:false,
     url: '/subpage1',
     views: {
       'menuContent': {
@@ -197,7 +196,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
   .state('app.customerlist', {
-    cache:false,
+   
       url: '/customerlist',
       views: {
         'menuContent': {
@@ -312,4 +311,56 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       });
     }
   };
-});
+})
+.filter('uploadpath', function() {
+  return function(input, width, height, style) {
+    var other = "";
+    if (width && width != "") {
+      other += "&width=" + width;
+    }
+    if (height && height != "") {
+      other += "&height=" + height;
+    }
+    if (style && style != "") {
+      other += "&style=" + style;
+    }
+    if (input) {
+      if (input.indexOf('https://') == -1) {
+        return imgpath + input + other;
+
+      } else {
+        return input;
+      }
+    }
+  }
+})
+
+
+.directive('onlyDigits', function () {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function (scope, element, attr, ctrl) {
+        var digits;
+
+        function inputValue(val) {
+          if (val) {
+            if (attr.type == "tel") {
+              digits = val.replace(/[^0-9\+\\]/g, '');
+            } else {
+              digits = val.replace(/[^0-9\-\\]/g, '');
+            }
+
+
+            if (digits !== val) {
+              ctrl.$setViewValue(digits);
+              ctrl.$render();
+            }
+            return parseInt(digits, 10);
+          }
+          return undefined;
+        }
+        ctrl.$parsers.push(inputValue);
+      }
+    };
+  });
