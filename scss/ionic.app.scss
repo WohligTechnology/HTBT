@@ -1320,10 +1320,17 @@ background-color: rgba(0, 0, 0, 0.6)!important;
     }
 }
 
+.col50-width{
+    max-width: none!important;
+}
+
 .browse-sliderRow {
     height: 100%;
     background: #f2f4f5;
+    width: 360px;
 }
+
+
 
 .browse-slideImgDiv {
     height: 100%;

@@ -55,10 +55,22 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar','starter.
   };
 
 })
-.controller('BrowseMoreCtrl', function ($scope, $stateParams) {
+.controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices) {
   $scope.goBackHandler = function () {
     window.history.back(); //This works
   };
+  $scope.product= {}
+  // alert($stateParams.category);
+  $scope.product.category = $stateParams.category;
+
+  console.log("dsjh",$scope.product,$stateParams)
+  MyServices.products($scope.product,function(data) {
+
+            console.log(data);
+            $scope.prod = data.data;
+            console.log("proctid",$scope.prod);
+
+  });
 })
 
 .controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
@@ -188,13 +200,61 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar','starter.
   };
 })
 
-.controller('BrowseCtrl', function ($scope, $ionicSlideBoxDelegate) {
-    $scope.nextSlide = function () {
-      $ionicSlideBoxDelegate.next();
-    };
+.controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state ) {
+//     $scope.nextSlide = function () {
+//       $ionicSlideBoxDelegate.next();
+//     };
+
+// $ionicSlideBoxDelegate.update();
+//      $scope.currentIndex = 1;
+
+//   // Called each time the slide changes
+
+
+
+
+//     $scope.pager = true;
+//     $scope.togglePager = function(){
+//     $scope.pager = !$scope.pager;
+//   }
+
     $scope.goBackHandler = function () {
       window.history.back(); //This works
     };
+     MyServices.categories(function(data) {
+
+      console.log(data);
+      $scope.category = _.chunk(data.data, 2);
+      console.log($scope.category);
+
+
+
+
+      // if ("data.status == true") {
+      //   $state.go('app.verification');
+      // } else {
+
+      //   // $scope.showAlert(data.status, 'login', 'Error Message');
+      // }
+    });
+    MyServices.featureprods(function(data) {
+
+      console.log(data);
+      $scope.feaprods = data.data;
+      console.log("let me know",$scope.feaprods);
+
+
+      // $ionicSlideBoxDelegate.slide(0);
+                $ionicSlideBoxDelegate.update();
+                // $scope.$apply();
+
+      // if ("data.status == true") {
+      //   $state.go('app.verification');
+      // } else {
+
+      //   // $scope.showAlert(data.status, 'login', 'Error Message');
+      // }
+    });
   })
 
   .controller('ProductSpecsCtrl', function ($scope, $stateParams) {
@@ -357,15 +417,16 @@ $ionicSideMenuDelegate.canDragContent(false);
   };
   $scope.signupForm ={};
    $scope.signup = function() {
+     $scope.signupForm.accessLevel = "Relationship Partner"
     console.log("djfgjk",$scope.signupForm);
     MyServices.signup($scope.signupForm, function(data) {
 
       console.log(data);
-      if (data.status == "OK") {
+      if ("data.status == true") {
         $state.go('app.verification');
       } else {
-       
-        // $scope.showAlert(data.status, 'login', 'Error Message');
+
+        $scope.showAlert(data.status, 'login', 'Error Message');
       }
     });
   }

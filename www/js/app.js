@@ -58,7 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.browse-more', {
     cache:false,
-      url: '/browse-more',
+      url: '/browse-more/:category',
       views: {
         'menuContent': {
           templateUrl: 'templates/browse-more.html',
@@ -196,7 +196,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
   .state('app.customerlist', {
-   
+
       url: '/customerlist',
       views: {
         'menuContent': {
