@@ -1,0 +1,414 @@
+<ion-view title="Credits">
+  <ion-nav-bar class="bar-stable nav-height">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon sigupIconLeft disblock" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear ion-android-more-vertical sigupRight disblock" ng-click="popover.show($event)">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header bgearn">
+
+    <!-- <html ng-app="ionicApp">
+
+  <body class="platform-ios" ng-controller="AppCtrl">
+    <script id="templates/popover.html"  type="text/ng-template">
+      <ion-popover-view class="menupop">
+        <ion-content>
+          <div class="list">
+
+            <a class="item pad5" ui-sref='app.help' ng-click="closePopover()" >
+              Help
+            </a>
+          </div>
+        </ion-content>
+      </ion-popover-view>
+    </script>
+
+  </body>
+</html> -->
+
+<div class="backdropImg">
+  <div class="credits-refillDiv">
+    <label for="" class="credits-out">Outstanding credits</label>
+    <label class="credits-rup" for="">₹ 5000</label>
+    <label class="credit-date" for="">Since February 1, 2017</label>
+  </div>
+</div>
+
+    <div class="row order-row ion-contentcolor" ng-init="show=1">
+      <div class="col-33 order-thismonth" ng-click="show=1" ng-class="{'highlight' : show == 1}">
+        This Month
+      </div>
+      <div class="col-33 order-thismonth" ng-click="show=2" ng-class="{'highlight' : show == 2}">
+        Last Month
+      </div>
+      <div class="col-33 order-thismonth" ng-click="show=3" ng-class="{'highlight' : show == 3}">
+        Last 3 Months
+      </div>
+    </div>
+
+    <div ng-if="show==1">
+      <div class="text-center">
+        <h4 class="pastlabel">Past Transaction</h4>
+      </div>
+      <ion-list>
+      <div class="">
+        <label class="order-date " for="">February 17, 2017</label>
+        <div class="whtback">
+
+              <ion-item class="">
+
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">40 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">3600</label>
+              </div>
+            </div>
+          </div>
+          <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+          <div class="borbtm">
+          </div>
+        </ion-item>
+              <ion-item>
+
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">40 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">3600</label>
+              </div>
+            </div>
+          </div>
+          <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+          <div class="borbtm">
+          </div>
+        </ion-item>
+
+
+          <!-- <div class="borbtm">
+          </div> -->
+
+      </div>
+      </div>
+      <div class="">
+          <label class="order-date " for="">February 17, 2017</label>
+
+            <ion-item>
+
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">40 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">3600</label>
+            </div>
+          </div>
+        </div>
+        <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+        <div class="borbtm">
+        </div>
+      </ion-item>
+            <ion-item>
+
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">40 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">3600</label>
+            </div>
+          </div>
+        </div>
+        <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+        <div class="borbtm">
+        </div>
+      </ion-item>
+
+
+        <!-- <div class="borbtm">
+        </div> -->
+
+        <!-- <div class="borbtm">
+        </div> -->
+      </div>
+            </ion-list>
+    </div>
+    <div ng-if="show==2">
+      <div class="text-center">
+        <h4 class="pastlabel">Past Transaction</h4>
+      </div>
+      <div class="">
+        <label class="order-date " for="">February 17, 2017</label>
+        <div class="whtback">
+            <ion-list>
+              <ion-item>
+
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">40 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">3600</label>
+              </div>
+            </div>
+          </div>
+          <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+          <div class="borbtm">
+          </div>
+        </ion-item>
+              <ion-item>
+
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">40 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">3600</label>
+              </div>
+            </div>
+          </div>
+          <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+          <div class="borbtm">
+          </div>
+        </ion-item>
+
+
+          <!-- <div class="borbtm">
+          </div> -->
+        </ion-list>
+      </div>
+      </div>
+      <div class="">
+          <label class="order-date " for="">February 17, 2017</label>
+          <ion-list>
+            <ion-item>
+
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">40 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">3600</label>
+            </div>
+          </div>
+        </div>
+        <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+        <div class="borbtm">
+        </div>
+      </ion-item>
+            <ion-item>
+
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">40 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">3600</label>
+            </div>
+          </div>
+        </div>
+        <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+        <div class="borbtm">
+        </div>
+      </ion-item>
+
+
+        <!-- <div class="borbtm">
+        </div> -->
+      </ion-list>
+        <!-- <div class="borbtm">
+        </div> -->
+      </div>
+    </div>
+    <div ng-if="show==3">
+      <div class="text-center">
+        <h4 class="pastlabel">Past Transaction</h4>
+      </div>
+      <div class="">
+        <label class="order-date " for="">February 17, 2017</label>
+        <div class="whtback">
+            <ion-list>
+              <ion-item>
+
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">40 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">3600</label>
+              </div>
+            </div>
+          </div>
+          <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+          <div class="borbtm">
+          </div>
+        </ion-item>
+              <ion-item>
+
+          <div class="row order-jarRow">
+            <div class="col-50">
+              <div class="descTrans">
+                <h4>Name</h4>
+                <label for="">Contact Number</label>
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="" class="refils">40 Refills</label>
+            </div>
+            <div class="col-25">
+              <div class="rscol">
+                <span>₹</span><label for="">3600</label>
+              </div>
+            </div>
+          </div>
+          <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+          <div class="borbtm">
+          </div>
+        </ion-item>
+
+
+          <!-- <div class="borbtm">
+          </div> -->
+        </ion-list>
+      </div>
+      </div>
+      <div class="">
+          <label class="order-date " for="">February 17, 2017</label>
+          <ion-list>
+            <ion-item>
+
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">40 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">3600</label>
+            </div>
+          </div>
+        </div>
+        <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+        <div class="borbtm">
+        </div>
+      </ion-item>
+            <ion-item>
+
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">40 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">3600</label>
+            </div>
+          </div>
+        </div>
+        <ion-option-button class="button-assertive paid-button">Paid</ion-option-button>
+
+        <div class="borbtm">
+        </div>
+      </ion-item>
+
+
+        <!-- <div class="borbtm">
+        </div> -->
+      </ion-list>
+        <!-- <div class="borbtm">
+        </div> -->
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

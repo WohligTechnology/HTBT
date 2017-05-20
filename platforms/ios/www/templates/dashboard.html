@@ -1,0 +1,58 @@
+<ion-view title="Dashboard">
+  <ion-nav-bar class="bar-stable nav-height">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon sigupIconLeft " menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear ion-ios-bell header-bellFont" menu-toggle="right">
+        </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header">
+    <div class="dashboardLabel">
+      <label for="">Earnings for this Month</label>
+    </div>
+    <div class="rel">
+      <div class="roundePrgBar" round-progress max="90" current="30" color="#ff414d" bgcolor="#eaeaea" radius="300" stroke="30"
+        semi="false" rounded="true" clockwise="true" responsive="false" iterations="50" animation="easeInOutQuart"></div>
+      <div class="roundedPrgDiv"></div>
+      <i class="ion ion-information-circled info" ng-click="showPopup()"></i>
+      <div class="overallRupeeDiv" ng-click="showPopup()">
+        <label class="rupeeFont" for="">₹ 500</label>
+      </div>
+      <div class="sinceDateDiv">
+        <label class=" " for="">Since February 1, 2017</label>
+      </div>
+    </div>
+    <div class="row bottomTopMarRow">
+      <div class="col col-33 colPad">
+        <div class="numberDiv">
+          <label class="rankLabel" for=" ">15</label>
+          <i class="ion ion-android-arrow-up "></i>
+          <span>(2)</span>
+        </div>
+        <div class="rankDiv">
+          <pr>Rank</pr>
+        </div>
+      </div>
+      <div class="col col-33 colPad ">
+        <div class="lastMonth">
+          <label for=" ">₹ 1,250</label>
+          <pr>Last Month</pr>
+        </div>
+      </div>
+      <div class="col col-33 colPad">
+        <div class="newCustomer">
+          <label for=" ">8</label>
+          <pr>New Customers</pr>
+        </div>
+      </div>
+    </div>
+    <div class="newCust">
+      <button class="button icon-left ion-plus-circled button-positive ">New Customer</button>
+    </div>
+    <div class="oldCust">
+      <button class="button button-icon ion-custom-user button-positive"><label class="oldCustLabel"  ng-click='price'>Old Customer</label></button>
+    </div>
+  </ion-content>

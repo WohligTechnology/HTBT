@@ -1,0 +1,72 @@
+<ion-view title="Profile">
+  <ion-nav-bar class="bar-stable nav-height">
+    <ion-nav-buttons side="left">
+      <button class="button button-clear ion-android-arrow-back sigupIconLeft" ng-click="goBackHandler()">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear ion-android-more-vertical sigupRight">
+        </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="has-header signUpForm has-footer">
+    <div class=" ">
+      <label class=" item-input ">
+    <input type="text" placeholder="Name already filled" disabled="">
+  </label>
+      <label class=" item-input ">
+    <input type="text" placeholder="Email Id already filled" disabled="">
+  </label>
+
+     <label class=" item-input ">
+    <input type="number" placeholder="Company Name filled" disabled="">
+  </label>
+      <label class=" item-input ">
+    <input type="text" placeholder="Company Address filled" disabled="">
+  </label>
+
+      <label class=" item-input ">
+    <input type="text" placeholder="" disabled>
+  </label>
+      <label class=" item-input ">
+    <input type="number" placeholder="Pincode filled" ng-click="sorryPopup()" disabled="">
+  </label>
+    </div>
+    <!--<div class="list paddingDiv">
+      <label class="item item-input nameSignup">
+    <input class = "plcHldr" type="text" placeholder="Your Name">
+  </label>
+      <label class="item item-input">
+    <input class = "plcHldr" type="text" placeholder="Email Id(optional)">
+  </label>
+    </div>-->
+    <div class="row">
+      <div class="col col-50">
+        <div class="card signUpCard mt-10">
+          <i class="ion ion-ios-camera-outline camcon"></i>
+          <div class="signUpAdd">
+            <i class="ion ion-ios-plus-empty plus">
+
+            </i>
+          </div>
+          <label for="">Update Pan Card</label>
+        </div>
+      </div>
+      <div class="col col-50">
+        <div class="card signUpCard mt-10">
+          <i class="ion ion-ios-camera-outline camcon"></i>
+          <div class="signUpAdd">
+            <i class="ion ion-ios-plus-empty plus">
+            </i>
+          </div>
+          <label for="">Update Aadhar Card</label>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer footer-height signUpFooter">
+    <button class="button button-block button-positive footer-font" ui-sref="app.verification">
+  Save
+</button>
+  </div>
+</ion-view>

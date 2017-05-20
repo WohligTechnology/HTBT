@@ -1,0 +1,68 @@
+<ion-view title="Authorize Payment">
+    <ion-nav-bar class="bar-stable schedule-bar nav-height">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear ion-android-arrow-back sigupIconLeft" ng-click="goBackHandler()">
+        </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <div class="cartbtn">
+                <img src="img/9.png" alt="" ui-sref="app.review">
+            </div>
+            <span class="cartbadge">3</span>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="menu-bgcolor">
+
+        <div class="card ">
+          <div class="m20">
+
+
+          <div class="auth-custinfo" for="">Customer Information</div>
+
+              <label class="item item-input auth-custip">
+          <input class="auth-custipPlc" type="text" placeholder="Enter Customer Name">
+          </label>
+              <label class="item item-input auth-custip">
+          <input class="auth-custipPlc" type="text" placeholder="Enter Customer Mobile Number">
+          </label>
+
+          <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
+          Offer Credits
+          <label class="checkbox noborder ">
+          <input type="checkbox" class="">
+          </label>
+          </li>
+
+              <div class="auth-btnalign">
+
+                <button class="button button-block button-positive" ui-sref="app.confirm">
+          Pay
+          </button>
+
+
+              </div>
+
+         </div>
+         </div>
+         <div class="m35">
+
+            <div class="clear-fix">
+            </div>
+            <div class="row auth-otprow">
+                <div class="col-66">
+                    <label class="item item-input auth-otpcol1Lbl">
+    <input class="" type="text" placeholder="YXBVCK751">
+  </label>
+                </div>
+                <div class="col-33 auth-col2">
+                    <button class="button button-clear button-positive auth-col2btn">
+  COPY
+</button>
+                </div>
+            </div>
+            <button class="button button-block button-positive auth-sharebtn">
+ SHARE
+</button>
+        </div>
+    </ion-content>
+</ion-view>

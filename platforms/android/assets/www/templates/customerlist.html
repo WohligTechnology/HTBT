@@ -1,0 +1,190 @@
+<ion-view title="Customer list">
+  <ion-nav-bar class="bar-stable nonav">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon sigupIconLeft disblock" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear ion-android-more-vertical sigupRight" ng-click="popover.show($event)">
+          </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-tabs class="tab-button tab-header has-header tabs-top custlisttab">
+    <ion-tab title="EXISTING">
+      <ion-content class="hastabstop has-notabs has-tabs">
+        <!--<html ng-app="ionicApp">
+
+        <body class="platform-ios" ng-controller="AppCtrl">
+        <script id="templates/popover.html"  type="text/ng-template">
+          <ion-popover-view class="menupop">
+            <ion-content>
+              <div class="list">
+
+                <a class="item pad5" ui-sref='app.help' ng-click="closePopover()" >
+                  Help
+                </a>
+              </div>
+            </ion-content>
+          </ion-popover-view>
+        </script>
+
+        </body>
+        </html>-->
+        <div class="row pad0 mt5"ui-sref='app.subpage1'>
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt"  >
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Balance: 4 Jars</h6>
+            </div>
+            <div class="custlistarr" >
+              <i class="ion ion-chevron-right item-note "></i>
+            </div>
+          </div>
+        </div>
+        <div class="row pad0 mt5" ui-sref='app.subpage1'>
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Balance: 1 Jar</h6>
+            </div>
+            <div class="custlistarr">
+              <i class="ion ion-chevron-right item-note " ui-sref='app.subpage1'></i>
+            </div>
+          </div>
+        </div>
+        <div class="row pad0 mt5" ui-sref='app.subpage1'>
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt" >
+            <div class="custlist" >
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Balance: 3 Jars</h6>
+            </div>
+            <div class="custlistarr">
+              <i class="ion ion-chevron-right item-note"></i>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-tab>
+    <ion-tab title="PENDING" ng-init="show=0">
+      <ion-content class="hastabstop has-notabs has-tabs " >
+        <div class="row pad0 mt5" ui-sref="app.subpage1">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Order Confirmed</h6>
+            </div>
+            <div class="custgear ">
+              <i class="ion ion-android-settings item-note " ng-click= "dropdown.show($event)"></i>
+                <!-- <div class="card popcard" ng-if="show==1">
+              <label for="">share link</label> <br>
+               <label for="">Delete</label>
+            </div> -->
+
+            </div>
+
+          </div>
+        </div>
+        <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Order Confirmed</h6>
+            </div>
+          <div class="custgear " >
+              <i class="ion ion-android-settings item-note "  ng-click= "dropdown.show($event)"></i>
+                <!-- <div class="card popcard" ng-if="show==2">
+              <label for="">share link</label> <br>
+               <label for="">Delete</label>
+            </div> -->
+
+            </div>
+          </div>
+        </div>
+        <div class="row pad0 mt5">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Order Confirmed</h6>
+            </div>
+          <div class="custgear " >
+              <i class="ion ion-android-settings item-note "  ng-click= "dropdown.show($event)"></i>
+                <!-- <div class="card popcard" ng-if="show==2">
+              <label for="">share link</label> <br>
+               <label for="">Delete</label>
+            </div> -->
+
+            </div>
+          </div>
+        </div>
+        <div class="row pad0 mt5" ui-sref="app.subpage1">
+          <div class="col-20">
+            <div class="custimg">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="col-80 cust-bt">
+            <div class="custlist">
+              <h4>Name</h4>
+              <h5>Contact no.</h5>
+              <h6> Order Confirmed</h6>
+            </div>
+          <div class="custgear " >
+              <i class="ion ion-android-settings item-note "  ng-click= "dropdown.show($event)"></i>
+                <!-- <div class="card popcard" ng-if="show==2">
+              <label for="">share link</label> <br>
+               <label for="">Delete</label>
+            </div> -->
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
+  <div class="cust-search" >
+    <label class="item item-input">
+          <input type="text" placeholder="Search by Name/Number">
+          <i class="icon ion-android-search placeholder-icon item-note"></i>
+        </label>
+  </div>
+</ion-view>
