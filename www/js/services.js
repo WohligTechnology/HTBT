@@ -1,7 +1,7 @@
 // var adminurl = "http://192.168.43.147:80/api/"; //local
 
 // var adminurl = "http://104.198.28.29:80/api/"; //server
-var adminurl = "http://192.168.2.47:1337/api/"; //server
+var adminurl = "http://192.168.2.24:1337/api/"; //server
 
 // var imgpath = adminurl + "uploadfile/getupload?file=";
 var imgurl = adminurl + "upload/";
@@ -38,7 +38,26 @@ console.log(data);
         }).success(callback);
       },
 
-
+    getByPin: function (data,callback) {
+        $http({
+          url: adminurl + 'Pincode/getByPin',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+   getProfile: function (data,callback) {
+     console.log(data);
+     var data1={
+       _id:data._id
+     }
+        $http({
+          url: adminurl + 'User/getProfile',
+          method: 'POST',
+          withCredentials: true,
+          data: data1
+        }).success(callback);
+      },
  categories: function (callback) {
 
         $http({

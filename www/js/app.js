@@ -264,6 +264,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
     })
+        .state('pincode', {
+      cache:false,
+      url: '/pincode',
+      templateUrl: 'templates/pincode.html',
+      controller: 'PincodeCtrl'
+    })
 
   .state('verify', {
     cache:false,

@@ -10146,7 +10146,8 @@ a.button {
     font-weight: 500;
     display: block; }
 
-.item-complex .item-content, .item-radio .item-content {
+.item-complex .item-content,
+.item-radio .item-content {
   padding: 0; }
 
 .bbtrans {
@@ -12059,7 +12060,21 @@ p.onceLblr {
 .hasterms {
   bottom: 90px; }
 
-textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
   color: black !important; }
 
 .error-msg {
@@ -12078,3 +12093,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   top: 10px; }
   .pan-adh-img img {
     width: 100%; }
+
+.midpin {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%; }
