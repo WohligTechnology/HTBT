@@ -10875,16 +10875,19 @@ a.button {
 
 .browse-card1 {
   padding: 1.5px;
-  margin: 1.5px; }
+  margin: 1.5px;
+  overflow: hidden; }
   .browse-card1 .icondiv {
     height: 170px;
     padding: 15px 0;
     display: block;
     text-align: center;
-    background: #e7e9ea; }
+    background: #e7e9ea;
+    overflow: hidden; }
     .browse-card1 .icondiv img {
       height: 100%;
-      width: auto; }
+      width: auto;
+      overflow: hidden; }
   .browse-card1 label {
     text-align: center;
     display: block;

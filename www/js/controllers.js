@@ -99,6 +99,26 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
       window.history.back(); //This works
     };
 
+$scope.total=0;
+$scope.cart=$.jStorage.get('cart');
+$scope.removecart=function(id){
+console.log("product",id);
+
+_.remove($scope.cart, function(n) {
+  return n._id == id;
+});
+console.log("product",$scope.cart);
+$.jStorage.set('cart',$scope.cart);
+console.log("as",$.jStorage.get('cart'));
+$scope.total=0;
+
+_.forEach($scope.cart, function(value) {
+  $scope.total=$scope.total+(value.price*value.q);
+});
+}
+_.forEach($scope.cart, function(value) {
+  $scope.total=$scope.total+(value.price*value.q);
+});
     var ipObj1 = {
       callback: function (val) { //Mandatory
         console.log('Return value from the datepicker popup is : ' + val, new Date(val));
@@ -217,7 +237,18 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     //     $scope.togglePager = function(){
     //     $scope.pager = !$scope.pager;
     //   }
+    $scope.nextPage = function (sub, id) {
+      if (sub == 'Yes') {
+        $state.go('app.browse-more', {
+          'category': id
+        })
+      } else {
+        $state.go('app.productSpecs', {
+          'category': id
+        })
 
+      }
+    };
     $scope.goBackHandler = function () {
       window.history.back(); //This works
     };
@@ -257,10 +288,46 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     });
   })
 
-  .controller('ProductSpecsCtrl', function ($scope, $stateParams) {
+  .controller('ProductSpecsCtrl', function ($scope,$state, $stateParams, MyServices) {
     $scope.goBackHandler = function () {
       window.history.back(); //This works
     };
+    $scope.total=0;
+$scope.saveJ=function(product1){
+
+$.jStorage.set('cart',product1);
+$state.go('app.review');
+
+}
+$scope.cardno=function(prod,value){
+
+
+_.forEach(prod, function(value) {
+  console.log(value);
+  $scope.total=$scope.total+value.q;
+});
+
+
+
+
+}
+$scope.total = 0;
+$scope.getTotal = function (num) {
+
+$scope.total = $scope.total + num;
+}
+    $scope.product = {}
+    // alert($stateParams.category);
+    $scope.product.category = $stateParams.category;
+
+    console.log("dsjh", $scope.product, $stateParams)
+    MyServices.products($scope.product, function (data) {
+
+      console.log(data);
+      $scope.prod = data.data;
+      console.log("proctid", $scope.prod);
+
+    });
   })
 
   .controller('PlaylistsCtrl', function ($scope) {
@@ -368,7 +435,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
   .controller('LoginCtrl', function ($scope, $stateParams) {})
 
   .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicSlideBoxDelegate) {
-        $scope.profile=  $.jStorage.get('profile');
+    $scope.profile = $.jStorage.get('profile');
 
 
     $scope.showPopup = function () {
@@ -395,16 +462,16 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
       $ionicSlideBoxDelegate.next();
     };
-    $scope.getProfileid={};
+    $scope.getProfileid = {};
     console.log($scope.profile);
-    $scope.getProfileid._id= $scope.profile.data._id;
-          MyServices.getProfile($scope.getProfileid, function (data) {
-            if (data.value) {
-              $scope.dash= data.data;
-            } else {
-        
-            }
-          });
+    $scope.getProfileid._id = $scope.profile.data._id;
+    MyServices.getProfile($scope.getProfileid, function (data) {
+      if (data.value) {
+        $scope.dash = data.data;
+      } else {
+
+      }
+    });
   })
   .controller('PincodeCtrl', function ($scope, $ionicPopup, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {})
   .controller('SignUpCtrl', function ($scope, $ionicPopup, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {

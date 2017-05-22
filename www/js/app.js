@@ -111,7 +111,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.productSpecs', {
     cache:false,
-    url: '/productSpecs',
+    url: '/productSpecs/:category',
     views: {
       'menuContent': {
         templateUrl: 'templates/productSpecs.html',
