@@ -513,6 +513,8 @@ $scope.total = $scope.total + num;
       MyServices.signup($scope.signupForm, function (data) {
 
         console.log(data);
+        $scope.signupForm = data.data;
+        console.log($scope.signupForm)
         if ("data.status == true") {
           $scope.pincode = {};
           $scope.pincode.pin = data.data.pincode;
