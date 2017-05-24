@@ -42,7 +42,7 @@
                 <div class="col-50"  ng-repeat="data in data1" ng-init="innerIndex=$index">
 
                     <div class="browse-card1" ng-if="(outerIndex + innerIndex )% 2 == 0" ng-click="nextPage(data.subscription,data._id);">
-                      {{(innerIndex + outerIndex )%2}}{{innerIndex}}{{ outerIndex}}
+                    
                         <div class="icondiv" >
                             <!--<img src="{{data2.catImage}}" alt="" ng-if="{{data2.catImage}}">-->
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">
@@ -50,7 +50,7 @@
                         <label for="">{{data.name}}</label>
                     </div>
                     <div class="browse-card2" ng-if="(outerIndex + innerIndex )% 2 != 0"  ng-click="nextPage(data.subscription,data._id);">
-{{(innerIndex + outerIndex )%2}}{{innerIndex}}{{ outerIndex}}
+
                         <div class="icondiv">
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
