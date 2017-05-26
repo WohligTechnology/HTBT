@@ -38,21 +38,24 @@
         <div class="browse-grid">
 
             <label for="" class="browse-text">Our Products</label>
-            <div class="row" ng-if="category.length>0" ng-repeat="data1 in category">
-                <div class="col-50"  ng-repeat="data in data1 track by $index">
-                    <div class="browse-card1"  ng-click="nextPage(data.subscription,data._id);">
+            <div class="row" ng-if="category.length>0" ng-repeat="data1 in category"  ng-init="outerIndex=$index">
+                <div class="col-50"  ng-repeat="data in data1" ng-init="innerIndex=$index">
+
+                    <div class="browse-card1" ng-if="(outerIndex + innerIndex )% 2 == 0" ng-click="nextPage(data.subscription,data._id);">
+                    
                         <div class="icondiv" >
                             <!--<img src="{{data2.catImage}}" alt="" ng-if="{{data2.catImage}}">-->
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
                         <label for="">{{data.name}}</label>
                     </div>
-                    <!--<div class="browse-card2" ng-if="data.subscription=='No'"  ui-sref="app.productSpecs({'category':data._id})">
+                    <div class="browse-card2" ng-if="(outerIndex + innerIndex )% 2 != 0"  ng-click="nextPage(data.subscription,data._id);">
+
                         <div class="icondiv">
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
                         <label for="">{{data.name}}</label>
-                    </div>-->
+                    </div>
                 </div>
                 <!--<div class="col-50" ui-sref="app.productSpecs" ng-repeat="data in data1">
 
@@ -99,3 +102,4 @@
     <!-- <div class="search-fix"> <i class="ion ion-ios-search-strong"></i>
     </div> -->
 </ion-view>
+<!--  -->
