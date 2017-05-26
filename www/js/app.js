@@ -216,15 +216,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('app.verification', {
+    .state('verification', {
       cache:false,
         url: '/verification',
-        views: {
-          'menuContent': {
+      
             templateUrl: 'templates/verification.html',
             controller: 'VerificationCtrl'
-          }
-        }
+
       })
 
       .state('app.credits', {

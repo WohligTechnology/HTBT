@@ -1,7 +1,7 @@
 // var adminurl = "http://192.168.43.147:80/api/"; //local
 
 // var adminurl = "http://104.198.28.29:80/api/"; //server
-var adminurl = "http://localhost:1337/api/"; //server
+var adminurl = "http://192.168.0.117:1337/api/"; //server
 
 // var imgpath = adminurl + "uploadfile/getupload?file=";
 var imgurl = adminurl + "upload/";
@@ -37,10 +37,34 @@ console.log(data);
           data: data
         }).success(callback);
       },
-
+   saveData: function (data, callback) {
+        console.log(data);
+        $http({
+          url: adminurl + 'User/save',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+    getonePro: function (data,callback) {
+        $http({
+          url: adminurl + 'User/getone',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
     getByPin: function (data,callback) {
         $http({
           url: adminurl + 'Pincode/getByPin',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+    updateAndGetResponse: function (data,callback) {
+        $http({
+          url: adminurl + 'User/updateAndGetResponse',
           method: 'POST',
           withCredentials: true,
           data: data

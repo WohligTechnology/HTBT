@@ -19,7 +19,9 @@
       <div class="roundedPrgDiv"></div>
       <i class="ion ion-information-circled info" ng-click="showPopup()"></i>
       <div class="overallRupeeDiv" ng-click="showPopup()">
-        <label class="rupeeFont" for="">₹ 500</label>
+        <label class="rupeeFont" for="" ng-if="dash.earnings">₹ {{dash.earnings}}</label>
+        <label class="rupeeFont" for="" ng-if="!dash.earnings">₹ 0</label>
+
       </div>
       <div class="sinceDateDiv">
         <label class=" " for="">Since February 1, 2017</label>
@@ -28,9 +30,13 @@
     <div class="row bottomTopMarRow">
       <div class="col col-33 colPad">
         <div class="numberDiv">
-          <label class="rankLabel" for=" ">15</label>
+          <label class="rankLabel" for=" " ng-if="dash.rank">{{dash.rank}}</label>
+          <label class="rankLabel" for=" " ng-if="!dash.rank">0</label>
+
           <i class="ion ion-android-arrow-up "></i>
-          <span>(2)</span>
+          <span ng-if="dash.lastRank">({{dash.rank - dash.lashRank}})</span>
+          <span ng-if="!dash.lastRank">(0)</span>
+
         </div>
         <div class="rankDiv">
           <pr>Rank</pr>
@@ -38,7 +44,9 @@
       </div>
       <div class="col col-33 colPad ">
         <div class="lastMonth">
-          <label for=" ">₹ 1,250</label>
+          <label for=" " ng-if="dash.lastMonthEarnings">₹ {{dash.lastMonthEarnings | number}}</label>
+          <label for=" " ng-if="!dash.lastMonthEarnings">₹ 0</label>
+
           <pr>Last Month</pr>
         </div>
       </div>

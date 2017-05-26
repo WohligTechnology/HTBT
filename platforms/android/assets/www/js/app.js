@@ -58,7 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.browse-more', {
     cache:false,
-      url: '/browse-more',
+      url: '/browse-more/:category',
       views: {
         'menuContent': {
           templateUrl: 'templates/browse-more.html',
@@ -111,7 +111,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.productSpecs', {
     cache:false,
-    url: '/productSpecs',
+    url: '/productSpecs/:category',
     views: {
       'menuContent': {
         templateUrl: 'templates/productSpecs.html',
@@ -196,7 +196,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
   .state('app.customerlist', {
-   
+
       url: '/customerlist',
       views: {
         'menuContent': {
@@ -216,15 +216,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('app.verification', {
+    .state('verification', {
       cache:false,
         url: '/verification',
-        views: {
-          'menuContent': {
+      
             templateUrl: 'templates/verification.html',
             controller: 'VerificationCtrl'
-          }
-        }
+
       })
 
       .state('app.credits', {
@@ -263,6 +261,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
+    })
+        .state('pincode', {
+      cache:false,
+      url: '/pincode',
+      templateUrl: 'templates/pincode.html',
+      controller: 'PincodeCtrl'
     })
 
   .state('verify', {

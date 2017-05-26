@@ -10146,7 +10146,8 @@ a.button {
     font-weight: 500;
     display: block; }
 
-.item-complex .item-content, .item-radio .item-content {
+.item-complex .item-content,
+.item-radio .item-content {
   padding: 0; }
 
 .bbtrans {
@@ -10811,9 +10812,13 @@ a.button {
 .ionSlider .ion-record:before {
   font-size: 10px !important; }
 
+.col50-width {
+  max-width: none !important; }
+
 .browse-sliderRow {
   height: 100%;
-  background: #f2f4f5; }
+  background: #f2f4f5;
+  width: 360px; }
 
 .browse-slideImgDiv {
   height: 100%;
@@ -10870,16 +10875,19 @@ a.button {
 
 .browse-card1 {
   padding: 1.5px;
-  margin: 1.5px; }
+  margin: 1.5px;
+  overflow: hidden; }
   .browse-card1 .icondiv {
     height: 170px;
     padding: 15px 0;
     display: block;
     text-align: center;
-    background: #e7e9ea; }
+    background: #e7e9ea;
+    overflow: hidden; }
     .browse-card1 .icondiv img {
       height: 100%;
-      width: auto; }
+      width: auto;
+      overflow: hidden; }
   .browse-card1 label {
     text-align: center;
     display: block;
@@ -11135,9 +11143,9 @@ a.button {
   background: #ff414d;
   padding: 0 5px;
   border-radius: 50%;
-  height: 20px;
+  height: auto;
   color: white;
-  width: 20px;
+  width: auto;
   text-align: center;
   vertical-align: middle;
   position: absolute;
@@ -12055,7 +12063,21 @@ p.onceLblr {
 .hasterms {
   bottom: 90px; }
 
-textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
   color: black !important; }
 
 .error-msg {
@@ -12074,3 +12096,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   top: 10px; }
   .pan-adh-img img {
     width: 100%; }
+
+.midpin {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%; }

@@ -11,13 +11,11 @@
     </ion-nav-bar>
     <ion-content class="has-header chkout-bgcolor has-footer">
         <div>
-            <div class="row review-height">
-                <div>
-                    <i class="button button-icon icon ion-ios-close-outline review-closebutton" ng-click="closePopup();"></i>
-                </div>
+            <div class="row review-height" ng-repeat="cr in cart" ng-if="cr.q!=0">
+                    <i class="button button-icon icon ion-ios-close-outline review-closebutton" ng-click="removecart(cr._id)"></i>
                 <div class="col-33">
                     <div class="chkout-imgdivcol">
-                        <img class="browse-sliderImg " src="img/aqua1liter.png" alt="">
+                        <img class="browse-sliderImg " ng-src="{{cr.smallImage}}" alt="">
                         <!--<div class="chkout-line">
                         </div>-->
                     </div>
@@ -28,10 +26,10 @@
                 </div>
                 <div class="">
                     <div class="chkout-align">
-                        <h2 class="chkout-fontsize">Aquafina</h2>
-                        <div for="" class="colorpure">Purified water <i class="ion ion-information-circled"></i></div>
+                        <h2 class="chkout-fontsize">{{cr.name}}</h2>
+                        <div for="" class="colorpure">{{cr.tags}} <i class="ion ion-information-circled"></i></div>
                         <div for="" class="desc">3 cartons (36 bottles)</div>
-                        <div for="" class="desc">₹ 30</div>
+                        <div for="" class="desc">₹ {{cr.price}}</div>
                     </div>
                 </div>
             </div>
@@ -41,13 +39,13 @@
                 <label for="">Enter coupon code</label>
             </div>
             <div class="col-50 chkpadip">
-                <!--<input type="text" placeholder="Type coupon code here">-->
-                <div class="flexdiv">
+                <input type="text" placeholder="Type coupon code here">
+                <!--<div class="flexdiv">
                     <label for="">Coupon Applied</label>
                     <div class="review-tickDiv">
                         <img class="order-jarImg" src="img/small_tick.png" alt="">
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="row bgrowQuant ">
@@ -60,7 +58,7 @@
             </div>
             <div class="col-33 bgchkoutcol502">
                 <div>
-                    <label for="">₹  90</label>
+                    <label for="">₹  {{total}}</label>
                 </div>
             </div>
         </div>

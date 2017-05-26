@@ -12,86 +12,56 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="has-header browse-backgrndcolor">
-        <ion-slide-box class="ionSlider">
-            <ion-slide>
+        <ion-slide-box class="ionSlider" on-slide-changed="slideHasChanged($index)"  show-pager="true">
+            <ion-slide  ng-if="feaprods.length>0" ng-repeat="data in feaprods" [options]="{pager:true}">
                 <div class="box box1">
                     <div class="row browse-sliderRow">
                         <div class="col-50">
                             <div class="browse-slideImgDiv">
-                                <img class="browse-sliderImg " src="img/aquashadow.png" alt="">
+                                <img class="browse-sliderImg " ng-src="{{data.bigImage | uploadpath}}" alt="">
                             </div>
                         </div>
                         <div class="col-50 browse-col502">
-                            <span class="browse-col502lbl" for="">20L</span>
-                            <span class="browse-col502aqua" for="">Aquafina</span>
+                            <span class="browse-col502lbl" for="">{{data.category.name}}</span>
+                            <span class="browse-col502aqua" for="">{{data.name}}</span>
                             <span class="browse-col502ltrcolor">Per Jars</span>
                             <span class="browse-col502slash">|</span>
                             <span class="browse-col502rupeesymb">₹</span>
-                            <span class="browse-col502rupees">80</span>
+                            <span class="browse-col502rupees">{{data.price}}</span>
                         </div>
                     </div>
                 </div>
             </ion-slide>
-            <ion-slide>
-                <div class="box box2">
-                    <div class="row browse-sliderRow">
-                        <div class="col-50">
-                            <div class="browse-slideImgDiv">
-                                <img class="browse-sliderImg" src="img/aquashadow.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-50 browse-col502">
-                            <span class="browse-col502lbl" for="">20L</span>
-                            <span class="browse-col502aqua" for="">Aquafina</span>
-                            <span class="browse-col502ltrcolor">Per Jars</span>
-                            <span class="browse-col502slash">|</span>
-                            <span class="browse-col502rupeesymb">₹</span>
-                            <span class="browse-col502rupees">80</span>
-                        </div>
-                    </div>
-                </div>
-            </ion-slide>
-            <ion-slide>
-                <div class="box box3">
-                    <div class="row browse-sliderRow">
-                        <div class="col-50">
-                            <div class="browse-slideImgDiv">
-                                <img class="browse-sliderImg" src="img/aquashadow.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-50 browse-col502">
-                            <span class="browse-col502lbl" for="">20L</span>
-                            <span class="browse-col502aqua" for="">Aquafina</span>
-                            <span class="browse-col502ltrcolor">Per Jars</span>
-                            <span class="browse-col502slash">|</span>
-                            <span class="browse-col502rupeesymb">₹</span>
-                            <span class="browse-col502rupees">80</span>
-                        </div>
-                    </div>
-                </div>
-            </ion-slide>
+
+
         </ion-slide-box>
         <div class="browse-grid">
+
             <label for="" class="browse-text">Our Products</label>
-            <div class="row">
-                <div class="col-50" ui-sref='app.browse-more'>
-                    <div class="browse-card1">
-                        <div class="icondiv">
-                            <img src="img/bisleriaquacan.png" alt="">
+            <div class="row" ng-if="category.length>0" ng-repeat="data1 in category"  ng-init="outerIndex=$index">
+                <div class="col-50"  ng-repeat="data in data1" ng-init="innerIndex=$index">
+
+                    <div class="browse-card1" ng-if="(outerIndex + innerIndex )% 2 == 0" ng-click="nextPage(data.subscription,data._id);">
+                    
+                        <div class="icondiv" >
+                            <!--<img src="{{data2.catImage}}" alt="" ng-if="{{data2.catImage}}">-->
+                            <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
-                        <label for="">20 Liter</label>
+                        <label for="">{{data.name}}</label>
+                    </div>
+                    <div class="browse-card2" ng-if="(outerIndex + innerIndex )% 2 != 0"  ng-click="nextPage(data.subscription,data._id);">
+
+                        <div class="icondiv">
+                            <img ng-src="{{data.catImage | uploadpath}}" alt="">
+                        </div>
+                        <label for="">{{data.name}}</label>
                     </div>
                 </div>
-                <div class="col-50" ui-sref="app.productSpecs">
-                    <div class="browse-card2 ">
-                        <div class="icondiv">
-                            <img src="img/aqua1liter.png" alt="">
-                        </div>
-                        <label for="">1 Liter</label>
-                    </div>
-                </div>
+                <!--<div class="col-50" ui-sref="app.productSpecs" ng-repeat="data in data1">
+
+                </div>-->
             </div>
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-50" ui-sref="app.productSpecs">
                     <div class="oneliter-pack">
                         <div class="icondiv">
@@ -126,9 +96,10 @@
                         <label for="">1 Liter</label>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </ion-content>
     <!-- <div class="search-fix"> <i class="ion ion-ios-search-strong"></i>
     </div> -->
 </ion-view>
+<!--  -->
