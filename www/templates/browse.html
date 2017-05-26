@@ -8,7 +8,8 @@
             <div class="cartbtn">
                 <img src="img/9.png" alt="" ui-sref="app.review">
             </div>
-            <span class="cartbadge">3</span>
+            <span class="cartbadge" ng-if="browse.cart.totalAmount">{{browse.cart.totalAmount}}</span>
+            <span class="cartbadge" ng-if="!browse.cart.totalAmount">0</span>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="has-header browse-backgrndcolor">
@@ -42,7 +43,7 @@
                 <div class="col-50"  ng-repeat="data in data1" ng-init="innerIndex=$index">
 
                     <div class="browse-card1" ng-if="(outerIndex + innerIndex )% 2 == 0" ng-click="nextPage(data.subscription,data._id);">
-                    
+
                         <div class="icondiv" >
                             <!--<img src="{{data2.catImage}}" alt="" ng-if="{{data2.catImage}}">-->
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">

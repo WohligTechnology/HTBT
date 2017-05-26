@@ -101,6 +101,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.browse', {
     url: '/browse',
+    cache:false,
+
     views: {
       'menuContent': {
         templateUrl: 'templates/browse.html',
@@ -219,7 +221,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('verification', {
       cache:false,
         url: '/verification',
-      
+
             templateUrl: 'templates/verification.html',
             controller: 'VerificationCtrl'
 

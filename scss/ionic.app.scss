@@ -1497,14 +1497,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .prdcticon {
   height: 120px;
-  width: 100%;
-  text-align: center;
-  margin: 15px 10px;
-  // overflow: hidden;
-
-  img {
-    height: 100%;
-  }
+    width: 120px;
+    text-align: center;
+    margin: 15px 10px;
+    overflow: hidden;
+    img {
+        height: 100%;
+        width: 50%;
+    }
   .line {
     height: 90%;
     display: inline-block;

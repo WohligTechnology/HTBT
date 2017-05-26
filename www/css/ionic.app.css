@@ -11007,11 +11007,13 @@ a.button {
 
 .prdcticon {
   height: 120px;
-  width: 100%;
+  width: 120px;
   text-align: center;
-  margin: 15px 10px; }
+  margin: 15px 10px;
+  overflow: hidden; }
   .prdcticon img {
-    height: 100%; }
+    height: 100%;
+    width: 50%; }
   .prdcticon .line {
     height: 90%;
     display: inline-block;

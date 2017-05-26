@@ -71,6 +71,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             console.log("proctid", $scope.prod);
 
         });
+
     })
 
     .controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
@@ -86,7 +87,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
-    
+
         // setInterval(function () {
         //     $scope.verify();
         // }, 15000);
@@ -127,34 +128,46 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
 
-    .controller('ReviewCtrl', function ($scope, $stateParams) {
+    .controller('ReviewCtrl', function ($scope, $stateParams,MyServices) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
 
 
-        $scope.total = 0;
-        $scope.cart = $.jStorage.get('cart');
-        $scope.removecart = function (id) {
-            console.log("product", id);
+        // $scope.total = 0;
+        // $scope.cart = $.jStorage.get('cart');
+        // $scope.removecart = function (id) {
+        //     console.log("product", id);
+        //
+        //     _.remove($scope.cart, function (n) {
+        //         return n._id == id;
+        //     });
+        //     console.log("product", $scope.cart);
+        //     $.jStorage.set('cart', $scope.cart);
+        //     console.log("as", $.jStorage.get('cart'));
+        //     $scope.total = 0;
+        //
+        //     _.forEach($scope.cart, function (value) {
+        //         $scope.total = $scope.total + (value.price * value.quantity);
+        //     });
+        // }
+        // _.forEach($scope.cart, function (value) {
+        //     $scope.total = $scope.total + (value.price * value.quantity);
+        // });
+        $scope.profile = $.jStorage.get('profile');
 
-            _.remove($scope.cart, function (n) {
-                return n._id == id;
-            });
-            console.log("product", $scope.cart);
-            $.jStorage.set('cart', $scope.cart);
-            console.log("as", $.jStorage.get('cart'));
-            $scope.total = 0;
+        $scope.getProfield = {};
+        console.log($scope.profile);
+        $scope.getProfield._id = $scope.profile._id;
+        MyServices.getProfile($scope.getProfield, function (data) {
+          console.log(data);
+            if (data.value) {
+                $scope.review = data.data;
+                console.log($scope.review );
+            } else {
 
-            _.forEach($scope.cart, function (value) {
-                $scope.total = $scope.total + (value.price * value.quantity);
-            });
-        }
-        _.forEach($scope.cart, function (value) {
-            $scope.total = $scope.total + (value.price * value.quantity);
+            }
         });
-
-
     })
 
     .controller('CheckoutCtrl', function ($scope, $stateParams, $ionicPopover, ionicDatePicker) {
@@ -231,31 +244,39 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     })
 
     .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state) {
-        //     $scope.nextSlide = function () {
-        //       $ionicSlideBoxDelegate.next();
-        //     };
 
-        // $ionicSlideBoxDelegate.update();
-        //      $scope.currentIndex = 1;
-
-        //   // Called each time the slide changes
-
-
-
-
-        //     $scope.pager = true;
-        //     $scope.togglePager = function(){
-        //     $scope.pager = !$scope.pager;
-        //   }
-        $scope.nextPage = function (sub, id) {
+      $scope.nextPage = function(sub, id) {
             if (sub == 'Yes') {
-                $state.go('app.browse-more', {
-                    'category': id
-                })
+                if ($scope.browse.cartProducts) {
+                    var found = false;
+                    _.forEach($scope.profile.cartProducts, function(value1) {
+                        if (value1.category.subscription == "No") {
+                            found = true;
+                        }
+                    });
+                }
+
+                if (!found) {
+                    $state.go('app.browse-more', {
+                        'category': id
+                    })
+                }
+
             } else {
+              if ($scope.browse.cartProducts) {
+                  var found = false;
+                  _.forEach($scope.profile.cartProducts, function(value1) {
+                      if (value1.category.subscription == "Yes") {
+                          found = true;
+                      }
+                  });
+              }
+
+              if (!found) {
                 $state.go('app.productSpecs', {
                     'category': id
                 })
+              }
 
             }
         };
@@ -268,33 +289,25 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.category = _.chunk(data.data, 2);
             console.log($scope.category);
 
+        });
+        $scope.profile = $.jStorage.get('profile');
+        $scope.getProfield = {};
+        console.log($scope.profile);
+        $scope.getProfield._id = $scope.profile._id;
+        MyServices.getProfile($scope.getProfield, function (data) {
+            if (data.value) {
+                $scope.browse = data.data;
+            } else {
 
-
-
-            // if ("data.status == true") {
-            //   $state.go('app.verification');
-            // } else {
-
-            //   // $scope.showAlert(data.status, 'login', 'Error Message');
-            // }
+            }
         });
         MyServices.featureprods(function (data) {
 
             console.log(data);
             $scope.feaprods = data.data;
             console.log("let me know", $scope.feaprods);
-
-
-            // $ionicSlideBoxDelegate.slide(0);
             $ionicSlideBoxDelegate.update();
-            // $scope.$apply();
 
-            // if ("data.status == true") {
-            //   $state.go('app.verification');
-            // } else {
-
-            //   // $scope.showAlert(data.status, 'login', 'Error Message');
-            // }
         });
     })
 
@@ -320,9 +333,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         $scope.addtocart = function () {
             _.forEach($scope.prod, function (value) {
-                if (value.productQuantity != 0) {
                     var found = false;
-                    _.forEach($scope.profile.data.cartProducts, function (value1) {
+                    _.forEach($scope.profile.cartProducts, function (value1) {
                         if (value1.name == value.name) {
                             console.log(value1.productQuantity);
                             // if(value.productQuantity!=0){
@@ -340,22 +352,29 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     //     }
                     // });
                     if (!found) {
-                        $scope.profile.data.cartProducts.push(value);
+                        $scope.profile.cartProducts.push(value);
                     }
-                } else {
+              });
+                  _.remove($scope.profile.cartProducts, function(n) {
+                    return n.productQuantity == 0;
+                  });
 
-                }
-            });
+
             $.jStorage.set('profile', $scope.profile);
-            MyServices.signup($scope.profile.data, function (data) {});
+            MyServices.saveData($scope.profile, function (data) {
+
+              if(data.value){
+                $state.go('app.review');
+              }
+            });
 
         }
 
 
 
         $scope.getTotal = function (num) {
-            console.log($scope.profile.data.cart.totalAmount);
-            $scope.profile.data.cart.totalAmount = $scope.profile.data.cart.totalAmount + num;
+            console.log($scope.profile.cart.totalAmount);
+            $scope.profile.cart.totalAmount = $scope.profile.cart.totalAmount + num;
         }
         $scope.product = {}
         // alert($stateParams.category);
@@ -363,17 +382,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         console.log("dsjh", $scope.product, $stateParams)
         MyServices.products($scope.product, function (data) {
-            $scope.profile.data.cart = {};
-            $scope.profile.data.cart.totalAmount = 0;
+            $scope.profile.cart = {};
+            $scope.profile.cart.totalAmount = 0;
             console.log(data);
             $scope.prod = data.data;
             _.forEach($scope.prod, function (value) {
-                if ($scope.profile.data.cartProducts.length != 0) {
-                    _.forEach($scope.profile.data.cartProducts, function (value1) {
+                if ($scope.profile.cartProducts.length != 0) {
+                    _.forEach($scope.profile.cartProducts, function (value1) {
                         console.log(value.productQuantity, value1.productQuantity);
 
                         if (value1.name == value.name) {
-                            $scope.profile.data.cart.totalAmount = $scope.profile.data.cart.totalAmount + value1.productQuantity;
+                            $scope.profile.cart.totalAmount = $scope.profile.cart.totalAmount + value1.productQuantity;
                             value.productQuantity = value1.productQuantity;
                             console.log("value");
                         }

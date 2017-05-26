@@ -10,12 +10,12 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="has-header chkout-bgcolor has-footer">
-        <div>
-            <div class="row review-height" ng-repeat="cr in cart" ng-if="cr.q!=0">
+        <div class="rel" ng-repeat="cr in review.cartProducts">
+            <div class="row review-height" >
                     <i class="button button-icon icon ion-ios-close-outline review-closebutton" ng-click="removecart(cr._id)"></i>
                 <div class="col-33">
                     <div class="chkout-imgdivcol">
-                        <img class="browse-sliderImg " ng-src="{{cr.smallImage}}" alt="">
+                        <img class="browse-sliderImg " ng-src="{{cr.smallImage | uploadpath}}" alt="">
                         <!--<div class="chkout-line">
                         </div>-->
                     </div>
@@ -28,7 +28,7 @@
                     <div class="chkout-align">
                         <h2 class="chkout-fontsize">{{cr.name}}</h2>
                         <div for="" class="colorpure">{{cr.tags}} <i class="ion ion-information-circled"></i></div>
-                        <div for="" class="desc">3 cartons (36 bottles)</div>
+                        <div for="" class="desc">{{cr.productQuantity}}</div>
                         <div for="" class="desc">₹ {{cr.price}}</div>
                     </div>
                 </div>
