@@ -445,13 +445,54 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
     })
 
-    .controller('ProfileCtrl', function ($scope) {
+    .controller('ProfileCtrl', function ($scope,MyServices) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+        $scope.profile = $.jStorage.get('profile');
+
+        $scope.getProfield = {};
+        console.log($scope.profile);
+        $scope.getProfield._id = $scope.profile._id;
+        MyServices.getProfile($scope.getProfield, function (data) {
+          console.log(data);
+            if (data.value) {
+                $scope.signupForm = data.data;
+                console.log($scope.review );
+            } else {
+
+            }
+        });
+
+        $scope.save = function () {
+
+                MyServices.saveData($scope.signupForm, function (data) {
+
+                    console.log(data);
+                    $scope.signupForm = data.data;
+
+                    console.log($scope.signupForm)
+                    if (data.value == true) {
+
+
+                        $scope.signupForm._id = $.jStorage.get('profile')._id;
+                        MyServices.getonePro($scope.signupForm, function (data) {
+                            $.jStorage.set('profile', data.data);
+                            $scope.signupForm = data.data;
+                          
+
+                        });
+
+
+                    } else {
+
+                        // $scope.showAlert(data.status, 'login', 'Error Message');
+                    }
+                });
 
 
 
+        }
     })
 
     .controller('CustomerListCtrl', function ($scope, $state, $ionicLoading, $ionicPopover) {
@@ -644,7 +685,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     }
                 });
             } else {
-                MyServices.signup($scope.signupForm, function (data) {
+                MyServices.saveData($scope.signupForm, function (data) {
 
                     console.log(data);
                     $scope.signupForm = data.data;
