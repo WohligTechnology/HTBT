@@ -244,106 +244,64 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         });
     })
 
-    .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices) {
+    .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices, $ionicPopup) {
         $scope.goBackHandler = function () {
-            window.history.back(); //This works
+            window.history.back();
         };
-        //     $scope.total=0;
-        // $scope.saveJ=function(product1){
-        //
-        // $.jStorage.set('cart',product1);
-        // $state.go('app.review');
-        //
-        // }
-        // $scope.cardno=function(prod,value){
-        //
-        //
-        // _.forEach(prod, function(value) {
-        //   console.log(value);
-        //   $scope.total=$scope.total+value.quantity;
-        // });
+        $scope.userDetails = MyServices.getAppDetails();
+
         $scope.profile = $.jStorage.get('profile');
-
-        $scope.addtocart = function () {
-            _.forEach($scope.prod, function (value) {
-                var found = false;
-                _.forEach($scope.profile.cartProducts, function (value1) {
-                    if (value1.name == value.name) {
-                        console.log(value1.productQuantity);
-                        // if(value.productQuantity!=0){
-                        value1.productQuantity = value.productQuantity;
-                        found = true;
-                        // }else{
-                        //   value1.productQuantity = 0;
-                        // }
-
-                    }
-                });
-                // found = _.find($scope.profile.data.cartProducts, function(value1) {
-                //     if (value1.name == value.name) {
-                //         return value1.productQuantity = value.productQuantity;;
-                //     }
-                // });
-                if (!found) {
-                    $scope.profile.cartProducts.push(value);
-                }
+        MyServices.products({
+            category: $stateParams.category
+        }, function (data) {
+            $scope.products = data.data;
+        });
+        $scope.checkMinProduct = function (product) {
+            if (product.productQuantity === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.checkMaxProduct = function (product) {
+            if (product.productQuantity >= parseInt(product.quantity)) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.changeProductQuantity = function (product, change) {
+            if (_.isNaN(parseInt(product.productQuantity))) {
+                product.productQuantity = 0;
+            }
+            if (change) {
+                product.productQuantity++;
+            } else {
+                product.productQuantity--;
+            }
+        };
+        $scope.addToCart = function () {
+            var products = _.map($scope.products, function (n) {
+                return {
+                    productQuantity: n.productQuantity,
+                    product: n._id
+                };
             });
-            _.remove($scope.profile.cartProducts, function (n) {
-                return n.productQuantity == 0;
-            });
-
-
-            $.jStorage.set('profile', $scope.profile);
-            MyServices.saveData($scope.profile, function (data) {
-
-                if (data.value) {
-                    $state.go('app.review');
-                }
-            });
-
-        }
-
-
-
-        $scope.getTotal = function (num) {
-            console.log($scope.profile.cart.totalAmount);
-            $scope.profile.cart.totalAmount = $scope.profile.cart.totalAmount + num;
-        }
-        $scope.product = {}
-        // alert($stateParams.category);
-        $scope.product.category = $stateParams.category;
-
-        console.log("dsjh", $scope.product, $stateParams)
-        MyServices.products($scope.product, function (data) {
-            $scope.profile.cart = {};
-            $scope.profile.cart.totalAmount = 0;
-            console.log(data);
-            $scope.prod = data.data;
-            _.forEach($scope.prod, function (value) {
-                if ($scope.profile.cartProducts.length != 0) {
-                    _.forEach($scope.profile.cartProducts, function (value1) {
-                        console.log(value.productQuantity, value1.productQuantity);
-
-                        if (value1.name == value.name) {
-                            $scope.profile.cart.totalAmount = $scope.profile.cart.totalAmount + value1.productQuantity;
-                            value.productQuantity = value1.productQuantity;
-                            console.log("value");
-                        }
-                        if (value.productQuantity == undefined) {
-                            value.productQuantity = 0;
-                        }
+            MyServices.addToCart(products, function (data) {
+                if (data.status == 200) {
+                    $ionicPopup.alert({
+                        title: "Products Added to Cart",
+                        template: "Products Added to Cart Successfully"
                     });
                 } else {
-                    console.log("0");
-                    value.productQuantity = 0;
+                    $ionicPopup.alert({
+                        title: "Error Occured",
+                        template: "Error Occured while adding Products to Cart"
+                    });
                 }
 
-
-
             });
-            console.log("proctid", $scope.prod);
-            $.jStorage.set('profile', $scope.profile);
-        });
+        };
     })
 
     .controller('PlaylistsCtrl', function ($scope) {

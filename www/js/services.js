@@ -10,7 +10,13 @@ var imgpath = imgurl + "readFile?file=";
 
 angular.module('starter.services', [])
   .factory('MyServices', function ($http) {
+    var appDetails = {};
+    appDetails.cartQuantity = $.jStorage.get("cartQuantity");
     return {
+
+      getAppDetails: function () {
+        return appDetails;
+      },
 
       getProfile: function (id, callback) {
         var data = {
@@ -107,6 +113,22 @@ angular.module('starter.services', [])
           withCredentials: true,
           data: data
         }).success(callback);
+      },
+      addToCart: function (products, callback) {
+        var obj = {
+          user: $.jStorage.get("profile")._id,
+          products: products,
+        };
+        $http({
+          url: adminurl + 'user/addToCart',
+          method: 'POST',
+          withCredentials: true,
+          data: obj
+        }).then(function (data) {
+          appDetails.cartQuantity = data.data.data;
+          $.jStorage.set("cartQuantity", data.data.data);
+          callback(data);
+        });
       }
 
     };
