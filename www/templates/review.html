@@ -33,7 +33,10 @@
                 </div>
             </div>
         </div>
-        <div class="row chkoutcoupon">
+        <div class="card card-no " ng-if="products.length==0">
+            No Product Found
+        </div>
+        <div class="row chkoutcoupon" ng-hide="products.length==0">
             <div class="col-50">
                 <label for="">Enter coupon code</label>
             </div>
@@ -42,7 +45,7 @@
 
             </div>
         </div>
-        <div class="row bgrowQuant ">
+        <div class="row bgrowQuant " ng-hide="products.length==0">
             <div class="col-67 bgreviewcol50Quant">
                 <div>
                     <label for="">Total Price
@@ -56,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="row bgrowQuant">
+        <div class="row bgrowQuant" ng-hide="products.length==0">
             <div class="col-67 savingscol501 ">
                 <div>
                     <label for="">Your Total savings
@@ -71,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="row checkbtmcard">
+        <div class="row checkbtmcard" ng-hide="products.length==0">
             <div class="col-25">
                 <div class="datemonth text-center">
                     <div class="datediv">

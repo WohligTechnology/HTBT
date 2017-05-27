@@ -99,7 +99,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
     })
-    .controller('ReviewCtrl', function ($scope, $stateParams, MyServices) {
+    .controller('ReviewCtrl', function ($scope, $stateParams, MyServices, $ionicPopup) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -141,8 +141,19 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
         $scope.removeCart = function (productId) {
             console.log(productId);
-            MyServices.removeFromCart(productId, function () {
+            MyServices.removeFromCart(productId, function (data) {
                 showCart();
+                if (data.status == 200) {
+                    $ionicPopup.alert({
+                        title: "Products Removed",
+                        template: "Products Removed from Cart Successfully"
+                    });
+                } else {
+                    $ionicPopup.alert({
+                        title: "Error Occured",
+                        template: "Error Occured while Removing Products to Cart"
+                    });
+                }
             });
         };
 
@@ -310,22 +321,31 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     totalAmount: n.productQuantity * parseFloat(n.price)
                 };
             });
-            MyServices.addToCart(products, function (data) {
-                if (data.status == 200) {
-                    var alertPopup = $ionicPopup.alert({
-                        title: "Products Added to Cart",
-                        template: "Products Added to Cart Successfully"
-                    });
-                    alertPopup.then(function (res) {
-                        $state.go("app.review");
-                    });
-                } else {
-                    $ionicPopup.alert({
-                        title: "Error Occured",
-                        template: "Error Occured while adding Products to Cart"
-                    });
-                }
-            });
+            if (products.length > 0) {
+                MyServices.addToCart(products, function (data) {
+                    if (data.status == 200) {
+                        var alertPopup = $ionicPopup.alert({
+                            title: "Products Added to Cart",
+                            template: "Products Added to Cart Successfully"
+                        });
+                        alertPopup.then(function (res) {
+                            $state.go("app.review");
+                        });
+                    } else {
+                        $ionicPopup.alert({
+                            title: "Error Occured",
+                            template: "Error Occured while adding Products to Cart"
+                        });
+                    }
+                });
+            } else {
+                $ionicPopup.alert({
+                    title: "No Product",
+                    template: "No Product for Add to Cart"
+                });
+
+            }
+
         };
     })
     .controller('PlaylistsCtrl', function ($scope) {

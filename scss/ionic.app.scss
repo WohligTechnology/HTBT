@@ -1343,8 +1343,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     display: block;
     text-align: center;
     background: #e7e9ea;
-      overflow: hidden;
-
+    overflow: hidden;
     img {
       height: 100%;
       width: auto;
@@ -1497,14 +1496,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .prdcticon {
   height: 120px;
-    width: 120px;
-    text-align: center;
-    margin: 15px 10px;
-    overflow: hidden;
-    img {
-        height: 100%;
-        width: 50%;
-    }
+  width: 120px;
+  text-align: center;
+  margin: 15px 10px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    width: 50%;
+  }
   .line {
     height: 90%;
     display: inline-block;
@@ -2843,4 +2842,9 @@ input[type="color"] {
   position: absolute;
   left: 50%;
   top: 50%;
+}
+
+.card-no {
+  padding: 20%;
+  text-align: center;
 }
