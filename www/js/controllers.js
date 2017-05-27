@@ -55,18 +55,33 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
 
     })
-    .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices) {
+    .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices, Subscription, $state, $ionicPopup) {
         $scope.userDetails = MyServices.getAppDetails();
-        MyServices.showCardQuantity();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+
         MyServices.products({
             category: $stateParams.category
         }, function (data) {
-            $scope.prod = data.data;
+            $scope.products = data.data;
         });
-
+        $scope.productTap = function (product) {
+            $scope.subscription.product[0].product = product._id;
+            $scope.subscription.productDetail = product;
+            if ($scope.totalQuantity === 0) {
+                $state.go("app.subpage1");
+            } else {
+                $ionicPopup.alert({
+                    title: "Product already in Cart",
+                    template: "Please remove all the Products from the cart to proceed with Subscription Products."
+                });
+            }
+        };
     })
     .controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
         $scope.goBackHandler = function () {
@@ -107,20 +122,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             });
         }
         showCart();
-
-        $scope.getProductPrice = function (product, quantity) {
-            var foundPrice = {};
-            var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
-            _.each(orderedPrice, function (obj) {
-                if (parseInt(quantity) <= parseInt(obj.endRange)) {
-                    foundPrice = obj;
-                    product.priceUsed = obj.finalPrice;
-                    product.totalPriceUsed = obj.finalPrice * parseInt(quantity);
-                    return false;
-                }
-            });
-            return product.priceUsed;
-        };
+        $scope.getProductPrice = MyServices.getProductPrice;
 
         $scope.calculateTotalPrice = function () {
             var total = 0;
@@ -207,12 +209,29 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
     })
-    .controller('Subpage3Ctrl', function ($scope, $stateParams) {
+    .controller('Subpage3Ctrl', function ($scope, $stateParams, MyServices, Subscription, $state) {
+
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+        $scope.getProductPrice = MyServices.getProductPrice;
+        $scope.addPlan = function (planName) {
+            $scope.subscription.plan = planName;
+        };
     })
-    .controller('Subpage1Ctrl', function ($scope, $stateParams) {
+    .controller('Subpage1Ctrl', function ($scope, $stateParams, MyServices, Subscription, $state) {
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -309,7 +328,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             var products = _.map(_.filter($scope.products, function (n) {
                 return (n.productQuantity && n.productQuantity >= 1);
             }), function (n) {
-
                 return {
                     productQuantity: n.productQuantity,
                     product: n._id,

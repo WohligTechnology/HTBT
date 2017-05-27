@@ -1,9 +1,9 @@
 //Create Order
 {
-    "product": {
+    "product": [{
         "product": "ProductID",
         "quantity": "Quantity in Number"
-    },
+    }],
     "plan": ["Monthly", "Quarterly", "Onetime"],
     "orderFor": ["CustomerForSelf", "RmForCustomer"],
     "couponCode": "",

@@ -77,7 +77,6 @@ angular.module('starter.services', [])
         }).success(callback);
       },
       featureprods: function (callback) {
-
         $http({
           url: adminurl + 'product/getAllFeaturedProduct',
           method: 'POST',
@@ -85,7 +84,6 @@ angular.module('starter.services', [])
         }).success(callback);
       },
       products: function (data, callback) {
-        console.log(data);
         $http({
           url: adminurl + 'product/getAllCategoryProduct',
           method: 'POST',
@@ -93,7 +91,7 @@ angular.module('starter.services', [])
           data: data
         }).success(callback);
       },
-      showCardQuantity: function () {
+      showCardQuantity: function (callback) {
         var obj = {
           user: $.jStorage.get("profile")._id
         };
@@ -105,6 +103,7 @@ angular.module('starter.services', [])
         }).then(function (data) {
           appDetails.cartQuantity = data.data.data;
           $.jStorage.set("cartQuantity", data.data.data);
+          callback(appDetails.cartQuantity);
         });
       },
       addToCart: function (products, callback) {
@@ -151,6 +150,19 @@ angular.module('starter.services', [])
         }).then(function (data) {
           callback(data);
         });
+      },
+      getProductPrice: function (product, quantity) {
+        var foundPrice = {};
+        var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
+        _.each(orderedPrice, function (obj) {
+          if (parseInt(quantity) <= parseInt(obj.endRange)) {
+            foundPrice = obj;
+            product.priceUsed = obj.finalPrice;
+            product.totalPriceUsed = obj.finalPrice * parseInt(quantity);
+            return false;
+          }
+        });
+        return product.priceUsed;
       }
 
     };
