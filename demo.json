@@ -1,0 +1,25 @@
+//Create Order
+{
+    "product": {
+        "product": "ProductID",
+        "quantity": "Quantity in Number"
+    },
+    "plan": ["Monthly", "Quarterly", "Onetime"],
+    "orderFor": ["CustomerForSelf", "RmForCustomer"],
+    "couponCode": "",
+    "totalQuantity": "",
+    "otherProducts": [{
+        "product": "ProductID",
+        "quantity": "Quantity in Number"
+    }],
+    "user": "user Id"
+}
+
+//Update Customer
+{
+    "user": "user Id",
+    "order": "OrderId",
+    "customerName": "customer Name",
+    "customerMobile": "customer Mobile",
+    "methodOfPayment": ["Cash", "Credits"]
+}

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter.services', 'ionic-datepicker', 'ngCordova'])
+angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter.services', "starter.subscription", 'ionic-datepicker', 'ngCordova'])
 
     .controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout, $state, MyServices) {
 
@@ -56,20 +56,15 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
     })
     .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices) {
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity();
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
-        $scope.product = {}
-        // alert($stateParams.category);
-        $scope.product.category = $stateParams.category;
-
-        console.log("dsjh", $scope.product, $stateParams)
-        MyServices.products($scope.product, function (data) {
-
-            console.log(data);
+        MyServices.products({
+            category: $stateParams.category
+        }, function (data) {
             $scope.prod = data.data;
-            console.log("proctid", $scope.prod);
-
         });
 
     })
@@ -109,7 +104,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 if (data.data && data.data.data) {
                     $scope.products = data.data.data;
                 }
-                console.log($scope.products);
             });
         }
         showCart();
@@ -140,7 +134,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             return total;
         };
         $scope.removeCart = function (productId) {
-            console.log(productId);
+
             MyServices.removeFromCart(productId, function (data) {
                 showCart();
                 if (data.status == 200) {

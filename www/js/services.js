@@ -93,6 +93,20 @@ angular.module('starter.services', [])
           data: data
         }).success(callback);
       },
+      showCardQuantity: function () {
+        var obj = {
+          user: $.jStorage.get("profile")._id
+        };
+        $http({
+          url: adminurl + 'user/showCartQuantity',
+          method: 'POST',
+          withCredentials: true,
+          data: obj
+        }).then(function (data) {
+          appDetails.cartQuantity = data.data.data;
+          $.jStorage.set("cartQuantity", data.data.data);
+        });
+      },
       addToCart: function (products, callback) {
         var obj = {
           user: $.jStorage.get("profile")._id,
