@@ -73,7 +73,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         });
 
     })
-
     .controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -81,8 +80,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         $ionicSideMenuDelegate.canDragContent(false);
     })
-
-
     .controller('VerificationCtrl', function ($scope, $stateParams, MyServices, $timeout, $state) {
 
         $scope.profile = $.jStorage.get('profile');
@@ -97,36 +94,62 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
     })
-
     .controller('RequantityuirementCtrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
     .controller('ReviewCtrl', function ($scope, $stateParams, MyServices) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
 
+        function showCart() {
+            MyServices.showCart(function (data) {
+                if (data.data && data.data.data) {
+                    $scope.products = data.data.data;
+                }
+                console.log($scope.products);
+            });
+        }
+        showCart();
+
+        $scope.getProductPrice = function (product, quantity) {
+            var foundPrice = {};
+            var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
+            _.each(orderedPrice, function (obj) {
+                if (parseInt(quantity) <= parseInt(obj.endRange)) {
+                    foundPrice = obj;
+                    product.priceUsed = obj.finalPrice;
+                    product.totalPriceUsed = obj.finalPrice * parseInt(quantity);
+                    return false;
+                }
+            });
+            return product.priceUsed;
+        };
+
+        $scope.calculateTotalPrice = function () {
+            var total = 0;
+            var savingPriceTotal = 0;
+            _.each($scope.products, function (n) {
+                total += n.product.totalPriceUsed;
+                savingPriceTotal += parseInt(n.product.price) * parseInt(n.product.quantity);
+            });
+            $scope.savingAmount = savingPriceTotal - total;
+            $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+            return total;
+        };
+        $scope.removeCart = function (productId) {
+            console.log(productId);
+            MyServices.removeFromCart(productId, function () {
+                showCart();
+            });
+        };
 
 
-        $scope.profile = $.jStorage.get('profile');
 
-        $scope.getProfield = {};
-        console.log($scope.profile);
-        $scope.getProfield._id = $scope.profile._id;
-        MyServices.getProfile($scope.getProfield, function (data) {
-            console.log(data);
-            if (data.value) {
-                $scope.review = data.data;
-                console.log($scope.review);
-            } else {
 
-            }
-        });
     })
-
     .controller('CheckoutCtrl', function ($scope, $stateParams, $ionicPopover, ionicDatePicker) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -174,32 +197,26 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
 
     })
-
     .controller('AddonsCtrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
     .controller('Subpage3Ctrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
-
     .controller('Subpage1Ctrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
     .controller('AuthPaymentCtrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
     .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state) {
         $scope.nextPage = function (sub, id) {
             if (sub == 'Yes') {
@@ -243,7 +260,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         });
     })
-
     .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices, $ionicPopup) {
         $scope.goBackHandler = function () {
             window.history.back();
@@ -255,9 +271,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             category: $stateParams.category
         }, function (data) {
             $scope.products = data.data;
+            _.each($scope.products, function (n) {
+                n.productQuantity = 0;
+            });
         });
         $scope.checkMinProduct = function (product) {
-            if (product.productQuantity === 0) {
+            if (product.productQuantity <= 0) {
                 return true;
             } else {
                 return false;
@@ -281,17 +300,24 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         };
         $scope.addToCart = function () {
-            var products = _.map($scope.products, function (n) {
+            var products = _.map(_.filter($scope.products, function (n) {
+                return (n.productQuantity && n.productQuantity >= 1);
+            }), function (n) {
+
                 return {
                     productQuantity: n.productQuantity,
-                    product: n._id
+                    product: n._id,
+                    totalAmount: n.productQuantity * parseFloat(n.price)
                 };
             });
             MyServices.addToCart(products, function (data) {
                 if (data.status == 200) {
-                    $ionicPopup.alert({
+                    var alertPopup = $ionicPopup.alert({
                         title: "Products Added to Cart",
                         template: "Products Added to Cart Successfully"
+                    });
+                    alertPopup.then(function (res) {
+                        $state.go("app.review");
                     });
                 } else {
                     $ionicPopup.alert({
@@ -299,11 +325,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                         template: "Error Occured while adding Products to Cart"
                     });
                 }
-
             });
         };
     })
-
     .controller('PlaylistsCtrl', function ($scope) {
         $scope.playlists = [{
             title: 'Reggae',
@@ -325,7 +349,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             id: 6
         }];
     })
-
     .controller('PlaylistCtrl', function ($scope, $stateParams) {})
     .controller('HelpCtrl', function ($scope) {
         $scope.goBackHandler = function () {
@@ -335,7 +358,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
     })
-
     .controller('ProfileCtrl', function ($scope, MyServices) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -385,7 +407,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         }
     })
-
     .controller('CustomerListCtrl', function ($scope, $state, $ionicLoading, $ionicPopover) {
         $scope.next = function () {
             $state.go('app.subpage1');
@@ -437,18 +458,15 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
 
     })
-
     .controller('VerifyCtrl', function ($scope, $stateParams) {
         $.jStorage.flush();
     })
-
     .controller('ConfirmationCtrl', function ($scope, $stateParams) {
 
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
     .controller('LoginCtrl', function ($scope, $stateParams, $state) {
 
         $scope.profile = $.jStorage.get('profile');
@@ -462,7 +480,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         }
 
     })
-
     .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicSlideBoxDelegate) {
         $scope.profile = $.jStorage.get('profile');
 

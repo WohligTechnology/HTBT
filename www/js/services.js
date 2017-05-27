@@ -13,11 +13,9 @@ angular.module('starter.services', [])
     var appDetails = {};
     appDetails.cartQuantity = $.jStorage.get("cartQuantity");
     return {
-
       getAppDetails: function () {
         return appDetails;
       },
-
       getProfile: function (id, callback) {
         var data = {
           _id: id
@@ -29,10 +27,6 @@ angular.module('starter.services', [])
           data: data
         }).success(callback);
       },
-
-
-
-
       signup: function (data, callback) {
         console.log(data);
         $http({
@@ -75,27 +69,13 @@ angular.module('starter.services', [])
           data: data
         }).success(callback);
       },
-      getProfile: function (data, callback) {
-        var data1 = {
-          _id: data._id
-        };
-        $http({
-          url: adminurl + 'User/getProfile',
-          method: 'POST',
-          withCredentials: true,
-          data: data1
-        }).success(callback);
-      },
       categories: function (callback) {
-
         $http({
           url: adminurl + 'Categories/getCategories',
           method: 'POST',
           withCredentials: true,
         }).success(callback);
       },
-
-
       featureprods: function (callback) {
 
         $http({
@@ -104,7 +84,6 @@ angular.module('starter.services', [])
           withCredentials: true,
         }).success(callback);
       },
-
       products: function (data, callback) {
         console.log(data);
         $http({
@@ -127,6 +106,35 @@ angular.module('starter.services', [])
         }).then(function (data) {
           appDetails.cartQuantity = data.data.data;
           $.jStorage.set("cartQuantity", data.data.data);
+          callback(data);
+        });
+      },
+      removeFromCart: function (productId, callback) {
+        var obj = {
+          user: $.jStorage.get("profile")._id,
+          product: productId,
+        };
+        $http({
+          url: adminurl + 'user/removeFromCart',
+          method: 'POST',
+          withCredentials: true,
+          data: obj
+        }).then(function (data) {
+          appDetails.cartQuantity = data.data.data;
+          $.jStorage.set("cartQuantity", data.data.data);
+          callback(data);
+        });
+      },
+      showCart: function (callback) {
+        var obj = {
+          user: $.jStorage.get("profile")._id
+        };
+        $http({
+          url: adminurl + 'user/showCart',
+          method: 'POST',
+          withCredentials: true,
+          data: obj
+        }).then(function (data) {
           callback(data);
         });
       }
