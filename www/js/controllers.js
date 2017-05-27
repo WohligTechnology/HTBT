@@ -157,50 +157,19 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
     })
-    .controller('CheckoutCtrl', function ($scope, $stateParams, $ionicPopover, ionicDatePicker) {
+    .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
-
-        $scope.show = '';
-        $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
-            scope: $scope,
-            cssClass: 'menupop',
-
-        }).then(function (terms) {
-            $scope.terms = terms;
-        });
-
-
-
-        $scope.closePopover = function () {
-            $scope.terms.hide();
-        };
-
-        var ipObj1 = {
-            callback: function (val) { //Mandatory
-                console.log('Return value from the datepicker popup is : ' + val, new Date(val));
-            },
-            disabledDates: [ //Optional
-                new Date(2016, 2, 16),
-                new Date(2015, 3, 16),
-                new Date(2015, 4, 16),
-                new Date(2015, 5, 16),
-                new Date('Wednesday, August 12, 2015'),
-                new Date("08-16-2016"),
-                new Date(1439676000000)
-            ],
-            from: new Date(2012, 1, 1), //Optional
-            to: new Date(2016, 10, 30), //Optional
-            inputDate: new Date(), //Optional
-            mondayFirst: true, //Optional
-            disableWeekdays: [0], //Optional
-            closeOnSelect: false, //Optional
-            templateType: 'popup' //Optional
-        };
-
-        $scope.openDatePicker = function () {
-            ionicDatePicker.openDatePicker(ipObj1);
+        $scope.getProductPrice = MyServices.getProductPrice;
+        $scope.addPlan = function (planName) {
+            $scope.subscription.plan = planName;
         };
 
     })

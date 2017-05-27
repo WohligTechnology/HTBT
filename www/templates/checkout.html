@@ -4,17 +4,12 @@
             <button class="button button-clear ion-android-arrow-back sigupIconLeft" ng-click="goBackHandler()">
         </button>
         </ion-nav-buttons>
-        <!--<ion-nav-buttons side="right" >
-            <div class="cartbtn" ui-sref="app.checkout">
-                <img src="img/9.png" alt="" >
-            </div>
-            <span class="cartbadge">3</span>
-        </ion-nav-buttons>-->
     </ion-nav-bar>
     <ion-content class="has-header chkout-bgcolor hasterms">
         <div>
             <div class="chkout-planDiv">
-                <label for="">Subscription Plan</label>
+                <label for="">Subscription Plan <strong>{{subscription.plan}}</strong> </label>
+                <!--<pre>{{subscription|json}}</pre>-->
                 <div>
                     <i class="button button-icon icon ion-ios-close-outline chkout-closebutton" ng-click="closePopup();"></i>
                 </div>
@@ -22,9 +17,7 @@
             <div class="row chkout-subheight">
                 <div class="col-40">
                     <div class="chkout-imgdivcol">
-                        <img class="browse-sliderImg " src="img/aquashadow.png" alt="">
-                        <!--<div class="chkout-line">
-                        </div>-->
+                        <img class="browse-sliderImg " ng-src="{{product.bigImage | uploadpath}}" alt="">
                     </div>
                 </div>
                 <div class="col-20 chkoutdiv">
@@ -33,10 +26,10 @@
                 </div>
                 <div class="col-40 ">
                     <div class="chkout-align">
-                        <h2 class="chkout-fontsize">Aquafina</h2>
-                        <div for="" class="colorpure">Purified water <i class="ion ion-information-circled"></i></div>
-                        <div for="" class="desc">20 Ltr - Jar</div>
-                        <div for="" class="desc">₹ 80</div>
+                        <h2 class="chkout-fontsize">{{subscription.productDetail.name}}</h2>
+                        <div for="" class="colorpure">{{subscription.productDetail.tag}} <i class="ion ion-information-circled"></i></div>
+                        <div for="" class="desc">{{subscription.productDetail.description}}</div>
+                        <div for="" class="desc">₹ {{subscription.productDetail.price}}</div>
                     </div>
                 </div>
             </div>
@@ -108,31 +101,17 @@
             <div class="col-5">
                 <div class="verdiv text-center"></div>
             </div>
-            <!-- <div class="col">
-                <div class="rel">
-                    <div class="mid-day">
-                        <h4>
-                            Delivering on friday
-                        </h4>
-                        <div class="text-center rel" ng-click="openDatePicker()">
-                            Click here to change!
-                        </div>
-                    </div>
-                    <div class="custarr">
-                        <i class="ion ion-chevron-right item-note "></i>
-                    </div>
-                </div>
-            </div> -->
+
         </div>
     </ion-content>
     <li class="item item-checkbox noborder checkbox-assertive borderR chkalign mar10">
-   I have read & accept the
+        I have read & accept the
 
-  <span  class="termscolor" ng-click="terms.show($event)" >  terms & conditions</span>
-   <label class="checkbox noborder ">
+        <span class="termscolor" ng-click="terms.show($event)">  terms & conditions</span>
+        <label class="checkbox noborder ">
    <input type="checkbox" class="">
    </label>
-  </li>
+    </li>
     <div class="bar bar-footer signUpFooter footer-height">
         <button class="button button-block button-positive footer-font" ui-sref="app.auth-payment">
   Pay ₹ 5,020/-

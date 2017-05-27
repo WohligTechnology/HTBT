@@ -13,7 +13,7 @@
     </ion-nav-bar>
     <ion-content class="has-header chkout-bgcolor has-footer">
         <div class="header">Which plan would you like?</div>
-        <div class="row onceweekDiv" ui-sref="app.addons" ng-click="addPlan('Monthly');">
+        <div class="row onceweekDiv" ui-sref="app.addons" ng-click="addPlan('Quarterly');">
             <div class="col-67 col-50pad border col-margin">
                 <label class="jarslbl" for="">Quarterly Plan</label>
                 <p class="onceLblr" for="">{{subscription.product[0].quantity * 12}} Jars</p>
@@ -27,7 +27,7 @@
                 <label class="perjar" for="">/Jar</label>
             </div>
         </div>
-        <div class="row onceweekDiv" ui-sref="app.addons" ng-click="addPlan('Quarterly');">
+        <div class="row onceweekDiv" ui-sref="app.addons" ng-click="addPlan('Monthly');">
             <img src="img/most-popular.png" alt="" class="most-popular">
             <div class="col-67 col-50pad border col-margin">
                 <label class="jarslbl" for="">Monthly Plan </label>
