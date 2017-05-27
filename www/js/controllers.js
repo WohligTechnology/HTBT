@@ -84,42 +84,18 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
     .controller('VerificationCtrl', function ($scope, $stateParams, MyServices, $timeout, $state) {
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
-        };
 
-        // setInterval(function () {
-        //     $scope.verify();
-        // }, 15000);
+        $scope.profile = $.jStorage.get('profile');
 
-        //   $timeout(function() {
-        //     $scope.verify();
-        // }, 1000);
-         $scope.profile = $.jStorage.get('profile');
-
-            MyServices.getProfile($scope.profile, function (data) {
-                $scope.signupForm = data.data;
-                if (data.data.verification == 'Verified') {
-                    $state.go('app.dashboard');
-                    $scope.goahead = true;
-
-                }
-
-            });
-        $scope.verify = function () {
-            $scope.profile = $.jStorage.get('profile');
-
-            MyServices.getProfile($scope.profile, function (data) {
-                $scope.signupForm = data.data;
-                if (data.data.verification == 'Verified') {
-                    $state.go('app.dashboard');
-                    $scope.goahead = true;
-
-                }
-
-            });
-        };
-
+        MyServices.getProfile($scope.profile, function (data) {
+            $scope.signupForm = data.data;
+            if (data.data.verification == 'Verified') {
+                $.jStorage.set('profile', $scope.signupForm);
+                $scope.profile = $.jStorage.get('profile');
+                $state.go('app.dashboard');
+                $scope.goahead = true;
+            }
+        });
     })
 
     .controller('RequantityuirementCtrl', function ($scope, $stateParams) {
@@ -128,42 +104,23 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
 
-    .controller('ReviewCtrl', function ($scope, $stateParams,MyServices) {
+    .controller('ReviewCtrl', function ($scope, $stateParams, MyServices) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
 
 
-        // $scope.total = 0;
-        // $scope.cart = $.jStorage.get('cart');
-        // $scope.removecart = function (id) {
-        //     console.log("product", id);
-        //
-        //     _.remove($scope.cart, function (n) {
-        //         return n._id == id;
-        //     });
-        //     console.log("product", $scope.cart);
-        //     $.jStorage.set('cart', $scope.cart);
-        //     console.log("as", $.jStorage.get('cart'));
-        //     $scope.total = 0;
-        //
-        //     _.forEach($scope.cart, function (value) {
-        //         $scope.total = $scope.total + (value.price * value.quantity);
-        //     });
-        // }
-        // _.forEach($scope.cart, function (value) {
-        //     $scope.total = $scope.total + (value.price * value.quantity);
-        // });
+
         $scope.profile = $.jStorage.get('profile');
 
         $scope.getProfield = {};
         console.log($scope.profile);
         $scope.getProfield._id = $scope.profile._id;
         MyServices.getProfile($scope.getProfield, function (data) {
-          console.log(data);
+            console.log(data);
             if (data.value) {
                 $scope.review = data.data;
-                console.log($scope.review );
+                console.log($scope.review);
             } else {
 
             }
@@ -244,40 +201,16 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     })
 
     .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state) {
-
-      $scope.nextPage = function(sub, id) {
+        $scope.nextPage = function (sub, id) {
             if (sub == 'Yes') {
-                if ($scope.browse.cartProducts) {
-                    var found = false;
-                    _.forEach($scope.profile.cartProducts, function(value1) {
-                        if (value1.category.subscription == "No") {
-                            found = true;
-                        }
-                    });
-                }
-
-                if (!found) {
-                    $state.go('app.browse-more', {
-                        'category': id
-                    })
-                }
+                $state.go('app.browse-more', {
+                    'category': id
+                });
 
             } else {
-              if ($scope.browse.cartProducts) {
-                  var found = false;
-                  _.forEach($scope.profile.cartProducts, function(value1) {
-                      if (value1.category.subscription == "Yes") {
-                          found = true;
-                      }
-                  });
-              }
-
-              if (!found) {
                 $state.go('app.productSpecs', {
                     'category': id
-                })
-              }
-
+                });
             }
         };
         $scope.goBackHandler = function () {
@@ -333,39 +266,39 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         $scope.addtocart = function () {
             _.forEach($scope.prod, function (value) {
-                    var found = false;
-                    _.forEach($scope.profile.cartProducts, function (value1) {
-                        if (value1.name == value.name) {
-                            console.log(value1.productQuantity);
-                            // if(value.productQuantity!=0){
-                            value1.productQuantity = value.productQuantity;
-                            found = true;
-                            // }else{
-                            //   value1.productQuantity = 0;
-                            // }
+                var found = false;
+                _.forEach($scope.profile.cartProducts, function (value1) {
+                    if (value1.name == value.name) {
+                        console.log(value1.productQuantity);
+                        // if(value.productQuantity!=0){
+                        value1.productQuantity = value.productQuantity;
+                        found = true;
+                        // }else{
+                        //   value1.productQuantity = 0;
+                        // }
 
-                        }
-                    });
-                    // found = _.find($scope.profile.data.cartProducts, function(value1) {
-                    //     if (value1.name == value.name) {
-                    //         return value1.productQuantity = value.productQuantity;;
-                    //     }
-                    // });
-                    if (!found) {
-                        $scope.profile.cartProducts.push(value);
                     }
-              });
-                  _.remove($scope.profile.cartProducts, function(n) {
-                    return n.productQuantity == 0;
-                  });
+                });
+                // found = _.find($scope.profile.data.cartProducts, function(value1) {
+                //     if (value1.name == value.name) {
+                //         return value1.productQuantity = value.productQuantity;;
+                //     }
+                // });
+                if (!found) {
+                    $scope.profile.cartProducts.push(value);
+                }
+            });
+            _.remove($scope.profile.cartProducts, function (n) {
+                return n.productQuantity == 0;
+            });
 
 
             $.jStorage.set('profile', $scope.profile);
             MyServices.saveData($scope.profile, function (data) {
 
-              if(data.value){
-                $state.go('app.review');
-              }
+                if (data.value) {
+                    $state.go('app.review');
+                }
             });
 
         }
@@ -445,7 +378,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
     })
 
-    .controller('ProfileCtrl', function ($scope,MyServices) {
+    .controller('ProfileCtrl', function ($scope, MyServices) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -455,10 +388,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         console.log($scope.profile);
         $scope.getProfield._id = $scope.profile._id;
         MyServices.getProfile($scope.getProfield, function (data) {
-          console.log(data);
+            console.log(data);
             if (data.value) {
                 $scope.signupForm = data.data;
-                console.log($scope.review );
+                console.log($scope.review);
             } else {
 
             }
@@ -466,29 +399,29 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         $scope.save = function () {
 
-                MyServices.saveData($scope.signupForm, function (data) {
+            MyServices.saveData($scope.signupForm, function (data) {
 
-                    console.log(data);
-                    $scope.signupForm = data.data;
+                console.log(data);
+                $scope.signupForm = data.data;
 
-                    console.log($scope.signupForm)
-                    if (data.value == true) {
-
-
-                        $scope.signupForm._id = $.jStorage.get('profile')._id;
-                        MyServices.getonePro($scope.signupForm, function (data) {
-                            $.jStorage.set('profile', data.data);
-                            $scope.signupForm = data.data;
-                          
-
-                        });
+                console.log($scope.signupForm)
+                if (data.value == true) {
 
 
-                    } else {
+                    $scope.signupForm._id = $.jStorage.get('profile')._id;
+                    MyServices.getonePro($scope.signupForm, function (data) {
+                        $.jStorage.set('profile', data.data);
+                        $scope.signupForm = data.data;
 
-                        // $scope.showAlert(data.status, 'login', 'Error Message');
-                    }
-                });
+
+                    });
+
+
+                } else {
+
+                    // $scope.showAlert(data.status, 'login', 'Error Message');
+                }
+            });
 
 
 
@@ -650,7 +583,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.signupForm.accessLevel = "Relationship Partner";
             console.log("djfgjk", $scope.signupForm);
 
-               if (!$.jStorage.get('profile')) {
+            if (!$.jStorage.get('profile')) {
 
                 MyServices.signup($scope.signupForm, function (data) {
 

@@ -9,14 +9,13 @@ var imgpath = imgurl + "readFile?file=";
 // var uploadurl = imgurl;
 
 angular.module('starter.services', [])
-.factory('MyServices', function ($http) {
-  return {
+  .factory('MyServices', function ($http) {
+    return {
 
-    getProfile: function (id,callback) {
-      console.log(id);
-      var data ={
-        _id : id
-      };
+      getProfile: function (id, callback) {
+        var data = {
+          _id: id
+        };
         $http({
           url: adminurl + 'user/getProfile',
           method: 'POST',
@@ -28,8 +27,8 @@ angular.module('starter.services', [])
 
 
 
-    signup: function (data,callback) {
-console.log(data);
+      signup: function (data, callback) {
+        console.log(data);
         $http({
           url: adminurl + 'User/saveUserData',
           method: 'POST',
@@ -37,7 +36,7 @@ console.log(data);
           data: data
         }).success(callback);
       },
-   saveData: function (data, callback) {
+      saveData: function (data, callback) {
         console.log(data);
         $http({
           url: adminurl + 'User/save',
@@ -46,7 +45,7 @@ console.log(data);
           data: data
         }).success(callback);
       },
-    getonePro: function (data,callback) {
+      getonePro: function (data, callback) {
         $http({
           url: adminurl + 'User/getone',
           method: 'POST',
@@ -54,7 +53,7 @@ console.log(data);
           data: data
         }).success(callback);
       },
-    getByPin: function (data,callback) {
+      getByPin: function (data, callback) {
         $http({
           url: adminurl + 'Pincode/getByPin',
           method: 'POST',
@@ -62,7 +61,7 @@ console.log(data);
           data: data
         }).success(callback);
       },
-    updateAndGetResponse: function (data,callback) {
+      updateAndGetResponse: function (data, callback) {
         $http({
           url: adminurl + 'User/updateAndGetResponse',
           method: 'POST',
@@ -70,11 +69,10 @@ console.log(data);
           data: data
         }).success(callback);
       },
-   getProfile: function (data,callback) {
-     console.log(data);
-     var data1={
-       _id:data._id
-     }
+      getProfile: function (data, callback) {
+        var data1 = {
+          _id: data._id
+        };
         $http({
           url: adminurl + 'User/getProfile',
           method: 'POST',
@@ -82,7 +80,7 @@ console.log(data);
           data: data1
         }).success(callback);
       },
- categories: function (callback) {
+      categories: function (callback) {
 
         $http({
           url: adminurl + 'Categories/getCategories',
@@ -92,7 +90,7 @@ console.log(data);
       },
 
 
-featureprods: function (callback) {
+      featureprods: function (callback) {
 
         $http({
           url: adminurl + 'product/getAllFeaturedProduct',
@@ -101,17 +99,15 @@ featureprods: function (callback) {
         }).success(callback);
       },
 
-      products: function (data,callback) {
- console.log(data);
-           $http({
-             url: adminurl + 'product/getAllCategoryProduct',
-             method: 'POST',
-             withCredentials: true,
-              data: data
-           }).success(callback);
-         }
+      products: function (data, callback) {
+        console.log(data);
+        $http({
+          url: adminurl + 'product/getAllCategoryProduct',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      }
 
     };
-
-
-});
+  });
