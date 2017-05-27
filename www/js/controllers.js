@@ -229,6 +229,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
     .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state) {
+        $scope.userDetails = MyServices.getAppDetails();
         $scope.nextPage = function (sub, id) {
             if (sub == 'Yes') {
                 $state.go('app.browse-more', {
