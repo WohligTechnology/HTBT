@@ -10091,6 +10091,13 @@ a.button {
   margin: 15px 15px 6%;
   width: auto !important; }
 
+.bottomTopMarRow2 {
+  border-top: 1px solid lightgrey !important;
+  color: grey;
+  border-bottom: 1px solid lightgrey;
+  margin: 30px 15px 6%;
+  width: auto !important; }
+
 .colPad {
   padding: 0 !important; }
 
@@ -10154,22 +10161,16 @@ a.button {
   border-bottom: 1px solid transparent !important; }
 
 .newCust {
-  text-align: center;
-  padding: 10px 0;
-  text-align: center;
-  margin-top: 10px;
-  vertical-align: middle;
-  width: 48%;
-  display: block;
-  margin: 0 auto; }
+  padding: 5px 0; }
   .newCust button {
     color: white !important;
     border: 0px !important;
     background: #ff414d !important;
-    font-size: 13px !important;
-    padding-left: 10px !important;
+    font-size: 18px !important;
     min-height: 35px !important;
     box-shadow: 1px 2px 0 0 lightgrey; }
+  .newCust label {
+    font-size: 18px !important; }
   .newCust .button.icon-left:before {
     padding-right: 10px !important; }
 
@@ -10180,25 +10181,23 @@ a.button {
   text-align: center;
   margin-top: 10px;
   vertical-align: middle;
-  width: 48%;
   display: block;
   margin: 0 auto; }
   .oldCust label {
-    margin-left: 16px;
-    font-size: 15px !important; }
+    margin-left: 8px;
+    font-size: 18px !important; }
   .oldCust button {
     color: #7a7b7c !important;
     border: 0px !important;
     background: #f2f4f5 !important;
-    font-size: 13px !important;
-    padding-left: 10px !important;
+    font-size: 16px !important;
     min-height: 35px !important;
     box-shadow: 1px 2px 0 0 lightgrey; }
 
 .ion-custom-user:before {
   content: url("../img/user.png");
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
   vertical-align: middle;
   font-size: 10px;
   display: inline-block;
@@ -11038,6 +11037,9 @@ a.button {
 
 .addrm {
   text-align: right; }
+  .addrm button {
+    background: transparent;
+    border: none; }
   .addrm i {
     margin: 5px;
     font-size: 14px;
@@ -12104,3 +12106,37 @@ input[type="color"] {
   position: absolute;
   left: 50%;
   top: 50%; }
+
+.card-no {
+  padding: 20%;
+  text-align: center; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fade-in {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s; }

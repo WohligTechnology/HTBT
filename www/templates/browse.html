@@ -12,8 +12,14 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="has-header browse-backgrndcolor">
-        <ion-slide-box class="ionSlider" on-slide-changed="slideHasChanged($index)" show-pager="true">
-            <ion-slide ng-if="feaprods.length>0" ng-repeat="data in feaprods" [options]="{pager:true}">
+        <ion-slide-box  options="homeSlider.sliderOptions" slider="homeSlider.sliderDelegate"  does-continue="true"  animation='fade'
+        auto-play="true"
+        effect='fade'
+        slide-interval="{{interval}}"
+        show-pager="true"
+        pager-click="changeSlide(index)"
+        on-slide-changed="slideHasChanged(index)">
+            <ion-slide  ng-if="feaprods.length>0" ng-repeat="data in feaprods" [options]="{pager:true}">
                 <div class="box box1">
                     <div class="row browse-sliderRow">
                         <div class="col-50">
@@ -41,13 +47,13 @@
                         <div class="icondiv">
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
-                        <label for="">{{data.name}}</label>
+                        <!--<label for="">{{data.name}}</label>-->
                     </div>
                     <div class="browse-card2" ng-if="(outerIndex + innerIndex )% 2 != 0" ng-click="nextPage(data.subscription,data._id);">
                         <div class="icondiv">
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
-                        <label for="">{{data.name}}</label>
+                        <!--<label for="">{{data.name}}</label>-->
                     </div>
                 </div>
             </div>

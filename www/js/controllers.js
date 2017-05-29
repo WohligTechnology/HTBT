@@ -210,8 +210,67 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
     })
-    .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state) {
+    .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();
+    
+  $scope.slideHasChanged = function(index) {
+      $ionicSlideBoxDelegate.cssClass = 'fade-in'
+    $scope.slideIndex = index;
+    if ( ($ionicSlideBoxDelegate.count() -1 ) == index ) {
+        $timeout(function(){
+            $ionicSlideBoxDelegate.slide(0);
+
+        },$scope.interval);
+    }
+};
+
+$scope.interval = 5000;
+  $scope.homeSlider = {};
+    $scope.homeSlider.data = [];
+    $scope.homeSlider.currentPage = 0;
+
+        $scope.setupSlider = function () {
+
+      //some options to pass to our slider
+      $scope.homeSlider.sliderOptions = {
+        initialSlide: 0,
+        direction: 'horizontal', //or vertical
+        speed: 300,
+        
+        autoplay:"5000",
+        effect: 'fade',
+        
+      };
+
+
+      //create delegate reference to link with slider
+      $scope.homeSlider.sliderDelegate = null;
+
+      //watch our sliderDelegate reference, and use it when it becomes available
+      $scope.$watch('homeSlider.sliderDelegate', function (newVal, oldVal) {
+        if (newVal != null) {
+          $scope.homeSlider.sliderDelegate.on('slideChangeEnd', function () {
+            $scope.homeSlider.currentPage = $scope.homeSlider.sliderDelegate.activeIndex;
+            //use $scope.$apply() to refresh any content external to the slider
+            $scope.$apply();
+          });
+        }
+      });
+    };
+
+    $scope.setupSlider();
+
+    
+
+  //detect when sliderDelegate has been defined, and attatch some event listeners
+  $scope.$watch('sliderDelegate', function(newVal, oldVal){
+    if(newVal != null){ 
+      $scope.sliderDelegate.on('slideChangeEnd', function(){
+        console.log('updated slide to ' + $scope.sliderDelegate.activeIndex);
+        $scope.$apply();
+      });
+    }
+  });
         $scope.nextPage = function (sub, id) {
             if (sub == 'Yes') {
                 $state.go('app.browse-more', {
@@ -224,6 +283,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 });
             }
         };
+
+   
+
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };

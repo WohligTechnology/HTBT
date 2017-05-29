@@ -5,10 +5,9 @@
         </button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
-            <div class="cartbtn">
-                <img src="img/9.png" alt="" ui-sref="app.review">
-            </div>
-            <span class="cartbadge">{{userDetails.cartQuantity}}</span>
+            <button class="button button-clear ion-android-more-vertical sigupRight disblock" ng-click="popover.show($event)">
+        </button>
+            <!--<span class="cartbadge">{{userDetails.cartQuantity}}</span>-->
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>

@@ -353,6 +353,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   width: auto!important;
 }
 
+.bottomTopMarRow2{ 
+   border-top: 1px solid lightgrey !important;
+    color: grey;
+    border-bottom: 1px solid lightgrey;
+    margin: 30px 15px 6%;
+    width: auto !important;
+}
+   
+
 .colPad {
   padding: 0 !important;
 }
@@ -431,23 +440,28 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 .newCust {
-  text-align: center;
-  padding: 10px 0;
-  text-align: center;
-  margin-top: 10px;
-  vertical-align: middle;
-  width: 48%;
-  display: block;
-  margin: 0 auto;
+  // text-align: center;
+  padding: 5px 0;
+  // text-align: center;
+  // margin-top: 10px;
+  // vertical-align: middle;
+  // // width: 48%;
+  // display: block;
+  // margin: 0 auto;
   button {
     color: white!important;
     border: 0px!important;
     background: #ff414d!important;
-    font-size: 13px!important;
-    padding-left: 10px !important;
+    font-size: 18px!important;
+    // padding-left: 10px !important;
     min-height: 35px!important;
     box-shadow: 1px 2px 0 0 lightgrey;
   }
+ label {
+    
+    font-size: 18px!important;
+  }
+
   .button.icon-left:before {
     padding-right: 10px !important;
   }
@@ -460,19 +474,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   text-align: center;
   margin-top: 10px;
   vertical-align: middle;
-  width: 48%;
+  // width: 48%;
   display: block;
   margin: 0 auto;
+  
   label {
-    margin-left: 16px;
-    font-size: 15px!important;
+    margin-left: 8px;
+    font-size: 18px!important;
   }
   button {
     color: #7a7b7c!important;
     border: 0px!important;
     background: #f2f4f5!important;
-    font-size: 13px!important;
-    padding-left: 10px !important;
+    font-size: 16px!important;
+    // padding-left: 10px !important;
     min-height: 35px!important;
     box-shadow: 1px 2px 0 0 lightgrey;
   }
@@ -481,8 +496,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .ion-custom-user {
   &:before {
     content: url('../img/user.png');
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 14px;
     vertical-align: middle;
     font-size: 10px;
     display: inline-block;
@@ -1535,6 +1550,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .addrm {
   text-align: right;
+      
+    button{
+background: transparent;
+    border: none;
+    }
   i {
     margin: 5px;
     font-size: 14px;
@@ -1545,6 +1565,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     width: 20px;
     text-align: center;
     vertical-align: middle;
+    
     &:before {
       color: white;
     }
@@ -2847,4 +2868,23 @@ input[type="color"] {
 .card-no {
   padding: 20%;
   text-align: center;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration:0.5s;
+  animation-duration:0.5s;
 }

@@ -10,10 +10,10 @@
     </ion-nav-buttons>
   </ion-nav-bar>
   <ion-content class="has-header">
-    <div class="dashboardLabel">
+    <!--<div class="dashboardLabel">
       <label for="">Earnings for this Month</label>
-    </div>
-    <div class="rel">
+    </div>-->
+    <!--<div class="rel">
       <div class="roundePrgBar" round-progress max="100" current="dash.earnings" color="#ff414d" bgcolor="#eaeaea" radius="300" stroke="30"
         semi="false" rounded="true" clockwise="true" responsive="false" iterations="50" animation="easeInOutQuart"></div>
       <div class="roundedPrgDiv"></div>
@@ -26,7 +26,28 @@
       <div class="sinceDateDiv">
         <label class=" " for="">Since February 1, 2017</label>
       </div>
+    </div>-->
+
+ <div class="row bottomTopMarRow2">
+      
+      <div class="col col-50 colPad ">
+        <div class="lastMonth">
+          <label for=" " ng-if="dash.lastMonthEarnings">₹ {{dash.lastMonthEarnings | number}}</label>
+          <label for=" " ng-if="!dash.lastMonthEarnings">₹ 0</label>
+
+          <pr>Credits</pr>
+        </div>
+      </div>
+      <div class="col col-50 colPad">
+        <div class="newCustomer">
+          <label for=" "ng-if="dash.customer.length">{{dash.customer.length}}</label>
+          <label for=" "ng-if="!dash.customer.length">₹ 0</label>
+          <pr>Earnings</pr>
+        </div>
+      </div>
     </div>
+
+
     <div class="row bottomTopMarRow">
       <div class="col col-33 colPad">
         <div class="numberDiv">
@@ -59,9 +80,15 @@
       </div>
     </div>
     <div class="newCust">
-      <button class="button icon-left ion-plus-circled button-positive " ui-sref="app.browse">New Customer</button>
+      <button class="button button-full ion-plus-circled button-positive" ui-sref="app.browse">
+ <label class="oldCustLabel"  >New Customer</label>
+</button>
+      <!--<button class="button icon-left ion-plus-circled button-positive " ui-sref="app.browse">New Customer</button>-->
     </div>
     <div class="oldCust">
-      <button class="button button-icon ion-custom-user button-positive" ui-sref="app.customerlist"><label class="oldCustLabel"  >Old Customer</label></button>
+      <button class="button ion-custom-user button-full button-positive" ui-sref="app.customerlist">
+ <label class="oldCustLabel"  >Old Customer</label>
+</button>
+      <!--<button class="button button-icon ion-custom-user button-positive" ui-sref="app.customerlist"><label class="oldCustLabel"  >Old Customer</label></button>-->
     </div>
   </ion-content>
