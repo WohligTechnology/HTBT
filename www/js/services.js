@@ -174,6 +174,7 @@ angular.module('starter.services', [])
         });
       },
       saveOrderCheckout: function (data, callback) {
+
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
