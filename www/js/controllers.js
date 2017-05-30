@@ -576,8 +576,28 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
 
     })
-    .controller('VerifyCtrl', function ($scope, $stateParams) {
+    .controller('VerifyCtrl', function ($scope, $stateParams, MyServices, $state) {
         $.jStorage.flush();
+
+        var reqObj = {};
+        var otp = {};
+        reqObj.mobile = $stateParams.no;
+        reqObj.accessLevel = "Relationship Partner";
+
+        //Function to verify OTP
+        $scope.verifyOTP = function (value) {
+            reqObj.otp = value.first + value.second + value.third + value.forth;
+
+            MyServices.verifyOTP(reqObj, function (data) {
+                if (data.value) {
+                    $scope.profile = $.jStorage.set('profile', data.data);
+                    $state.go('signup');
+                } else {
+                    alert("OTP verification failed")
+                    $state.go('login');
+                }
+            })
+        }
     })
     .controller('ConfirmationCtrl', function ($scope, $stateParams) {
 
@@ -585,8 +605,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
     })
-    .controller('LoginCtrl', function ($scope, $stateParams, $state) {
+    .controller('LoginCtrl', function ($scope, $stateParams, $state, MyServices) {
 
+        $scope.loginInfo = {};
         $scope.profile = $.jStorage.get('profile');
         if ($scope.profile != null) {
             if ($scope.profile.verification == 'Not Verified') {
@@ -597,6 +618,32 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         }
 
+        $scope.getOTP = function (value) {
+            console.log("value", value);
+            value.accessLevel = "Relationship Partner"
+            if (value.mobile != null && value.mobile != "") {
+                MyServices.getOTP({
+                    mobile: value.mobile,
+                    accessLevel: value.accessLevel
+                }, function (data) {
+                    if (data.value) {
+                        if (data.data.message == "OTP sent") {
+                            $state.go('verify', {
+                                no: value.mobile
+                            });
+                        } else {
+                            alert("unable to generate OTP. Please try again");
+                        }
+                    } else {
+                        alert("unable to generate OTP. Please try again");
+                    }
+                })
+            } else {
+                alert("Please provide mobile number");
+            }
+
+
+        }
     })
     .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicSlideBoxDelegate) {
         $scope.profile = $.jStorage.get('profile');

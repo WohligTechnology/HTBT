@@ -273,7 +273,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
       .state('verify', {
         cache: false,
-        url: '/verify',
+        url: '/verify/:no',
         templateUrl: 'templates/verify.html',
         controller: 'VerifyCtrl'
       })

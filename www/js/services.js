@@ -183,6 +183,25 @@ angular.module('starter.services', [])
         }).then(function (data) {
           callback(data);
         });
+      },
+      //to get OTP
+      getOTP: function (data, callback) {
+        $http({
+          url: adminurl + 'user/generateOtp',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+
+      //To verfiy OTP
+      verifyOTP: function (data, callback) {
+        $http({
+          url: adminurl + 'user/verifyOTP',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
       }
     };
   });
