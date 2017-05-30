@@ -164,7 +164,7 @@ angular.module('starter.services', [])
         });
         return product.priceUsed;
       },
-      getOtherProducts: function (product, quantity) {
+      getOtherProducts: function (callback) {
         $http({
           url: adminurl + 'Product/getAllOtherProduct',
           method: 'POST',
@@ -173,11 +173,12 @@ angular.module('starter.services', [])
           callback(data);
         });
       },
-      saveOrderCheckout: function (product, quantity) {
+      saveOrderCheckout: function (data, callback) {
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
           withCredentials: true,
+          data: data
         }).then(function (data) {
           callback(data);
         });

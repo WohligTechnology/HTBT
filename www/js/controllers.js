@@ -173,9 +173,66 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
 
     })
-    .controller('AddonsCtrl', function ($scope, $stateParams) {
+    .controller('AddonsCtrl', function ($scope, $stateParams, $state, MyServices, Subscription, $ionicPopover) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
+        };
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
+        $scope.getProductPrice = MyServices.getProductPrice;
+        $scope.addPlan = function (planName) {
+            $scope.subscription.plan = planName;
+        };
+        MyServices.getOtherProducts(function (data) {
+            if (data.status == 200) {
+                if (data.data && data.data.data && data.data.data.results) {
+                    $scope.otherProducts = _.groupBy(data.data.data.results, "addones");
+                    $scope.saveSpace = $scope.otherProducts["Save Space"];
+                    $scope.saveTime = $scope.otherProducts["Save Time"];
+                }
+            } else {
+                $ionicPopup.alert({
+                    title: "Error Occured",
+                    template: "Error Occured while retriving Products"
+                });
+            }
+        });
+        $scope.checkMinProduct = function (product) {
+            if (product.productQuantity <= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.checkMaxProduct = function (product) {
+            if (product.productQuantity >= parseInt(product.quantity)) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.changeProductQuantity = function (product, change) {
+            if (_.isNaN(parseInt(product.productQuantity))) {
+                product.productQuantity = 0;
+            }
+            if (change) {
+                product.productQuantity++;
+            } else {
+                product.productQuantity--;
+            }
+            $scope.addProduct(product);
+        };
+        $scope.addProduct = function (product) {
+            _.remove($scope.subscription.otherProducts, function (n) {
+                return n._id == product._id;
+            });
+            if (product.productQuantity > 0) {
+                $scope.subscription.otherProducts.push(product);
+            }
         };
     })
     .controller('Subpage3Ctrl', function ($scope, $stateParams, MyServices, Subscription, $state) {
@@ -212,65 +269,65 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     })
     .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();
-    
-  $scope.slideHasChanged = function(index) {
-      $ionicSlideBoxDelegate.cssClass = 'fade-in'
-    $scope.slideIndex = index;
-    if ( ($ionicSlideBoxDelegate.count() -1 ) == index ) {
-        $timeout(function(){
-            $ionicSlideBoxDelegate.slide(0);
 
-        },$scope.interval);
-    }
-};
+        $scope.slideHasChanged = function (index) {
+            $ionicSlideBoxDelegate.cssClass = 'fade-in'
+            $scope.slideIndex = index;
+            if (($ionicSlideBoxDelegate.count() - 1) == index) {
+                $timeout(function () {
+                    $ionicSlideBoxDelegate.slide(0);
 
-$scope.interval = 5000;
-  $scope.homeSlider = {};
-    $scope.homeSlider.data = [];
-    $scope.homeSlider.currentPage = 0;
+                }, $scope.interval);
+            }
+        };
+
+        $scope.interval = 5000;
+        $scope.homeSlider = {};
+        $scope.homeSlider.data = [];
+        $scope.homeSlider.currentPage = 0;
 
         $scope.setupSlider = function () {
 
-      //some options to pass to our slider
-      $scope.homeSlider.sliderOptions = {
-        initialSlide: 0,
-        direction: 'horizontal', //or vertical
-        speed: 300,
-        
-        autoplay:"5000",
-        effect: 'fade',
-        
-      };
+            //some options to pass to our slider
+            $scope.homeSlider.sliderOptions = {
+                initialSlide: 0,
+                direction: 'horizontal', //or vertical
+                speed: 300,
+
+                autoplay: "5000",
+                effect: 'fade',
+
+            };
 
 
-      //create delegate reference to link with slider
-      $scope.homeSlider.sliderDelegate = null;
+            //create delegate reference to link with slider
+            $scope.homeSlider.sliderDelegate = null;
 
-      //watch our sliderDelegate reference, and use it when it becomes available
-      $scope.$watch('homeSlider.sliderDelegate', function (newVal, oldVal) {
-        if (newVal != null) {
-          $scope.homeSlider.sliderDelegate.on('slideChangeEnd', function () {
-            $scope.homeSlider.currentPage = $scope.homeSlider.sliderDelegate.activeIndex;
-            //use $scope.$apply() to refresh any content external to the slider
-            $scope.$apply();
-          });
-        }
-      });
-    };
+            //watch our sliderDelegate reference, and use it when it becomes available
+            $scope.$watch('homeSlider.sliderDelegate', function (newVal, oldVal) {
+                if (newVal != null) {
+                    $scope.homeSlider.sliderDelegate.on('slideChangeEnd', function () {
+                        $scope.homeSlider.currentPage = $scope.homeSlider.sliderDelegate.activeIndex;
+                        //use $scope.$apply() to refresh any content external to the slider
+                        $scope.$apply();
+                    });
+                }
+            });
+        };
 
-    $scope.setupSlider();
+        $scope.setupSlider();
 
-    
 
-  //detect when sliderDelegate has been defined, and attatch some event listeners
-  $scope.$watch('sliderDelegate', function(newVal, oldVal){
-    if(newVal != null){ 
-      $scope.sliderDelegate.on('slideChangeEnd', function(){
-        console.log('updated slide to ' + $scope.sliderDelegate.activeIndex);
-        $scope.$apply();
-      });
-    }
-  });
+
+        //detect when sliderDelegate has been defined, and attatch some event listeners
+        $scope.$watch('sliderDelegate', function (newVal, oldVal) {
+            if (newVal != null) {
+                $scope.sliderDelegate.on('slideChangeEnd', function () {
+                    console.log('updated slide to ' + $scope.sliderDelegate.activeIndex);
+                    $scope.$apply();
+                });
+            }
+        });
         $scope.nextPage = function (sub, id) {
             if (sub == 'Yes') {
                 $state.go('app.browse-more', {
@@ -284,7 +341,7 @@ $scope.interval = 5000;
             }
         };
 
-   
+
 
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -418,9 +475,6 @@ $scope.interval = 5000;
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
-
-
-
     })
     .controller('ProfileCtrl', function ($scope, MyServices) {
         $scope.goBackHandler = function () {
