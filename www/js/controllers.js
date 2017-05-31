@@ -343,6 +343,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.submitData = function (value) {
             $scope.subscription.customerName = value.customerName;
             $scope.subscription.customerMobile = value.customerMobile;
+            $scope.subscription.orderFor = value.orderFor;
 
             console.log("$scope.subscription submitData", $scope.subscription);
             MyServices.saveOrderCheckout($scope.subscription, function (data) {
