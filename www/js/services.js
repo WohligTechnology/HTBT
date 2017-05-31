@@ -185,13 +185,23 @@ angular.module('starter.services', [])
       saveOrderCheckout: function (data, callback) {
         var data2 = data;
         data2.productDetail.productQuantity = data.product[0].quantity;
-
+        var num = 1;
         data2.product = [];
+        switch (data.plan) {
+          case "Monthly":
+            num = 4;
+            break;
+          case "Quarterly":
+            num = 12;
+            break;
+          case "Onetime":
+            num = 1;
+            break;
+        }
         data2.product.push({
           product: data2.productDetail,
-          productQuantity: data2.productDetail.productQuantity,
-          finalPrice: getProductPrice(data2.productDetail, data2.productDetail.productQuantity),
-          jarDeposit: data2.productDetail.price
+          productQuantity: parseInt(data2.productDetail.productQuantity) * num,
+          jarDeposit: data2.productDetail.AmtDeposit
         });
 
         _.each(data2.otherProducts, function (n) {
