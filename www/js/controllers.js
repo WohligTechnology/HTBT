@@ -346,7 +346,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
             console.log("$scope.subscription submitData", $scope.subscription);
             MyServices.saveOrderCheckout($scope.subscription, function (data) {
-                if (data.value) {
+                if (data.status == 200) {
                     console.log("$scope.subscription data.data", data.data);
                     $state.go('app.confirm');
                 } else {

@@ -182,8 +182,11 @@ angular.module('starter.services', [])
         _.each(data2.otherProducts, function (n) {
           data2.product.push(n);
         });
-        delete product2.productDetail;
-        delete product2.otherProducts;
+        _.each(data2.product, function (n) {
+          n.product = n._id;
+        });
+        delete data2.productDetail;
+        delete data2.otherProducts;
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
