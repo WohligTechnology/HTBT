@@ -17,7 +17,7 @@
           <input class="auth-custipPlc" type="text" ng-model="userData.customerName" placeholder="Enter Customer Name">
           </label>
                 <label class="item item-input auth-custip">
-          <input class="auth-custipPlc" type="text" ng-model="userData.customerMobile" placeholder="Enter Customer Mobile Number">
+          <input class="auth-custipPlc" type="number" ng-model="userData.customerMobile" placeholder="Enter Customer Mobile Number">
           </label>
 
 
@@ -48,7 +48,8 @@
 
                 <div class="auth-btnalign">
 
-                    <button class="button button-block button-positive" ng-click="submitData(userData)">
+                    <button class="button button-block button-positive" ng-disabled="!(userData.orderFor && userData.customerMobile && userData.customerName)"
+                        ng-click="submitData(userData)">
           Submit
           </button>
 
@@ -57,25 +58,5 @@
 
             </div>
         </div>
-        <!--<div class="m35">
-
-            <div class="clear-fix">
-            </div>
-            <div class="row auth-otprow">
-                <div class="col-66">
-                    <label class="item item-input auth-otpcol1Lbl">
-    <input class="" type="text" placeholder="YXBVCK751">
-  </label>
-                </div>
-                <div class="col-33 auth-col2">
-                    <button class="button button-clear button-positive auth-col2btn">
-  COPY
-</button>
-                </div>
-            </div>
-            <button class="button button-block button-positive auth-sharebtn">
- SHARE
-</button>
-        </div>-->
     </ion-content>
 </ion-view>
