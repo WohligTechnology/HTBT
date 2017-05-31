@@ -174,7 +174,14 @@ angular.module('starter.services', [])
         });
       },
       saveOrderCheckout: function (data, callback) {
+        var data2 = data;
+        data2.productDetail.productQuantity = data.product[0].quantity;
 
+        data2.product = [];
+        data2.product.push(data2.productDetail);
+        _.each(data2.otherProducts, function (n) {
+          data2.product.push(n);
+        });
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
