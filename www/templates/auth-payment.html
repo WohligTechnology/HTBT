@@ -14,56 +14,56 @@
     <ion-content class="menu-bgcolor">
 
         <div class="card ">
-          <div class="m20">
+            <div class="m20">
 
 
-          <div class="auth-custinfo" for="">Customer Information</div>
+                <div class="auth-custinfo" for="">Customer Information</div>
 
-              <label class="item item-input auth-custip">
-          <input class="auth-custipPlc" type="text" placeholder="Enter Customer Name">
+                <label class="item item-input auth-custip">
+          <input class="auth-custipPlc" type="text" ng-model="userData.customerName" placeholder="Enter Customer Name">
           </label>
-              <label class="item item-input auth-custip">
-          <input class="auth-custipPlc" type="text" placeholder="Enter Customer Mobile Number">
+                <label class="item item-input auth-custip">
+          <input class="auth-custipPlc" type="text" ng-model="userData.customerMobile" placeholder="Enter Customer Mobile Number">
           </label>
 
 
-    
-         <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
-          Customer will make payment
-          <label class="checkbox noborder ">
+
+                <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
+                    Customer will make payment
+                    <label class="checkbox noborder ">
           <input type="checkbox" class="">
           </label>
-          </li>
-        
+                </li>
 
 
-         <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
-          Customer has paid in Cash
-          <label class="checkbox noborder ">
+
+                <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
+                    Customer has paid in Cash
+                    <label class="checkbox noborder ">
           <input type="checkbox" class="">
           </label>
-          </li>
-         
-<li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
-          I will make payment for customer
-          <label class="checkbox noborder ">
+                </li>
+
+                <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
+                    I will make payment for customer
+                    <label class="checkbox noborder ">
           <input type="checkbox" class="">
           </label>
-          </li>
+                </li>
 
 
-              <div class="auth-btnalign">
+                <div class="auth-btnalign">
 
-                <button class="button button-block button-positive" ui-sref="app.confirm">
+                    <button class="button button-block button-positive" ng-click="submitData(userData)">
           Submit
           </button>
 
 
-              </div>
+                </div>
 
-         </div>
-         </div>
-         <!--<div class="m35">
+            </div>
+        </div>
+        <!--<div class="m35">
 
             <div class="clear-fix">
             </div>

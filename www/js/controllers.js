@@ -159,10 +159,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     })
     .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
         $scope.userDetails = MyServices.getAppDetails();
+
         MyServices.showCardQuantity(function (num) {
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
+        console.log("$scope.subscription", $scope.subscription);
         Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -172,6 +174,70 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.subscription.plan = planName;
         };
 
+        $scope.calculateTotalPrice = function () {
+            var total = 0;
+            var savingPriceTotal = 0;
+            $scope.totalAmt = 0;
+            $scope.otherProductstotal = 0;
+            $scope.totalQuantity = 0;
+            $scope.deposit = 0;
+            _.each($scope.subscription.otherProducts, function (n) {
+                $scope.otherProductstotal += n.price * n.productQuantity;
+            });
+            if ($scope.subscription.productDetail.applicableBefore >
+                $scope.subscription.product[0].quantity) {
+                $scope.deposit =
+                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.AmtDeposit);
+            }
+            if ($scope.subscription.plan == 'Quarterly') {
+                $scope.totalQuantity = 12 * ($scope.subscription.product[0].quantity);
+                total =
+                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+                savingPriceTotal =
+                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+                $scope.savingAmount = savingPriceTotal - total;
+                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+                console.log($scope.savingAmount, savingPriceTotal, total);
+                $scope.totalAmt = $scope.deposit +
+                    $scope.otherProductstotal + total;
+                console.log($scope.totalAmt);
+
+                return $scope.savingAmount;
+            } else if ($scope.subscription.plan == 'Monthly') {
+                $scope.totalQuantity = 4 * ($scope.subscription.product[0].quantity);
+                total =
+                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+                savingPriceTotal =
+                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+                $scope.savingAmount = savingPriceTotal - total;
+                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+                $scope.totalAmt = $scope.deposit +
+                    $scope.otherProductstotal + total;
+                return $scope.savingAmount;
+            } else {
+                $scope.totalQuantity = $scope.subscription.product[0].quantity;
+                total =
+                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+                savingPriceTotal =
+                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+                $scope.savingAmount = savingPriceTotal - total;
+                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+                $scope.totalAmt = $scope.deposit +
+                    $scope.otherProductstotal + total;
+                return $scope.savingAmount;
+            }
+        };
+
+        $scope.authenticatePayment = function () {
+
+            $scope.subscription.totalAmt = $scope.totalAmt;
+            $scope.subscription.totalQuantity = $scope.totalQuantity;
+            $scope.subscription.user = $.jStorage.get('profile')._id;
+
+            Subscription.setObj($scope.subscription);
+
+            $state.go('app.auth-payment');
+        };
     })
     .controller('AddonsCtrl', function ($scope, $stateParams, $state, MyServices, Subscription, $ionicPopover) {
         $scope.goBackHandler = function () {
@@ -262,10 +328,32 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
     })
-    .controller('AuthPaymentCtrl', function ($scope, $stateParams) {
+    .controller('AuthPaymentCtrl', function ($scope, $stateParams, $state, MyServices, Subscription) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+
+        $scope.userData = {};
+        // ui - sref = "app.confirm"
+
+        $scope.subscription = Subscription.getObj();
+        // console.log("$scope.subscription AuthPaymentCtrl", $scope.subscription);
+
+        $scope.submitData = function (value) {
+            $scope.subscription.customerName = value.customerName;
+            $scope.subscription.customerMobile = value.customerMobile;
+
+            console.log("$scope.subscription submitData", $scope.subscription);
+            MyServices.saveOrderCheckout($scope.subscription, function (data) {
+                if (data.value) {
+                    console.log("$scope.subscription data.data", data.data);
+                    $state.go('app.confirm');
+                } else {
+                    alert("something went wrong");
+                }
+            })
+
+        }
     })
     .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();
