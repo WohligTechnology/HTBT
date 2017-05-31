@@ -337,6 +337,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         // ui - sref = "app.confirm"
 
         $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
         // console.log("$scope.subscription AuthPaymentCtrl", $scope.subscription);
 
         $scope.submitData = function (value) {

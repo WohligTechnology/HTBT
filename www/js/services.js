@@ -182,11 +182,13 @@ angular.module('starter.services', [])
         _.each(data2.otherProducts, function (n) {
           data2.product.push(n);
         });
+        delete product2.productDetail;
+        delete product2.otherProducts;
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
           withCredentials: true,
-          data: data
+          data: data2
         }).then(function (data) {
           callback(data);
         });
