@@ -132,6 +132,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }
       })
+      .state('app.auth-payment-cart', {
+        cache: false,
+        url: '/auth-payment-cart',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/auth-payment.html',
+            controller: 'AuthPaymentCtrlCart'
+          }
+        }
+      })
 
       .state('app.subpage3', {
         cache: false,

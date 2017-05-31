@@ -354,7 +354,25 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             })
 
-        }
+        };
+    })
+    .controller('AuthPaymentCtrlCart', function ($scope, $stateParams, $state, MyServices, Subscription) {
+        $scope.goBackHandler = function () {
+            window.history.back(); //This works
+        };
+
+        $scope.userData = {};
+
+        $scope.submitData = function (value) {
+            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, function (data) {
+                if (data.status == 200) {
+                    console.log("$scope.subscription data.data", data.data);
+                    $state.go('app.confirm');
+                } else {
+                    alert("something went wrong");
+                }
+            });
+        };
     })
     .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();

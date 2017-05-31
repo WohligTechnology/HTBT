@@ -196,6 +196,21 @@ angular.module('starter.services', [])
           callback(data);
         });
       },
+      saveOrderCheckoutCart: function (name, contactNumber, callback) {
+        var obj = {
+          user: $.jStorage.get("profile")._id,
+          customerName: name,
+          customerMobile: contactNumber
+        };
+        $http({
+          url: adminurl + 'Order/saveOrderCheckoutCart',
+          method: 'POST',
+          withCredentials: true,
+          data: obj
+        }).then(function (data) {
+          callback(data);
+        });
+      },
       //to get OTP
       getOTP: function (data, callback) {
         $http({
