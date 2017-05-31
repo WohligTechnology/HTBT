@@ -38,32 +38,15 @@ ion-information-circled"></i></div>
                 </div>
             </div>
         </div>
-        <div class="row chkoutcoupon">
+        <!--<div class="row chkoutcoupon">
             <div class="col-50">
                 <label for="">Enter coupon code</label>
             </div>
             <div class="col-50 chkpadip">
                 <input type="text" placeholder="Type coupon code here">
             </div>
-        </div>
-        <div class="row bgrowQuant " ng-repeat="op in
-subscription.otherProducts">
-            <div class="col-67 bgchkoutcol50Quant">
-                <div>
-                    <label for="">{{op.name}}
+        </div>-->
 
-                </label>
-                    <br>
-                    <span> {{op.productQuantity}} Prouct x ₹
-{{op.price}} /Prouct </span>
-                </div>
-            </div>
-            <div class="col-33 bgchkoutcol502">
-                <div>
-                    <label for="">₹  {{op.productQuantity *  op.price}}</label>
-                </div>
-            </div>
-        </div>
         <div class="row bgrowQuant " ng-if="subscription.productDetail.applicableBefore>subscription.product[0].quantity">
             <div class="col-67 bgchkoutcol50Quant">
                 <div>
@@ -114,6 +97,26 @@ subscription.otherProducts">
                 </div>
             </div>
         </div>
+
+        <div class="row bgrowQuant " ng-repeat="op in
+subscription.otherProducts">
+            <div class="col-67 bgchkoutcol50Quant">
+                <div>
+                    <label for="">{{op.name}}
+
+                </label>
+                    <br>
+                    <span> {{op.productQuantity}} Prouct x ₹
+{{op.price}} /Prouct </span>
+                </div>
+            </div>
+            <div class="col-33 bgchkoutcol502">
+                <div>
+                    <label for="">₹  {{op.productQuantity *  op.price}}</label>
+                </div>
+            </div>
+        </div>
+
         <div class="row bgrowQuant">
             <div class="col-67 savingscol501 ">
                 <div>
@@ -132,16 +135,16 @@ subscription.otherProducts">
     </ion-content>
     <li class="item item-checkbox noborder checkbox-assertive borderR
 chkalign mar10">
-        I have read & accept the
+        I have read & accept the {{terms}}
 
-        <span class="termscolor" ng-click="terms.show($event)">  terms
-& conditions</span>
+        <span class="termscolor" ng-click="terms.show($event)">  Terms
+& Conditions</span>
         <label class="checkbox noborder ">
-   <input type="checkbox" class="">
+   <input type="checkbox" ng-model="terms" class="">
    </label>
     </li>
     <div class="bar bar-footer signUpFooter footer-height">
-        <button class="button button-block button-positive footer-font" ng-click="authenticatePayment()">
+        <button class="button button-block button-positive footer-font" ng-disabled="!terms" ng-click="authenticatePayment()">
   Pay ₹ {{totalAmt}}/-
 </button>
     </div>
