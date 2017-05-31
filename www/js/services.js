@@ -203,6 +203,7 @@ angular.module('starter.services', [])
 
         delete data2.productDetail;
         delete data2.otherProducts;
+        data2.orderFor = "RMForCustomer";
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
@@ -216,7 +217,8 @@ angular.module('starter.services', [])
         var obj = {
           user: $.jStorage.get("profile")._id,
           customerName: name,
-          customerMobile: contactNumber
+          customerMobile: contactNumber,
+          orderFor: "RMForCustomer"
         };
         $http({
           url: adminurl + 'Order/saveOrderCheckoutCart',
