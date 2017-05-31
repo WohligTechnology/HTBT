@@ -352,7 +352,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 } else {
                     alert("something went wrong");
                 }
-            })
+            });
 
         };
     })
@@ -364,7 +364,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.userData = {};
 
         $scope.submitData = function (value) {
-            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, function (data) {
+            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.orderFor, function (data) {
                 if (data.status == 200) {
                     console.log("$scope.subscription data.data", data.data);
                     $state.go('app.confirm');
