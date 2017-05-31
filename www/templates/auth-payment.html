@@ -4,12 +4,6 @@
             <button class="button button-clear ion-android-arrow-back sigupIconLeft" ng-click="goBackHandler()">
         </button>
         </ion-nav-buttons>
-        <!-- <ion-nav-buttons side="right">
-            <div class="cartbtn">
-                <img src="img/9.png" alt="" ui-sref="app.review">
-            </div>
-            <span class="cartbadge">3</span>
-        </ion-nav-buttons> -->
     </ion-nav-bar>
     <ion-content class="menu-bgcolor">
 
@@ -31,7 +25,7 @@
                 <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
                     Customer will make payment
                     <label class="checkbox noborder ">
-          <input type="checkbox" class="">
+          <input type="radio"  ng-model="userData.orderFor" value="Customer">
           </label>
                 </li>
 
@@ -40,14 +34,14 @@
                 <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
                     Customer has paid in Cash
                     <label class="checkbox noborder ">
-          <input type="checkbox" class="">
+          <input type="radio"  ng-model="userData.orderFor" value="Cash">
           </label>
                 </li>
 
                 <li class="item item-checkbox noborder checkbox-assertive borderR auth-textbox mar10">
                     I will make payment for customer
                     <label class="checkbox noborder ">
-          <input type="checkbox" class="">
+          <input type="radio"  ng-model="userData.orderFor" value="RP">
           </label>
                 </li>
 
