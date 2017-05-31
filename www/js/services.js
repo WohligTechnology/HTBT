@@ -208,6 +208,7 @@ angular.module('starter.services', [])
           data2.product.push({
             product: n,
             productQuantity: n.productQuantity,
+            jarDeposit: 0
           });
         });
 
