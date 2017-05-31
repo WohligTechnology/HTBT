@@ -154,14 +154,19 @@ angular.module('starter.services', [])
       getProductPrice: function (product, quantity) {
         var foundPrice = {};
         var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
-        _.each(orderedPrice, function (obj) {
-          if (parseInt(quantity) <= parseInt(obj.endRange)) {
-            foundPrice = obj;
-            product.priceUsed = obj.finalPrice;
-            product.totalPriceUsed = obj.finalPrice * parseInt(quantity);
-            return false;
-          }
-        });
+        if (orderedPrice.length === 0) {
+          return parseInt(product.price);
+        } else {
+          _.each(orderedPrice, function (obj) {
+            if (parseInt(quantity) <= parseInt(obj.endRange)) {
+              foundPrice = obj;
+              product.priceUsed = obj.finalPrice;
+              product.totalPriceUsed = obj.finalPrice * parseInt(quantity);
+              return false;
+            }
+          });
+        }
+
         return product.priceUsed;
       },
       getOtherProducts: function (callback) {
@@ -178,13 +183,20 @@ angular.module('starter.services', [])
         data2.productDetail.productQuantity = data.product[0].quantity;
 
         data2.product = [];
-        data2.product.push(data2.productDetail);
+        data2.product.push({
+          product: data2.productDetail,
+          productQuantity: data2.productDetail.productQuantity,
+          finalPrice: data2.productDetail.price,
+          jarDeposit: data2.productDetail.price
+        });
+
         _.each(data2.otherProducts, function (n) {
-          data2.product.push(n);
+          data2.product.push({
+            product: n,
+            productQuantity: n.productQuantity,
+          });
         });
-        _.each(data2.product, function (n) {
-          n.product = n._id;
-        });
+
         delete data2.productDetail;
         delete data2.otherProducts;
         $http({
