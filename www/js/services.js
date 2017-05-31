@@ -11,6 +11,25 @@ var imgpath = imgurl + "readFile?file=";
 angular.module('starter.services', [])
   .factory('MyServices', function ($http) {
     var appDetails = {};
+
+    function getProductPrice(product, quantity) {
+      var foundPrice = {};
+      var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
+      if (orderedPrice.length === 0) {
+        return parseInt(product.price);
+      } else {
+        _.each(orderedPrice, function (obj) {
+          if (parseInt(quantity) <= parseInt(obj.endRange)) {
+            foundPrice = obj;
+            product.priceUsed = obj.finalPrice;
+            product.totalPriceUsed = obj.finalPrice * parseInt(quantity);
+            return false;
+          }
+        });
+      }
+
+      return product.priceUsed;
+    }
     appDetails.cartQuantity = $.jStorage.get("cartQuantity");
     return {
       getAppDetails: function () {
@@ -152,22 +171,7 @@ angular.module('starter.services', [])
         });
       },
       getProductPrice: function (product, quantity) {
-        var foundPrice = {};
-        var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
-        if (orderedPrice.length === 0) {
-          return parseInt(product.price);
-        } else {
-          _.each(orderedPrice, function (obj) {
-            if (parseInt(quantity) <= parseInt(obj.endRange)) {
-              foundPrice = obj;
-              product.priceUsed = obj.finalPrice;
-              product.totalPriceUsed = obj.finalPrice * parseInt(quantity);
-              return false;
-            }
-          });
-        }
-
-        return product.priceUsed;
+        return getProductPrice(product, quantity);
       },
       getOtherProducts: function (callback) {
         $http({
@@ -186,7 +190,7 @@ angular.module('starter.services', [])
         data2.product.push({
           product: data2.productDetail,
           productQuantity: data2.productDetail.productQuantity,
-          finalPrice: data2.productDetail.price,
+          finalPrice: getProductPrice(data2.productDetail, data2.productDetail.productQuantity),
           jarDeposit: data2.productDetail.price
         });
 
