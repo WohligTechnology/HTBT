@@ -165,7 +165,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
-        console.log("$scope.subscription", $scope.subscription);
         Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -474,12 +473,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
         MyServices.featureprods(function (data) {
-
-            console.log(data);
             $scope.feaprods = data.data;
-            console.log("let me know", $scope.feaprods);
             $ionicSlideBoxDelegate.update();
-
         });
     })
     .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices, $ionicPopup) {
