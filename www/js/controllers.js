@@ -343,8 +343,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.submitData = function (value) {
             $scope.subscription.customerName = value.customerName;
             $scope.subscription.customerMobile = value.customerMobile;
-            $scope.subscription.orderFor = value.orderFor;
-
+            $scope.subscription.methodOfPayment = value.methodOfPayment;
+            $scope.subscription.orderFor = 'RMForCustomer';
             console.log("$scope.subscription submitData", $scope.subscription);
             MyServices.saveOrderCheckout($scope.subscription, function (data) {
                 if (data.status == 200) {
@@ -365,7 +365,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.userData = {};
 
         $scope.submitData = function (value) {
-            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.orderFor, function (data) {
+            value.orderFor = 'RMForCustomer'
+            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile,value.methodOfPayment, value.orderFor, function (data) {
                 if (data.status == 200) {
                     $state.go('app.confirm');
                 } else {
