@@ -729,6 +729,15 @@ $(".inputs").keyup(function () {
     })
     .controller('LoginCtrl', function ($scope, $stateParams, $state, MyServices) {
         $scope.loginInfo = {};
+        $scope.joinInDisabled = true;
+        $scope.loginNumberChange = function (num) {
+            num = num + "";
+            if (num.length === 10) {
+                $scope.joinInDisabled = false;
+            } else {
+                $scope.joinInDisabled = true;
+            }
+        };
         $scope.profile = $.jStorage.get('profile');
         if ($scope.profile !== null) {
             if ($scope.profile.verification == 'Not Verified') {

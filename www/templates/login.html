@@ -19,12 +19,14 @@
     <div class="row phnRow">
       <div class="col-67 phnCol66">
         <div class="spanTextDiv">
+          {{loginInfo.mobile.length}}
           <span class="phnSpan">+91</span>
-          <input class="phnText" type="text" ng-model="loginInfo.mobile" placeholder="Enter your contact no">
+          <input class="phnText" type="text" only-digits ng-change="loginNumberChange(loginInfo.mobile);" ng-model="loginInfo.mobile"
+            placeholder="Enter your contact no">
         </div>
       </div>
       <div class="col-33 phnCol33Div">
-        <button class="button button-royal joinBtn" ng-click="getOTP(loginInfo)">
+        <button class="button button-royal joinBtn" ng-click="getOTP(loginInfo)" ng-disabled="joinInDisabled">
                   Join us
                 </button>
       </div>
