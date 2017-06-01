@@ -165,7 +165,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
-        console.log("$scope.subscription", $scope.subscription);
         Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -175,59 +174,59 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.subscription.plan = planName;
         };
 
-        $scope.calculateTotalPrice = function () {
-            var total = 0;
-            var savingPriceTotal = 0;
-            $scope.totalAmt = 0;
-            $scope.otherProductstotal = 0;
-            $scope.totalQuantity = 0;
-            $scope.deposit = 0;
-            _.each($scope.subscription.otherProducts, function (n) {
-                $scope.otherProductstotal += n.price * n.productQuantity;
-            });
-            if ($scope.subscription.productDetail.applicableBefore >
-                $scope.subscription.product[0].quantity) {
-                $scope.deposit =
-                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.AmtDeposit);
-            }
-            if ($scope.subscription.plan == 'Quarterly') {
-                $scope.totalQuantity = 12 * ($scope.subscription.product[0].quantity);
-                total =
-                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
-                savingPriceTotal =
-                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
-                $scope.savingAmount = savingPriceTotal - total;
-                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-                console.log($scope.savingAmount, savingPriceTotal, total);
-                $scope.totalAmt = $scope.deposit +
-                    $scope.otherProductstotal + total;
-                console.log($scope.totalAmt);
+        // $scope.calculateTotalPrice = function () {
+        //     var total = 0;
+        //     var savingPriceTotal = 0;
+        //     $scope.totalAmt = 0;
+        //     $scope.otherProductstotal = 0;
+        //     $scope.totalQuantity = 0;
+        //     $scope.deposit = 0;
+        //     _.each($scope.subscription.otherProducts, function (n) {
+        //         $scope.otherProductstotal += n.price * n.productQuantity;
+        //     });
+        //     if ($scope.subscription.productDetail.applicableBefore >
+        //         $scope.subscription.product[0].quantity) {
+        //         $scope.deposit =
+        //             ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.AmtDeposit);
+        //     }
+        //     if ($scope.subscription.plan == 'Quarterly') {
+        //         $scope.totalQuantity = 12 * ($scope.subscription.product[0].quantity);
+        //         total =
+        //             12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+        //         savingPriceTotal =
+        //             12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+        //         $scope.savingAmount = savingPriceTotal - total;
+        //         $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+        //         console.log($scope.savingAmount, savingPriceTotal, total);
+        //         $scope.totalAmt = $scope.deposit +
+        //             $scope.otherProductstotal + total;
+        //         console.log($scope.totalAmt);
 
-                return $scope.savingAmount;
-            } else if ($scope.subscription.plan == 'Monthly') {
-                $scope.totalQuantity = 4 * ($scope.subscription.product[0].quantity);
-                total =
-                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
-                savingPriceTotal =
-                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
-                $scope.savingAmount = savingPriceTotal - total;
-                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-                $scope.totalAmt = $scope.deposit +
-                    $scope.otherProductstotal + total;
-                return $scope.savingAmount;
-            } else {
-                $scope.totalQuantity = $scope.subscription.product[0].quantity;
-                total =
-                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
-                savingPriceTotal =
-                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
-                $scope.savingAmount = savingPriceTotal - total;
-                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-                $scope.totalAmt = $scope.deposit +
-                    $scope.otherProductstotal + total;
-                return $scope.savingAmount;
-            }
-        };
+        //         return $scope.savingAmount;
+        //     } else if ($scope.subscription.plan == 'Monthly') {
+        //         $scope.totalQuantity = 4 * ($scope.subscription.product[0].quantity);
+        //         total =
+        //             4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+        //         savingPriceTotal =
+        //             4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+        //         $scope.savingAmount = savingPriceTotal - total;
+        //         $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+        //         $scope.totalAmt = $scope.deposit +
+        //             $scope.otherProductstotal + total;
+        //         return $scope.savingAmount;
+        //     } else {
+        //         $scope.totalQuantity = $scope.subscription.product[0].quantity;
+        //         total =
+        //             ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+        //         savingPriceTotal =
+        //             ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+        //         $scope.savingAmount = savingPriceTotal - total;
+        //         $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+        //         $scope.totalAmt = $scope.deposit +
+        //             $scope.otherProductstotal + total;
+        //         return $scope.savingAmount;
+        //     }
+        // };
 
         $scope.authenticatePayment = function () {
 
@@ -474,12 +473,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
         MyServices.featureprods(function (data) {
-
-            console.log(data);
             $scope.feaprods = data.data;
-            console.log("let me know", $scope.feaprods);
             $ionicSlideBoxDelegate.update();
-
         });
     })
     .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices, $ionicPopup) {
