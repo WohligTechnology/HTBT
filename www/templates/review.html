@@ -33,7 +33,7 @@
         <div class="card card-no " style="padding: 20%;text-align: center;" ng-if="products.length==0">
             No Product Found
         </div>
-        <!--<div class="row chkoutcoupon" ng-hide="products.length==0">
+        <div class="row chkoutcoupon" ng-hide="products.length==0">
             <div class="col-50">
                 <label for="">Enter coupon code</label>
             </div>
@@ -41,7 +41,7 @@
                 <input type="text" placeholder="Type coupon code here">
 
             </div>
-        </div>-->
+        </div>
         <div class="row bgrowQuant " ng-hide="products.length==0">
             <div class="col-67 bgreviewcol50Quant">
                 <div>
@@ -71,6 +71,7 @@
                 </div>
             </div>
         </div>
+
         <!--<div class="row checkbtmcard" ng-hide="products.length==0">
             <div class="col-25">
                 <div class="datemonth text-center">
@@ -99,10 +100,24 @@
                 </div>
             </div>
         </div>-->
+
+
+
+
     </ion-content>
 
+    <li class="item item-checkbox noborder checkbox-assertive borderR
+chkalign mar10">
+        <label class="checkbox noborder ">
+   <input type="checkbox" ng-model="terms" class="">
+   </label> I have read & accept the
+        <span class="termscolor" ng-click="terms.show($event)">  Terms
+& Conditions</span>
+    </li>
+
+
     <div class="bar bar-footer signUpFooter footer-height">
-        <button class="button button-block button-positive footer-font" ui-sref="app.auth-payment-cart">
+        <button ng-disabled="!terms" class="button button-block button-positive footer-font" ui-sref="app.auth-payment-cart">
   Pay ₹ {{calculateTotalPrice()}}/-
 </button>
     </div>

@@ -135,13 +135,13 @@ subscription.otherProducts">
     </ion-content>
     <li class="item item-checkbox noborder checkbox-assertive borderR
 chkalign mar10">
-        I have read & accept the
+        <label class="checkbox noborder ">
+   <input type="checkbox" ng-model="terms" class="">
+   </label> I have read & accept the
 
         <span class="termscolor" ng-click="terms.show($event)">  Terms
 & Conditions</span>
-        <label class="checkbox noborder ">
-   <input type="checkbox" ng-model="terms" class="">
-   </label>
+
     </li>
     <div class="bar bar-footer signUpFooter footer-height">
         <button class="button button-block button-positive footer-font" ng-disabled="!terms" ng-click="authenticatePayment()">
