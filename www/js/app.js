@@ -274,6 +274,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/login.html',
         controller: 'LoginCtrl'
       })
+      .state('logout', {
+        cache: false,
+        url: '/logout',
+        templateUrl: 'templates/login.html',
+        controller: 'LogoutCtrl'
+      })
       .state('pincode', {
         cache: false,
         url: '/pincode',

@@ -366,7 +366,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         $scope.submitData = function (value) {
             value.orderFor = 'RMForCustomer'
-            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile,value.methodOfPayment, value.orderFor, function (data) {
+            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, value.orderFor, function (data) {
                 if (data.status == 200) {
                     $state.go('app.confirm');
                 } else {
@@ -714,8 +714,8 @@ $(".inputs").keyup(function () {
                     alert("OTP verification failed")
                     $state.go('login');
                 }
-            })
-        }
+            });
+        };
     })
     .controller('ConfirmationCtrl', function ($scope, $stateParams) {
 
@@ -723,11 +723,14 @@ $(".inputs").keyup(function () {
             window.history.back(); //This works
         };
     })
+    .controller('LogoutCtrl', function ($scope, $stateParams, $state, MyServices) {
+        $.jStorage.flush();
+        $state.go("login");
+    })
     .controller('LoginCtrl', function ($scope, $stateParams, $state, MyServices) {
-
         $scope.loginInfo = {};
         $scope.profile = $.jStorage.get('profile');
-        if ($scope.profile != null) {
+        if ($scope.profile !== null) {
             if ($scope.profile.verification == 'Not Verified') {
                 $state.go('verification');
             } else {
@@ -735,7 +738,6 @@ $(".inputs").keyup(function () {
 
             }
         }
-
         $scope.getOTP = function (value) {
             console.log("value", value);
             value.accessLevel = "Relationship Partner"
