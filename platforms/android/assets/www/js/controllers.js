@@ -489,6 +489,15 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
     .controller('VerifyCtrl', function ($scope, $stateParams) {
         $.jStorage.flush();
+        $(".inputs").keyup(function () {
+    if (this.value.length == this.maxLength) {
+      var $next = $(this).next('.inputs');
+      if ($next.length)
+          $(this).next('.inputs').focus();
+      else
+          $(this).blur();
+    }
+});
     })
 
     .controller('ConfirmationCtrl', function ($scope, $stateParams) {
