@@ -204,6 +204,7 @@ angular.module('starter.services', [])
           jarDeposit: data2.productDetail.AmtDeposit
         });
 
+
         _.each(data2.otherProducts, function (n) {
           data2.product.push({
             product: n,
@@ -215,6 +216,7 @@ angular.module('starter.services', [])
         delete data2.productDetail;
         delete data2.otherProducts;
         data2.orderFor = "RMForCustomer";
+        data2.user = $.jStorage.get("profile")._id;
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
