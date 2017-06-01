@@ -11,8 +11,8 @@
             <div class="row review-height">
                 <i class="button button-icon icon ion-ios-close-outline review-closebutton" ng-click="removeCart(product.product._id)"></i>
                 <div class="col-33">
-                    <div class="chkout-imgdivcol">
-                        <img class="browse-sliderImg " ng-src="{{product.product.smallImage | uploadpath}}" alt="">
+                    <div class="prdcticon">
+                        <img class=" " ng-src="{{product.product.smallImage | uploadpath}}" alt="">
 
                     </div>
                 </div>
@@ -108,7 +108,7 @@
 
     <li class="item item-checkbox noborder checkbox-assertive borderR
 chkalign mar10">
-        <label class="checkbox noborder ">
+        <label class="checkbox noborder checkboxterms">
    <input type="checkbox" ng-model="terms" class="">
    </label> I have read & accept the
         <span class="termscolor" ng-click="terms.show($event)">  Terms
