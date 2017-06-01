@@ -1,7 +1,7 @@
 // var adminurl = "http://wohlig.io:1337/api/"; //local
 
 // var adminurl = "http://104.198.28.29:80/api/"; //server
-var adminurl = "http://192.168.0.31:1337/api/"; //server
+var adminurl = "http://192.168.0.117:1337/api/"; //server
 
 // var imgpath = adminurl + "uploadfile/getupload?file=";
 var imgurl = adminurl + "upload/";
@@ -226,11 +226,12 @@ angular.module('starter.services', [])
           callback(data);
         });
       },
-      saveOrderCheckoutCart: function (name, contactNumber, callback) {
+      saveOrderCheckoutCart: function (name, contactNumber, method, callback) {
         var obj = {
           user: $.jStorage.get("profile")._id,
           customerName: name,
           customerMobile: contactNumber,
+          methodOfPayment: method,
           orderFor: "RMForCustomer"
         };
         $http({
@@ -245,7 +246,7 @@ angular.module('starter.services', [])
       //to get OTP
       getOTP: function (data, callback) {
         $http({
-          url: adminurl + 'user/saveUserData',
+          url: adminurl + 'user/generateOtp',
           method: 'POST',
           withCredentials: true,
           data: data

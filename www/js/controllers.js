@@ -128,8 +128,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             var total = 0;
             var savingPriceTotal = 0;
             _.each($scope.products, function (n) {
+                console.log(n.productQuantity);
                 total += n.product.totalPriceUsed;
-                savingPriceTotal += parseInt(n.product.price) * parseInt(n.product.quantity);
+                savingPriceTotal += parseInt(n.product.price) * parseInt(n.productQuantity);
             });
             $scope.savingAmount = savingPriceTotal - total;
             $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
@@ -365,8 +366,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.userData = {};
 
         $scope.submitData = function (value) {
-            value.orderFor = 'RMForCustomer'
-            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, value.orderFor, function (data) {
+            value.orderFor = 'RMForCustomer';
+            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, function (data) {
                 if (data.status == 200) {
                     $state.go('app.confirm');
                 } else {
@@ -533,12 +534,24 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             if (products.length > 0) {
                 MyServices.addToCart(products, function (data) {
                     if (data.status == 200) {
-                        var alertPopup = $ionicPopup.alert({
-                            title: "Products Added to Cart",
-                            template: "Products Added to Cart Successfully"
-                        });
-                        alertPopup.then(function (res) {
-                            $state.go("app.review");
+                        var myPopup = $ionicPopup.show({
+                            title: 'Products Added to Cart',
+                            subTitle: 'Products are added to cart successfully',
+                            buttons: [{
+
+                                    text: 'Go to Cart',
+                                    onTap: function (e) {
+                                        $state.go("app.review");
+                                    }
+                                },
+                                {
+                                    text: 'Continue',
+                                    type: 'button-positive',
+                                    onTap: function (e) {
+                                        $state.go("app.browse");
+                                    }
+                                }
+                            ]
                         });
                     } else {
                         $ionicPopup.alert({
@@ -692,15 +705,16 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         reqObj.mobile = $stateParams.no;
         reqObj.accessLevel = "Relationship Partner";
 
-$(".inputs").keyup(function () {
-    if (this.value.length == this.maxLength) {
-      var $next = $(this).next('.inputs');
-      if ($next.length)
-          $(this).next('.inputs').focus();
-      else
-          $(this).blur();
-    }
-});
+        $(".inputs").keyup(function () {
+            if (this.value.length == this.maxLength) {
+                var $next = $(this).next('.inputs');
+                if ($next.length) {
+                    $(this).next('.inputs').focus();
+                } else {
+                    $(this).blur();
+                }
+            }
+        });
 
         //Function to verify OTP
         $scope.verifyOTP = function (value) {
@@ -717,8 +731,10 @@ $(".inputs").keyup(function () {
             });
         };
     })
-    .controller('ConfirmationCtrl', function ($scope, $stateParams) {
-
+    .controller('ConfirmationCtrl', function ($scope, $stateParams, MyServices) {
+        $.jStorage.set("cartQuantity", 0);
+        var appDetail = MyServices.getAppDetails();
+        appDetail.cartQuantity = 0;
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
