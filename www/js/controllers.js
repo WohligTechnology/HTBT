@@ -367,7 +367,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.submitData = function (value) {
             MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.orderFor, function (data) {
                 if (data.status == 200) {
-                    console.log("$scope.subscription data.data", data.data);
                     $state.go('app.confirm');
                 } else {
                     alert("something went wrong");
@@ -734,18 +733,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     mobile: value.mobile,
                     accessLevel: value.accessLevel
                 }, function (data) {
-                    if (data.value) {
-                        if (data.data.message == "OTP sent") {
-                            $state.go('verify', {
-                                no: value.mobile
-                            });
-                        } else {
-                            alert("unable to generate OTP. Please try again");
-                        }
+                    if (data.status == 200) {
+                        $state.go('verify', {
+                            no: value.mobile
+                        });
                     } else {
                         alert("unable to generate OTP. Please try again");
                     }
-                })
+                });
             } else {
                 alert("Please provide mobile number");
             }

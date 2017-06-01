@@ -243,11 +243,11 @@ angular.module('starter.services', [])
       //to get OTP
       getOTP: function (data, callback) {
         $http({
-          url: adminurl + 'user/generateOtp',
+          url: adminurl + 'user/saveUserData',
           method: 'POST',
           withCredentials: true,
           data: data
-        }).success(callback);
+        }).then(callback);
       },
 
       //To verfiy OTP
