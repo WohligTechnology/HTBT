@@ -11008,17 +11008,19 @@ a.button {
 
 .prdcticon {
   height: 120px;
-  width: 120px;
   text-align: center;
-  margin: 10px 10px;
-  position: relative; }
+  margin: 10px 0px 10px 10px;
+  padding-right: 10px;
+  position: relative;
+  border-right: 1px solid #ddd; }
   .prdcticon img {
     max-width: 100%;
     max-height: 100%;
     position: absolute;
     transform: translate(-50%, -50%) !important;
     top: 50% !important;
-    left: 50% !important; }
+    left: 50% !important;
+    padding-right: 10px; }
   .prdcticon .line {
     height: 90%;
     display: inline-block;
@@ -11278,6 +11280,28 @@ a.button {
     font-size: 16px;
     font-weight: 400; }
 
+.chkout-image {
+  height: 120px;
+  text-align: center;
+  margin: 10px 0px 10px 10px;
+  padding-right: 10px;
+  position: relative;
+  border-right: 1px solid #278cce; }
+  .chkout-image img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%) !important;
+    top: 50% !important;
+    left: 50% !important;
+    padding-right: 10px; }
+  .chkout-image .line {
+    height: 90%;
+    display: inline-block;
+    padding: 10px;
+    margin: 8px 0 8px 5%;
+    border-right: 1px solid #1a85cb; }
+
 .chkout-closebutton {
   position: absolute;
   right: 25px;
@@ -11299,8 +11323,8 @@ a.button {
   margin: 0 !important; }
 
 .chkout-align {
-  padding: 28px 0 0;
-  height: 100%; }
+  padding: 20px;
+  height: 120px; }
 
 .colorpure {
   color: #3d619b; }
