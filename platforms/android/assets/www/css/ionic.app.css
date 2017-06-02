@@ -10091,6 +10091,13 @@ a.button {
   margin: 15px 15px 6%;
   width: auto !important; }
 
+.bottomTopMarRow2 {
+  border-top: 1px solid lightgrey !important;
+  color: grey;
+  border-bottom: 1px solid lightgrey;
+  margin: 30px 15px 6%;
+  width: auto !important; }
+
 .colPad {
   padding: 0 !important; }
 
@@ -10113,8 +10120,7 @@ a.button {
     padding: 0; }
 
 .rankDiv {
-  text-align: center;
-  padding-right: 30px; }
+  text-align: center; }
   .rankDiv pr {
     font-size: 12px;
     color: black;
@@ -10155,21 +10161,17 @@ a.button {
 
 .newCust {
   text-align: center;
-  padding: 10px 0;
-  text-align: center;
-  margin-top: 10px;
-  vertical-align: middle;
-  width: 48%;
-  display: block;
-  margin: 0 auto; }
+  padding: 5px 0; }
   .newCust button {
     color: white !important;
     border: 0px !important;
     background: #ff414d !important;
-    font-size: 13px !important;
-    padding-left: 10px !important;
+    font-size: 18px !important;
     min-height: 35px !important;
+    margin: 10px;
     box-shadow: 1px 2px 0 0 lightgrey; }
+  .newCust label {
+    font-size: 18px !important; }
   .newCust .button.icon-left:before {
     padding-right: 10px !important; }
 
@@ -10180,25 +10182,23 @@ a.button {
   text-align: center;
   margin-top: 10px;
   vertical-align: middle;
-  width: 48%;
   display: block;
   margin: 0 auto; }
   .oldCust label {
-    margin-left: 16px;
-    font-size: 15px !important; }
+    margin-left: 8px;
+    font-size: 18px !important; }
   .oldCust button {
     color: #7a7b7c !important;
     border: 0px !important;
     background: #f2f4f5 !important;
-    font-size: 13px !important;
-    padding-left: 10px !important;
+    font-size: 16px !important;
     min-height: 35px !important;
     box-shadow: 1px 2px 0 0 lightgrey; }
 
 .ion-custom-user:before {
   content: url("../img/user.png");
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
   vertical-align: middle;
   font-size: 10px;
   display: inline-block;
@@ -10878,15 +10878,16 @@ a.button {
   margin: 1.5px;
   overflow: hidden; }
   .browse-card1 .icondiv {
-    height: 170px;
+    height: auto;
+    width: 100%;
     padding: 15px 0;
     display: block;
     text-align: center;
     background: #e7e9ea;
     overflow: hidden; }
     .browse-card1 .icondiv img {
-      height: 100%;
-      width: auto;
+      height: auto;
+      width: 100%;
       overflow: hidden; }
   .browse-card1 label {
     text-align: center;
@@ -10909,14 +10910,15 @@ a.button {
   padding: 1.5px;
   margin: 1.5px; }
   .browse-card2 .icondiv {
-    height: 170px;
+    height: auto;
+    width: 100%;
     padding: 15px 0;
     display: block;
     text-align: center;
     background: #fafafa; }
     .browse-card2 .icondiv img {
-      height: 100%;
-      width: auto; }
+      height: auto;
+      width: 100%; }
   .browse-card2 label {
     text-align: center;
     display: block;
@@ -11007,13 +11009,19 @@ a.button {
 
 .prdcticon {
   height: 120px;
-  width: 120px;
   text-align: center;
-  margin: 15px 10px;
-  overflow: hidden; }
+  margin: 10px 0px 10px 10px;
+  padding-right: 10px;
+  position: relative;
+  border-right: 1px solid #ddd; }
   .prdcticon img {
-    height: 100%;
-    width: 50%; }
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%) !important;
+    top: 50% !important;
+    left: 50% !important;
+    padding-right: 10px; }
   .prdcticon .line {
     height: 90%;
     display: inline-block;
@@ -11038,6 +11046,9 @@ a.button {
 
 .addrm {
   text-align: right; }
+  .addrm button {
+    background: transparent;
+    border: none; }
   .addrm i {
     margin: 5px;
     font-size: 14px;
@@ -11270,6 +11281,28 @@ a.button {
     font-size: 16px;
     font-weight: 400; }
 
+.chkout-image {
+  height: 120px;
+  text-align: center;
+  margin: 10px 0px 10px 10px;
+  padding-right: 10px;
+  position: relative;
+  border-right: 1px solid #278cce; }
+  .chkout-image img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%) !important;
+    top: 50% !important;
+    left: 50% !important;
+    padding-right: 10px; }
+  .chkout-image .line {
+    height: 90%;
+    display: inline-block;
+    padding: 10px;
+    margin: 8px 0 8px 5%;
+    border-right: 1px solid #1a85cb; }
+
 .chkout-closebutton {
   position: absolute;
   right: 25px;
@@ -11291,8 +11324,8 @@ a.button {
   margin: 0 !important; }
 
 .chkout-align {
-  padding: 28px 0 0;
-  height: 100%; }
+  padding: 20px;
+  height: 120px; }
 
 .colorpure {
   color: #3d619b; }
@@ -11316,14 +11349,13 @@ a.button {
   margin: 20px 10px;
   width: auto; }
   .chkoutcoupon label {
-    height: 100%;
+    height: auto;
     padding-left: 5px;
     line-height: 40px;
-    font-size: 16px; }
+    font-size: 13x; }
   .chkoutcoupon input {
-    height: 25px;
     border-bottom: 1px solid lightgray;
-    font-size: 16px;
+    font-size: 13px;
     width: 100%;
     height: auto; }
 
@@ -11347,8 +11379,8 @@ a.button {
   width: auto; }
 
 .bgchkoutcol502 {
-  text-align: center;
-  padding-top: 15px; }
+  text-align: right;
+  padding: 15px 15px !important; }
   .bgchkoutcol502 label {
     font-size: 16px; }
 
@@ -11361,10 +11393,8 @@ a.button {
     font-weight: 400; }
 
 .savingamtdiv {
-  text-align: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 28px; }
+  text-align: right;
+  padding-top: 15px; }
   .savingamtdiv label {
     font-size: 16px;
     color: #ff414d; }
@@ -11807,31 +11837,54 @@ p.onceLblr {
   -webkit-transition: background-color 20ms ease-in-out;
   transition: background-color 20ms ease-in-out; }
 
+.checkboxterms {
+  width: 28px;
+  height: 28px;
+  display: block;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  position: absolute !important;
+  /* margin-left: 10px !important; */
+  transform: translate(0%, 25%) !important;
+  top: 48% !important;
+  left: 0% !important; }
+
+.checkboxip {
+  width: 28px;
+  height: 28px;
+  display: block;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  position: absolute !important;
+  /* margin-left: 10px !important; */
+  transform: translate(-120%, 25%) !important;
+  top: 48% !important;
+  left: 0% !important; }
+
 .checkbox input:after,
 .checkbox-icon:after {
-  -webkit-transition: opacity 0.05s ease-in-out;
   transition: opacity 0.05s ease-in-out;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  /* -webkit-transform: rotate(-45deg); */
+  transform: rotate(-45deg) !important;
   position: absolute;
-  top: 12%;
-  left: 40%;
+  top: 17% !important;
+  left: 40% !important;
   display: table;
   width: 14px;
   height: 6px;
   border: 2px solid #fff;
   border-top: 0;
+  transform: translate(-50%, 25%);
   border-right: 0;
   content: ' ';
   opacity: 0; }
 
 .item-checkbox .checkbox {
-  position: absolute;
-  top: 61% !important;
-  right: 42%;
-  left: 5% !important;
-  z-index: 3;
-  margin-top: -21px; }
+  margin-left: 20px; }
 
 .chkalign {
   position: absolute;
@@ -11974,6 +12027,19 @@ p.onceLblr {
 .hasterms {
   bottom: 90px; }
 
+.divide {
+  height: 120px;
+  width: 120px;
+  text-align: center;
+  margin: 15px 10px; }
+
+.divline {
+  height: 90%;
+  display: inline-block;
+  padding: 10px;
+  margin: 8px 0 8px 5%;
+  border-right: 1px solid #1a85cb; }
+
 .veri-under {
   display: block;
   text-align: center;
@@ -12039,7 +12105,10 @@ p.onceLblr {
 .auth-textbox {
   bottom: 8%;
   width: 100%;
-  font-size: 12px; }
+  font-size: 14px;
+  position: relative;
+  margin: 0px;
+  padding: 25px; }
 
 .large-div {
   margin: 20px 30px 0;
@@ -12104,3 +12173,37 @@ input[type="color"] {
   position: absolute;
   left: 50%;
   top: 50%; }
+
+.card-no {
+  padding: 20%;
+  text-align: center; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fade-in {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s; }

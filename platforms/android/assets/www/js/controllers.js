@@ -1,15 +1,6 @@
-angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter.services', 'ionic-datepicker', 'ngCordova'])
+angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter.services', "starter.subscription", 'ionic-datepicker', 'ngCordova'])
 
     .controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout, $state, MyServices) {
-
-
-
-        // With the new view caching in Ionic, Controllers are only called
-        // when they are recreated or on app start, instead of every page change.
-        // To listen for when this page is active (for example, to refresh data),
-        // listen for the $ionicView.enter event:
-        //$scope.$on('$ionicView.enter', function(e) {
-        //});
 
         // Form data for the login modal
         $scope.loginData = {};
@@ -54,25 +45,39 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }, 1000);
         };
 
+        $scope.getName = function () {
+            return $.jStorage.get("profile").name;
+        };
+
     })
-    .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices) {
+    .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices, Subscription, $state, $ionicPopup) {
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
-        $scope.product = {}
-        // alert($stateParams.category);
-        $scope.product.category = $stateParams.category;
 
-        console.log("dsjh", $scope.product, $stateParams)
-        MyServices.products($scope.product, function (data) {
-
-            console.log(data);
-            $scope.prod = data.data;
-            console.log("proctid", $scope.prod);
-
+        MyServices.products({
+            category: $stateParams.category
+        }, function (data) {
+            $scope.products = data.data;
         });
+        $scope.productTap = function (product) {
+            $scope.subscription.product[0].product = product._id;
+            $scope.subscription.productDetail = product;
+            if ($scope.totalQuantity === 0) {
+                $state.go("app.subpage1");
+            } else {
+                $ionicPopup.alert({
+                    title: "Product already in Cart",
+                    template: "Please remove all the Products from the cart to proceed with Subscription Products."
+                });
+            }
+        };
     })
-
     .controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -80,185 +85,370 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         $ionicSideMenuDelegate.canDragContent(false);
     })
-
-
     .controller('VerificationCtrl', function ($scope, $stateParams, MyServices, $timeout, $state) {
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
-        };
-    
-        // setInterval(function () {
-        //     $scope.verify();
-        // }, 15000);
 
-        //   $timeout(function() {
-        //     $scope.verify();
-        // }, 1000);
-         $scope.profile = $.jStorage.get('profile');
+        $scope.profile = $.jStorage.get('profile');
 
-            MyServices.getProfile($scope.profile, function (data) {
-                $scope.signupForm = data.data;
-                if (data.data.verification == 'Verified') {
-                    $state.go('app.dashboard');
-                    $scope.goahead = true;
-
-                }
-
-            });
-        $scope.verify = function () {
-            $scope.profile = $.jStorage.get('profile');
-
-            MyServices.getProfile($scope.profile, function (data) {
-                $scope.signupForm = data.data;
-                if (data.data.verification == 'Verified') {
-                    $state.go('app.dashboard');
-                    $scope.goahead = true;
-
-                }
-
-            });
-        };
-
+        MyServices.getProfile($scope.profile, function (data) {
+            $scope.signupForm = data.data;
+            if (data.data.verification == 'Verified') {
+                $.jStorage.set('profile', $scope.signupForm);
+                $scope.profile = $.jStorage.get('profile');
+                $state.go('app.dashboard');
+                $scope.goahead = true;
+            }
+        });
     })
-
-    .controller('RequantityuirementCtrl', function ($scope, $stateParams) {
+    .controller('RequirementCtrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
-    .controller('ReviewCtrl', function ($scope, $stateParams) {
+    .controller('ReviewCtrl', function ($scope, $stateParams, MyServices, $ionicPopup) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
 
-
-        $scope.total = 0;
-        $scope.cart = $.jStorage.get('cart');
-        $scope.removecart = function (id) {
-            console.log("product", id);
-
-            _.remove($scope.cart, function (n) {
-                return n._id == id;
-            });
-            console.log("product", $scope.cart);
-            $.jStorage.set('cart', $scope.cart);
-            console.log("as", $.jStorage.get('cart'));
-            $scope.total = 0;
-
-            _.forEach($scope.cart, function (value) {
-                $scope.total = $scope.total + (value.price * value.quantity);
+        function showCart() {
+            MyServices.showCart(function (data) {
+                if (data.data && data.data.data) {
+                    $scope.products = data.data.data;
+                }
             });
         }
-        _.forEach($scope.cart, function (value) {
-            $scope.total = $scope.total + (value.price * value.quantity);
+        showCart();
+        $scope.getProductPrice = MyServices.getProductPrice;
+        $scope.calculateTotalPrice = function () {
+            var total = 0;
+            var savingPriceTotal = 0;
+
+            _.each($scope.products, function (n) {
+                console.log(n, n.product.totalPriceUsed);
+                total += n.product.totalPriceUsed;
+                savingPriceTotal += parseInt(n.product.price) * parseInt(n.productQuantity);
+            });
+            $scope.savingAmount = savingPriceTotal - total;
+            $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+            return total;
+        };
+        $scope.removeCart = function (productId) {
+            MyServices.removeFromCart(productId, function (data) {
+                showCart();
+                if (data.status == 200) {
+                    $ionicPopup.alert({
+                        title: "Products Removed",
+                        template: "Products Removed from Cart Successfully"
+                    });
+                } else {
+                    $ionicPopup.alert({
+                        title: "Error Occured",
+                        template: "Error Occured while Removing Products to Cart"
+                    });
+                }
+            });
+        };
+    })
+    .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
+        $scope.userDetails = MyServices.getAppDetails();
+
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
         });
-
-
-    })
-
-    .controller('CheckoutCtrl', function ($scope, $stateParams, $ionicPopover, ionicDatePicker) {
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+        $scope.getProductPrice = MyServices.getProductPrice;
+        $scope.addPlan = function (planName) {
+            $scope.subscription.plan = planName;
+        };
 
-        $scope.show = '';
-        $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
-            scope: $scope,
-            cssClass: 'menupop',
+        $scope.calculateTotalPrice = function () {
+            var total = 0;
+            var savingPriceTotal = 0;
+            $scope.totalAmt = 0;
+            $scope.otherProductstotal = 0;
+            $scope.totalQuantity = 0;
+            $scope.deposit = 0;
+            _.each($scope.subscription.otherProducts, function (n) {
+                $scope.otherProductstotal += n.price * n.productQuantity;
+            });
+            if ($scope.subscription.productDetail.applicableBefore >
+                $scope.subscription.product[0].quantity) {
+                $scope.deposit =
+                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.AmtDeposit);
+            }
+            if ($scope.subscription.plan == 'Quarterly') {
+                $scope.totalQuantity = 12 * ($scope.subscription.product[0].quantity);
+                total =
+                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+                savingPriceTotal =
+                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+                $scope.savingAmount = savingPriceTotal - total;
+                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
 
-        }).then(function (terms) {
-            $scope.terms = terms;
+                $scope.totalAmt = $scope.deposit +
+                    $scope.otherProductstotal + total;
+
+                return $scope.savingAmount;
+            } else if ($scope.subscription.plan == 'Monthly') {
+                $scope.totalQuantity = 4 * ($scope.subscription.product[0].quantity);
+                total =
+                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+                savingPriceTotal =
+                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+                $scope.savingAmount = savingPriceTotal - total;
+                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+                $scope.totalAmt = $scope.deposit +
+                    $scope.otherProductstotal + total;
+                return $scope.savingAmount;
+            } else {
+                $scope.totalQuantity = $scope.subscription.product[0].quantity;
+                total =
+                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
+                savingPriceTotal =
+                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
+                $scope.savingAmount = savingPriceTotal - total;
+                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
+                $scope.totalAmt = $scope.deposit +
+                    $scope.otherProductstotal + total;
+                return $scope.savingAmount;
+            }
+        };
+
+        $scope.authenticatePayment = function () {
+
+            $scope.subscription.totalAmt = $scope.totalAmt;
+            $scope.subscription.totalQuantity = $scope.totalQuantity;
+            $scope.subscription.user = $.jStorage.get('profile')._id;
+
+            Subscription.setObj($scope.subscription);
+
+            $state.go('app.auth-payment');
+        };
+    })
+    .controller('AddonsCtrl', function ($scope, $stateParams, $state, MyServices, Subscription, $ionicPopover) {
+        $scope.goBackHandler = function () {
+            window.history.back(); //This works
+        };
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
         });
-
-
-
-        $scope.closePopover = function () {
-            $scope.terms.hide();
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
+        $scope.getProductPrice = MyServices.getProductPrice;
+        $scope.addPlan = function (planName) {
+            $scope.subscription.plan = planName;
         };
+        MyServices.getOtherProducts(function (data) {
+            if (data.status == 200) {
+                if (data.data && data.data.data && data.data.data.results) {
+                    $scope.otherProducts = _.groupBy(data.data.data.results, "addones");
+                    $scope.saveSpace = $scope.otherProducts["Save Space"];
+                    $scope.saveTime = $scope.otherProducts["Save Time"];
+                }
+            } else {
+                $ionicPopup.alert({
+                    title: "Error Occured",
+                    template: "Error Occured while retriving Products"
+                });
+            }
+        });
+        $scope.checkMinProduct = function (product) {
 
-        var ipObj1 = {
-            callback: function (val) { //Mandatory
-                console.log('Return value from the datepicker popup is : ' + val, new Date(val));
-            },
-            disabledDates: [ //Optional
-                new Date(2016, 2, 16),
-                new Date(2015, 3, 16),
-                new Date(2015, 4, 16),
-                new Date(2015, 5, 16),
-                new Date('Wednesday, August 12, 2015'),
-                new Date("08-16-2016"),
-                new Date(1439676000000)
-            ],
-            from: new Date(2012, 1, 1), //Optional
-            to: new Date(2016, 10, 30), //Optional
-            inputDate: new Date(), //Optional
-            mondayFirst: true, //Optional
-            disableWeekdays: [0], //Optional
-            closeOnSelect: false, //Optional
-            templateType: 'popup' //Optional
+            if (!product.productQuantity || product.productQuantity <= 0) {
+                return true;
+            } else {
+                return false;
+            }
         };
-
-        $scope.openDatePicker = function () {
-            ionicDatePicker.openDatePicker(ipObj1);
+        $scope.checkMaxProduct = function (product) {
+            if (product.productQuantity >= parseInt(product.quantity)) {
+                return true;
+            } else {
+                return false;
+            }
         };
-
+        $scope.changeProductQuantity = function (product, change) {
+            if (_.isNaN(parseInt(product.productQuantity))) {
+                product.productQuantity = 0;
+            }
+            if (change) {
+                product.productQuantity++;
+            } else {
+                product.productQuantity--;
+            }
+            $scope.addProduct(product);
+        };
+        $scope.addProduct = function (product) {
+            _.remove($scope.subscription.otherProducts, function (n) {
+                return n._id == product._id;
+            });
+            if (product.productQuantity > 0) {
+                $scope.subscription.otherProducts.push(product);
+            }
+        };
     })
+    .controller('Subpage3Ctrl', function ($scope, $stateParams, MyServices, Subscription, $state) {
 
-    .controller('AddonsCtrl', function ($scope, $stateParams) {
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+        $scope.getProductPrice = MyServices.getProductPrice;
+        $scope.addPlan = function (planName) {
+            $scope.subscription.plan = planName;
+        };
     })
+    .controller('Subpage1Ctrl', function ($scope, $stateParams, MyServices, Subscription, $state) {
+        $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function (num) {
+            $scope.totalQuantity = num;
+        });
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
 
-    .controller('Subpage3Ctrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+        $scope.takeToNext = function () {
+            if ($scope.subscription.product[0].quantity >= parseInt($scope.subscription.productDetail.limit)) {
+                $state.go("app.requirement");
+            } else {
+                $state.go("app.subpage3");
+            }
+        };
     })
-
-
-    .controller('Subpage1Ctrl', function ($scope, $stateParams) {
+    .controller('AuthPaymentCtrl', function ($scope, $stateParams, $state, MyServices, Subscription) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
-    })
 
-    .controller('AuthPaymentCtrl', function ($scope, $stateParams) {
+        $scope.userData = {};
+        // ui - sref = "app.confirm"
+
+        $scope.subscription = Subscription.getObj();
+        Subscription.validate($state);
+        // console.log("$scope.subscription AuthPaymentCtrl", $scope.subscription);
+
+        $scope.submitData = function (value) {
+            $scope.subscription.customerName = value.customerName;
+            $scope.subscription.customerMobile = value.customerMobile;
+            $scope.subscription.methodOfPayment = value.methodOfPayment;
+            $scope.subscription.orderFor = 'RMForCustomer';
+            console.log("$scope.subscription submitData", $scope.subscription);
+            MyServices.saveOrderCheckout($scope.subscription, function (data) {
+                if (data.status == 200) {
+                    console.log("$scope.subscription data.data", data.data);
+                    $state.go('app.confirm');
+                } else {
+                    alert("something went wrong");
+                }
+            });
+
+        };
+    })
+    .controller('AuthPaymentCtrlCart', function ($scope, $stateParams, $state, MyServices, Subscription) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+
+        $scope.userData = {};
+
+        $scope.submitData = function (value) {
+            value.orderFor = 'RMForCustomer';
+            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, function (data) {
+                if (data.status == 200) {
+                    $state.go('app.confirm');
+                } else {
+                    alert("something went wrong");
+                }
+            });
+        };
     })
+    .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
+        $scope.userDetails = MyServices.getAppDetails();
 
-    .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state) {
-        //     $scope.nextSlide = function () {
-        //       $ionicSlideBoxDelegate.next();
-        //     };
+        $scope.slideHasChanged = function (index) {
+            $ionicSlideBoxDelegate.cssClass = 'fade-in'
+            $scope.slideIndex = index;
+            if (($ionicSlideBoxDelegate.count() - 1) == index) {
+                $timeout(function () {
+                    $ionicSlideBoxDelegate.slide(0);
 
-        // $ionicSlideBoxDelegate.update();
-        //      $scope.currentIndex = 1;
+                }, $scope.interval);
+            }
+        };
 
-        //   // Called each time the slide changes
+        $scope.interval = 5000;
+        $scope.homeSlider = {};
+        $scope.homeSlider.data = [];
+        $scope.homeSlider.currentPage = 0;
+
+        $scope.setupSlider = function () {
+
+            //some options to pass to our slider
+            $scope.homeSlider.sliderOptions = {
+                initialSlide: 0,
+                direction: 'horizontal', //or vertical
+                speed: 300,
+
+                autoplay: "5000",
+                effect: 'fade',
+
+            };
+
+
+            //create delegate reference to link with slider
+            $scope.homeSlider.sliderDelegate = null;
+
+            //watch our sliderDelegate reference, and use it when it becomes available
+            $scope.$watch('homeSlider.sliderDelegate', function (newVal, oldVal) {
+                if (newVal != null) {
+                    $scope.homeSlider.sliderDelegate.on('slideChangeEnd', function () {
+                        $scope.homeSlider.currentPage = $scope.homeSlider.sliderDelegate.activeIndex;
+                        //use $scope.$apply() to refresh any content external to the slider
+                        $scope.$apply();
+                    });
+                }
+            });
+        };
+
+        $scope.setupSlider();
 
 
 
-
-        //     $scope.pager = true;
-        //     $scope.togglePager = function(){
-        //     $scope.pager = !$scope.pager;
-        //   }
+        //detect when sliderDelegate has been defined, and attatch some event listeners
+        $scope.$watch('sliderDelegate', function (newVal, oldVal) {
+            if (newVal != null) {
+                $scope.sliderDelegate.on('slideChangeEnd', function () {
+                    console.log('updated slide to ' + $scope.sliderDelegate.activeIndex);
+                    $scope.$apply();
+                });
+            }
+        });
         $scope.nextPage = function (sub, id) {
             if (sub == 'Yes') {
                 $state.go('app.browse-more', {
                     'category': id
-                })
+                });
+
             } else {
                 $state.go('app.productSpecs', {
                     'category': id
-                })
-
+                });
             }
         };
+
+
+
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -268,132 +458,111 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.category = _.chunk(data.data, 2);
             console.log($scope.category);
 
+        });
+        $scope.profile = $.jStorage.get('profile');
+        $scope.getProfield = {};
+        console.log($scope.profile);
+        $scope.getProfield._id = $scope.profile._id;
+        MyServices.getProfile($scope.getProfield, function (data) {
+            if (data.value) {
+                $scope.browse = data.data;
+            } else {
 
-
-
-            // if ("data.status == true") {
-            //   $state.go('app.verification');
-            // } else {
-
-            //   // $scope.showAlert(data.status, 'login', 'Error Message');
-            // }
+            }
         });
         MyServices.featureprods(function (data) {
-
-            console.log(data);
             $scope.feaprods = data.data;
-            console.log("let me know", $scope.feaprods);
-
-
-            // $ionicSlideBoxDelegate.slide(0);
             $ionicSlideBoxDelegate.update();
-            // $scope.$apply();
-
-            // if ("data.status == true") {
-            //   $state.go('app.verification');
-            // } else {
-
-            //   // $scope.showAlert(data.status, 'login', 'Error Message');
-            // }
         });
     })
-
-    .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices) {
+    .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices, $ionicPopup) {
         $scope.goBackHandler = function () {
-            window.history.back(); //This works
+            window.history.back();
         };
-        //     $scope.total=0;
-        // $scope.saveJ=function(product1){
-        //
-        // $.jStorage.set('cart',product1);
-        // $state.go('app.review');
-        //
-        // }
-        // $scope.cardno=function(prod,value){
-        //
-        //
-        // _.forEach(prod, function(value) {
-        //   console.log(value);
-        //   $scope.total=$scope.total+value.quantity;
-        // });
+        $scope.userDetails = MyServices.getAppDetails();
+
         $scope.profile = $.jStorage.get('profile');
-
-        $scope.addtocart = function () {
-            _.forEach($scope.prod, function (value) {
-                if (value.productQuantity != 0) {
-                    var found = false;
-                    _.forEach($scope.profile.data.cartProducts, function (value1) {
-                        if (value1.name == value.name) {
-                            console.log(value1.productQuantity);
-                            // if(value.productQuantity!=0){
-                            value1.productQuantity = value.productQuantity;
-                            found = true;
-                            // }else{
-                            //   value1.productQuantity = 0;
-                            // }
-
-                        }
-                    });
-                    // found = _.find($scope.profile.data.cartProducts, function(value1) {
-                    //     if (value1.name == value.name) {
-                    //         return value1.productQuantity = value.productQuantity;;
-                    //     }
-                    // });
-                    if (!found) {
-                        $scope.profile.data.cartProducts.push(value);
-                    }
-                } else {
-
-                }
+        MyServices.products({
+            category: $stateParams.category
+        }, function (data) {
+            $scope.products = data.data;
+            _.each($scope.products, function (n) {
+                n.productQuantity = 0;
             });
-            $.jStorage.set('profile', $scope.profile);
-            MyServices.signup($scope.profile.data, function (data) {});
-
-        }
-
-
-
-        $scope.getTotal = function (num) {
-            console.log($scope.profile.data.cart.totalAmount);
-            $scope.profile.data.cart.totalAmount = $scope.profile.data.cart.totalAmount + num;
-        }
-        $scope.product = {}
-        // alert($stateParams.category);
-        $scope.product.category = $stateParams.category;
-
-        console.log("dsjh", $scope.product, $stateParams)
-        MyServices.products($scope.product, function (data) {
-            $scope.profile.data.cart = {};
-            $scope.profile.data.cart.totalAmount = 0;
-            console.log(data);
-            $scope.prod = data.data;
-            _.forEach($scope.prod, function (value) {
-                if ($scope.profile.data.cartProducts.length != 0) {
-                    _.forEach($scope.profile.data.cartProducts, function (value1) {
-                        console.log(value.productQuantity, value1.productQuantity);
-
-                        if (value1.name == value.name) {
-                            $scope.profile.data.cart.totalAmount = $scope.profile.data.cart.totalAmount + value1.productQuantity;
-                            value.productQuantity = value1.productQuantity;
-                            console.log("value");
-                        }
-                        if (value.productQuantity == undefined) {
-                            value.productQuantity = 0;
-                        }
-                    });
-                } else {
-                    console.log("0");
-                    value.productQuantity = 0;
-                }
-
-
-
-            });
-            console.log("proctid", $scope.prod);
-            $.jStorage.set('profile', $scope.profile);
         });
-    })
+        $scope.checkMinProduct = function (product) {
+            if (!product.productQuantity || product.productQuantity <= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.checkMaxProduct = function (product) {
+            if (product.productQuantity >= parseInt(product.quantity)) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.changeProductQuantity = function (product, change) {
+            if (_.isNaN(parseInt(product.productQuantity))) {
+                product.productQuantity = 0;
+            }
+            if (change) {
+                product.productQuantity++;
+            } else {
+                product.productQuantity--;
+            }
+        };
+        $scope.addToCart = function () {
+            var products = _.map(_.filter($scope.products, function (n) {
+                return (n.productQuantity && n.productQuantity >= 1);
+            }), function (n) {
+                return {
+                    productQuantity: n.productQuantity,
+                    product: n._id,
+                    totalAmount: n.productQuantity * parseFloat(n.price)
+                };
+            });
+            if (products.length > 0) {
+                MyServices.addToCart(products, function (data) {
+                    if (data.status == 200) {
+                        var myPopup = $ionicPopup.show({
+                            title: 'Products Added to Cart',
+                            subTitle: 'Products are added to cart successfully',
+                            buttons: [{
 
+                                    text: 'Go to Cart',
+                                    onTap: function (e) {
+                                        $state.go("app.review");
+                                    }
+                                },
+                                {
+                                    text: 'Continue',
+                                    type: 'button-positive',
+                                    onTap: function (e) {
+                                        $state.go("app.browse");
+                                    }
+                                }
+                            ]
+                        });
+                    } else {
+                        $ionicPopup.alert({
+                            title: "Error Occured",
+                            template: "Error Occured while adding Products to Cart"
+                        });
+                    }
+                });
+            } else {
+                $ionicPopup.alert({
+                    title: "No Product",
+                    template: "No Product for Add to Cart"
+                });
+
+            }
+
+        };
+    })
     .controller('PlaylistsCtrl', function ($scope) {
         $scope.playlists = [{
             title: 'Reggae',
@@ -415,26 +584,61 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             id: 6
         }];
     })
-
     .controller('PlaylistCtrl', function ($scope, $stateParams) {})
     .controller('HelpCtrl', function ($scope) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
-
-
-
     })
-
-    .controller('ProfileCtrl', function ($scope) {
+    .controller('ProfileCtrl', function ($scope, MyServices) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+        $scope.profile = $.jStorage.get('profile');
+
+        $scope.getProfield = {};
+        console.log($scope.profile);
+        $scope.getProfield._id = $scope.profile._id;
+        MyServices.getProfile($scope.getProfield, function (data) {
+            console.log(data);
+            if (data.value) {
+                $scope.signupForm = data.data;
+                console.log($scope.review);
+            } else {
+
+            }
+        });
+
+        $scope.save = function () {
+
+            MyServices.saveData($scope.signupForm, function (data) {
+
+                console.log(data);
+                $scope.signupForm = data.data;
+
+                console.log($scope.signupForm)
+                if (data.value == true) {
+
+
+                    $scope.signupForm._id = $.jStorage.get('profile')._id;
+                    MyServices.getonePro($scope.signupForm, function (data) {
+                        $.jStorage.set('profile', data.data);
+                        $scope.signupForm = data.data;
+
+
+                    });
+
+
+                } else {
+
+                    // $scope.showAlert(data.status, 'login', 'Error Message');
+                }
+            });
 
 
 
+        }
     })
-
     .controller('CustomerListCtrl', function ($scope, $state, $ionicLoading, $ionicPopover) {
         $scope.next = function () {
             $state.go('app.subpage1');
@@ -486,31 +690,65 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
 
     })
-
-    .controller('VerifyCtrl', function ($scope, $stateParams) {
+    .controller('VerifyCtrl', function ($scope, $stateParams, MyServices, $state) {
         $.jStorage.flush();
+
+        var reqObj = {};
+        var otp = {};
+        reqObj.mobile = $stateParams.no;
+        reqObj.accessLevel = "Relationship Partner";
+
         $(".inputs").keyup(function () {
-    if (this.value.length == this.maxLength) {
-      var $next = $(this).next('.inputs');
-      if ($next.length)
-          $(this).next('.inputs').focus();
-      else
-          $(this).blur();
-    }
-});
+            if (this.value.length == this.maxLength) {
+                var $next = $(this).next('.inputs');
+                if ($next.length) {
+                    $(this).next('.inputs').focus();
+                } else {
+                    $(this).blur();
+                }
+            }
+        });
+
+        //Function to verify OTP
+        $scope.verifyOTP = function (value) {
+            reqObj.otp = value.first + value.second + value.third + value.forth;
+
+            MyServices.verifyOTP(reqObj, function (data) {
+                if (data.value) {
+                    $scope.profile = $.jStorage.set('profile', data.data);
+                    $state.go('signup');
+                } else {
+                    alert("OTP verification failed")
+                    $state.go('login');
+                }
+            });
+        };
     })
-
-    .controller('ConfirmationCtrl', function ($scope, $stateParams) {
-
+    .controller('ConfirmationCtrl', function ($scope, $stateParams, MyServices) {
+        $.jStorage.set("cartQuantity", 0);
+        var appDetail = MyServices.getAppDetails();
+        appDetail.cartQuantity = 0;
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
     })
-
-    .controller('LoginCtrl', function ($scope, $stateParams, $state) {
-
+    .controller('LogoutCtrl', function ($scope, $stateParams, $state, MyServices) {
+        $.jStorage.flush();
+        $state.go("login");
+    })
+    .controller('LoginCtrl', function ($scope, $stateParams, $state, MyServices) {
+        $scope.loginInfo = {};
+        $scope.joinInDisabled = true;
+        $scope.loginNumberChange = function (num) {
+            num = num + "";
+            if (num.length === 10) {
+                $scope.joinInDisabled = false;
+            } else {
+                $scope.joinInDisabled = true;
+            }
+        };
         $scope.profile = $.jStorage.get('profile');
-        if ($scope.profile != null) {
+        if ($scope.profile !== null) {
             if ($scope.profile.verification == 'Not Verified') {
                 $state.go('verification');
             } else {
@@ -518,13 +756,31 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
             }
         }
+        $scope.getOTP = function (value) {
+            console.log("value", value);
+            value.accessLevel = "Relationship Partner"
+            if (value.mobile != null && value.mobile != "") {
+                MyServices.getOTP({
+                    mobile: value.mobile,
+                    accessLevel: value.accessLevel
+                }, function (data) {
+                    if (data.status == 200) {
+                        $state.go('verify', {
+                            no: value.mobile
+                        });
+                    } else {
+                        alert("unable to generate OTP. Please try again");
+                    }
+                });
+            } else {
+                alert("Please provide mobile number");
+            }
 
+
+        };
     })
-
     .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicSlideBoxDelegate) {
         $scope.profile = $.jStorage.get('profile');
-
-
         $scope.showPopup = function () {
             $scope.show = $ionicPopup.show({
                 templateUrl: 'templates/modal/price.html',
@@ -532,6 +788,11 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 scope: $scope
             });
         };
+        MyServices.getDashboard(function (data) {
+            if (data.status == 200) {
+                $scope.dashboardData = data.data.data;
+            }
+        });
         $scope.closePopup = function () {
             $scope.show.close();
         };
@@ -599,7 +860,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.signupForm.accessLevel = "Relationship Partner";
             console.log("djfgjk", $scope.signupForm);
 
-               if (!$.jStorage.get('profile')) {
+            if (!$.jStorage.get('profile')) {
 
                 MyServices.signup($scope.signupForm, function (data) {
 
@@ -634,7 +895,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     }
                 });
             } else {
-                MyServices.signup($scope.signupForm, function (data) {
+                MyServices.saveData($scope.signupForm, function (data) {
 
                     console.log(data);
                     $scope.signupForm = data.data;

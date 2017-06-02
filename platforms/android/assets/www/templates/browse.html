@@ -8,11 +8,17 @@
             <div class="cartbtn">
                 <img src="img/9.png" alt="" ui-sref="app.review">
             </div>
-            <span class="cartbadge">3</span>
+            <span class="cartbadge">{{userDetails.cartQuantity}}</span>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="has-header browse-backgrndcolor">
-        <ion-slide-box class="ionSlider" on-slide-changed="slideHasChanged($index)"  show-pager="true">
+        <ion-slide-box  options="homeSlider.sliderOptions" slider="homeSlider.sliderDelegate"  does-continue="true"  animation='fade'
+        auto-play="true"
+        effect='fade'
+        slide-interval="{{interval}}"
+        show-pager="true"
+        pager-click="changeSlide(index)"
+        on-slide-changed="slideHasChanged(index)">
             <ion-slide  ng-if="feaprods.length>0" ng-repeat="data in feaprods" [options]="{pager:true}">
                 <div class="box box1">
                     <div class="row browse-sliderRow">
@@ -32,74 +38,25 @@
                     </div>
                 </div>
             </ion-slide>
-
-
         </ion-slide-box>
         <div class="browse-grid">
-
             <label for="" class="browse-text">Our Products</label>
-            <div class="row" ng-if="category.length>0" ng-repeat="data1 in category"  ng-init="outerIndex=$index">
-                <div class="col-50"  ng-repeat="data in data1" ng-init="innerIndex=$index">
-
+            <div class="row" ng-if="category.length>0" ng-repeat="data1 in category" ng-init="outerIndex=$index">
+                <div class="col-50" ng-repeat="data in data1" ng-init="innerIndex=$index">
                     <div class="browse-card1" ng-if="(outerIndex + innerIndex )% 2 == 0" ng-click="nextPage(data.subscription,data._id);">
-                    
-                        <div class="icondiv" >
-                            <!--<img src="{{data2.catImage}}" alt="" ng-if="{{data2.catImage}}">-->
-                            <img ng-src="{{data.catImage | uploadpath}}" alt="">
-                        </div>
-                        <label for="">{{data.name}}</label>
-                    </div>
-                    <div class="browse-card2" ng-if="(outerIndex + innerIndex )% 2 != 0"  ng-click="nextPage(data.subscription,data._id);">
-
                         <div class="icondiv">
                             <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
-                        <label for="">{{data.name}}</label>
+                        <!--<label for="">{{data.name}}</label>-->
                     </div>
-                </div>
-                <!--<div class="col-50" ui-sref="app.productSpecs" ng-repeat="data in data1">
-
-                </div>-->
-            </div>
-            <!--<div class="row">
-                <div class="col-50" ui-sref="app.productSpecs">
-                    <div class="oneliter-pack">
+                    <div class="browse-card2" ng-if="(outerIndex + innerIndex )% 2 != 0" ng-click="nextPage(data.subscription,data._id);">
                         <div class="icondiv">
-                            <img src="img/1literpack.png" alt="">
+                            <img ng-src="{{data.catImage | uploadpath}}" alt="">
                         </div>
-                        <label for="">1 Liter Pack</label>
-                    </div>
-                </div>
-                <div class="col-50" ui-sref="app.productSpecs">
-                    <div class="browse-card1">
-                        <div class="icondiv">
-                            <img src="img/250mlliter.png" alt="">
-                        </div>
-                        <label for="">250 ml Liter</label>
+                        <!--<label for="">{{data.name}}</label>-->
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-50" ui-sref="app.browse-more">
-                    <div class="browse-card1">
-                        <div class="icondiv">
-                            <img src="img/bisleriaquacan.png" alt="">
-                        </div>
-                        <label for="">20 Liter</label>
-                    </div>
-                </div>
-                <div class="col-50" ui-sref="app.productSpecs">
-                    <div class="browse-card2">
-                        <div class="icondiv">
-                            <img src="img/aqua1liter.png" alt="">
-                        </div>
-                        <label for="">1 Liter</label>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </ion-content>
-    <!-- <div class="search-fix"> <i class="ion ion-ios-search-strong"></i>
-    </div> -->
 </ion-view>
-<!--  -->

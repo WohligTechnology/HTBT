@@ -1,39 +1,22 @@
 <ion-view title="Earning">
   <ion-nav-bar class="bar-stable nav-height">
     <ion-nav-buttons side="left">
-      <button class="button button-icon button-clear ion-navicon sigupIconLeft " menu-toggle="left">
+      <button class="button button-icon button-clear ion-navicon sigupIconLeft disblock" menu-toggle="left">
         </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-      <button class="button button-clear ion-android-more-vertical sigupRight" ng-click="popover.show($event)">
+      <button class="button button-clear ion-android-more-vertical sigupRight disblock" ng-click="popover.show($event)">
       </button>
     </ion-nav-buttons>
   </ion-nav-bar>
   <ion-content class="has-header bgearn">
 
-    <html ng-app="ionicApp">
- 
-  <body class="platform-ios" ng-controller="AppCtrl">
-    <script id="templates/popover.html" type="text/ng-template">
-      <ion-popover-view>
-        <ion-content>
-          <div class="list">
-           
-            <a class="item" ui-sref='app.help' >
-              Help
-            </a>
-          </div>
-        </ion-content>
-      </ion-popover-view>
-    </script>
-    
-  </body>
-</html>
 
-    <div class="earnings-refillDiv">
+
+    <!--<div class="earnings-refillDiv">
       <label class="earnings-count" for="">₹ 500</label>
       <label class="order-refilllbl" for="">Since February 1, 2017</label>
-    </div>
+    </div>-->
     <div class="row order-row ion-contentcolor" ng-init="show=1">
       <div class="col-33 order-thismonth" ng-click="show=1" ng-class="{'highlight' : show == 1}">
         This Month
@@ -247,3 +230,4 @@
       </div>
     </div>
   </ion-content>
+</ion-view>

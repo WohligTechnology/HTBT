@@ -1,80 +1,77 @@
 <ion-view title="Sign up">
   <ion-nav-bar class="bar-stable nav-height">
     <ion-nav-buttons side="left">
-      <button class="button button-clear ion-android-arrow-back sigupIconLeft" >
+      <button class="button button-clear ion-android-arrow-back sigupIconLeft">
         </button>
     </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-      <button class="button button-clear ion-android-more-vertical sigupRight">
-        </button>
-    </ion-nav-buttons>
-  </ion-nav-bar>
-   <form  ng-submit="signup()" name="userForm">
-  <ion-content class="has-header signUpForm hasterms">
 
-    <div class="iptext ">
-      <div>
-        <label class=" item-input iptext ">
+  </ion-nav-bar>
+  <form ng-submit="signup()" name="userForm">
+    <ion-content class="has-header signUpForm hasterms">
+
+      <div class="iptext ">
+        <div>
+          <label class=" item-input iptext ">
     <input class="iptext" type="text" placeholder="Your Name"  ng-model="signupForm.name"  value="{{signupForm.name}}" name="name" required>
 
 
   </label>
-  <p class="error-msg" ng-show="userForm.name.$error.required && userForm.name.$touched">Please Enter Your Name.</p>
-         </div>
+          <p class="error-msg" ng-show="userForm.name.$error.required && userForm.name.$touched">Please Enter Your Name.</p>
+        </div>
 
-      <div>
-        <label class=" item-input ">
+        <div>
+          <label class=" item-input ">
     <input type="email" placeholder="Email Id (Optional)" ng-model="signupForm.email" name="email"  value="{{signupForm.email}}" required>
 
   </label>
-<p class="error-msg" ng-show="userForm.email.$error.required && userForm.email.$touched">Please Enter your Email Id.</p>
-      </div>
+          <p class="error-msg" ng-show="userForm.email.$error.required && userForm.email.$touched">Please Enter your Email Id.</p>
+        </div>
 
 
-<div>
-  <label class=" item-input ">
+        <div>
+          <label class=" item-input ">
     <input type="text" placeholder="Establishment Name"  ng-model="signupForm.establishmentName" value="{{signupForm.establishmentName}}" name="establishmentname" required>
   </label>
-  <p class="error-msg" ng-show="userForm.establishmentname.$error.required && userForm.establishmentname.$touched">Please Enter your Establishment Name.</p>
-</div>
+          <p class="error-msg" ng-show="userForm.establishmentname.$error.required && userForm.establishmentname.$touched">Please Enter your Establishment Name.</p>
+        </div>
 
-<div>
-<label class=" item-input ">
+        <div>
+          <label class=" item-input ">
     <input type="text" placeholder="Establishment Address"  ng-model="signupForm.establishmentAddress"   value="{{signupForm.establishmentAddress}}" name="estadd" required>
   </label>
-  <p class="error-msg" ng-show="userForm.estadd.$error.required && userForm.estadd.$touched">Please Enter your Establishment Address.</p>
-</div>
+          <p class="error-msg" ng-show="userForm.estadd.$error.required && userForm.estadd.$touched">Please Enter your Establishment Address.</p>
+        </div>
 
 
-      <label class=" item-input ">
+        <label class=" item-input ">
     <input type="text" placeholder="" disabled>
   </label>
 
-  <div>
-<label class=" item-input "  >
+        <div>
+          <label class=" item-input ">
  <input type="text" placeholder="Mobile No." ng-model="signupForm.mobile" name="mob"  value="{{signupForm.mobile}}" required only-Digits maxlength="10" minlength="10">
 </label>
-   <p class="error-msg" ng-show="userForm.mob.$error.required && userForm.mob.$touched">Please Enter your Mobile No.</p>
-  </div>
+          <p class="error-msg" ng-show="userForm.mob.$error.required && userForm.mob.$touched">Please Enter your Mobile No.</p>
+        </div>
 
 
-  <div>
- <label class=" item-input ">
+        <div>
+          <label class=" item-input ">
  <input type="text" placeholder="Landline No." ng-model="signupForm.landLine" name="landline"  value="{{signupForm.landline}}" required only-Digits maxlength="11" minlength="11">
 </label>
- <p class="error-msg" ng-show="userForm.landline.$error.required && userForm.landline.$touched">Please Enter your Landline No.</p>
-  </div>
+          <p class="error-msg" ng-show="userForm.landline.$error.required && userForm.landline.$touched">Please Enter your Landline No.</p>
+        </div>
 
 
- <div>
-<label class=" item-input " >
+        <div>
+          <label class=" item-input ">
     <input type="text" placeholder="Pincode" ng-click="sorryPopup()" ng-model="signupForm.pincode" name="pincode"  value="{{signupForm.pincode}}" required only-Digits maxlength="6" minlength="6">
   </label>
-  <p class="error-msg" ng-show="userForm.pincode.$error.required && userForm.pincode.$touched">Please Enter your Pincode.</p>
-    </div>
- </div>
+          <p class="error-msg" ng-show="userForm.pincode.$error.required && userForm.pincode.$touched">Please Enter your Pincode.</p>
+        </div>
+      </div>
 
-    <!--<div class="list paddingDiv">
+      <!--<div class="list paddingDiv">
       <label class="item item-input nameSignup">
     <input class = "plcHldr" type="text" placeholder="Your Name">
   </label>
@@ -82,20 +79,20 @@
     <input class = "plcHldr" type="text" placeholder="Email Id(optional)">
   </label>
     </div>-->
-    <div class="row" >
-      <div class="col col-50" ng-click="showActionsheet('pan')">
-        <div class="card signUpCard mt-10" ng-if="!signupForm.panCard">
-          <i class="ion ion-ios-camera-outline camcon"></i>
-          <div class="signUpAdd">
-            <i class="ion ion-ios-plus-empty plus" >
+      <div class="row">
+        <div class="col col-50" ng-click="showActionsheet('pan')">
+          <div class="card signUpCard mt-10" ng-if="!signupForm.panCard">
+            <i class="ion ion-ios-camera-outline camcon"></i>
+            <div class="signUpAdd">
+              <i class="ion ion-ios-plus-empty plus">
 
             </i>
+            </div>
+            <label for="">Add Pan Card</label>
           </div>
-          <label for="">Add Pan Card</label>
-      </div>
-      <div class="pan-adh-img" ng-if="signupForm.panCard">
-<img  ng-src="{{signupForm.panCard | uploadpath}}" alt="" >
-      </div>
+          <div class="pan-adh-img" ng-if="signupForm.panCard">
+            <img ng-src="{{signupForm.panCard | uploadpath}}" alt="">
+          </div>
 
 
         </div>
@@ -103,43 +100,43 @@
 
 
 
-      <div class="col col-50" ng-click="showActionsheet('adhar')">
-        <div class="card signUpCard mt-10" ng-if="!signupForm.adharCard" >
-          <i class="ion ion-ios-camera-outline camcon"></i>
-          <div class="signUpAdd">
-            <i class="ion ion-ios-plus-empty plus" >
+        <div class="col col-50" ng-click="showActionsheet('adhar')">
+          <div class="card signUpCard mt-10" ng-if="!signupForm.adharCard">
+            <i class="ion ion-ios-camera-outline camcon"></i>
+            <div class="signUpAdd">
+              <i class="ion ion-ios-plus-empty plus">
             </i>
+            </div>
+            <label for="">Add Aadhar Card</label>
           </div>
-          <label for="">Add Aadhar Card</label>
+          <div class="pan-adh-img" ng-if="signupForm.adharCard">
+            <img ng-src="{{signupForm.adharCard | uploadpath}}" alt="">
+          </div>
+
+
+
+
         </div>
-        <div class="pan-adh-img" ng-if="signupForm.adharCard">
- <img  ng-src="{{signupForm.adharCard | uploadpath}}" alt="" >
-        </div>
-
-
-
-
       </div>
-    </div>
 
 
-  </ion-content>
-  <div >
-    <li class="item item-checkbox noborder checkbox-assertive borderR chkalign mar10" >
- I have read & accept the
+    </ion-content>
+    <div>
+      <li class="item item-checkbox noborder checkbox-assertive borderR chkalign mar10">
+        I have read & accept the
 
-<span  class="termscolor" ng-click="terms.show($event)" >  terms & conditions</span>
- <label class="checkbox noborder ">
+        <span class="termscolor" ng-click="terms.show($event)">  terms & conditions</span>
+        <label class="checkbox noborder checkboxterms">
  <input type="checkbox" class="" ng-model="click" ng-init="click=true">
  </label>
-</li>
-  </div>
+      </li>
+    </div>
 
-  <div class="bar bar-footer footer-height signUpFooter" ng-if="click">
-    <button class="button button-block button-positive footer-font"  type="submit">
+    <div class="bar bar-footer footer-height signUpFooter" ng-if="click">
+      <button class="button button-block button-positive footer-font" type="submit">
   Get Started
 </button>
-  </div>
-</form>
+    </div>
+  </form>
 
 </ion-view>

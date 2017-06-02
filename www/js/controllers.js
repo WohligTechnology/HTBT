@@ -83,6 +83,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
 
+
+        .controller('SorryCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
+            $scope.goBackHandler = function () {
+                window.history.back(); //This works
+            };
+
         $ionicSideMenuDelegate.canDragContent(false);
     })
     .controller('VerificationCtrl', function ($scope, $stateParams, MyServices, $timeout, $state) {
