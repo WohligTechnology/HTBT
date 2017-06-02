@@ -122,6 +122,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       })
 
+      .state('sorry', {
+       url: '/sorry',
+
+               templateUrl: 'templates/sorry.html',
+               controller: 'SorryCtrl'
+
+
+   })
+
       .state('app.auth-payment', {
         cache: false,
         url: '/auth-payment',
