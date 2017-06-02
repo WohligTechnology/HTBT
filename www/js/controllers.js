@@ -777,12 +777,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
 
 
-        }
+        };
     })
     .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicSlideBoxDelegate) {
         $scope.profile = $.jStorage.get('profile');
-
-
         $scope.showPopup = function () {
             $scope.show = $ionicPopup.show({
                 templateUrl: 'templates/modal/price.html',
@@ -790,6 +788,11 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 scope: $scope
             });
         };
+        MyServices.getDashboard(function (data) {
+            if (data.status == 200) {
+                $scope.dashboardData = data.data.data;
+            }
+        });
         $scope.closePopup = function () {
             $scope.show.close();
         };

@@ -261,6 +261,17 @@ angular.module('starter.services', [])
           withCredentials: true,
           data: data
         }).success(callback);
+      },
+      getDashboard: function (callback) {
+        var obj = {
+          user: $.jStorage.get("profile")._id
+        };
+        $http({
+          url: adminurl + 'user/getDashboard',
+          method: 'POST',
+          withCredentials: true,
+          data: obj
+        }).then(callback);
       }
     };
   });
