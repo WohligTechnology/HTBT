@@ -104,7 +104,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
     })
-    .controller('RequantityuirementCtrl', function ($scope, $stateParams) {
+    .controller('RequirementCtrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -197,10 +197,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
                 $scope.savingAmount = savingPriceTotal - total;
                 $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-                console.log($scope.savingAmount, savingPriceTotal, total);
+
                 $scope.totalAmt = $scope.deposit +
                     $scope.otherProductstotal + total;
-                console.log($scope.totalAmt);
 
                 return $scope.savingAmount;
             } else if ($scope.subscription.plan == 'Monthly') {
@@ -324,8 +323,16 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         });
         $scope.subscription = Subscription.getObj();
         Subscription.validate($state);
+
         $scope.goBackHandler = function () {
             window.history.back(); //This works
+        };
+        $scope.takeToNext = function () {
+            if ($scope.subscription.product[0].quantity >= parseInt($scope.subscription.productDetail.limit)) {
+                $state.go("app.requirement");
+            } else {
+                $state.go("app.subpage3");
+            }
         };
     })
     .controller('AuthPaymentCtrl', function ($scope, $stateParams, $state, MyServices, Subscription) {
