@@ -267,7 +267,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
         $scope.checkMinProduct = function (product) {
-            if (product.productQuantity <= 0) {
+
+            if (!product.productQuantity || product.productQuantity <= 0) {
                 return true;
             } else {
                 return false;
@@ -500,7 +501,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             });
         });
         $scope.checkMinProduct = function (product) {
-            if (product.productQuantity <= 0) {
+            if (!product.productQuantity || product.productQuantity <= 0) {
                 return true;
             } else {
                 return false;
