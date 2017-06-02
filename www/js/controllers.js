@@ -79,17 +79,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
 
-    .controller('SorryCtrl', function($scope, $stateParams) {
-    $scope.goBackHandler = function() {
-    window.history.back(); //This works
-    };
+    .controller('SorryCtrl', function ($scope, $stateParams) {
+        $scope.goBackHandler = function () {
+            window.history.back(); //This works
+        };
     })
 
-    .controller('LinkExpireCtrl', function($scope, $stateParams) {
-    $scope.goBackHandler = function() {
-        window.history.back(); //This works
-    };
-})
+    .controller('LinkExpireCtrl', function ($scope, $stateParams) {
+        $scope.goBackHandler = function () {
+            window.history.back(); //This works
+        };
+    })
 
     .controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
         $scope.goBackHandler = function () {
@@ -251,6 +251,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
+        $scope.subscription.otherProducts = [];
         Subscription.validate($state);
         $scope.getProductPrice = MyServices.getProductPrice;
         $scope.addPlan = function (planName) {
@@ -333,7 +334,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
         $scope.takeToNext = function () {
-            if ($scope.subscription.product[0].quantity >= parseInt($scope.subscription.productDetail.limit)) {
+            var orderedPrice = _.orderBy($scope.subscription.productDetail.priceList, function (n) {
+                return parseInt(n.endRange);
+            });
+            var lastQuantity = 0;
+            if (orderedPrice.length > 0) {
+                lastQuantity = parseInt(orderedPrice[orderedPrice.length - 1].endRange);
+            }
+            if ($scope.subscription.product[0].quantity >= lastQuantity) {
                 $state.go("app.requirement");
             } else {
                 $state.go("app.subpage3");

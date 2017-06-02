@@ -10,7 +10,9 @@ angular.module('starter.services', [])
 
     function getProductPrice(product, quantity) {
       var foundPrice = {};
-      var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
+      var orderedPrice = _.orderBy(product.priceList, function (n) {
+        return parseInt(n.endRange);
+      });
 
       if (orderedPrice.length === 0) {
         product.finalPrice = product.price;
