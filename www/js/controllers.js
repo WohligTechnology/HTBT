@@ -54,6 +54,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }, 1000);
         };
 
+        $scope.getName = function () {
+            return $.jStorage.get("profile").name;
+        };
+
     })
     .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices, Subscription, $state, $ionicPopup) {
         $scope.userDetails = MyServices.getAppDetails();
