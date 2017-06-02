@@ -17,6 +17,7 @@ angular.module('starter.services', [])
       if (orderedPrice.length === 0) {
         product.finalPrice = product.price;
         product.priceUsed = product.price;
+        product.finalQuantity = quantity;
         product.totalPriceUsed = product.price * parseInt(quantity);
         return parseInt(product.price);
       } else {

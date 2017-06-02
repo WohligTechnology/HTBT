@@ -7,6 +7,7 @@ angular.module('starter.subscription', [])
                 quantity: null
             }],
             productDetail: null,
+            productQuantity: 0,
             otherProducts: [],
             customerName: null,
             customerMobile: null,

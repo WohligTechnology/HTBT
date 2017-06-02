@@ -163,12 +163,15 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
     .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
+
         $scope.userDetails = MyServices.getAppDetails();
 
         MyServices.showCardQuantity(function (num) {
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
+        console.log($scope.subscription);
+        console.log($scope.subscription.toString());
         Subscription.validate($state);
         $scope.goBackHandler = function () {
             window.history.back(); //This works
@@ -188,47 +191,13 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             _.each($scope.subscription.otherProducts, function (n) {
                 $scope.otherProductstotal += n.price * n.productQuantity;
             });
-            if ($scope.subscription.productDetail.applicableBefore >
-                $scope.subscription.product[0].quantity) {
-                $scope.deposit =
-                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.AmtDeposit);
+            if ($scope.subscription.productDetail.applicableBefore > $scope.subscription.product[0].quantity) {
+                total += parseFloat(subscription.productDetail.AmtDeposit) * parseInt($scope.subscription.product[0].quantity);
             }
-            if ($scope.subscription.plan == 'Quarterly') {
-                $scope.totalQuantity = 12 * ($scope.subscription.product[0].quantity);
-                total =
-                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
-                savingPriceTotal =
-                    12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
-                $scope.savingAmount = savingPriceTotal - total;
-                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-
-                $scope.totalAmt = $scope.deposit +
-                    $scope.otherProductstotal + total;
-
-                return $scope.savingAmount;
-            } else if ($scope.subscription.plan == 'Monthly') {
-                $scope.totalQuantity = 4 * ($scope.subscription.product[0].quantity);
-                total =
-                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
-                savingPriceTotal =
-                    4 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
-                $scope.savingAmount = savingPriceTotal - total;
-                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-                $scope.totalAmt = $scope.deposit +
-                    $scope.otherProductstotal + total;
-                return $scope.savingAmount;
-            } else {
-                $scope.totalQuantity = $scope.subscription.product[0].quantity;
-                total =
-                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.priceUsed);
-                savingPriceTotal =
-                    ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
-                $scope.savingAmount = savingPriceTotal - total;
-                $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-                $scope.totalAmt = $scope.deposit +
-                    $scope.otherProductstotal + total;
-                return $scope.savingAmount;
-            }
+            total += parseInt($scope.otherProductstotal);
+            $scope.totalPriceForJar = parseFloat(MyServices.getProductPrice($scope.subscription.productDetail, $scope.subscription.productQuantity)) * $scope.subscription.productQuantity;
+            total += $scope.totalPriceForJar;
+            return total;
         };
 
         $scope.authenticatePayment = function () {
@@ -318,7 +287,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
         $scope.getProductPrice = MyServices.getProductPrice;
-        $scope.addPlan = function (planName) {
+        $scope.addPlan = function (planName, times) {
+            MyServices.getProductPrice($scope.subscription.productDetail, $scope.subscription.product[0].quantity * times);
+            $scope.subscription.productQuantity = $scope.subscription.product[0].quantity * times;
             $scope.subscription.plan = planName;
         };
     })
@@ -746,7 +717,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             });
         };
     })
-    .controller('ConfirmationCtrl', function ($scope, $stateParams, MyServices) {
+    .controller('ConfirmationCtrl', function ($scope, $stateParams, MyServices, $ionicHistory) {
+        $ionicHistory.clearHistory();
         $.jStorage.set("cartQuantity", 0);
         var appDetail = MyServices.getAppDetails();
         appDetail.cartQuantity = 0;
@@ -801,8 +773,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         };
     })
-    .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicSlideBoxDelegate) {
+    .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicHistory, $ionicSlideBoxDelegate) {
         $scope.profile = $.jStorage.get('profile');
+        $ionicHistory.clearHistory();
         $scope.showPopup = function () {
             $scope.show = $ionicPopup.show({
                 templateUrl: 'templates/modal/price.html',

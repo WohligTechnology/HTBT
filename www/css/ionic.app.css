@@ -11081,7 +11081,7 @@ a.button {
   background: #f2f4f5; }
 
 .auth-custinfo {
-  padding: 10px 0 0 20px !important;
+  text-align: center;
   font-size: 18px;
   font-weight: 500;
   font-size: 19px;
@@ -12195,6 +12195,9 @@ input[type="color"] {
     opacity: 0; }
   to {
     opacity: 1; } }
+
+.desc {
+  padding: 1px 0; }
 
 .fade-in {
   opacity: 0;
