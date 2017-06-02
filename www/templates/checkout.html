@@ -101,7 +101,7 @@ subscription.otherProducts">
     <li class="item item-checkbox noborder checkbox-assertive borderR
 chkalign mar10">
         <label class="checkbox noborder checkboxterms">
-   <input type="checkbox" ng-model="terms" class="">
+   <input type="checkbox" ng-model="terms.value" class="">
    </label> I have read & accept the
 
         <span class="termscolor" ng-click="terms.show($event)">  Terms
@@ -109,7 +109,7 @@ chkalign mar10">
 
     </li>
     <div class="bar bar-footer signUpFooter footer-height">
-        <button class="button button-block button-positive footer-font" ng-disabled="!terms" ng-click="authenticatePayment()">
+        <button class="button button-block button-positive footer-font" ng-disabled="!terms.value" ng-click="authenticatePayment()">
   Pay ₹ {{calculateTotalPrice()}}/-
 </button>
     </div>

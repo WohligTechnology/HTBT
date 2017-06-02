@@ -104,18 +104,19 @@
 
 
     </ion-content>
+
     <li class="item item-checkbox noborder checkbox-assertive borderR
 chkalign mar10" ng-if="calculateTotalPrice() != 0">
         <label class="checkbox noborder checkboxterms">
-   <input type="checkbox" ng-model="terms" class="">
+   <input type="checkbox" ng-model="terms.value" class="">
    </label> I have read & accept the
-        <span class="termscolor" ng-click="terms.show($event)">  Terms
+        <span class="termscolor">  Terms
 & Conditions</span>
     </li>
 
 
     <div class="bar bar-footer signUpFooter footer-height" ng-if="calculateTotalPrice() != 0">
-        <button ng-disabled="!terms" class="button button-block button-positive footer-font" ui-sref="app.auth-payment-cart">
+        <button ng-disabled="!terms.value" class="button button-block button-positive footer-font" ui-sref="app.auth-payment-cart">
   Pay ₹ {{calculateTotalPrice()}}/-
 </button>
     </div>

@@ -122,6 +122,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
+        $scope.terms = {};
 
         function showCart() {
             MyServices.showCart(function (data) {
@@ -137,7 +138,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             var savingPriceTotal = 0;
 
             _.each($scope.products, function (n) {
-                console.log(n, n.product.totalPriceUsed);
                 total += n.product.totalPriceUsed;
                 savingPriceTotal += parseInt(n.product.price) * parseInt(n.productQuantity);
             });
@@ -165,7 +165,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
 
         $scope.userDetails = MyServices.getAppDetails();
-
+        $scope.terms = {};
         MyServices.showCardQuantity(function (num) {
             $scope.totalQuantity = num;
         });
