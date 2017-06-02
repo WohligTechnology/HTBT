@@ -123,12 +123,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         }
         showCart();
         $scope.getProductPrice = MyServices.getProductPrice;
-
         $scope.calculateTotalPrice = function () {
             var total = 0;
             var savingPriceTotal = 0;
+
             _.each($scope.products, function (n) {
-                console.log(n.productQuantity);
+                console.log(n, n.product.totalPriceUsed);
                 total += n.product.totalPriceUsed;
                 savingPriceTotal += parseInt(n.product.price) * parseInt(n.productQuantity);
             });
@@ -137,7 +137,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             return total;
         };
         $scope.removeCart = function (productId) {
-
             MyServices.removeFromCart(productId, function (data) {
                 showCart();
                 if (data.status == 200) {
@@ -153,10 +152,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             });
         };
-
-
-
-
     })
     .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
         $scope.userDetails = MyServices.getAppDetails();
