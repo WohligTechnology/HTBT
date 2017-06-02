@@ -439,7 +439,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 .newCust {
-  // text-align: center;
+  text-align: center;
   padding: 5px 0; // text-align: center;
   // margin-top: 10px;
   // vertical-align: middle;
@@ -452,6 +452,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     background: #ff414d!important;
     font-size: 18px!important; // padding-left: 10px !important;
     min-height: 35px!important;
+    margin: 10px;
     box-shadow: 1px 2px 0 0 lightgrey;
   }
   label {
@@ -1504,16 +1505,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 .prdcticon {
-      height: 120px;
-    width: 120px;
-    text-align: center;
-    margin: 10px 10px;
-    position: relative;
+  height: 120px;
+  width: 120px;
+  text-align: center;
+  margin: 10px 10px;
+  position: relative;
   img {
     max-width: 100%;
     max-height: 100%;
     position: absolute;
-    transform: translate(-50%,-50%)!important;
+    transform: translate(-50%, -50%)!important;
     top: 50%!important;
     left: 50%!important;
   }
@@ -1934,7 +1935,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .bgchkoutcol502 {
   text-align: right;
-    padding: 15px 15px!important;
+  padding: 15px 15px!important;
   label {
     font-size: 16px;
   }
@@ -1952,7 +1953,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .savingamtdiv {
   text-align: right;
-    padding-top: 15px;
+  padding-top: 15px;
   label {
     font-size: 16px;
     color: #ff414d;
@@ -2499,56 +2500,53 @@ p.onceLblr {
   }
 }
 
-
-.checkboxterms{
-          width: 28px;
-    height: 28px;
-    display: block;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    -webkit-appearance: none;
-    position: absolute !important;
-    /* margin-left: 10px !important; */
-    transform: translate(0%, 25%) !important;
-    top: 48% !important;
-    left: 0% !important;
+.checkboxterms {
+  width: 28px;
+  height: 28px;
+  display: block;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  position: absolute !important;
+  /* margin-left: 10px !important; */
+  transform: translate(0%, 25%) !important;
+  top: 48% !important;
+  left: 0% !important;
 }
 
-
-
-.checkboxip{
-      width: 28px;
-    height: 28px;
-    display: block;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    -webkit-appearance: none;
-    position: absolute!important;
-    /* margin-left: 10px !important; */
-    transform: translate(-120%, 25%)!important;
-    top: 48%!important;
-    left: 0%!important;
+.checkboxip {
+  width: 28px;
+  height: 28px;
+  display: block;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  position: absolute!important;
+  /* margin-left: 10px !important; */
+  transform: translate(-120%, 25%)!important;
+  top: 48%!important;
+  left: 0%!important;
 }
 
 .checkbox input:after,
 .checkbox-icon:after {
-transition: opacity 0.05s ease-in-out;
-    /* -webkit-transform: rotate(-45deg); */
-    transform: rotate(-45deg)!important;
-    position: absolute;
-    top: 17%!important;
-    left: 40%!important;
-    display: table;
-    width: 14px;
-    height: 6px;
-    border: 2px solid #fff;
-    border-top: 0;
-    transform: translate(-50%, 25%);
-    border-right: 0;
-    content: ' ';
-    opacity: 0;
+  transition: opacity 0.05s ease-in-out;
+  /* -webkit-transform: rotate(-45deg); */
+  transform: rotate(-45deg)!important;
+  position: absolute;
+  top: 17%!important;
+  left: 40%!important;
+  display: table;
+  width: 14px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-top: 0;
+  transform: translate(-50%, 25%);
+  border-right: 0;
+  content: ' ';
+  opacity: 0;
 }
 
 .item-checkbox .checkbox {
@@ -2723,19 +2721,19 @@ transition: opacity 0.05s ease-in-out;
   bottom: 90px;
 }
 
-.divide{
+.divide {
   height: 120px;
   width: 120px;
   text-align: center;
   margin: 15px 10px;
 }
 
-.divline{ 
-    height: 90%;
-    display: inline-block;
-    padding: 10px;
-    margin: 8px 0 8px 5%;
-    border-right: 1px solid #1a85cb;
+.divline {
+  height: 90%;
+  display: inline-block;
+  padding: 10px;
+  margin: 8px 0 8px 5%;
+  border-right: 1px solid #1a85cb;
 }
 
 //verification
@@ -2824,8 +2822,8 @@ transition: opacity 0.05s ease-in-out;
   width: 100%;
   font-size: 14px;
   position: relative;
-    margin: 0px;
-    padding: 25px;
+  margin: 0px;
+  padding: 25px;
 }
 
 //largerequirement
