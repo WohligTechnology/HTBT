@@ -1505,20 +1505,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 .prdcticon {
-<<<<<<< HEAD
   height: 120px;
-  width: 120px;
   text-align: center;
-  margin: 10px 10px;
+  margin: 10px 0px 10px 10px;
+  padding-right: 10px;
   position: relative;
-=======
-     height: 120px;
-    text-align: center;
-    margin: 10px 0px 10px 10px;
-    padding-right: 10px;
-    position: relative;
-    border-right: 1px solid #ddd;
->>>>>>> 2059fd9692c9dbf19445c9ff625e308dcf1e0086
+  border-right: 1px solid #ddd;
   img {
     max-width: 100%;
     max-height: 100%;
@@ -1536,8 +1528,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     border-right: 1px solid #1a85cb;
   }
 }
-
-
 
 .details-div {
   margin-top: 30px;
@@ -1850,19 +1840,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   }
 }
 
-
- .chkout-image {
-     height: 120px;
-    text-align: center;
-    margin: 10px 0px 10px 10px;
-    padding-right: 10px;
-    position: relative;
-    border-right: 1px solid #278cce;
+.chkout-image {
+  height: 120px;
+  text-align: center;
+  margin: 10px 0px 10px 10px;
+  padding-right: 10px;
+  position: relative;
+  border-right: 1px solid #278cce;
   img {
     max-width: 100%;
     max-height: 100%;
     position: absolute;
-    transform: translate(-50%,-50%)!important;
+    transform: translate(-50%, -50%)!important;
     top: 50%!important;
     left: 50%!important;
     padding-right: 10px
@@ -1874,7 +1863,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     margin: 8px 0 8px 5%;
     border-right: 1px solid #1a85cb;
   }
-} 
+}
 
 .chkout-closebutton {
   position: absolute;
@@ -1902,8 +1891,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 }
 
 .chkout-align {
-      padding: 20px;
-    height: 120px;
+  padding: 20px;
+  height: 120px;
 }
 
 .colorpure {
