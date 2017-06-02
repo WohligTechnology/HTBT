@@ -54,6 +54,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }, 1000);
         };
 
+        $scope.getName = function () {
+            return $.jStorage.get("profile").name;
+        };
+
     })
     .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices, Subscription, $state, $ionicPopup) {
         $scope.userDetails = MyServices.getAppDetails();
@@ -104,7 +108,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
     })
-    .controller('RequantityuirementCtrl', function ($scope, $stateParams) {
+    .controller('RequirementCtrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -123,12 +127,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         }
         showCart();
         $scope.getProductPrice = MyServices.getProductPrice;
-
         $scope.calculateTotalPrice = function () {
             var total = 0;
             var savingPriceTotal = 0;
+
             _.each($scope.products, function (n) {
-                console.log(n.productQuantity);
+                console.log(n, n.product.totalPriceUsed);
                 total += n.product.totalPriceUsed;
                 savingPriceTotal += parseInt(n.product.price) * parseInt(n.productQuantity);
             });
@@ -137,7 +141,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             return total;
         };
         $scope.removeCart = function (productId) {
-
             MyServices.removeFromCart(productId, function (data) {
                 showCart();
                 if (data.status == 200) {
@@ -153,10 +156,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             });
         };
-
-
-
-
     })
     .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
         $scope.userDetails = MyServices.getAppDetails();
@@ -197,10 +196,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     12 * ($scope.subscription.product[0].quantity * $scope.subscription.productDetail.price);
                 $scope.savingAmount = savingPriceTotal - total;
                 $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
-                console.log($scope.savingAmount, savingPriceTotal, total);
+
                 $scope.totalAmt = $scope.deposit +
                     $scope.otherProductstotal + total;
-                console.log($scope.totalAmt);
 
                 return $scope.savingAmount;
             } else if ($scope.subscription.plan == 'Monthly') {
@@ -268,7 +266,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
         $scope.checkMinProduct = function (product) {
-            if (product.productQuantity <= 0) {
+
+            if (!product.productQuantity || product.productQuantity <= 0) {
                 return true;
             } else {
                 return false;
@@ -324,8 +323,16 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         });
         $scope.subscription = Subscription.getObj();
         Subscription.validate($state);
+
         $scope.goBackHandler = function () {
             window.history.back(); //This works
+        };
+        $scope.takeToNext = function () {
+            if ($scope.subscription.product[0].quantity >= parseInt($scope.subscription.productDetail.limit)) {
+                $state.go("app.requirement");
+            } else {
+                $state.go("app.subpage3");
+            }
         };
     })
     .controller('AuthPaymentCtrl', function ($scope, $stateParams, $state, MyServices, Subscription) {
@@ -493,7 +500,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             });
         });
         $scope.checkMinProduct = function (product) {
-            if (product.productQuantity <= 0) {
+            if (!product.productQuantity || product.productQuantity <= 0) {
                 return true;
             } else {
                 return false;

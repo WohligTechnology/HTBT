@@ -15,7 +15,11 @@ angular.module('starter.services', [])
     function getProductPrice(product, quantity) {
       var foundPrice = {};
       var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
+
       if (orderedPrice.length === 0) {
+        product.finalPrice = product.price;
+        product.priceUsed = product.price;
+        product.totalPriceUsed = product.price * parseInt(quantity);
         return parseInt(product.price);
       } else {
         _.each(orderedPrice, function (obj) {
