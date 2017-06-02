@@ -10,22 +10,17 @@
     </ion-nav-buttons>
   </ion-nav-bar>
   <ion-content class="has-header">
-
-
     <div class="row bottomTopMarRow2">
 
       <div class="col col-50 colPad ">
         <div class="lastMonth">
-          <label for=" " ng-if="dash.lastMonthEarnings">₹ {{dash.lastMonthEarnings | number}}</label>
-          <label for=" " ng-if="!dash.lastMonthEarnings">₹ 0</label>
-
+          <label for=" ">₹ {{dashboardData.currentMonthCredits||0}}
           <pr>Credits</pr>
         </div>
       </div>
       <div class="col col-50 colPad">
         <div class="newCustomer">
-          <label for=" " ng-if="dash.customer.length">{{dash.customer.length}}</label>
-          <label for=" " ng-if="!dash.customer.length">₹ 0</label>
+          <label for=" ">{{dashboardData.currentMonthEarnings||0}}</label>
           <pr>Earnings</pr>
         </div>
       </div>
@@ -35,13 +30,8 @@
     <div class="row bottomTopMarRow">
       <div class="col col-33 colPad">
         <div class="numberDiv">
-          <label class="rankLabel" for=" " ng-if="dash.rank">{{dash.rank}}</label>
-          <label class="rankLabel" for=" " ng-if="!dash.rank">0</label>
-
+          <label class="rankLabel">{{dashboardData.rank||0}}</label>
           <i class="ion ion-android-arrow-up "></i>
-          <span ng-if="dash.lastRank">({{dash.rank - dash.lashRank}})</span>
-          <span ng-if="!dash.lastRank">(0)</span>
-
         </div>
         <div class="rankDiv">
           <pr>Rank</pr>
@@ -49,16 +39,14 @@
       </div>
       <div class="col col-33 colPad ">
         <div class="lastMonth">
-          <label for=" " ng-if="dash.lastMonthEarnings">₹ {{dash.lastMonthEarnings | number}}</label>
-          <label for=" " ng-if="!dash.lastMonthEarnings">₹ 0</label>
+          <label>₹ {{dashboardData.previousMonthCredits||0}}</label>
 
           <pr>Last Month</pr>
         </div>
       </div>
       <div class="col col-33 colPad">
         <div class="newCustomer">
-          <label for=" " ng-if="dash.customer.length">{{dash.customer.length}}</label>
-          <label for=" " ng-if="!dash.customer.length">0</label>
+          <label for=" ">{{dashboardData.currentMonthUser||0}}
           <pr>New Customers</pr>
         </div>
       </div>
@@ -66,12 +54,12 @@
     <div class="newCust">
       <button class="button  ion-plus-circled button-positive" ui-sref="app.browse">
  <label class="oldCustLabel"  >New Customer</label>
-</button>
+          </button>
 
-    </div>
-    <div class="oldCust">
-      <button class="button ion-custom-user  button-positive" ui-sref="app.customerlist">
+        </div>
+        <div class="oldCust">
+          <button class="button ion-custom-user  button-positive" ui-sref="app.customerlist">
  <label class="oldCustLabel"  >Old Customer</label>
 </button>
-    </div>
+        </div>
   </ion-content>
