@@ -7,8 +7,9 @@
 
   </ion-nav-bar>
   <form ng-submit="signup()" name="userForm">
-    <ion-content class="has-header signUpForm hasterms">
 
+    <ion-content class="has-header signUpForm hasterms">
+    <!-- <pre>{{userForm|json}}</pre> -->
       <div class="iptext ">
         <div>
           <label class=" item-input iptext ">
@@ -24,7 +25,7 @@
     <input type="email" placeholder="Email Id (Optional)" ng-model="signupForm.email" name="email"  value="{{signupForm.email}}" required>
 
   </label>
-          <p class="error-msg" ng-show="userForm.email.$error.required && userForm.email.$touched">Please Enter your Email Id.</p>
+          <p class="error-msg" ng-show="userForm.email.$invalid && userForm.email.$touched">Please Enter your Email Id.</p>
         </div>
 
 
@@ -49,23 +50,23 @@
 
         <div>
           <label class=" item-input ">
- <input type="text" placeholder="Mobile No." ng-model="signupForm.mobile" name="mob"  value="{{signupForm.mobile}}" required only-Digits maxlength="10" minlength="10">
+ <input  type="number" placeholder="Mobile No." ng-model="signupForm.mobile" name="mob"  value="{{signupForm.mobile}}" ng-min="1000000000" ng-max="9999999999" required >
 </label>
-          <p class="error-msg" ng-show="userForm.mob.$error.required && userForm.mob.$touched">Please Enter your Mobile No.</p>
+          <p class="error-msg" ng-show="userForm.mob.$invalid && userForm.mob.$touched">Please Enter your Mobile No.</p>
         </div>
 
 
         <div>
           <label class=" item-input ">
- <input type="text" placeholder="Landline No." ng-model="signupForm.landLine" name="landline"  value="{{signupForm.landline}}" required only-Digits maxlength="11" minlength="11">
+ <input  type="text"  placeholder="Landline No." ng-model="signupForm.landLine" name="landline"  value="{{signupForm.landline}}" ng-min="11" ng-max="11" required >
 </label>
-          <p class="error-msg" ng-show="userForm.landline.$error.required && userForm.landline.$touched">Please Enter your Landline No.</p>
+          <p class="error-msg" ng-show="userForm.landline.$invalid && userForm.landline.$touched">Please Enter your Landline No.</p>
         </div>
 
 
         <div>
           <label class=" item-input ">
-    <input type="text" placeholder="Pincode" ng-click="sorryPopup()" ng-model="signupForm.pincode" name="pincode"  value="{{signupForm.pincode}}" required only-Digits maxlength="6" minlength="6">
+    <input type="number" placeholder="Pincode"  ng-model="signupForm.pincode" name="pincode"  value="{{signupForm.pincode}}" required ng-min="100000" ng-max="999999">
   </label>
           <p class="error-msg" ng-show="userForm.pincode.$error.required && userForm.pincode.$touched">Please Enter your Pincode.</p>
         </div>
@@ -133,8 +134,8 @@
     </div>
 
     <div class="bar bar-footer footer-height signUpFooter" ng-if="click">
-      <button class="button button-block button-positive footer-font" type="submit">
-  Get Started
+      <button class="button button-block button-positive footer-font"  ng-disabled="userForm.$invalid" type="submit">
+Get Started
 </button>
     </div>
   </form>
