@@ -50,7 +50,7 @@
 
         <div>
           <label class=" item-input ">
- <input  type="number" placeholder="Mobile No." ng-model="signupForm.mobile" name="mob"  value="{{signupForm.mobile}}" ng-min="1000000000" ng-max="9999999999" required >
+ <input  type="number" placeholder="Mobile No." ng-model="signupForm.mobile" name="mob"  value="{{signupForm.mobile}}" ng-min="1000000000" ng-max="9999999999" limit-to="10" required >
 </label>
           <p class="error-msg" ng-show="userForm.mob.$invalid && userForm.mob.$touched">Please Enter your Mobile No.</p>
         </div>
@@ -58,7 +58,7 @@
 
         <div>
           <label class=" item-input ">
- <input  type="text"  placeholder="Landline No." ng-model="signupForm.landLine" name="landline"  value="{{signupForm.landline}}" ng-min="11" ng-max="11" required >
+ <input  type="tel"  placeholder="Landline No." ng-model="signupForm.landLine" name="landline"  value="{{signupForm.landline}}" limit-to="11" required >
 </label>
           <p class="error-msg" ng-show="userForm.landline.$invalid && userForm.landline.$touched">Please Enter your Landline No.</p>
         </div>
@@ -66,7 +66,7 @@
 
         <div>
           <label class=" item-input ">
-    <input type="number" placeholder="Pincode"  ng-model="signupForm.pincode" name="pincode"  value="{{signupForm.pincode}}" required ng-min="100000" ng-max="999999">
+    <input type="number" placeholder="Pincode"  ng-model="signupForm.pincode" name="pincode"  value="{{signupForm.pincode}}" required ng-min="100000" ng-max="999999" limit-to="6">
   </label>
           <p class="error-msg" ng-show="userForm.pincode.$error.required && userForm.pincode.$touched">Please Enter your Pincode.</p>
         </div>
