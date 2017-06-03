@@ -704,7 +704,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         //Function to verify OTP
         $scope.verifyOTP = function (value) {
-            reqObj.otp = value.first + value.second + value.third + value.forth;
+            reqObj.otp = ""+value.first + value.second + value.third + value.forth;
 
             MyServices.verifyOTP(reqObj, function (data) {
                 if (data.value) {
