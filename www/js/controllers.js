@@ -118,7 +118,19 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
     })
-    .controller('ReviewCtrl', function ($scope, $stateParams, MyServices, $ionicPopup) {
+    .controller('ReviewCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $ionicPopover) {
+
+      $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
+          scope: $scope,
+          cssClass: 'menupop',
+
+      }).then(function (terms) {
+          $scope.terms = terms;
+      });
+
+      $scope.closePopover = function () {
+          $scope.terms.hide();
+      };
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -163,6 +175,18 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
     .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
+
+      $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
+          scope: $scope,
+          cssClass: 'menupop',
+
+      }).then(function (terms) {
+          $scope.terms = terms;
+      });
+
+      $scope.closePopover = function () {
+          $scope.terms.hide();
+      };
 
         $scope.userDetails = MyServices.getAppDetails();
         $scope.terms = {};
