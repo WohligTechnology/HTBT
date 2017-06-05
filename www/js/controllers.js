@@ -120,17 +120,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     })
     .controller('ReviewCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $ionicPopover) {
 
-      $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
-          scope: $scope,
-          cssClass: 'menupop',
+        $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
+            scope: $scope,
+            cssClass: 'menupop',
 
-      }).then(function (terms) {
-          $scope.terms = terms;
-      });
+        }).then(function (terms) {
+            $scope.terms = terms;
+        });
 
-      $scope.closePopover = function () {
-          $scope.terms.hide();
-      };
+        $scope.closePopover = function () {
+            $scope.terms.hide();
+        };
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -176,17 +176,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     })
     .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
 
-      $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
-          scope: $scope,
-          cssClass: 'menupop',
+        $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
+            scope: $scope,
+            cssClass: 'menupop',
 
-      }).then(function (terms) {
-          $scope.terms = terms;
-      });
+        }).then(function (terms) {
+            $scope.terms = terms;
+        });
 
-      $scope.closePopover = function () {
-          $scope.terms.hide();
-      };
+        $scope.closePopover = function () {
+            $scope.terms.hide();
+        };
 
         $scope.userDetails = MyServices.getAppDetails();
         $scope.terms = {};
@@ -325,8 +325,11 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.subscription = Subscription.getObj();
         Subscription.validate($state);
 
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
+        $scope.goToProduct = function () {
+            var id = $.jStorage.get("prevId");
+            $state.go("app.browse-more", {
+                category: id
+            });
         };
         $scope.takeToNext = function () {
             var orderedPrice = _.orderBy($scope.subscription.productDetail.priceList, function (n) {
@@ -452,6 +455,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
         $scope.nextPage = function (sub, id) {
+            $.jStorage.set("prevId", id);
             if (sub == 'Yes') {
                 $state.go('app.browse-more', {
                     'category': id
@@ -728,7 +732,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         //Function to verify OTP
         $scope.verifyOTP = function (value) {
-            reqObj.otp = ""+value.first + value.second + value.third + value.forth;
+            reqObj.otp = "" + value.first + value.second + value.third + value.forth;
 
             MyServices.verifyOTP(reqObj, function (data) {
                 if (data.value) {
