@@ -1,4 +1,6 @@
 var adminurl = "http://htbt.wohlig.co.in/api/"; //server
+// var adminurl = "http://192.168.0.117:1337/api/"; //server
+
 // var imgpath = adminurl + "uploadfile/getupload?file=";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile?file=";
@@ -10,11 +12,14 @@ angular.module('starter.services', [])
 
     function getProductPrice(product, quantity) {
       var foundPrice = {};
-      var orderedPrice = _.orderBy(product.priceList, ['endRange'], ['asc']);
+      var orderedPrice = _.orderBy(product.priceList, function (n) {
+        return parseInt(n.endRange);
+      });
 
       if (orderedPrice.length === 0) {
         product.finalPrice = product.price;
         product.priceUsed = product.price;
+        product.finalQuantity = quantity;
         product.totalPriceUsed = product.price * parseInt(quantity);
         return parseInt(product.price);
       } else {

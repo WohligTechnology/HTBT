@@ -21,12 +21,12 @@
         <div class="spanTextDiv">
           {{loginInfo.mobile.length}}
           <span class="phnSpan">+91</span>
-          <input class="phnText" type="text" only-digits ng-change="loginNumberChange(loginInfo.mobile);" ng-model="loginInfo.mobile"
-            placeholder="Enter your contact no">
+          <input class="phnText" type="number"  ng-min="1000000000" ng-max="9999999999" ng-model="loginInfo.mobile"
+            placeholder="Enter your contact no" limit-to="10">
         </div>
       </div>
       <div class="col-33 phnCol33Div">
-        <button class="button button-royal joinBtn" ng-click="getOTP(loginInfo)" ng-disabled="joinInDisabled">
+        <button class="button button-royal joinBtn" ng-click="getOTP(loginInfo)" ng-disabled="!loginInfo.mobile">
                   Join us
                 </button>
       </div>
