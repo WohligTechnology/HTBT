@@ -31,7 +31,12 @@ angular.module('starter.services', [])
             return false;
           }
         });
+        if (quantity > parseInt(orderedPrice[orderedPrice.length - 1].endRange)) {
+          product.priceUsed = orderedPrice[orderedPrice.length - 1].finalPrice;
+        }
       }
+
+
 
       return product.priceUsed;
     }
