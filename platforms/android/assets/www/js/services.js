@@ -31,7 +31,12 @@ angular.module('starter.services', [])
             return false;
           }
         });
+        if (quantity > parseInt(orderedPrice[orderedPrice.length - 1].endRange)) {
+          product.priceUsed = orderedPrice[orderedPrice.length - 1].finalPrice;
+        }
       }
+
+
 
       return product.priceUsed;
     }
@@ -221,6 +226,7 @@ angular.module('starter.services', [])
         delete data2.productDetail;
         delete data2.otherProducts;
         data2.orderFor = "RMForCustomer";
+        data2.methodOfOrder = "Relationship Partner";
         data2.user = $.jStorage.get("profile")._id;
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
@@ -237,7 +243,8 @@ angular.module('starter.services', [])
           customerName: name,
           customerMobile: contactNumber,
           methodOfPayment: method,
-          orderFor: "RMForCustomer"
+          orderFor: "RMForCustomer",
+          methodOfOrder: "Relationship Partner"
         };
         $http({
           url: adminurl + 'Order/saveOrderCheckoutCart',

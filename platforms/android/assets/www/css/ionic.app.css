@@ -12161,9 +12161,7 @@ input[type="color"] {
   color: green !important; }
 
 .pan-adh-img {
-  height: 100%;
   width: 100%;
-  background: red;
   position: relative;
   /* bottom: 110px; */
   top: 10px; }
@@ -12179,6 +12177,56 @@ input[type="color"] {
 .card-no {
   padding: 20%;
   text-align: center; }
+
+.reldiv {
+  position: relative;
+  height: 100vh;
+  text-align: center; }
+
+.sorrymsg {
+  padding: 10px;
+  font-size: 16px;
+  color: #6d797e; }
+
+.sorryno {
+  font-weight: 500;
+  color: #6d797e; }
+
+.position-center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 100%; }
+
+.thankyou {
+  font-size: 28px;
+  /* margin: 10px; */
+  margin: 15px 0;
+  text-align: center;
+  font-weight: 500; }
+
+.img-div {
+  text-align: center; }
+  .img-div img {
+    width: 200px; }
+
+.orderplaced {
+  font-size: 21px;
+  width: 100%;
+  padding: 10px 10px 0 10px;
+  text-align: center;
+  color: #6d797e; }
+
+.bgtrans {
+  background-color: transparent !important; }
+
+.sameadd {
+  padding: 5px 0px 5px 40px;
+  font-size: 14px; }
+  .sameadd p {
+    font-size: 12px;
+    margin-top: 10px; }
 
 @-webkit-keyframes fadeIn {
   from {

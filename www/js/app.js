@@ -134,10 +134,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             controller: 'PaymentSuccessfulCtrl'
 })
 
-.state('paysuccesspage2', {
- url: '/paysuccesspage2',
-         templateUrl: 'templates/paysuccesspage2.html',
-         controller: 'PaySuccessPage2Ctrl'
+.state('wrong', {
+ url: '/wrong',
+         templateUrl: 'templates/wrong.html',
+         controller: 'WrongCtrl'
 })
 
    .state('success', {

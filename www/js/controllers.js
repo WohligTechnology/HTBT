@@ -92,7 +92,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
 
-    .controller('PaySuccessPage2Ctrl', function ($scope, $stateParams) {
+    .controller('WrongCtrl', function ($scope, $stateParams) {
         $scope.goBackHandler = function () {
             window.history.back(); //This works
         };
@@ -387,9 +387,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             MyServices.saveOrderCheckout($scope.subscription, function (data) {
                 if (data.status == 200) {
                     console.log("$scope.subscription data.data", data.data);
-                    $state.go('app.confirm');
+                    $state.go('success');
                 } else {
-                    alert("something went wrong");
+                    $state.go('wrong');
                 }
             });
 
@@ -406,9 +406,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             value.orderFor = 'RMForCustomer';
             MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, function (data) {
                 if (data.status == 200) {
-                    $state.go('app.confirm');
+                    $state.go('success');
                 } else {
-                    alert("something went wrong");
+                    $state.go('wrong');
                 }
             });
         };
