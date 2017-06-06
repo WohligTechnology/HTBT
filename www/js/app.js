@@ -128,6 +128,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                controller: 'SorryCtrl'
    })
 
+   .state('success', {
+    url: '/success',
+            templateUrl: 'templates/success.html',
+            controller: 'SuccessCtrl'
+})
+
    .state('linkexpire', {
         url: '/linkexpire',
                templateUrl: 'templates/linkexpire.html',
