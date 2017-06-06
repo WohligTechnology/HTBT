@@ -870,12 +870,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.show = '';
 
 
-        $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
+        $ionicPopover.fromTemplateUrl('templates/modal/terms2.html', {
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (terms) {
-            $scope.terms = terms;
+        }).then(function (terms2) {
+            $scope.terms2 = terms2;
         });
 
         $ionicPopover.fromTemplateUrl('templates/modal/pincode.html', {
