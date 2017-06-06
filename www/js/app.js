@@ -128,6 +128,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                controller: 'SorryCtrl'
    })
 
+   .state('paymentsuccess', {
+    url: '/paymentsuccess',
+            templateUrl: 'templates/paymentsuccess.html',
+            controller: 'PaymentSuccessfulCtrl'
+})
+
+.state('paysuccesspage2', {
+ url: '/paysuccesspage2',
+         templateUrl: 'templates/paysuccesspage2.html',
+         controller: 'PaySuccessPage2Ctrl'
+})
+
    .state('success', {
     url: '/success',
             templateUrl: 'templates/success.html',

@@ -2960,10 +2960,12 @@ input[type="color"] {
 }
 
 .thankyou{
-    font-size: 32px;
-    padding: 10px;
-    text-align: center;
-    font-weight: 500
+  font-size: 28px;
+  /* margin: 10px; */
+  margin: 15px 0;
+  text-align: center;
+  font-weight: 500;
+
 }
 
 
@@ -2992,9 +2994,9 @@ p{
   margin-top: 10px;
 }
 }
-.bb1{
-  border-bottom: 1px solid $lightgrey!important;
-}
+// .bb1{
+//   border-bottom: 1px solid light-grey;
+// }
 
 
 
