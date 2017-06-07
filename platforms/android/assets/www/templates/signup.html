@@ -37,30 +37,31 @@
         </div>
 
         <div>
-          <label class=" item-input ">
+          <!-- <label class=" item-input ">
     <input type="text" placeholder="Establishment Address"  ng-model="signupForm.establishmentAddress"   value="{{signupForm.establishmentAddress}}" name="estadd" required>
-  </label>
+  </label> -->
+  <label class="item item-input">
+  <textarea  placeholder="Establishment Address" contenteditable="true" ng-model="signupForm.establishmentAddress"   value="{{signupForm.establishmentAddress}}" name="estadd" required></textarea>
+</label>
+<!-- <div  contenteditable="true" class="editable" placeholder="Enter Business "  class="registration-select"></div> -->
+
           <p class="error-msg" ng-show="userForm.estadd.$error.required && userForm.estadd.$touched">Please Enter your Establishment Address.</p>
         </div>
 
 
-        <label class=" item-input ">
-    <input type="text" placeholder="" disabled>
-  </label>
+
 
         <div>
           <label class=" item-input ">
- <input  type="number" placeholder="Mobile No." ng-model="signupForm.mobile" name="mob"  value="{{signupForm.mobile}}" ng-min="1000000000" ng-max="9999999999" limit-to="10" required >
+ <input  type="number" placeholder="Mobile No." ng-model="signupForm.mobile" name="mob" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"  value="{{signupForm.mobile}}" ng-min="1000000000" ng-max="9999999999" limit-to="10"  disabled>
 </label>
-          <p class="error-msg" ng-show="userForm.mob.$invalid && userForm.mob.$touched">Please Enter your Mobile No.</p>
         </div>
 
 
         <div>
           <label class=" item-input ">
- <input  type="tel"  placeholder="Landline No." ng-model="signupForm.landLine" name="landline"  value="{{signupForm.landline}}" limit-to="11" required >
+ <input  type="number"  placeholder="Landline No." ng-model="signupForm.landLine" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" name="landline"  value="{{signupForm.landline}}" limit-to="11"  >
 </label>
-          <p class="error-msg" ng-show="userForm.landline.$invalid && userForm.landline.$touched">Please Enter your Landline No.</p>
         </div>
 
 

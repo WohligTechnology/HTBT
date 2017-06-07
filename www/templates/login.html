@@ -19,9 +19,8 @@
     <div class="row phnRow">
       <div class="col-67 phnCol66">
         <div class="spanTextDiv">
-          {{loginInfo.mobile.length}}
           <span class="phnSpan">+91</span>
-          <input class="phnText" type="number"  ng-min="1000000000" ng-max="9999999999" ng-model="loginInfo.mobile"
+          <input class="phnText" type="number"  ng-min="1000000000" ng-max="9999999999" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" ng-model="loginInfo.mobile"
             placeholder="Enter your contact no" limit-to="10">
         </div>
       </div>

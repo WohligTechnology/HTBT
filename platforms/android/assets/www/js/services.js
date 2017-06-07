@@ -211,7 +211,7 @@ angular.module('starter.services', [])
         data2.product.push({
           product: data2.productDetail,
           productQuantity: parseInt(data2.productDetail.productQuantity) * num,
-          jarDeposit: data2.productDetail.AmtDeposit
+          jarDeposit: data2.deposit
         });
 
 
@@ -227,6 +227,7 @@ angular.module('starter.services', [])
         delete data2.otherProducts;
         data2.orderFor = "RMForCustomer";
         data2.methodOfOrder = "Relationship Partner";
+        data2.methodofjoin = "Relationship Partner";
         data2.user = $.jStorage.get("profile")._id;
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
@@ -244,7 +245,8 @@ angular.module('starter.services', [])
           customerMobile: contactNumber,
           methodOfPayment: method,
           orderFor: "RMForCustomer",
-          methodOfOrder: "Relationship Partner"
+          methodOfOrder: "Relationship Partner",
+          methodofjoin: "Relationship Partner"
         };
         $http({
           url: adminurl + 'Order/saveOrderCheckoutCart',

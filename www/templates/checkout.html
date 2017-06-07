@@ -35,7 +35,8 @@ ion-information-circled"></i></div>
             </div>
         </div>
 
-        <div class="row bgrowQuant " ng-if="subscription.productDetail.applicableBefore>subscription.product[0].quantity">
+        <!-- <div class="row bgrowQuant " ng-if="subscription.productDetail.applicableBefore>subscription.product[0].quantity"> -->
+        <div class="row bgrowQuant " ng-if="deposit">
             <div class="col-67 bgchkoutcol50Quant">
                 <div>
                     <label for="">One Time Bottle Deposit
@@ -102,7 +103,7 @@ subscription.otherProducts">
 chkalign mar10">
         <label class="checkbox noborder checkboxterms">
    <input type="checkbox" ng-model="terms.value" class="">
-   </label> I have read & accept the
+ </label>  I have read & accepted the
 
         <span class="termscolor" ng-click="terms.show($event)">  Terms
 & Conditions</span>

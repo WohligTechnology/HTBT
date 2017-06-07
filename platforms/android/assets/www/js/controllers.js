@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter.services', "starter.subscription", 'ionic-datepicker', 'ngCordova'])
 
-    .controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout, $state, MyServices) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout, $state, MyServices) {
 
         // Form data for the login modal
         $scope.loginData = {};
@@ -8,12 +8,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         // Create the login modal that we will use later
         $ionicModal.fromTemplateUrl('templates/login.html', {
             scope: $scope
-        }).then(function (modal) {
+        }).then(function(modal) {
             $scope.modal = modal;
         });
 
         // Triggered in the login modal to close it
-        $scope.closeLogin = function () {
+        $scope.closeLogin = function() {
             $scope.modal.hide();
         };
 
@@ -21,51 +21,51 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (popover) {
+        }).then(function(popover) {
             $scope.popover = popover;
         });
 
-        $scope.closePopover = function () {
+        $scope.closePopover = function() {
             $scope.popover.hide();
         };
 
         // Open the login modal
-        $scope.login = function () {
+        $scope.login = function() {
             $scope.modal.show();
         };
 
         // Perform the login action when the user submits the login form
-        $scope.doLogin = function () {
+        $scope.doLogin = function() {
             console.log('Doing login', $scope.loginData);
 
             // Simulate a login delay. Remove this and replace with your login
             // code if using a login system
-            $timeout(function () {
+            $timeout(function() {
                 $scope.closeLogin();
             }, 1000);
         };
 
-        $scope.getName = function () {
+        $scope.getName = function() {
             return $.jStorage.get("profile").name;
         };
 
     })
-    .controller('BrowseMoreCtrl', function ($scope, $stateParams, MyServices, Subscription, $state, $ionicPopup) {
+    .controller('BrowseMoreCtrl', function($scope, $stateParams, MyServices, Subscription, $state, $ionicPopup) {
         $scope.userDetails = MyServices.getAppDetails();
-        MyServices.showCardQuantity(function (num) {
+        MyServices.showCardQuantity(function(num) {
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
-        $scope.goBackHandler = function () {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
 
         MyServices.products({
             category: $stateParams.category
-        }, function (data) {
+        }, function(data) {
             $scope.products = data.data;
         });
-        $scope.productTap = function (product) {
+        $scope.productTap = function(product) {
             $scope.subscription.product[0].product = product._id;
             $scope.subscription.productDetail = product;
             if ($scope.totalQuantity === 0) {
@@ -79,51 +79,51 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
 
-    .controller('SorryCtrl', function ($scope, $stateParams) {
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
-        };
-    })
+.controller('SorryCtrl', function($scope, $stateParams) {
+    $scope.goBackHandler = function() {
+        window.history.back(); //This works
+    };
+})
 
 
-    .controller('PaymentSuccessfulCtrl', function ($scope, $stateParams) {
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
-        };
-    })
+.controller('PaymentSuccessfulCtrl', function($scope, $stateParams) {
+    $scope.goBackHandler = function() {
+        window.history.back(); //This works
+    };
+})
 
-    .controller('PaySuccessPage2Ctrl', function ($scope, $stateParams) {
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
-        };
-    })
+.controller('WrongCtrl', function($scope, $stateParams) {
+    $scope.goBackHandler = function() {
+        window.history.back(); //This works
+    };
+})
 
 
-    .controller('SuccessCtrl', function ($scope, $stateParams) {
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
-        };
-    })
+.controller('SuccessCtrl', function($scope, $stateParams) {
+    $scope.goBackHandler = function() {
+        window.history.back(); //This works
+    };
+})
 
-    .controller('LinkExpireCtrl', function ($scope, $stateParams) {
-        $scope.goBackHandler = function () {
-            window.history.back(); //This works
-        };
-    })
+.controller('LinkExpireCtrl', function($scope, $stateParams) {
+    $scope.goBackHandler = function() {
+        window.history.back(); //This works
+    };
+})
 
-    .controller('CreditsCtrl', function ($scope, $stateParams, $ionicSideMenuDelegate) {
-        $scope.goBackHandler = function () {
+.controller('CreditsCtrl', function($scope, $stateParams, $ionicSideMenuDelegate) {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
 
 
         $ionicSideMenuDelegate.canDragContent(false);
     })
-    .controller('VerificationCtrl', function ($scope, $stateParams, MyServices, $timeout, $state) {
+    .controller('VerificationCtrl', function($scope, $stateParams, MyServices, $timeout, $state) {
 
         $scope.profile = $.jStorage.get('profile');
 
-        MyServices.getProfile($scope.profile, function (data) {
+        MyServices.getProfile($scope.profile, function(data) {
             $scope.signupForm = data.data;
             if (data.data.verification == 'Verified') {
                 $.jStorage.set('profile', $scope.signupForm);
@@ -133,31 +133,31 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
     })
-    .controller('RequirementCtrl', function ($scope, $stateParams) {
-        $scope.goBackHandler = function () {
+    .controller('RequirementCtrl', function($scope, $stateParams) {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
     })
-    .controller('ReviewCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $ionicPopover) {
+    .controller('ReviewCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $ionicPopover) {
 
         $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (terms) {
+        }).then(function(terms) {
             $scope.terms = terms;
         });
 
-        $scope.closePopover = function () {
+        $scope.closePopover = function() {
             $scope.terms.hide();
         };
-        $scope.goBackHandler = function () {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
         $scope.terms = {};
 
         function showCart() {
-            MyServices.showCart(function (data) {
+            MyServices.showCart(function(data) {
                 if (data.data && data.data.data) {
                     $scope.products = data.data.data;
                 }
@@ -165,11 +165,11 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         }
         showCart();
         $scope.getProductPrice = MyServices.getProductPrice;
-        $scope.calculateTotalPrice = function () {
+        $scope.calculateTotalPrice = function() {
             var total = 0;
             var savingPriceTotal = 0;
 
-            _.each($scope.products, function (n) {
+            _.each($scope.products, function(n) {
                 total += n.product.totalPriceUsed;
                 savingPriceTotal += parseInt(n.product.price) * parseInt(n.productQuantity);
             });
@@ -177,8 +177,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.savingPercent = ($scope.savingAmount / savingPriceTotal * 100);
             return total;
         };
-        $scope.removeCart = function (productId) {
-            MyServices.removeFromCart(productId, function (data) {
+        $scope.removeCart = function(productId) {
+            MyServices.removeFromCart(productId, function(data) {
                 showCart();
                 if (data.status == 200) {
                     $ionicPopup.alert({
@@ -194,49 +194,50 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             });
         };
     })
-    .controller('CheckoutCtrl', function ($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
+    .controller('CheckoutCtrl', function($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
 
         $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (terms) {
+        }).then(function(terms) {
             $scope.terms = terms;
         });
 
-        $scope.closePopover = function () {
+        $scope.closePopover = function() {
             $scope.terms.hide();
         };
 
         $scope.userDetails = MyServices.getAppDetails();
         $scope.terms = {};
-        MyServices.showCardQuantity(function (num) {
+        MyServices.showCardQuantity(function(num) {
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
         console.log($scope.subscription);
         console.log($scope.subscription.toString());
         Subscription.validate($state);
-        $scope.goBackHandler = function () {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
         $scope.getProductPrice = MyServices.getProductPrice;
-        $scope.addPlan = function (planName) {
+        $scope.addPlan = function(planName) {
             $scope.subscription.plan = planName;
         };
 
-        $scope.calculateTotalPrice = function () {
+        $scope.calculateTotalPrice = function() {
             var total = 0;
             var savingPriceTotal = 0;
             $scope.totalAmt = 0;
             $scope.otherProductstotal = 0;
             $scope.totalQuantity = 0;
             $scope.deposit = 0;
-            _.each($scope.subscription.otherProducts, function (n) {
+            _.each($scope.subscription.otherProducts, function(n) {
                 $scope.otherProductstotal += n.price * n.productQuantity;
             });
-            if ($scope.subscription.productDetail.applicableBefore > $scope.subscription.product[0].quantity) {
-                total += parseFloat(subscription.productDetail.AmtDeposit) * parseInt($scope.subscription.product[0].quantity);
+            if ($scope.subscription.productDetail.applicableBefore > $scope.subscription.product[0].quantity && $scope.subscription.plan == 'Onetime') {
+                total += parseFloat($scope.subscription.productDetail.AmtDeposit) * parseInt($scope.subscription.product[0].quantity);
+                $scope.deposit += parseFloat($scope.subscription.productDetail.AmtDeposit) * parseInt($scope.subscription.product[0].quantity);
             }
             total += parseInt($scope.otherProductstotal);
             $scope.totalPriceForJar = parseFloat(MyServices.getProductPrice($scope.subscription.productDetail, $scope.subscription.productQuantity)) * $scope.subscription.productQuantity;
@@ -244,10 +245,11 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             return total;
         };
 
-        $scope.authenticatePayment = function () {
+        $scope.authenticatePayment = function() {
 
             $scope.subscription.totalAmt = $scope.totalAmt;
             $scope.subscription.totalQuantity = $scope.totalQuantity;
+            $scope.subscription.deposit = $scope.deposit;
             $scope.subscription.user = $.jStorage.get('profile')._id;
 
             Subscription.setObj($scope.subscription);
@@ -255,22 +257,22 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $state.go('app.auth-payment');
         };
     })
-    .controller('AddonsCtrl', function ($scope, $stateParams, $state, MyServices, Subscription, $ionicPopover) {
-        $scope.goBackHandler = function () {
+    .controller('AddonsCtrl', function($scope, $stateParams, $state, MyServices, Subscription, $ionicPopover) {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
         $scope.userDetails = MyServices.getAppDetails();
-        MyServices.showCardQuantity(function (num) {
+        MyServices.showCardQuantity(function(num) {
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
         $scope.subscription.otherProducts = [];
         Subscription.validate($state);
         $scope.getProductPrice = MyServices.getProductPrice;
-        $scope.addPlan = function (planName) {
+        $scope.addPlan = function(planName) {
             $scope.subscription.plan = planName;
         };
-        MyServices.getOtherProducts(function (data) {
+        MyServices.getOtherProducts(function(data) {
             if (data.status == 200) {
                 if (data.data && data.data.data && data.data.data.results) {
                     $scope.otherProducts = _.groupBy(data.data.data.results, "addones");
@@ -284,7 +286,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 });
             }
         });
-        $scope.checkMinProduct = function (product) {
+        $scope.checkMinProduct = function(product) {
 
             if (!product.productQuantity || product.productQuantity <= 0) {
                 return true;
@@ -292,14 +294,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 return false;
             }
         };
-        $scope.checkMaxProduct = function (product) {
+        $scope.checkMaxProduct = function(product) {
             if (product.productQuantity >= parseInt(product.quantity)) {
                 return true;
             } else {
                 return false;
             }
         };
-        $scope.changeProductQuantity = function (product, change) {
+        $scope.changeProductQuantity = function(product, change) {
             if (_.isNaN(parseInt(product.productQuantity))) {
                 product.productQuantity = 0;
             }
@@ -310,8 +312,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
             $scope.addProduct(product);
         };
-        $scope.addProduct = function (product) {
-            _.remove($scope.subscription.otherProducts, function (n) {
+        $scope.addProduct = function(product) {
+            _.remove($scope.subscription.otherProducts, function(n) {
                 return n._id == product._id;
             });
             if (product.productQuantity > 0) {
@@ -319,40 +321,40 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         };
     })
-    .controller('Subpage3Ctrl', function ($scope, $stateParams, MyServices, Subscription, $state) {
+    .controller('Subpage3Ctrl', function($scope, $stateParams, MyServices, Subscription, $state) {
 
         $scope.userDetails = MyServices.getAppDetails();
-        MyServices.showCardQuantity(function (num) {
+        MyServices.showCardQuantity(function(num) {
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
         Subscription.validate($state);
-        $scope.goBackHandler = function () {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
         $scope.getProductPrice = MyServices.getProductPrice;
-        $scope.addPlan = function (planName, times) {
+        $scope.addPlan = function(planName, times) {
             MyServices.getProductPrice($scope.subscription.productDetail, $scope.subscription.product[0].quantity * times);
             $scope.subscription.productQuantity = $scope.subscription.product[0].quantity * times;
             $scope.subscription.plan = planName;
         };
     })
-    .controller('Subpage1Ctrl', function ($scope, $stateParams, MyServices, Subscription, $state) {
+    .controller('Subpage1Ctrl', function($scope, $stateParams, MyServices, Subscription, $state) {
         $scope.userDetails = MyServices.getAppDetails();
-        MyServices.showCardQuantity(function (num) {
+        MyServices.showCardQuantity(function(num) {
             $scope.totalQuantity = num;
         });
         $scope.subscription = Subscription.getObj();
         Subscription.validate($state);
 
-        $scope.goToProduct = function () {
+        $scope.goToProduct = function() {
             var id = $.jStorage.get("prevId");
             $state.go("app.browse-more", {
                 category: id
             });
         };
-        $scope.takeToNext = function () {
-            var orderedPrice = _.orderBy($scope.subscription.productDetail.priceList, function (n) {
+        $scope.takeToNext = function() {
+            var orderedPrice = _.orderBy($scope.subscription.productDetail.priceList, function(n) {
                 return parseInt(n.endRange);
             });
             var lastQuantity = 0;
@@ -366,8 +368,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         };
     })
-    .controller('AuthPaymentCtrl', function ($scope, $stateParams, $state, MyServices, Subscription) {
-        $scope.goBackHandler = function () {
+    .controller('AuthPaymentCtrl', function($scope, $stateParams, $state, MyServices, Subscription) {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
 
@@ -378,49 +380,49 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         Subscription.validate($state);
         // console.log("$scope.subscription AuthPaymentCtrl", $scope.subscription);
 
-        $scope.submitData = function (value) {
+        $scope.submitData = function(value) {
             $scope.subscription.customerName = value.customerName;
             $scope.subscription.customerMobile = value.customerMobile;
             $scope.subscription.methodOfPayment = value.methodOfPayment;
             $scope.subscription.orderFor = 'RMForCustomer';
             console.log("$scope.subscription submitData", $scope.subscription);
-            MyServices.saveOrderCheckout($scope.subscription, function (data) {
+            MyServices.saveOrderCheckout($scope.subscription, function(data) {
                 if (data.status == 200) {
                     console.log("$scope.subscription data.data", data.data);
-                    $state.go('app.confirm');
+                    $state.go('success');
                 } else {
-                    alert("something went wrong");
+                    $state.go('wrong');
                 }
             });
 
         };
     })
-    .controller('AuthPaymentCtrlCart', function ($scope, $stateParams, $state, MyServices, Subscription) {
-        $scope.goBackHandler = function () {
+    .controller('AuthPaymentCtrlCart', function($scope, $stateParams, $state, MyServices, Subscription) {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
 
         $scope.userData = {};
 
-        $scope.submitData = function (value) {
+        $scope.submitData = function(value) {
             value.orderFor = 'RMForCustomer';
-            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, function (data) {
+            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, function(data) {
                 if (data.status == 200) {
-                    $state.go('app.confirm');
+                    $state.go('success');
                 } else {
-                    alert("something went wrong");
+                    $state.go('wrong');
                 }
             });
         };
     })
-    .controller('BrowseCtrl', function ($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
+    .controller('BrowseCtrl', function($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();
 
-        $scope.slideHasChanged = function (index) {
+        $scope.slideHasChanged = function(index) {
             $ionicSlideBoxDelegate.cssClass = 'fade-in'
             $scope.slideIndex = index;
             if (($ionicSlideBoxDelegate.count() - 1) == index) {
-                $timeout(function () {
+                $timeout(function() {
                     $ionicSlideBoxDelegate.slide(0);
 
                 }, $scope.interval);
@@ -432,7 +434,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.homeSlider.data = [];
         $scope.homeSlider.currentPage = 0;
 
-        $scope.setupSlider = function () {
+        $scope.setupSlider = function() {
 
             //some options to pass to our slider
             $scope.homeSlider.sliderOptions = {
@@ -450,9 +452,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.homeSlider.sliderDelegate = null;
 
             //watch our sliderDelegate reference, and use it when it becomes available
-            $scope.$watch('homeSlider.sliderDelegate', function (newVal, oldVal) {
+            $scope.$watch('homeSlider.sliderDelegate', function(newVal, oldVal) {
                 if (newVal != null) {
-                    $scope.homeSlider.sliderDelegate.on('slideChangeEnd', function () {
+                    $scope.homeSlider.sliderDelegate.on('slideChangeEnd', function() {
                         $scope.homeSlider.currentPage = $scope.homeSlider.sliderDelegate.activeIndex;
                         //use $scope.$apply() to refresh any content external to the slider
                         $scope.$apply();
@@ -466,15 +468,15 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
         //detect when sliderDelegate has been defined, and attatch some event listeners
-        $scope.$watch('sliderDelegate', function (newVal, oldVal) {
+        $scope.$watch('sliderDelegate', function(newVal, oldVal) {
             if (newVal != null) {
-                $scope.sliderDelegate.on('slideChangeEnd', function () {
+                $scope.sliderDelegate.on('slideChangeEnd', function() {
                     console.log('updated slide to ' + $scope.sliderDelegate.activeIndex);
                     $scope.$apply();
                 });
             }
         });
-        $scope.nextPage = function (sub, id) {
+        $scope.nextPage = function(sub, id) {
             $.jStorage.set("prevId", id);
             if (sub == 'Yes') {
                 $state.go('app.browse-more', {
@@ -490,10 +492,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
 
-        $scope.goBackHandler = function () {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
-        MyServices.categories(function (data) {
+        MyServices.categories(function(data) {
 
             console.log(data);
             $scope.category = _.chunk(data.data, 2);
@@ -504,20 +506,20 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.getProfield = {};
         console.log($scope.profile);
         $scope.getProfield._id = $scope.profile._id;
-        MyServices.getProfile($scope.getProfield, function (data) {
+        MyServices.getProfile($scope.getProfield, function(data) {
             if (data.value) {
                 $scope.browse = data.data;
             } else {
 
             }
         });
-        MyServices.featureprods(function (data) {
+        MyServices.featureprods(function(data) {
             $scope.feaprods = data.data;
             $ionicSlideBoxDelegate.update();
         });
     })
-    .controller('ProductSpecsCtrl', function ($scope, $state, $stateParams, MyServices, $ionicPopup) {
-        $scope.goBackHandler = function () {
+    .controller('ProductSpecsCtrl', function($scope, $state, $stateParams, MyServices, $ionicPopup) {
+        $scope.goBackHandler = function() {
             window.history.back();
         };
         $scope.userDetails = MyServices.getAppDetails();
@@ -525,27 +527,27 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.profile = $.jStorage.get('profile');
         MyServices.products({
             category: $stateParams.category
-        }, function (data) {
+        }, function(data) {
             $scope.products = data.data;
-            _.each($scope.products, function (n) {
+            _.each($scope.products, function(n) {
                 n.productQuantity = 0;
             });
         });
-        $scope.checkMinProduct = function (product) {
+        $scope.checkMinProduct = function(product) {
             if (!product.productQuantity || product.productQuantity <= 0) {
                 return true;
             } else {
                 return false;
             }
         };
-        $scope.checkMaxProduct = function (product) {
+        $scope.checkMaxProduct = function(product) {
             if (product.productQuantity >= parseInt(product.quantity)) {
                 return true;
             } else {
                 return false;
             }
         };
-        $scope.changeProductQuantity = function (product, change) {
+        $scope.changeProductQuantity = function(product, change) {
             if (_.isNaN(parseInt(product.productQuantity))) {
                 product.productQuantity = 0;
             }
@@ -555,10 +557,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 product.productQuantity--;
             }
         };
-        $scope.addToCart = function () {
-            var products = _.map(_.filter($scope.products, function (n) {
+        $scope.addToCart = function() {
+            var products = _.map(_.filter($scope.products, function(n) {
                 return (n.productQuantity && n.productQuantity >= 1);
-            }), function (n) {
+            }), function(n) {
                 return {
                     productQuantity: n.productQuantity,
                     product: n._id,
@@ -566,26 +568,24 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 };
             });
             if (products.length > 0) {
-                MyServices.addToCart(products, function (data) {
+                MyServices.addToCart(products, function(data) {
                     if (data.status == 200) {
                         var myPopup = $ionicPopup.show({
                             title: 'Products Added to Cart',
                             subTitle: 'Products are added to cart successfully',
                             buttons: [{
 
-                                    text: 'Go to Cart',
-                                    onTap: function (e) {
-                                        $state.go("app.review");
-                                    }
-                                },
-                                {
-                                    text: 'Continue',
-                                    type: 'button-positive',
-                                    onTap: function (e) {
-                                        $state.go("app.browse");
-                                    }
+                                text: 'Go to Cart',
+                                onTap: function(e) {
+                                    $state.go("app.review");
                                 }
-                            ]
+                            }, {
+                                text: 'Continue',
+                                type: 'button-positive',
+                                onTap: function(e) {
+                                    $state.go("app.browse");
+                                }
+                            }]
                         });
                     } else {
                         $ionicPopup.alert({
@@ -604,7 +604,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         };
     })
-    .controller('PlaylistsCtrl', function ($scope) {
+    .controller('PlaylistsCtrl', function($scope) {
         $scope.playlists = [{
             title: 'Reggae',
             id: 1
@@ -625,14 +625,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             id: 6
         }];
     })
-    .controller('PlaylistCtrl', function ($scope, $stateParams) {})
-    .controller('HelpCtrl', function ($scope) {
-        $scope.goBackHandler = function () {
+    .controller('PlaylistCtrl', function($scope, $stateParams) {})
+    .controller('HelpCtrl', function($scope) {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
     })
-    .controller('ProfileCtrl', function ($scope, MyServices) {
-        $scope.goBackHandler = function () {
+    .controller('ProfileCtrl', function($scope, MyServices) {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
         $scope.profile = $.jStorage.get('profile');
@@ -640,7 +640,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.getProfield = {};
         console.log($scope.profile);
         $scope.getProfield._id = $scope.profile._id;
-        MyServices.getProfile($scope.getProfield, function (data) {
+        MyServices.getProfile($scope.getProfield, function(data) {
             console.log(data);
             if (data.value) {
                 $scope.signupForm = data.data;
@@ -650,9 +650,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
 
-        $scope.save = function () {
+        $scope.save = function() {
 
-            MyServices.saveData($scope.signupForm, function (data) {
+            MyServices.saveData($scope.signupForm, function(data) {
 
                 console.log(data);
                 $scope.signupForm = data.data;
@@ -662,7 +662,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
                     $scope.signupForm._id = $.jStorage.get('profile')._id;
-                    MyServices.getonePro($scope.signupForm, function (data) {
+                    MyServices.getonePro($scope.signupForm, function(data) {
                         $.jStorage.set('profile', data.data);
                         $scope.signupForm = data.data;
 
@@ -680,8 +680,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         }
     })
-    .controller('CustomerListCtrl', function ($scope, $state, $ionicLoading, $ionicPopover) {
-        $scope.next = function () {
+    .controller('CustomerListCtrl', function($scope, $state, $ionicLoading, $ionicPopover) {
+        $scope.next = function() {
             $state.go('app.subpage1');
         }
         $scope.show = '';
@@ -689,11 +689,11 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (popover) {
+        }).then(function(popover) {
             $scope.popover = popover;
         });
 
-        $scope.closePopover = function () {
+        $scope.closePopover = function() {
             $scope.popover.hide();
         };
 
@@ -702,19 +702,19 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (dropdown) {
+        }).then(function(dropdown) {
             $scope.dropdown = dropdown;
         });
 
 
 
-        $scope.closePopover = function () {
+        $scope.closePopover = function() {
             $scope.dropdown.hide();
         };
 
 
     })
-    .controller('EarningCtrl', function ($scope, $stateParams, $ionicPopover, $ionicSideMenuDelegate) {
+    .controller('EarningCtrl', function($scope, $stateParams, $ionicPopover, $ionicSideMenuDelegate) {
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -722,24 +722,26 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (popover) {
+        }).then(function(popover) {
             $scope.popover = popover;
         });
 
-        $scope.closePopover = function () {
+        $scope.closePopover = function() {
             $scope.popover.hide();
         };
 
     })
-    .controller('VerifyCtrl', function ($scope, $stateParams, MyServices, $state) {
+    .controller('VerifyCtrl', function($scope, $stateParams, MyServices,$timeout, $state, $ionicLoading, $ionicPopup) {
         $.jStorage.flush();
+        $scope.resend = true;
+        $scope.otp=null;
 
         var reqObj = {};
         var otp = {};
         reqObj.mobile = $stateParams.no;
         reqObj.accessLevel = "Relationship Partner";
 
-        $(".inputs").keyup(function () {
+        $(".inputs").keyup(function() {
             if (this.value.length == this.maxLength) {
                 var $next = $(this).next('.inputs');
                 if ($next.length) {
@@ -749,39 +751,70 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             }
         });
-
         //Function to verify OTP
-        $scope.verifyOTP = function (value) {
+        $scope.verifyOTP = function(value) {
             reqObj.otp = "" + value.first + value.second + value.third + value.forth;
 
-            MyServices.verifyOTP(reqObj, function (data) {
+            MyServices.verifyOTP(reqObj, function(data) {
                 if (data.value) {
                     $scope.profile = $.jStorage.set('profile', data.data);
                     $state.go('signup');
                 } else {
-                    alert("OTP verification failed")
-                    $state.go('login');
+                  $scope.otp=null;
+                    // alert("OTP verification failed")
+                    $ionicPopup.alert({
+                        title: "OTP verification failed",
+                        template: "Please enter correct otp"
+                    });
+
+
                 }
             });
         };
+        $scope.getOTP = function() {
+            $scope.resend = false;
+            $ionicLoading.show({
+                content: 'Loading',
+                animation: 'fade-in',
+                showBackdrop: true,
+                maxWidth: 200,
+                showDelay: 0
+            });
+            MyServices.getOTP({
+                mobile: $stateParams.no,
+                accessLevel: "Relationship Partner"
+            }, function(data) {
+                if (data.status == 200) {
+                    $ionicLoading.hide();
+                    $timeout(function() {
+                        $scope.resend = true;
+                    }, 10000);
+                } else {
+                    alert("unable to generate OTP. Please try again");
+                }
+            });
+
+
+
+        };
     })
-    .controller('ConfirmationCtrl', function ($scope, $stateParams, MyServices, $ionicHistory) {
+    .controller('ConfirmationCtrl', function($scope, $stateParams, MyServices, $ionicHistory) {
         $ionicHistory.clearHistory();
         $.jStorage.set("cartQuantity", 0);
         var appDetail = MyServices.getAppDetails();
         appDetail.cartQuantity = 0;
-        $scope.goBackHandler = function () {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
     })
-    .controller('LogoutCtrl', function ($scope, $stateParams, $state, MyServices) {
+    .controller('LogoutCtrl', function($scope, $stateParams, $state, MyServices) {
         $.jStorage.flush();
         $state.go("login");
     })
-    .controller('LoginCtrl', function ($scope, $stateParams, $state, MyServices) {
+    .controller('LoginCtrl', function($scope, $stateParams, $state, MyServices) {
         $scope.loginInfo = {};
         $scope.joinInDisabled = true;
-        $scope.loginNumberChange = function (num) {
+        $scope.loginNumberChange = function(num) {
             num = num + "";
             if (num.length === 10) {
                 $scope.joinInDisabled = false;
@@ -798,14 +831,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
             }
         }
-        $scope.getOTP = function (value) {
+        $scope.getOTP = function(value) {
             console.log("value", value);
             value.accessLevel = "Relationship Partner"
             if (value.mobile != null && value.mobile != "") {
                 MyServices.getOTP({
                     mobile: value.mobile,
                     accessLevel: value.accessLevel
-                }, function (data) {
+                }, function(data) {
                     if (data.status == 200) {
                         $state.go('verify', {
                             no: value.mobile
@@ -821,42 +854,42 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         };
     })
-    .controller('DashboardCtrl', function ($scope, $stateParams, $ionicPopup, MyServices, $ionicHistory, $ionicSlideBoxDelegate) {
+    .controller('DashboardCtrl', function($scope, $stateParams, $ionicPopup, MyServices, $ionicHistory, $ionicSlideBoxDelegate) {
         $scope.profile = $.jStorage.get('profile');
         $ionicHistory.clearHistory();
-        $scope.showPopup = function () {
+        $scope.showPopup = function() {
             $scope.show = $ionicPopup.show({
                 templateUrl: 'templates/modal/price.html',
                 cssClass: "priceCard ",
                 scope: $scope
             });
         };
-        MyServices.getDashboard(function (data) {
+        MyServices.getDashboard(function(data) {
             if (data.status == 200) {
                 $scope.dashboardData = data.data.data;
             }
         });
-        $scope.closePopup = function () {
+        $scope.closePopup = function() {
             $scope.show.close();
         };
-        $scope.lockSlide = function () {
+        $scope.lockSlide = function() {
             $ionicSlideBoxDelegate.enableSlide(false);
         };
         $scope.myActiveSlide = 1;
 
-        $scope.slidePrevious = function () {
+        $scope.slidePrevious = function() {
 
             $ionicSlideBoxDelegate.previous();
         };
 
-        $scope.slideNext = function () {
+        $scope.slideNext = function() {
 
             $ionicSlideBoxDelegate.next();
         };
         $scope.getProfield = {};
         console.log($scope.profile);
         $scope.getProfield._id = $scope.profile._id;
-        MyServices.getProfile($scope.getProfield, function (data) {
+        MyServices.getProfile($scope.getProfield, function(data) {
             if (data.value) {
                 $scope.dash = data.data;
             } else {
@@ -864,8 +897,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         });
     })
-    .controller('PincodeCtrl', function ($scope, $ionicPopup, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {})
-    .controller('SignUpCtrl', function ($scope, $ionicPopup, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {
+    .controller('PincodeCtrl', function($scope, $ionicPopup, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {})
+    .controller('SignUpCtrl', function($scope, $ionicPopup, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {
         $scope.signup = {}
         $scope.show = '';
 
@@ -874,7 +907,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (terms2) {
+        }).then(function(terms2) {
             $scope.terms2 = terms2;
         });
 
@@ -882,30 +915,30 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             scope: $scope,
             cssClass: 'menupop',
 
-        }).then(function (pincode) {
+        }).then(function(pincode) {
             $scope.pincode = pincode;
         });
-        $scope.closePincode = function () {
+        $scope.closePincode = function() {
             $scope.pincode.hide();
         };
-        $scope.closePopover = function () {
+        $scope.closePopover = function() {
             $scope.terms.hide();
         };
-        $scope.openpincode = function ($event) {
+        $scope.openpincode = function($event) {
             $scope.pincode.show($event);
         };
-        $scope.goBackHandler = function () {
+        $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
 
         $scope.signupForm = {};
-        $scope.signup = function () {
+        $scope.signup = function() {
             $scope.signupForm.accessLevel = "Relationship Partner";
             console.log("djfgjk", $scope.signupForm);
 
             if (!$.jStorage.get('profile')) {
 
-                MyServices.signup($scope.signupForm, function (data) {
+                MyServices.signup($scope.signupForm, function(data) {
 
                     console.log(data);
                     $scope.signupForm = data.data;
@@ -915,12 +948,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
                         $scope.signupForm._id = $.jStorage.get('profile')._id;
-                        MyServices.getonePro($scope.signupForm, function (data) {
+                        MyServices.getonePro($scope.signupForm, function(data) {
                             $.jStorage.set('profile', data.data);
                             $scope.signupForm = data.data;
                             $scope.user = {};
                             $scope.user.pin = data.data.pincode
-                            MyServices.getByPin($scope.user, function (data) {
+                            MyServices.getByPin($scope.user, function(data) {
                                 if (data.value) {
                                     $state.go('verification');
 
@@ -938,7 +971,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     }
                 });
             } else {
-                MyServices.saveData($scope.signupForm, function (data) {
+                MyServices.saveData($scope.signupForm, function(data) {
 
                     console.log(data);
                     $scope.signupForm = data.data;
@@ -948,12 +981,12 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
 
                         $scope.signupForm._id = $.jStorage.get('profile')._id;
-                        MyServices.getonePro($scope.signupForm, function (data) {
+                        MyServices.getonePro($scope.signupForm, function(data) {
                             $.jStorage.set('profile', data.data);
                             $scope.signupForm = data.data;
                             $scope.user = {};
                             $scope.user.pin = data.data.pincode
-                            MyServices.getByPin($scope.user, function (data) {
+                            MyServices.getByPin($scope.user, function(data) {
                                 if (data.value) {
                                     $state.go('verification');
 
@@ -978,21 +1011,21 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         if ($scope.profile != null) {
             $scope.signupForm = $scope.profile;
         }
-        $scope.showActionsheet = function (card) {
+        $scope.showActionsheet = function(card) {
             console.log(card);
             $ionicActionSheet.show({
                 //  titleText: 'choose option',
                 buttons: [{
-                    text: '<i class="icon ion-ios-camera-outline"></i> Choose from gallery'
+                    text: '<i class="icon ion-images"></i> Choose from gallery'
                 }, {
-                    text: '<i class="icon ion-images"></i> Take from camera'
+                    text: '<i class="icon ion-ios-camera-outline"></i> Take from camera'
                 }, ],
                 //  destructiveText: 'Delete',
                 cancelText: 'Cancel',
-                cancel: function () {
+                cancel: function() {
                     console.log('CANCELLED');
                 },
-                buttonClicked: function (index) {
+                buttonClicked: function(index) {
                     console.log('BUTTON CLICKED', index);
                     if (index === 0) {
                         $scope.getImageSaveContact(card);
@@ -1001,14 +1034,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     }
                     return true;
                 },
-                destructiveButtonClicked: function () {
+                destructiveButtonClicked: function() {
                     console.log('DESTRUCT');
                     return true;
                 }
             });
         };
 
-        $scope.openCamera = function (card) {
+        $scope.openCamera = function(card) {
             var cameraOptions = {
                 quantityuality: 90,
                 destinationType: Camera.DestinationType.DATA_URL,
@@ -1020,17 +1053,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 saveToPhotoAlbum: true,
                 correctOrientation: true
             };
-            $cordovaCamera.getPicture(cameraOptions).then(function (imageData) {
+            $cordovaCamera.getPicture(cameraOptions).then(function(imageData) {
                 $scope.imageSrc = "data:image/jpeg;base64," + imageData;
                 console.log($scope.imageSrc);
                 $scope.uploadImage($scope.imageSrc, card);
-            }, function (err) {
+            }, function(err) {
 
                 console.log(err);
             });
         };
 
-        $scope.getImageSaveContact = function (card) {
+        $scope.getImageSaveContact = function(card) {
             // Image picker will load images according to these settings
             var options = {
                 maximumImagesCount: 1, // Max number of selected images
@@ -1038,19 +1071,19 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 height: 800,
                 quantityuality: 80 // Higher is better
             };
-            $cordovaImagePicker.getPictures(options).then(function (results) {
+            $cordovaImagePicker.getPictures(options).then(function(results) {
                 console.log(results);
                 $scope.uploadImage(results[0], card);
-            }, function (error) {
+            }, function(error) {
                 console.log('Error: ' + JSON.stringify(error)); // In case of error
             });
         };
 
-        $scope.uploadImage = function (imageURI, card) {
+        $scope.uploadImage = function(imageURI, card) {
             console.log('imageURI', imageURI);
             // $scope.showLoading('Uploading Image...', 10000);
             $cordovaFileTransfer.upload(adminurl + 'upload', imageURI)
-                .then(function (result) {
+                .then(function(result) {
                     // Success!
                     // $scope.hideLoading();
                     result.response = JSON.parse(result.response);

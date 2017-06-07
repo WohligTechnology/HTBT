@@ -11510,7 +11510,7 @@ a.button {
   padding: 15px 5px; }
 
 .col-37pad {
-  padding: 20px 5px; }
+  padding: 12px 5px; }
 
 .jarslbl {
   font-size: 20px;
@@ -11535,7 +11535,7 @@ a.button {
   color: #c8cbc4; }
 
 .lbl88 {
-  font-size: 26px;
+  font-size: 22px;
   padding: 0 0 0 5px;
   font-weight: 500;
   color: #ff414d; }
@@ -11548,6 +11548,10 @@ a.button {
 
 .chooseDayDiv {
   background: white; }
+
+.amtdepo {
+  background: #e1e3e5;
+  padding-left: 20px; }
 
 .choosedayLbl {
   display: block;

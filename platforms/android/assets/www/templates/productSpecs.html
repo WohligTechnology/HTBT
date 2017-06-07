@@ -1,4 +1,4 @@
-<ion-view title="{{prod[0].category.name}} Products">
+<ion-view title="{{products[0].category.name}}">
     <ion-nav-bar class="bar-stable schedule-bar  nav-height">
         <ion-nav-buttons side="left">
             <button class="button button-clear ion-android-arrow-back sigupIconLeft" ui-sref="app.browse">
@@ -11,9 +11,11 @@
             <span class="cartbadge">{{userDetails.cartQuantity}}</span>
         </ion-nav-buttons>
     </ion-nav-bar>
+
     <ion-content class="bg-prdct has-footer">
         <div class="prod-det">
             <div class="card" ng-repeat="product in products">
+
                 <div class="item item-text-wrap pad0">
                     <div class="row">
                         <div class="col-33">
@@ -30,7 +32,7 @@
                         <div class="col-66">
                             <div class="details-div">
                                 <h2>{{product.name}} </h2>
-                                <span>({{product.category.name}})</span>
+                                <!-- <span>({{product.category.name}})</span> -->
                                 <div for="" class="name">{{product.tags}} <i class="ion ion-information-circled"></i></div>
                                 <div for="" class="desc">{{product.description}}</div>
                                 <div for="" class="desc">₹ {{product.price}}</div>
