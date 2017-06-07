@@ -28,6 +28,67 @@ $dark: #444 !default; // The path for our ionicons font files, relative to the b
 $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "scss/_style";
+
+$font-family-sans-serif: "Gotham-Light",
+"Gotham-Medium",
+"Gotham-Thin",
+"Helvetica Neue",
+"Roboto-Medium";,
+"Roboto-Regular";
+"Roboto",
+"Segoe UI",
+sans-serif !default;
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf") format("opentype");
+  font-weight: 600;
+  // font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf") format("opentype");
+  font-weight: 500;
+  // font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 100;
+  // font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 200;
+  // font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 300;
+  // font-style: normal;
+}
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-family: "Roboto_med"
+  // font-style: normal;
+}
+
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: normal;
+  //  font-style: normal;
+}
+
 .partDiv {
   display: block;
   float: right;
@@ -36,6 +97,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   background: #f2f4f5;
   margin: 10px 5px;
   padding-right: 15px;
+
 }
 
 .imgDiv {
@@ -62,13 +124,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   vertical-align: middle;
   color: #757575;
   font-size: 17px;
+  font-family: "Roboto-Regular";
   padding: 0 0 0 5px;
+
 }
 
 .phnText {
   display: inline-block!important;
   background: #f2f4f5;
   font-size: 16px!important;
+  font-family: "Roboto-Regular";
   width: 80%;
   padding: 0 !important;
 }
@@ -103,6 +168,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   border: transparent;
   font-size: 16px;
   font-weight: 600;
+font-family: "Roboto-Medium";
+
 }
 
 .bar-footer {
@@ -115,6 +182,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   width: 100%;
   font-size: 18px!important;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding: 2px;
 }
 
@@ -137,6 +205,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   border-radius: 0;
   line-height: 22px;
   min-height: 42px;
+  font-family: "Roboto-Regular";
 }
 
 .resendBtn {
@@ -149,6 +218,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   min-height: 17px;
   line-height: 30px;
   font-size: 15px!important;
+  font-family: "Roboto-Regular";
   button {
     border: transparent;
     line-height: 20px!important;
@@ -167,6 +237,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .sigupIconLeft {
   color: #091b27!important;
   font-size: 24px!important;
+  font-family: "Roboto-Regular";
   padding: 0 0 0 12px !important;
 }
 
@@ -204,6 +275,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .nav-height .bar.bar-stable .title {
   line-height: 52px!important;
   font-size: 22px!important;
+  font-family: "Roboto-Regular";
   height: 100%;
   left: 40px!important;
   right: 60px!important;
@@ -227,6 +299,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   background: #f2f4f5;
   .camcon {
     font-size: 30px;
+    font-family: "Roboto-Regular";
     position: absolute;
     right: 5px;
     color: #4f5d65;
@@ -240,6 +313,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     color: #a1a8ab;
     font-weight: 600!important;
     font-size: 14px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -270,6 +344,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding: 5px 9px;
   .plus {
     font-size: 20px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -286,6 +361,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding-top: 6%;
   label {
     font-weight: 500;
+    font-family: "Roboto-Medium";
     font-size: 20px;
   }
 }
@@ -316,6 +392,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .info {
   font-size: 25px;
+  font-family: "Roboto-Regular";
   color: lightgrey;
   position: absolute;
   top: 9%;
@@ -333,6 +410,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .rupeeFont {
   font-size: 50px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .sinceDateDiv {
@@ -342,6 +420,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   bottom: 38%;
   label {
     font-size: 12px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -368,6 +447,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .rankLabel {
   font-size: 24px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #212121;
   width: 100%;
   text-align: center;
@@ -377,12 +457,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   text-align: center;
   i {
     font-size: 18px;
+    font-family: "Roboto-Regular";
     color: #0dbabe;
     padding: 0;
     margin: 0;
   }
   span {
     font-size: 12px;
+    font-family: "Roboto-Regular";
     padding: 0;
   }
 }
@@ -393,6 +475,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     font-size: 12px;
     color: black;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -401,6 +484,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   label {
     font-size: 24px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     color: #212121;
     width: 100%;
   }
@@ -408,6 +492,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     font-size: 12px;
     color: black;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     display: block;
   }
 }
@@ -417,6 +502,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   label {
     font-size: 24px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     color: #212121;
     width: 100%;
   }
@@ -424,6 +510,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     font-size: 12px;
     color: black;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     display: block;
   }
 }
@@ -445,12 +532,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     border: 0px!important;
     background: #ff414d!important;
     font-size: 18px!important; // padding-left: 10px !important;
+    font-family: "Roboto-Regular";
     min-height: 35px!important;
     margin: 10px;
     box-shadow: 1px 2px 0 0 lightgrey;
   }
   label {
     font-size: 18px!important;
+    font-family: "Roboto-Regular";
   }
   .button.icon-left:before {
     padding-right: 10px !important;
@@ -469,12 +558,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   label {
     margin-left: 8px;
     font-size: 18px!important;
+    font-family: "Roboto-Regular";
   }
   button {
     color: #7a7b7c!important;
     border: 0px!important;
     background: #f2f4f5!important;
     font-size: 16px!important; // padding-left: 10px !important;
+    font-family: "Roboto-Regular";
     min-height: 35px!important;
     box-shadow: 1px 2px 0 0 lightgrey;
   }
@@ -487,6 +578,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     width: 14px;
     vertical-align: middle;
     font-size: 10px;
+    font-family: "Roboto-Regular";
     display: inline-block;
     margin-top: -18px;
   }
@@ -522,6 +614,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   label {
     margin: 5px 0;
     font-size: 16px;
+    font-family: "Roboto-Regular";
     display: block;
   }
   p {
@@ -540,6 +633,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     i {
       padding: 5px 15px;
       font-size: 24px;
+      font-family: "Roboto-Regular";
     }
     h1 {
       margin-left: 0;
@@ -588,6 +682,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   .button.icon-right:before,
   .button.icon:before {
     font-size: 24px!important;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -638,16 +733,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .button.icon-right:before,
 .button.icon:before {
   font-size: 24px!important;
+  font-family: "Roboto-Regular";
 }
 
 //pranay
 .popupDiv {
   text-align: center;
-  padding: 10px;
+  // padding: 0px!important;
   label {
     color: #ff414d;
-    font-size: 16px;
+    font-size: 30px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -682,11 +779,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .popupDiv {
   text-align: center;
-  padding: 10px;
+  // padding: 10px;
   label {
     color: #ff414d;
-    font-size: 16px;
+    font-size: 30px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -701,15 +799,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .popupText {
   text-align: center;
   display: grid;
-  margin: 10px;
+  // margin: 10px;
 }
 
 .popupColor {
   color: #727577;
+  font-size: 14px;
+  font-family: "Roboto-Regular";
 }
 
 .popupTextColor {
-  font-size: 11px;
+  font-size: 14px;
+  font-family: "Roboto-Regular";
   color: #727577;
 }
 
@@ -738,6 +839,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   .hlp-txt {
     color: white;
     font-size: 16px;
+    font-family: "Roboto-Regular";
     display: block;
     text-align: center;
   }
@@ -764,6 +866,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   margin: 0 15px;
   display: block;
   font-size: 16px;
+  font-family: "Roboto-Regular";
 }
 
 .helpcard {
@@ -797,6 +900,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     color: white!important;
     .title {
       font-size: 20px;
+      font-family: "Roboto-Regular";
       line-height: 48px;
       text-align: left!important;
       padding-top: 1px !important;
@@ -816,6 +920,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   box-shadow: 1px 2px 0 0 lightgrey;
   .bar.bar-stable .title {
     font-size: 20px;
+    font-family: "Roboto-Regular";
     line-height: 48px;
     text-align: left!important;
     padding-top: 1px !important; // left: 40px!important;
@@ -831,16 +936,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .bar.bar-stable .title {
   font-size: 20px;
+  font-family: "Roboto-Regular";
 }
 
 .footer-font {
   font-size: 16px!important;
   font-weight: 500!important;
+  font-family: "Roboto-Medium";
 }
 
 .sigupRight {
   color: #091b27!important;
   font-size: 24px!important;
+  font-family: "Roboto-Regular";
   padding: 0 12px 0 0 !important;
   display: block;
 }
@@ -848,6 +956,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .header-bellFont {
   color: #091b27 !important;
   font-size: 32px !important;
+  font-family: "Roboto-Regular";
   padding: 0 !important;
   display: block;
 }
@@ -871,6 +980,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   left: 8%;
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .menu-settings {
@@ -879,6 +989,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   left: 8%;
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .menu-bgcolor {
@@ -896,6 +1007,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .menu-label {
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .menu-hr {
@@ -959,6 +1071,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   }
   .item-note {
     font-size: 20px;
+    font-family: "Roboto-Regular";
     color: #c5cbdf;
   }
 }
@@ -976,17 +1089,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   h5 {
     margin: 5px 0;
     font-size: 14px;
+    font-family: "Roboto-Regular";
     color: #6d797e;
   }
   h4 {
     margin: 5px 0;
     color: #212121;
     font-size: 15px;
+    font-family: "Roboto-Regular";
   }
   h6 {
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 14px!important; // font-weight: 400;
+    font-family: "Roboto-Regular";
     color: #ff414d;
   }
 }
@@ -1003,6 +1119,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   i {
     color: #c7cde0;
     font-size: 22px;
+    font-family: "Roboto-Regular";
     position: absolute;
   }
 }
@@ -1015,6 +1132,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   i {
     color: #c7cde0;
     font-size: 22px;
+    font-family: "Roboto-Regular";
     position: absolute;
     z-index: 20;
   }
@@ -1032,6 +1150,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   color: black;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .bgearn {
@@ -1042,6 +1161,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   display: block;
   font-size: 60px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: black;
   padding: 0;
   margin: 0;
@@ -1057,7 +1177,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   font-size: 14px!important;
   line-height: 8px;
   height: 40px;
-  font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .order-row {
@@ -1086,6 +1206,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .order-jarslbl {
   font-size: 18px;
   font-weight: 500!important;
+  font-family: "Roboto-Medium";
 }
 
 .order-date {
@@ -1113,6 +1234,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .order-dateProgress {
   margin-top: 5px;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   display: block;
   padding: 5px 15px;
 }
@@ -1135,33 +1257,42 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   span {
     color: #6d797e;
     font-size: 24px;
+    font-family: "Roboto-Regular";
     padding: 0 5px;
   }
   label {
     color: #ff414d;
     padding: 0 5px;
     font-size: 24px;
+    font-family: "Roboto-Regular";
   }
 }
 
 .refils {
+  text-align: center;
   color: #454545;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
+  font-family: "Roboto-Regular";
   margin-top: 12px;
-  text-align: center;
   display: block;
 }
 
+
+
 .descTrans {
+  border-right: 1px solid #d2d2d2;
+  margin: 0px 10px 0 0;
   h4 {
     font-size: 18px;
+    font-family: "Roboto-Regular";
     margin: 5px 0;
     color: #454545;
     font-weight: 600;
   }
   label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
     color: #454545;
   }
 }
@@ -1185,6 +1316,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   display: block;
   font-size: 60px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: black;
   padding: 0;
   margin: 0;
@@ -1194,6 +1326,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .earning-Date {
   font-size: 14px;
+  font-family: "Roboto-Regular";
   display: block;
   padding: 10px 15px 2px;
 }
@@ -1219,6 +1352,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding: 10px;
   label {
     font-size: 14px;
+    font-family: "Roboto-Regular";
     margin: 5px;
   }
 }
@@ -1258,6 +1392,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .ionSlider {
   .ion-record:before {
     font-size: 10px!important;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -1288,13 +1423,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .browse-col502lbl {
   font-size: 30px;
+  font-family: "Roboto-Regular";
   color: #0dbabe;
 }
 
 .browse-col502aqua {
   display: block;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding-top: 2px;
   color: #3d619b;
 }
@@ -1302,23 +1440,27 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .browse-col502ltrcolor {
   color: #979798;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   vertical-align: middle;
 }
 
 .browse-col502slash {
   font-size: 16px;
+  font-family: "Roboto-Regular";
   vertical-align: middle;
   color: #979798;
 }
 
 .browse-col502rupeesymb {
   font-size: 16px;
+  font-family: "Roboto-Regular";
   color: #979798;
   vertical-align: middle;
 }
 
 .browse-col502rupees {
   font-size: 24px;
+  font-family: "Roboto-Regular";
 }
 
 .browse-grid {
@@ -1332,6 +1474,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   display: block;
   font-size: 20px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding-bottom: 10px;
 }
 
@@ -1361,6 +1504,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
     font-weight: 500!important;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -1368,6 +1512,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   height: 52px!important;
   line-height: 52px!important;
   font-size: 22px!important;
+  font-family: "Roboto-Regular";
 }
 
 .bar-footer {
@@ -1397,6 +1542,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
     font-weight: 500!important;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -1425,6 +1571,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
     font-weight: 500!important;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -1469,6 +1616,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .browse-aqualbl {
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .mbt {
@@ -1490,6 +1638,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding: 12px 0 0 14px;
   i {
     font-size: 26px;
+    font-family: "Roboto-Regular";
     color: white;
   }
 }
@@ -1530,6 +1679,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     color: #002d40;
     display: inline;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
   .name {
     color: #3d619b;
@@ -1552,6 +1702,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   i {
     margin: 5px;
     font-size: 14px;
+    font-family: "Roboto-Regular";
     background: #ff414d;
     padding: 4px;
     border-radius: 50%;
@@ -1566,6 +1717,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   span {
     font-size: 28px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     vertical-align: middle;
     margin: 5px;
   }
@@ -1594,6 +1746,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   text-align: center;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   font-size: 19px;
   color: #54535c;
 }
@@ -1603,6 +1756,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   border: transparent;
   padding: 0;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   margin: 20px 0;
   border-bottom: 1px solid lightgrey;
 }
@@ -1610,6 +1764,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .auth-custipPlc {
   font-size: 16px!important;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   font-size: 16px;
   padding: 0px!important;
 }
@@ -1620,6 +1775,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   min-height: 40px;
   width: 42%;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   z-index: 2;
   box-shadow: 0 2px 0 0 lightgrey;
 }
@@ -1631,6 +1787,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   float: right;
   width: 42%;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   box-shadow: 0 2px 0 0 lightgrey;
 }
 
@@ -1657,8 +1814,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   input {
     padding-right: 0;
     font-size: 16px;
+
     color: #6b6b6b;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -1676,6 +1835,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .cartbadge {
   margin: 5px;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   background: #ff414d;
   padding: 0 5px;
   border-radius: 50%;
@@ -1696,6 +1856,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .nav-height .bar.bar-stable .title {
   line-height: 52px!important;
   font-size: 22px!important;
+  font-family: "Roboto-Regular";
 }
 
 .bar .title+.buttons {
@@ -1725,6 +1886,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .auth-col2btn {
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .auth-sharebtn {
@@ -1733,6 +1895,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   background: #0dbabe!important;
   font-size: 19px!important;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 //menu
@@ -1755,6 +1918,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   left: 8%;
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .menu-settings {
@@ -1763,6 +1927,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   left: 8%;
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .menu-bgcolor {
@@ -1780,6 +1945,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .menu-label {
   font-size: 16px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .menu-hr {
@@ -1790,6 +1956,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .shipping-label {
   margin: 40px 0 0 5px !important;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   padding: 6px;
   border-bottom: 1px solid lightgrey!important;
 }
@@ -1798,6 +1965,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   margin: 0;
   padding: 0;
   font-size: 12px;
+  font-family: "Roboto-Regular";
   color: #ff414d;
   width: 100%;
 }
@@ -1832,6 +2000,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   .label {
     font-size: 16px;
     font-weight: 400;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -1866,6 +2035,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   top: 4px;
   &:before {
     font-size: 25px!important;
+    font-family: "Roboto-Regular";
+
   }
 }
 
@@ -1882,6 +2053,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 
 .chkout-fontsize {
   font-size: 16px;
+  font-family: "Roboto-Regular";
   margin: 0 !important;
 }
 
@@ -1920,10 +2092,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     padding-left: 5px;
     line-height: 40px;
     font-size: 13x;
+    font-family: "Roboto-Regular";
   }
   input {
     border-bottom: 1px solid lightgray;
     font-size: 13px;
+    font-family: "Roboto-Regular";
     width: 100%;
     height: auto;
   }
@@ -1936,6 +2110,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   label {
     color: #6d797e;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -1945,6 +2120,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding-top: 10px;
   label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -1959,6 +2135,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding: 15px 15px!important;
   label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -1969,6 +2146,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   label {
     font-size: 18px;
     font-weight: 400;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -1977,10 +2155,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding-top: 15px;
   label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
     color: #ff414d;
   }
   span {
     font-size: 10px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -1991,10 +2171,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   label {
     font-size: 18px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
   span {
     font-size: 18px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     color: #ff414d;
   }
 }
@@ -2008,6 +2190,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     border-bottom: 2px solid red;
     width: 35%;
     font-size: 18px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -2024,6 +2207,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     padding: 0;
     margin: 0;
     font-size: 18px!important;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -2051,6 +2235,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   i {
     color: #6d797e;
     font-size: 22px;
+    font-family: "Roboto-Regular";
     position: absolute;
     float: right;
     right: 0;
@@ -2065,6 +2250,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     color: #009688;
     text-align: center;
     font-size: 17px;
+    font-family: "Roboto-Regular";
     margin: 0;
   }
 }
@@ -2074,10 +2260,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   .datediv {
     font-size: 26px;
     font-weight: 600;
+    font-family: "Roboto-Medium";
   }
   .monthdiv {
     font-size: 16px;
     font-weight: 600;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -2095,6 +2283,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   font-size: 18px;
   padding: 50px 0 20px;
   font-weight: 400;
+  font-family: "Roboto-Medium";
   color: #212121;
 }
 
@@ -2124,12 +2313,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 .jarslbl {
   font-size: 20px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .onceLbl {
   display: block;
   font-size: 18px;
   font-weight: 400;
+  font-family: "Roboto-Medium";
   color: #6d797e;
 }
 
@@ -2138,12 +2329,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   top: -21px;
   right: 5px;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   text-decoration: line-through;
   color: #6d797e;
 }
 
 .rupsym {
   font-size: 26px;
+  font-family: "Roboto-Regular";
   color: #c8cbc4;
 }
 
@@ -2151,6 +2344,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   font-size: 22px;
   padding: 0 0 0 5px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #ff414d;
 }
 
@@ -2175,11 +2369,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   font-size: 22px; // padding-top: 25px;
   color: #0dbabe;
   font-weight: 600;
+  font-family: "Roboto-Medium";
 }
 
 .needrefill {
   display: block;
   font-size: 15px;
+  font-family: "Roboto-Regular";
   color: #8a9498;
 }
 
@@ -2206,6 +2402,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   span {
     font-size: 16px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
   }
 }
 
@@ -2214,6 +2411,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   position: relative;
   z-index: 2;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   margin-bottom: -1px;
   display: table;
   width: 100%;
@@ -2235,6 +2433,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     }
     h4 {
       font-size: 20px;
+      font-family: "Roboto-Regular";
     }
   }
 }
@@ -2265,6 +2464,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   padding-top: 15px;
   label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -2274,6 +2474,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   top: 0;
   &:before {
     font-size: 25px!important;
+    font-family: "Roboto-Regular";
   }
 }
 
@@ -2282,6 +2483,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   width: 100%;
   span {
     font-weight: 500;
+    font-family: "Roboto-Medium";
     font-size: 16px;
     color: #ff414d;
   }
@@ -2289,6 +2491,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
     margin: 5px 0 0 !important;
     line-height: 1;
     font-size: 12px;
+    font-family: "Roboto-Regular";
   }
   hr {
     color: #dbdbdb;
@@ -2298,6 +2501,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
   }
   input[type="radio"]+label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
     font-weight: 700;
   }
   input[type="radio"]+label span {
@@ -2344,6 +2548,7 @@ p.onceLblr {
 
 .lbl-100 {
   font-size: 20px;
+  font-family: "Roboto-Regular";
 }
 
 .light-grey {
@@ -2368,6 +2573,7 @@ p.onceLblr {
 .h4padcol {
   margin: 0 !important;
   font-size: 30px!important;
+  font-family: "Roboto-Regular";
 }
 
 .sub3rowcard {
@@ -2381,12 +2587,14 @@ p.onceLblr {
     margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
+    font-family: "Roboto-Regular";
     line-height: 1;
   }
   span {
     margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
+    font-family: "Roboto-Regular";
     display: block;
   }
 }
@@ -2412,6 +2620,7 @@ p.onceLblr {
   label {
     color: #989fa4;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     font-size: 12px;
   }
 }
@@ -2432,6 +2641,7 @@ p.onceLblr {
   i {
     margin: 5px;
     font-size: 14px;
+    font-family: "Roboto-Regular";
     background: #ff414d;
     padding: 4px;
     border-radius: 50%;
@@ -2446,6 +2656,7 @@ p.onceLblr {
   span {
     font-size: 28px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     vertical-align: middle;
     margin: 5px;
     color: black!important;
@@ -2500,6 +2711,7 @@ p.onceLblr {
   border-width: 1px;
   border-style: solid;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   border: none;
 }
 
@@ -2582,6 +2794,7 @@ p.onceLblr {
   bottom: 8%;
   width: 100%;
   font-size: 13px;
+  font-family: "Roboto-Regular";
   padding-left: 42px!important
 }
 
@@ -2611,6 +2824,7 @@ p.onceLblr {
 .termspr {
   padding: 0 10px;
   font-size: 12px;
+  font-family: "Roboto-Regular";
 }
 
 .termshead {
@@ -2625,6 +2839,7 @@ p.onceLblr {
   white-space: nowrap;
   font-size: 17px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   line-height: 44px;
   background: transparent;
   h1 {
@@ -2643,6 +2858,7 @@ p.onceLblr {
     white-space: nowrap;
     font-size: 17px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     line-height: 44px;
     padding-top: 10px;
     color: #ff414d;
@@ -2661,6 +2877,7 @@ p.onceLblr {
   font-weight: 600;
   padding: 30px;
   color: #6d797e;
+  font-family: "Roboto-Medium";
 }
 
 .confirm-checkmark {
@@ -2681,11 +2898,13 @@ p.onceLblr {
 .conirfm-orderlbl {
   font-size: 30px;
   font-weight: 600;
+  font-family: "Roboto-Medium";
 }
 
 .confirm-date {
   display: block;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   color: #6d797e;
 }
 
@@ -2693,12 +2912,14 @@ p.onceLblr {
   font-size: 38px;
   color: #0dbabe;
   font-weight: 600;
+  font-family: "Roboto-Medium";
   line-height: 35px;
 }
 
 .confirm-refillphn {
   display: block;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   color: #6d797e;
   margin-top: 5px;
 }
@@ -2717,6 +2938,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #6d797e;
 }
 
@@ -2767,6 +2989,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 400;
+  font-family: "Roboto-Medium";
   padding-top: 50px;
   color: #6d797e;
 }
@@ -2776,6 +2999,7 @@ p.onceLblr {
   text-align: center;
   font-size: 25px;
   font-weight: 600;
+  font-family: "Roboto-Medium";
   color: #6d797e;
   padding-bottom: 20px;
 }
@@ -2791,6 +3015,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #6d797e;
 }
 
@@ -2806,6 +3031,7 @@ p.onceLblr {
   color: white;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding-top: 15px;
 }
 
@@ -2813,6 +3039,7 @@ p.onceLblr {
   display: block;
   font-size: 60px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: white;
   padding: 0;
   margin: 0;
@@ -2830,6 +3057,7 @@ p.onceLblr {
   color: white;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
 }
 
 .paid-button {
@@ -2846,6 +3074,7 @@ p.onceLblr {
   bottom: 8%;
   width: 100%;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   position: relative;
   margin: 0px;
   padding-left: 30px;
@@ -2865,6 +3094,7 @@ p.onceLblr {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #6d797e;
 }
 
@@ -2873,6 +3103,7 @@ p.onceLblr {
   text-align: center;
   font-size: 22px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #ff414d;
   padding-bottom: 20px;
 }
@@ -2926,6 +3157,7 @@ input[type="color"] {
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 100%;
 }
 
 .card-no {
@@ -2945,12 +3177,14 @@ input[type="color"] {
 .sorrymsg{
     padding: 10px;
     font-size: 16px;
+    font-family: "Roboto-Regular";
     color: #6d797e
 
 }
 
  .sorryno{
         font-weight: 500;
+        font-family: "Roboto-Medium";
         color: #6d797e
     }
 
@@ -2968,7 +3202,7 @@ input[type="color"] {
   margin: 15px 0;
   text-align: center;
   font-weight: 500;
-
+font-family: "Roboto-Medium";
 }
 
 
@@ -2981,6 +3215,7 @@ input[type="color"] {
 
 .orderplaced{
     font-size: 21px;
+    font-family: "Roboto-Regular";
     width: 100%;
     padding: 10px 10px 0 10px;
     text-align: center;
@@ -2992,8 +3227,10 @@ input[type="color"] {
 .sameadd{
   padding: 5px 0px 5px 40px;
 font-size: 14px;
+font-family: "Roboto-Regular";
 p{
   font-size: 12px;
+  font-family: "Roboto-Regular";
   margin-top: 10px;
 }
 }
@@ -3045,4 +3282,38 @@ p{
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   animation-duration: 0.5s;
+}
+
+
+//orderhistory
+.bottlename {
+  color: #454545;
+  font-size: 12px;
+  font-family: "Roboto-Regular";
+  display: block;
+}
+
+.history-refils {
+  color: #454545;
+  font-weight: 600;
+  font-family: "Roboto-Medium";
+  font-size: 15px;
+  margin-top: 12px;
+  display: block;
+}
+
+.order-histrscol {
+  text-align: center;
+  margin-top: 5px;
+  span {
+    color: #6d797e;
+    font-size: 24px;
+    font-family: "Roboto-Regular";
+    padding: 0 5px;
+  }
+  label {
+    color: #ff414d;
+    font-size: 24px;
+    font-family: "Roboto-Regular";
+  }
 }
