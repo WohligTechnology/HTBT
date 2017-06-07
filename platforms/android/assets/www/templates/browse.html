@@ -12,6 +12,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="has-header browse-backgrndcolor">
+      <div class=""  ng-if="!loader">
         <ion-slide-box options="homeSlider.sliderOptions" slider="homeSlider.sliderDelegate" does-continue="true" animation='fade'
             auto-play="true" effect='fade' slide-interval="{{interval}}" show-pager="true" pager-click="changeSlide(index)" on-slide-changed="slideHasChanged(index)">
             <ion-slide ng-if="feaprods.length>0" ng-repeat="data in feaprods" [options]="{pager:true}">
@@ -53,5 +54,10 @@
                 </div>
             </div>
         </div>
+      </div>
+      <!-- <div class="loader" ng-if="loader">
+        <img src="img/loading.gif" alt="">
+      </div> -->
+
     </ion-content>
 </ion-view>

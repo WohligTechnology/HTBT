@@ -415,8 +415,16 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             });
         };
     })
-    .controller('BrowseCtrl', function($scope, $stateParams, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
+    .controller('BrowseCtrl', function($scope, $stateParams, $ionicLoading, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();
+        // $ionicLoading.show({
+        //     content: '<img src="img/loading.gif" alt="">',
+        //     animation: 'fade-in',
+        //     showBackdrop: true,
+        //     maxWidth: 200,
+        //     showDelay: 0
+        // });
+        $scope.loader = true;
 
         $scope.slideHasChanged = function(index) {
             $ionicSlideBoxDelegate.cssClass = 'fade-in'
@@ -496,6 +504,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
         MyServices.categories(function(data) {
+            // $ionicLoading.hide();
+            $scope.loader = false;
 
             console.log(data);
             $scope.category = _.chunk(data.data, 2);
@@ -731,10 +741,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
 
     })
-    .controller('VerifyCtrl', function($scope, $stateParams, MyServices,$timeout, $state, $ionicLoading, $ionicPopup) {
+    .controller('VerifyCtrl', function($scope, $stateParams, MyServices, $timeout, $state, $ionicLoading, $ionicPopup) {
         $.jStorage.flush();
         $scope.resend = true;
-        $scope.otp=null;
+        $scope.otp = null;
 
         var reqObj = {};
         var otp = {};
@@ -760,7 +770,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                     $scope.profile = $.jStorage.set('profile', data.data);
                     $state.go('signup');
                 } else {
-                  $scope.otp=null;
+                    $scope.otp = null;
                     // alert("OTP verification failed")
                     $ionicPopup.alert({
                         title: "OTP verification failed",
