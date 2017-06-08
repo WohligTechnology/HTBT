@@ -1285,7 +1285,7 @@ font-family: "Roboto-Medium";
   margin: 0px 10px 0 0;
   h4 {
     font-size: 18px;
-    font-family: "Roboto-Regular";
+    font-family: "Roboto-Medium";
     margin: 5px 0;
     color: #454545;
     font-weight: 600;
@@ -3306,6 +3306,93 @@ p{
   text-align: center;
   margin-top: 5px;
   span {
+    color: #505d66;
+    font-size: 24px;
+    font-family: "Roboto-Regular";
+    padding: 0 5px;
+  }
+  label {
+    color: #505d66;
+    font-size: 24px;
+    font-family: "Roboto-Regular";
+  }
+}
+
+
+<<<<<<< HEAD
+.order-resend{
+   margin-top: 50px;
+  button{
+width: 100%;
+    font-size: 13px;
+    text-align: center;
+    background: #ff414d;
+    font-family: "Roboto-Medium";
+    border: none;
+   position: absolute;
+    right: 0;
+    bottom: 1%;
+    padding: 5px;
+    color: white;
+  }
+      
+   
+}
+
+.order-jarRowhistory {
+  background: white;
+  padding: 15px 5px 5px 15px;
+}
+
+.history-pending{
+      margin-top: 50px;
+      label{
+        font-family: "Roboto-Regular";
+        color: #223c4d;
+        position: absolute;
+    bottom: 5%;
+    font-size: 13px;
+      }
+}
+
+.order-Pay{
+  margin-top: 50px;
+  button{
+     width: 100%;
+    font-size: 13px;
+    text-align: center;
+    background: #00a299;
+    border: none;
+    position: absolute;
+    right: 0;
+    bottom: 1%;
+    padding: 5px;
+    color: white;
+    font-family: "Roboto-Medium";
+
+  }
+     
+}
+
+.ordersname {
+  border-right: 1px solid #d2d2d2;
+  margin: 0px 10px 0 0;
+  h4 {
+    font-size: 15px;
+    font-family: "Roboto-Medium";
+    margin: 5px 0;
+    color: #454545;
+    font-weight: 600;
+  }
+  label {
+    font-size: 12px;
+    font-family: "Roboto-Regular";
+    color: #454545;
+=======
+.order-histrscol1 {
+  text-align: center;
+  margin-top: 5px;
+  span {
     color: #6d797e;
     font-size: 24px;
     font-family: "Roboto-Regular";
@@ -3315,5 +3402,6 @@ p{
     color: #ff414d;
     font-size: 24px;
     font-family: "Roboto-Regular";
+>>>>>>> parent of 745fa0f... done
   }
 }

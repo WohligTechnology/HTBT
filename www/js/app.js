@@ -66,6 +66,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             }
         })
+        
+
+        
 
         .state('app.confirm', {
             cache: false,
@@ -74,6 +77,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 'menuContent': {
                     templateUrl: 'templates/confirmation.html',
                     controller: 'ConfirmationCtrl'
+                }
+            }
+        })
+
+        .state('app.orderhistory', {
+            cache: false,
+            url: '/orderhistory',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/orderhistory.html',
+                    controller: 'OrderHistoryCtrl'
                 }
             }
         })
@@ -169,6 +183,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                     'menuContent': {
                         templateUrl: 'templates/auth-payment.html',
                         controller: 'AuthPaymentCtrlCart'
+                    }
+                }
+            })
+
+            .state('app.orderhistory', {
+                cache: false,
+                url: '/orderhistory',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/orderhistory.html',
+                        controller: 'OrderHistoryCtrl'
                     }
                 }
             })

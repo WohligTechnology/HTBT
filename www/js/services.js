@@ -1,5 +1,5 @@
-var adminurl = "http://htbt.wohlig.co.in/api/"; //server
-// var adminurl = "http://192.168.0.117:1337/api/"; //server
+// var adminurl = "http://htbt.wohlig.co.in/api/"; //server
+var adminurl = "http://192.168.2.21:1337/api/"; //server
 
 // var imgpath = adminurl + "uploadfile/getupload?file=";
 var imgurl = adminurl + "upload/";
@@ -51,6 +51,15 @@ angular.module('starter.services', [])
         };
         $http({
           url: adminurl + 'user/getProfile',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+      getCust: function (data, callback) {
+
+        $http({
+          url: adminurl + 'user/getone',
           method: 'POST',
           withCredentials: true,
           data: data
@@ -226,9 +235,11 @@ angular.module('starter.services', [])
         delete data2.productDetail;
         delete data2.otherProducts;
         data2.orderFor = "RMForCustomer";
-        data2.methodOfOrder = "Relationship Partner";
-        data2.methodofjoin = "Relationship Partner";
+        data2.methodOfOrder = data.methodOfOrder;;
+        data2.methodofjoin =data.methodofjoin;
         data2.user = $.jStorage.get("profile")._id;
+
+
         $http({
           url: adminurl + 'Order/saveOrderCheckout',
           method: 'POST',
@@ -238,7 +249,7 @@ angular.module('starter.services', [])
           callback(data);
         });
       },
-      saveOrderCheckoutCart: function (name, contactNumber, method, callback) {
+      saveOrderCheckoutCart: function (name,methodofjoin, contactNumber, method, callback) {
         var obj = {
           user: $.jStorage.get("profile")._id,
           customerName: name,
@@ -246,8 +257,9 @@ angular.module('starter.services', [])
           methodOfPayment: method,
           orderFor: "RMForCustomer",
           methodOfOrder: "Relationship Partner",
-          methodofjoin: "Relationship Partner"
+          methodofjoin: methodofjoin
         };
+
         $http({
           url: adminurl + 'Order/saveOrderCheckoutCart',
           method: 'POST',
