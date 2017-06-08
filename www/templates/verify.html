@@ -9,7 +9,7 @@
           <input type="number" class="inputs" maxlength="1" ng-model="otp.third" >
           <input type="number" class="inputs" maxlength="1" ng-model="otp.forth" >
         </div>
-        <button class="button button-assertive verifyDiv" ng-click="verifyOTP(otp)">
+        <button class="button button-assertive verifyDiv" ng-click="verifyOTP(otp)" ng-disabled="!otp.first || !otp.second || !otp.third || !otp.forth">
   VERIFY
 </button>
         <button class="button button-clear button-positive resendBtn" ng-click="getOTP()" ng-if="resend">
