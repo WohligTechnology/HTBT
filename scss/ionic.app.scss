@@ -3306,14 +3306,69 @@ p{
   text-align: center;
   margin-top: 5px;
   span {
-    color: #6d797e;
+    color: #505d66;
     font-size: 24px;
     font-family: "Roboto-Regular";
     padding: 0 5px;
   }
   label {
-    color: #ff414d;
+    color: #505d66;
     font-size: 24px;
     font-family: "Roboto-Regular";
   }
+}
+
+
+.order-resend{
+   margin-top: 50px;
+  button{
+width: 100%;
+    font-size: 13px;
+    text-align: center;
+    background: #ff414d;
+    font-family: "Roboto-Medium";
+    border: none;
+   position: absolute;
+    right: 0;
+    bottom: 1%;
+    padding: 5px;
+    color: white;
+  }
+      
+   
+}
+
+.order-jarRowhistory {
+  background: white;
+  padding: 15px 5px 5px 15px;
+}
+
+.history-pending{
+      margin-top: 50px;
+      label{
+        font-family: "Roboto-Regular";
+        color: #223c4d;
+        position: absolute;
+    bottom: 0;
+    font-size: 13px;
+      }
+}
+
+.order-Pay{
+  margin-top: 50px;
+  button{
+     width: 100%;
+    font-size: 13px;
+    text-align: center;
+    background: #00a299;
+    border: none;
+    position: absolute;
+    right: 0;
+    bottom: 1%;
+    padding: 5px;
+    color: white;
+    font-family: "Roboto-Medium";
+
+  }
+     
 }

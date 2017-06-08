@@ -92,6 +92,13 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     };
 })
 
+.controller('OrderHistoryCtrl', function($scope, $stateParams) {
+    $scope.goBackHandler = function() {
+        window.history.back(); //This works
+    };
+})
+
+
 .controller('WrongCtrl', function($scope, $stateParams) {
     $scope.goBackHandler = function() {
         window.history.back(); //This works
