@@ -173,17 +173,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             })
 
-            .state('app.orderhistory', {
-                cache: false,
-                url: '/orderhistory',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/orderhistory.html',
-                        controller: 'OrderHistoryCtrl'
-                    }
-                }
-            })
-
         .state('app.subpage3', {
             cache: false,
             url: '/subpage3',

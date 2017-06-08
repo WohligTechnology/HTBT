@@ -12494,16 +12494,3 @@ input[type="color"] {
     color: #ff414d;
     font-size: 24px;
     font-family: "Roboto-Regular"; }
-
-.order-histrscol1 {
-  text-align: center;
-  margin-top: 5px; }
-  .order-histrscol1 span {
-    color: #6d797e;
-    font-size: 24px;
-    font-family: "Roboto-Regular";
-    padding: 0 5px; }
-  .order-histrscol1 label {
-    color: #ff414d;
-    font-size: 24px;
-    font-family: "Roboto-Regular"; }
