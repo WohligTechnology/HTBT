@@ -3389,38 +3389,3 @@ width: 100%;
     color: #454545;
   }
 }
-
-.productspopup{
-  .popup-head{
-    padding: 15px 10px;
-     border-bottom: none!important;
-    text-align: center;
-    background: white;
-  }
-  .popup-buttons{
-    padding: 0px;
-    min-height: 45px;
-  }
-  .popup-buttons .button{
-    height: 20px;
-    background:#fafafa;
-    position: absolute;
-    position: absolute;
-    bottom: 0;
-    width: 50%;
-    border-radius: 0px;
-    font-size: 14px;
-    font-family: "Roboto-Regular";
-  }
-  .popup-buttons .button:last-child{
-        height: 20px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    border-radius: 0px;
-    background: #ff414d;
-     font-size: 14px;
-      font-family: "Roboto-Regular";
-  }
-}
