@@ -73,7 +73,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             } else {
                 var myPopup = $ionicPopup.show({
                     cssClass: 'productspopup',
-                    title: 'Sorry',
+                    title: 'Sorry!',
                     subTitle: 'You cannot purchase a 20L Jar plan and other products at the same time.',
                     buttons: [{
 
