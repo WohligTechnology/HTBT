@@ -115,7 +115,7 @@
         </div>
 
         <div class="bar bar-footer footer-height signUpFooter" ng-if="click">
-            <button class="button button-block button-positive footer-font"  type="submit">
+            <button class="button button-block button-positive footer-font"  type="submit" ng-disabled="userForm.$invalid || !signupForm.adharCard || !signupForm.panCard">
               Get Started
               </button>
         </div>

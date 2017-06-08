@@ -1,170 +1,180 @@
 <ion-view title="Orders">
-  <ion-nav-bar class="bar-stable nav-height">
-    <ion-nav-buttons side="left">
-      <button class="button button-icon button-clear ion-navicon sigupIconLeft disblock" menu-toggle="left">
+    <ion-nav-bar class="bar-stable nav-height">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon sigupIconLeft disblock" menu-toggle="left">
         </button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-      <button class="button button-clear ion-android-more-vertical sigupRight disblock" ng-click="popover.show($event)">
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear ion-android-more-vertical sigupRight disblock" ng-click="popover.show($event)">
       </button>
-    </ion-nav-buttons>
-  </ion-nav-bar>
-  <ion-content class="has-header bgearn">
-  <div class="text-center">
-    <h4 class="earnings-past">Past Transaction</h4>
-  </div>
-  <div class="">
-    <label class="earning-Date" for="">February 17, 2017</label>
-    <div class="whtback">
-      <div class="row order-jarRowhistory">
-        <div class="col-40">
-          <div class="ordersname">
-            <h4>Name</h4>
-            <label for="">Contact Number</label>
-          </div>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header bgearn">
+        <div class="text-center">
+            <h4 class="earnings-past">Past Transaction</h4>
         </div>
-        <div class="col-30 rel">
-          <label for="" class="history-refils">2 Cartons</label>
-          <label for="" class="bottlename">Kinley 500ml</label>
+        <div class="" ng-repeat="order in orders">
+            <label class="earning-Date" for="">{{order.orderDate | date:'LLLL dd,yyyy'}}</label>
+            <div class="whtback">
+                <div class="row order-jarRowhistory">
+                    <div class="col-40">
+                        <div class="ordersname">
+                            <h4>{{order.customer.name}}</h4>
+                            <label for="">{{order.customer.mobile}}</label>
+                        </div>
+                    </div>
+                    <div class="col-30 rel" >
 
-          <label for="" class="history-refils">5 Jars</label>
-          <label for="" class="bottlename">Kinley 20L</label>
-          <div class="history-pending">
-<label for="">Pending</label>
-          </div>
-          
-        </div>
+                      <div class="" ng-repeat="product in order.product">
+                        <label for="" class="history-refils" ng-if="product.productQuantity==1">{{product.productQuantity}} {{product.product.unit}}</label>
+                        <label for="" class="history-refils" ng-if="product.productQuantity>1">{{product.productQuantity}} {{product.product.unit}}s</label>
+                        <label for="" class="bottlename">{{product.product.name}}</label>
+                      </div>
 
-        <div class="col-30 rel">
-          <div class="order-histrscol">
+<!--
+                        <label for="" class="history-refils">5 Jars</label>
+                        <label for="" class="bottlename">Kinley 20L</label> -->
+                        <div class="history-pending">
+                            <label for="" ng-if="order.status == 'paid'">Pending</label>
+                            <label for="" ng-if="order.status != 'paid'">Pending</label>
+                        </div>
 
-            <span>₹</span>
-            <label for="">150</label>
-            <div class="order-resend">
-<button >Resend Link</button>
+                    </div>
+
+                    <div class="col-30 rel">
+                        <div class="order-histrscol">
+
+                            <span>₹</span>
+                            <label for="">{{order.totalAmount}}</label>
+                            <div class="order-resend">
+                                <button>Resend Link</button>
+                            </div>
+                            <!-- <div class="order-Pay">
+                                <button class="">Pay</button>
+                            </div>
+                            <div class="order-resend">
+                                <button>Repeat Order</button>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
             </div>
-            
-          </div>
         </div>
-        
-      </div>
 
-      
-      
-    </div>
-  </div>
+        <!-- <div class="">
+            <label class="earning-Date" for="">February 17, 2017</label>
+            <div class="whtback">
+                <div class="row order-jarRowhistory">
+                    <div class="col-40">
+                        <div class="ordersname">
+                            <h4>Name</h4>
+                            <label for="">Contact Number</label>
+                        </div>
+                    </div>
+                    <div class="col-30 rel">
+                        <label for="" class="history-refils">7 Cartons</label>
+                        <label for="" class="bottlename">Kinley 500ml</label>
 
-  <div class="">
-    <label class="earning-Date" for="">February 17, 2017</label>
-    <div class="whtback">
-      <div class="row order-jarRowhistory">
-        <div class="col-40">
-          <div class="ordersname">
-            <h4>Name</h4>
-            <label for="">Contact Number</label>
-          </div>
-        </div>
-        <div class="col-30 rel">
-          <label for="" class="history-refils">7 Cartons</label>
-          <label for="" class="bottlename">Kinley 500ml</label>
+                        <label for="" class="history-refils">4 Jars</label>
+                        <label for="" class="bottlename">Kinley 20L</label>
+                        <div class="history-pending">
+                            <label for="">Confirmed</label>
+                        </div>
 
-          <label for="" class="history-refils">4 Jars</label>
-          <label for="" class="bottlename">Kinley 20L</label>
-          <div class="history-pending">
-<label for="">Confirmed</label>
-          </div>
-          
-        </div>
-        <div class="col-30 rel">
-          <div class="order-histrscol">
-            <span>₹</span>
-            <label for="">850</label>
-            <div class="order-Pay">
-<button class="">Pay</button>
+                    </div>
+                    <div class="col-30 rel">
+                        <div class="order-histrscol">
+                            <span>₹</span>
+                            <label for="">850</label>
+                            <div class="order-Pay">
+                                <button class="">Pay</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
             </div>
-            
-          </div>
-        </div>
-        
-      </div>
+        </div> -->
 
-      
-      
-    </div>
-  </div>
+        <!-- <div class="">
+            <label class="earning-Date" for="">February 16, 2017</label>
+            <div class="whtback">
+                <div class="row order-jarRowhistory">
+                    <div class="col-40">
+                        <div class="ordersname">
+                            <h4>Name</h4>
+                            <label for="">Contact Number</label>
+                        </div>
+                    </div>
+                    <div class="col-30 rel">
+                        <label for="" class="history-refils">17 Cartons</label>
+                        <label for="" class="bottlename">Kinley 1L</label>
 
-  <div class="">
-    <label class="earning-Date" for="">February 16, 2017</label>
-    <div class="whtback">
-      <div class="row order-jarRowhistory">
-        <div class="col-40">
-          <div class="ordersname">
-            <h4>Name</h4>
-            <label for="">Contact Number</label>
-          </div>
-        </div>
-        <div class="col-30 rel">
-          <label for="" class="history-refils">17 Cartons</label>
-          <label for="" class="bottlename">Kinley 1L</label>
 
-          <!--<label for="" class="history-refils">4 Jars</label>
-          <label for="" class="bottlename">Kinley 20L</label>-->
-          <div class="history-pending">
-<label for="">Paid in Cash</label>
-          </div>
-          
-        </div>
-        <div class="col-30 rel">
-          <div class="order-histrscol">
-            <span>₹</span>
-            <label for="">850</label>
-            <div class="order-resend">
-<button >Repeat Order</button>
+                        <div class="history-pending">
+                            <label for="">Paid in Cash</label>
+                        </div>
+
+                    </div>
+                    <div class="col-30 rel">
+                        <div class="order-histrscol">
+                            <span>₹</span>
+                            <label for="">850</label>
+                            <div class="order-resend">
+                                <button>Repeat Order</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
             </div>
-            
-          </div>
-        </div>
-        
-      </div>
+        </div> -->
+        <!-- <div class="">
+            <label class="earning-Date" for="">February 16, 2017</label>
+            <div class="whtback">
+                <div class="row order-jarRowhistory">
+                    <div class="col-40">
+                        <div class="ordersname">
+                            <h4>Name</h4>
+                            <label for="">Contact Number</label>
+                        </div>
+                    </div>
+                    <div class="col-30 rel">
+                        <label for="" class="history-refils">17 Cartons</label>
+                        <label for="" class="bottlename">Kinley 1L</label>
 
-      
-      
-    </div>
-  </div>
-   <div class="">
-    <label class="earning-Date" for="">February 16, 2017</label>
-    <div class="whtback">
-      <div class="row order-jarRowhistory">
-        <div class="col-40">
-          <div class="ordersname">
-            <h4>Name</h4>
-            <label for="">Contact Number</label>
-          </div>
-        </div>
-        <div class="col-30 rel">
-          <label for="" class="history-refils">17 Cartons</label>
-          <label for="" class="bottlename">Kinley 1L</label>
 
-          <!--<label for="" class="history-refils">4 Jars</label>
-          <label for="" class="bottlename">Kinley 20L</label>-->
-          <div class="history-pending">
-<label for="">Paid by Wallet</label>
-          </div>
-          
-        </div>
-        <div class="col-30 rel">
-          <div class="order-histrscol">
-            <span>₹</span>
-            <label for="">850</label>
-            <div class="order-resend">
-<button >Repeat Order</button>
+                        <div class="history-pending">
+                            <label for="">Paid by Wallet</label>
+                        </div>
+
+                    </div>
+                    <div class="col-30 rel">
+                        <div class="order-histrscol">
+                            <span>₹</span>
+                            <label for="">850</label>
+                            <div class="order-resend">
+                                <button>Repeat Order</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</ion-content>
-  </ion-view>
+        </div> -->
+    </ion-content>
+</ion-view>
