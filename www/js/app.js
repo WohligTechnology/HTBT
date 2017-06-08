@@ -81,16 +81,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         })
 
-        .state('app.orderhistory', {
-            cache: false,
-            url: '/orderhistory',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/orderhistory.html',
-                    controller: 'OrderHistoryCtrl'
-                }
-            }
-        })
+        // .state('app.orderhistory', {
+        //     cache: false,
+        //     url: '/orderhistory',
+        //     views: {
+        //         'menuContent': {
+        //             templateUrl: 'templates/orderhistory.html',
+        //             controller: 'OrderHistoryCtrl'
+        //         }
+        //     }
+        // })
 
         .state('app.profile', {
             cache: false,

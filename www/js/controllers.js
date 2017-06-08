@@ -116,10 +116,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     };
 })
 
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 745fa0f... done
 .controller('WrongCtrl', function($scope, $stateParams) {
     $scope.goBackHandler = function() {
         window.history.back(); //This works
