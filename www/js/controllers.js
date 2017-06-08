@@ -73,7 +73,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             } else {
                 var myPopup = $ionicPopup.show({
                     cssClass: 'productspopup',
-                    title: 'Sorry!',
+                    title:  '<img src="img/sorry.png">',
                     subTitle: 'You cannot purchase a 20L Jar plan and other products at the same time.',
                     buttons: [{
 
@@ -207,12 +207,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 showCart();
                 if (data.status == 200) {
                     $ionicPopup.alert({
-                        title: "Products Removed",
-                        template: "Products Removed from Cart Successfully"
+                        cssClass:'removedpopup',
+                        title:  '<img src="img/tick.png">',
+                        template: "Products Removed Successfully!"
                     });
                 } else {
                     $ionicPopup.alert({
-                        title: "Error Occured",
+                       cssClass:'productspopup',
+                        title:  '<img src="img/linkexpire.png">',
                         template: "Error Occured while Removing Products to Cart"
                     });
                 }
@@ -306,7 +308,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             } else {
                 $ionicPopup.alert({
-                    title: "Error Occured",
+                   cssClass:'productspopup',
+                        title:  '<img src="img/linkexpire.png">',
                     template: "Error Occured while retriving Products"
                 });
             }
@@ -393,7 +396,42 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         };
     })
-    .controller('AuthPaymentCtrl', function($scope, $stateParams, $state, MyServices, Subscription) {
+    .controller('AuthPaymentCtrl', function($scope, $stateParams, $state, MyServices, Subscription, $ionicPopover) {
+        $scope.goBackHandler = function() {
+            window.history.back(); //This works
+        };
+
+        // if (data.status == 200) {
+        //             $ionicPopup.alert({
+        //                 cssClass:'productspopup',
+        //                 title:  '<img src="img/sorry.png">',
+        //                 template: "This customer is already registered with another partner."
+        //             });
+        //         } else {
+        //             $ionicPopup.alert({
+            // cssClass:'productspopup',
+            //"Error Occured"
+        //                 title: '<img src="img/linkexpire.png">',
+        //                 template: "Error Occured while Removing Products to Cart"
+        //             });
+        //         }
+
+ $ionicPopover.fromTemplateUrl('templates/modal/pincode.html', {
+            scope: $scope,
+            cssClass: 'menupop',
+
+        }).then(function(pincode) {
+            $scope.pincode = pincode;
+        });
+        $scope.closePincode = function() {
+            $scope.pincode.hide();
+        };
+        $scope.closePopover = function() {
+            $scope.terms.hide();
+        };
+        $scope.openpincode = function($event) {
+            $scope.pincode.show($event);
+        };
         $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
@@ -638,25 +676,27 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 MyServices.addToCart(products, function(data) {
                     if (data.status == 200) {
                         var myPopup = $ionicPopup.show({
-                            title: 'Products Added to Cart',
-                            subTitle: 'Products are added to cart successfully',
+                            cssClass: 'successpopup',
+                            title: '<img src="img/tick.png">',
+                            subTitle: 'Products Added Successfully!',
                             buttons: [{
 
-                                text: 'Go to Cart',
-                                onTap: function(e) {
-                                    $state.go("app.review");
-                                }
-                            }, {
-                                text: 'Continue',
-                                type: 'button-positive',
+                                text: 'Buy More',
                                 onTap: function(e) {
                                     $state.go("app.browse");
+                                }
+                            }, {
+                                text: 'View Cart',
+                                type: 'button-positive',
+                                onTap: function(e) {
+                                    $state.go("app.review");
                                 }
                             }]
                         });
                     } else {
                         $ionicPopup.alert({
-                            title: "Error Occured",
+                            cssClass:'productspopup',
+                            title: '<img src="img/linkexpire.png">',
                             template: "Error Occured while adding Products to Cart"
                         });
                     }

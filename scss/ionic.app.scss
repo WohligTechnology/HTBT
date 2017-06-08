@@ -3335,6 +3335,19 @@ width: 100%;
 }
 
 .productspopup{
+  .popup-sub-title {
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 15px;
+}
+  h3{
+    img{
+ max-width: 50px;
+    max-height: 50px;
+    }
+    
+   }
 .popup-head{
 padding: 15px 10px;
 border-bottom: none!important;
@@ -3368,3 +3381,110 @@ font-size: 14px;
 font-family: "Roboto-Regular";
 }
 }
+
+.successpopup{
+  .popup-sub-title {
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 15px;
+}
+  h3{
+    img{
+ max-width: 50px;
+    max-height: 50px;
+    }
+    
+   }
+.popup-head{
+padding: 15px 10px;
+border-bottom: none!important;
+text-align: center;
+background: white;
+}
+.popup-buttons{
+padding: 0px;
+min-height: 45px;
+}
+.popup-buttons .button{
+height: 20px;
+background:#fafafa;
+position: absolute;
+position: absolute;
+bottom: 0;
+width: 50%;
+border-radius: 0px;
+font-size: 14px;
+font-family: "Roboto-Regular";
+}
+.popup-buttons .button:last-child{
+height: 20px;
+position: absolute;
+bottom: 0;
+right: 0;
+width: 50%;
+border-radius: 0px;
+background: #ff414d;
+font-size: 14px;
+font-family: "Roboto-Regular";
+}
+}
+
+
+ .removedpopup{
+  //  h3{
+  //    max-width: 50px;
+  //   max-height: 50px;
+  //  }
+
+.popup-head{
+padding: 15px 10px;
+border-bottom: none!important;
+text-align: center;
+background: white;
+}
+.popup-buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 10px;
+    min-height: 65px;
+    background: white
+    ;
+}
+// .popup-buttons{
+// padding: 0px;
+// min-height: 45px;
+// }
+// .popup-buttons .button{
+// height: 20px;
+// background:#fafafa;
+// position: absolute;
+// position: absolute;
+// bottom: 0;
+// width: 50%;
+// border-radius: 0px;
+// font-size: 14px;
+// font-family: "Roboto-Regular";
+// }
+// .popup-buttons .button:last-child{
+// height: 20px;
+// position: absolute;
+// bottom: 0;
+// right: 0;
+// width: 100%;
+// border-radius: 0px;
+// background: #ff414d;
+// font-size: 14px;
+// font-family: "Roboto-Regular";
+// }
+ }
