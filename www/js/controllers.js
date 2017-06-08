@@ -393,14 +393,30 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.subscription.methodOfPayment = value.methodOfPayment;
             $scope.subscription.orderFor = 'RMForCustomer';
             console.log("$scope.subscription submitData", $scope.subscription);
-            MyServices.saveOrderCheckout($scope.subscription, function(data) {
-                if (data.status == 200) {
-                    console.log("$scope.subscription data.data", data.data);
-                    $state.go('success');
-                } else {
-                    $state.go('wrong');
+            $scope.profile = $.jStorage.get('profile');
+            $scope.getProfield = {};
+            $scope.getProfield._id = $scope.profile._id;
+            MyServices.getProfile($scope.getProfield, function(data) {
+                if (data.value) {
+                    $scope.profile = data.data;
+                    if ($scope.profile.earningsBlock == 'Yes') {
+                        $scope.subscription.methodofjoin = 'Customer Representative';
+                        $scope.subscription.methodOfOrder = 'Customer Representative';
+                    } else {
+                        $scope.subscription.methodofjoin = 'Relationship Partner';
+                        $scope.subscription.methodOfOrder = 'Relationship Partner';
+                    }
+                    MyServices.saveOrderCheckout($scope.subscription, function(data) {
+                        if (data.status == 200) {
+                            console.log("$scope.subscription data.data", data.data);
+                            $state.go('success');
+                        } else {
+                            $state.go('wrong');
+                        }
+                    });
                 }
             });
+
 
         };
     })
@@ -413,11 +429,27 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         $scope.submitData = function(value) {
             value.orderFor = 'RMForCustomer';
-            MyServices.saveOrderCheckoutCart(value.customerName, value.customerMobile, value.methodOfPayment, function(data) {
-                if (data.status == 200) {
-                    $state.go('success');
-                } else {
-                    $state.go('wrong');
+            $scope.profile = $.jStorage.get('profile');
+            $scope.getProfield = {};
+            $scope.getProfield._id = $scope.profile._id;
+            MyServices.getProfile($scope.getProfield, function(data) {
+                if (data.value) {
+                    $scope.profile = data.data;
+
+                    if ($scope.profile.earningsBlock == 'Yes') {
+                        value.methodofjoin = 'Customer Representative';
+                        value.methodOfOrder = 'Customer Representative';
+                    } else {
+                        value.methodofjoin = 'Relationship Partner';
+                        value.methodOfOrder = 'Relationship Partner';
+                    }
+                    MyServices.saveOrderCheckoutCart(value.customerName, value.methodofjoin,value.methodOfOrder,value.customerMobile, value.methodOfPayment, function(data) {
+                        if (data.status == 200) {
+                            $state.go('success');
+                        } else {
+                            $state.go('wrong');
+                        }
+                    });
                 }
             });
         };
@@ -648,7 +680,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back(); //This works
         };
     })
-    .controller('ProfileCtrl', function($scope, MyServices) {
+    .controller('ProfileCtrl', function($scope, MyServices, $ionicPopup) {
         $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
@@ -680,28 +712,23 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
                     $scope.signupForm._id = $.jStorage.get('profile')._id;
                     MyServices.getonePro($scope.signupForm, function(data) {
-                        $.jStorage.set('profile', data.data);
-                        $scope.signupForm = data.data;
-
-
+                        if (data.value) {
+                            $.jStorage.set('profile', data.data);
+                            $scope.signupForm = data.data
+                            $ionicPopup.alert({
+                                title: "Profile",
+                                template: "Profile updated successfully"
+                            });
+                        }
                     });
-
-
                 } else {
-
                     // $scope.showAlert(data.status, 'login', 'Error Message');
                 }
             });
-
-
-
         }
     })
-    .controller('CustomerListCtrl', function($scope, $state, $ionicLoading, $ionicPopover) {
-        $scope.next = function() {
-            $state.go('app.subpage1');
-        }
-        $scope.show = '';
+    .controller('CustomerListCtrl', function($scope, $state, MyServices, $ionicLoading, $ionicPopover) {
+
         $ionicPopover.fromTemplateUrl('templates/modal/popover.html', {
             scope: $scope,
             cssClass: 'menupop',
@@ -714,7 +741,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.popover.hide();
         };
 
-        $scope.show = '';
+
         $ionicPopover.fromTemplateUrl('templates/modal/dropdown.html', {
             scope: $scope,
             cssClass: 'menupop',
@@ -728,7 +755,20 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.closePopover = function() {
             $scope.dropdown.hide();
         };
-
+        $scope.profile = $.jStorage.get('profile');
+        $scope.getProfield = {};
+        console.log($scope.profile);
+        $scope.getProfield._id = $scope.profile._id;
+        MyServices.getCust($scope.getProfield, function(data) {
+            console.log(data);
+            if (data.value) {
+                $scope.custlist = data.data.customer;
+                $scope.custlist = _.groupBy(data.data.customer, "status");
+                $scope.pending = $scope.custlist["pending"];
+                $scope.existing = $scope.custlist["existing"];
+                console.log($scope.pending);
+            }
+        });
 
     })
     .controller('EarningCtrl', function($scope, $stateParams, $ionicPopover, $ionicSideMenuDelegate) {
