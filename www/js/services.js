@@ -249,7 +249,7 @@ angular.module('starter.services', [])
           callback(data);
         });
       },
-      saveOrderCheckoutCart: function (name,methodofjoin, contactNumber, method, callback) {
+      saveOrderCheckoutCart: function (name,methodofjoin, methodOfOrder, contactNumber, method, callback) {
         var obj = {
           user: $.jStorage.get("profile")._id,
           customerName: name,

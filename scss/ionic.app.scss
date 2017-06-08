@@ -29,65 +29,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "scss/_style";
 
-$font-family-sans-serif: "Gotham-Light",
-"Gotham-Medium",
-"Gotham-Thin",
-"Helvetica Neue",
-"Roboto-Medium",
-"Roboto-Regular",
-"Roboto",
-"Segoe UI",
-sans-serif !default;
 
-@font-face {
-  font-family: "Roboto-Medium";
-  src: url("../fonts/Roboto-Medium.ttf") format("opentype");
-  font-weight: 600;
-  // font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto-Medium";
-  src: url("../fonts/Roboto-Medium.ttf") format("opentype");
-  font-weight: 500;
-  // font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto-Regular";
-  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
-  font-weight: 100;
-  // font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto-Regular";
-  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
-  font-weight: 200;
-  // font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto-Regular";
-  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
-  font-weight: 300;
-  // font-style: normal;
-}
-@font-face {
-  font-family: "Roboto-Regular";
-  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
-  font-weight: 400;
-  font-family: "Roboto_med"
-  // font-style: normal;
-}
-
-
-@font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
-  font-weight: normal;
-  //  font-style: normal;
-}
 
 .partDiv {
   display: block;
@@ -124,7 +66,7 @@ sans-serif !default;
   vertical-align: middle;
   color: #757575;
   font-size: 17px;
-  font-family: "Roboto-Regular";
+  
   padding: 0 0 0 5px;
 
 }
@@ -133,7 +75,7 @@ sans-serif !default;
   display: inline-block!important;
   background: #f2f4f5;
   font-size: 16px!important;
-  font-family: "Roboto-Regular";
+  
   width: 80%;
   padding: 0 !important;
 }
@@ -168,7 +110,7 @@ sans-serif !default;
   border: transparent;
   font-size: 16px;
   font-weight: 600;
-font-family: "Roboto-Medium";
+
 
 }
 
@@ -182,7 +124,7 @@ font-family: "Roboto-Medium";
   width: 100%;
   font-size: 18px!important;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   padding: 2px;
 }
 
@@ -205,7 +147,7 @@ font-family: "Roboto-Medium";
   border-radius: 0;
   line-height: 22px;
   min-height: 42px;
-  font-family: "Roboto-Regular";
+  
 }
 
 .resendBtn {
@@ -218,7 +160,7 @@ font-family: "Roboto-Medium";
   min-height: 17px;
   line-height: 30px;
   font-size: 15px!important;
-  font-family: "Roboto-Regular";
+  
   button {
     border: transparent;
     line-height: 20px!important;
@@ -237,7 +179,7 @@ font-family: "Roboto-Medium";
 .sigupIconLeft {
   color: #091b27!important;
   font-size: 24px!important;
-  font-family: "Roboto-Regular";
+  
   padding: 0 0 0 12px !important;
 }
 
@@ -275,7 +217,7 @@ font-family: "Roboto-Medium";
 .nav-height .bar.bar-stable .title {
   line-height: 52px!important;
   font-size: 22px!important;
-  font-family: "Roboto-Regular";
+  
   height: 100%;
   left: 40px!important;
   right: 60px!important;
@@ -299,7 +241,7 @@ font-family: "Roboto-Medium";
   background: #f2f4f5;
   .camcon {
     font-size: 30px;
-    font-family: "Roboto-Regular";
+    
     position: absolute;
     right: 5px;
     color: #4f5d65;
@@ -313,7 +255,7 @@ font-family: "Roboto-Medium";
     color: #a1a8ab;
     font-weight: 600!important;
     font-size: 14px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -344,7 +286,7 @@ font-family: "Roboto-Medium";
   padding: 5px 9px;
   .plus {
     font-size: 20px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -361,7 +303,7 @@ font-family: "Roboto-Medium";
   padding-top: 6%;
   label {
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     font-size: 20px;
   }
 }
@@ -392,7 +334,7 @@ font-family: "Roboto-Medium";
 
 .info {
   font-size: 25px;
-  font-family: "Roboto-Regular";
+  
   color: lightgrey;
   position: absolute;
   top: 9%;
@@ -410,7 +352,7 @@ font-family: "Roboto-Medium";
 .rupeeFont {
   font-size: 50px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .sinceDateDiv {
@@ -420,7 +362,7 @@ font-family: "Roboto-Medium";
   bottom: 38%;
   label {
     font-size: 12px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -447,7 +389,7 @@ font-family: "Roboto-Medium";
 .rankLabel {
   font-size: 24px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: #212121;
   width: 100%;
   text-align: center;
@@ -457,14 +399,14 @@ font-family: "Roboto-Medium";
   text-align: center;
   i {
     font-size: 18px;
-    font-family: "Roboto-Regular";
+    
     color: #0dbabe;
     padding: 0;
     margin: 0;
   }
   span {
     font-size: 12px;
-    font-family: "Roboto-Regular";
+    
     padding: 0;
   }
 }
@@ -475,7 +417,7 @@ font-family: "Roboto-Medium";
     font-size: 12px;
     color: black;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -484,7 +426,7 @@ font-family: "Roboto-Medium";
   label {
     font-size: 24px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     color: #212121;
     width: 100%;
   }
@@ -492,7 +434,7 @@ font-family: "Roboto-Medium";
     font-size: 12px;
     color: black;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     display: block;
   }
 }
@@ -502,7 +444,7 @@ font-family: "Roboto-Medium";
   label {
     font-size: 24px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     color: #212121;
     width: 100%;
   }
@@ -510,7 +452,7 @@ font-family: "Roboto-Medium";
     font-size: 12px;
     color: black;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     display: block;
   }
 }
@@ -532,14 +474,14 @@ font-family: "Roboto-Medium";
     border: 0px!important;
     background: #ff414d!important;
     font-size: 18px!important; // padding-left: 10px !important;
-    font-family: "Roboto-Regular";
+    
     min-height: 35px!important;
     margin: 10px;
     box-shadow: 1px 2px 0 0 lightgrey;
   }
   label {
     font-size: 18px!important;
-    font-family: "Roboto-Regular";
+    
   }
   .button.icon-left:before {
     padding-right: 10px !important;
@@ -558,14 +500,14 @@ font-family: "Roboto-Medium";
   label {
     margin-left: 8px;
     font-size: 18px!important;
-    font-family: "Roboto-Regular";
+    
   }
   button {
     color: #7a7b7c!important;
     border: 0px!important;
     background: #f2f4f5!important;
     font-size: 16px!important; // padding-left: 10px !important;
-    font-family: "Roboto-Regular";
+    
     min-height: 35px!important;
     box-shadow: 1px 2px 0 0 lightgrey;
   }
@@ -578,7 +520,7 @@ font-family: "Roboto-Medium";
     width: 14px;
     vertical-align: middle;
     font-size: 10px;
-    font-family: "Roboto-Regular";
+    
     display: inline-block;
     margin-top: -18px;
   }
@@ -614,7 +556,7 @@ font-family: "Roboto-Medium";
   label {
     margin: 5px 0;
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
     display: block;
   }
   p {
@@ -633,7 +575,7 @@ font-family: "Roboto-Medium";
     i {
       padding: 5px 15px;
       font-size: 24px;
-      font-family: "Roboto-Regular";
+      
     }
     h1 {
       margin-left: 0;
@@ -682,7 +624,7 @@ font-family: "Roboto-Medium";
   .button.icon-right:before,
   .button.icon:before {
     font-size: 24px!important;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -733,7 +675,7 @@ font-family: "Roboto-Medium";
 .button.icon-right:before,
 .button.icon:before {
   font-size: 24px!important;
-  font-family: "Roboto-Regular";
+  
 }
 
 //pranay
@@ -744,7 +686,7 @@ font-family: "Roboto-Medium";
     color: #ff414d;
     font-size: 30px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -784,7 +726,7 @@ font-family: "Roboto-Medium";
     color: #ff414d;
     font-size: 30px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -805,12 +747,12 @@ font-family: "Roboto-Medium";
 .popupColor {
   color: #727577;
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
 }
 
 .popupTextColor {
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
   color: #727577;
 }
 
@@ -839,7 +781,7 @@ font-family: "Roboto-Medium";
   .hlp-txt {
     color: white;
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
     display: block;
     text-align: center;
   }
@@ -866,7 +808,7 @@ font-family: "Roboto-Medium";
   margin: 0 15px;
   display: block;
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
 }
 
 .helpcard {
@@ -900,7 +842,7 @@ font-family: "Roboto-Medium";
     color: white!important;
     .title {
       font-size: 20px;
-      font-family: "Roboto-Regular";
+      
       line-height: 48px;
       text-align: left!important;
       padding-top: 1px !important;
@@ -920,7 +862,7 @@ font-family: "Roboto-Medium";
   box-shadow: 1px 2px 0 0 lightgrey;
   .bar.bar-stable .title {
     font-size: 20px;
-    font-family: "Roboto-Regular";
+    
     line-height: 48px;
     text-align: left!important;
     padding-top: 1px !important; // left: 40px!important;
@@ -936,19 +878,19 @@ font-family: "Roboto-Medium";
 
 .bar.bar-stable .title {
   font-size: 20px;
-  font-family: "Roboto-Regular";
+  
 }
 
 .footer-font {
   font-size: 16px!important;
   font-weight: 500!important;
-  font-family: "Roboto-Medium";
+  
 }
 
 .sigupRight {
   color: #091b27!important;
   font-size: 24px!important;
-  font-family: "Roboto-Regular";
+  
   padding: 0 12px 0 0 !important;
   display: block;
 }
@@ -956,7 +898,7 @@ font-family: "Roboto-Medium";
 .header-bellFont {
   color: #091b27 !important;
   font-size: 32px !important;
-  font-family: "Roboto-Regular";
+  
   padding: 0 !important;
   display: block;
 }
@@ -980,7 +922,7 @@ font-family: "Roboto-Medium";
   left: 8%;
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .menu-settings {
@@ -989,7 +931,7 @@ font-family: "Roboto-Medium";
   left: 8%;
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .menu-bgcolor {
@@ -1007,7 +949,7 @@ font-family: "Roboto-Medium";
 .menu-label {
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .menu-hr {
@@ -1071,7 +1013,7 @@ font-family: "Roboto-Medium";
   }
   .item-note {
     font-size: 20px;
-    font-family: "Roboto-Regular";
+    
     color: #c5cbdf;
   }
 }
@@ -1089,20 +1031,20 @@ font-family: "Roboto-Medium";
   h5 {
     margin: 5px 0;
     font-size: 14px;
-    font-family: "Roboto-Regular";
+    
     color: #6d797e;
   }
   h4 {
     margin: 5px 0;
     color: #212121;
     font-size: 15px;
-    font-family: "Roboto-Regular";
+    
   }
   h6 {
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 14px!important; // font-weight: 400;
-    font-family: "Roboto-Regular";
+    
     color: #ff414d;
   }
 }
@@ -1119,7 +1061,7 @@ font-family: "Roboto-Medium";
   i {
     color: #c7cde0;
     font-size: 22px;
-    font-family: "Roboto-Regular";
+    
     position: absolute;
   }
 }
@@ -1132,7 +1074,7 @@ font-family: "Roboto-Medium";
   i {
     color: #c7cde0;
     font-size: 22px;
-    font-family: "Roboto-Regular";
+    
     position: absolute;
     z-index: 20;
   }
@@ -1150,7 +1092,7 @@ font-family: "Roboto-Medium";
   color: black;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .bgearn {
@@ -1161,7 +1103,7 @@ font-family: "Roboto-Medium";
   display: block;
   font-size: 60px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: black;
   padding: 0;
   margin: 0;
@@ -1177,7 +1119,7 @@ font-family: "Roboto-Medium";
   font-size: 14px!important;
   line-height: 8px;
   height: 40px;
-  font-family: "Roboto-Medium";
+  
 }
 
 .order-row {
@@ -1206,7 +1148,7 @@ font-family: "Roboto-Medium";
 .order-jarslbl {
   font-size: 18px;
   font-weight: 500!important;
-  font-family: "Roboto-Medium";
+  
 }
 
 .order-date {
@@ -1234,7 +1176,7 @@ font-family: "Roboto-Medium";
 .order-dateProgress {
   margin-top: 5px;
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
   display: block;
   padding: 5px 15px;
 }
@@ -1257,14 +1199,14 @@ font-family: "Roboto-Medium";
   span {
     color: #6d797e;
     font-size: 24px;
-    font-family: "Roboto-Regular";
+    
     padding: 0 5px;
   }
   label {
     color: #ff414d;
     padding: 0 5px;
     font-size: 24px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -1273,7 +1215,7 @@ font-family: "Roboto-Medium";
   color: #454545;
   font-weight: 600;
   font-size: 15px;
-  font-family: "Roboto-Regular";
+  
   margin-top: 12px;
   display: block;
 }
@@ -1285,14 +1227,14 @@ font-family: "Roboto-Medium";
   margin: 0px 10px 0 0;
   h4 {
     font-size: 18px;
-    font-family: "Roboto-Medium";
+    
     margin: 5px 0;
     color: #454545;
     font-weight: 600;
   }
   label {
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
     color: #454545;
   }
 }
@@ -1316,7 +1258,7 @@ font-family: "Roboto-Medium";
   display: block;
   font-size: 60px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: black;
   padding: 0;
   margin: 0;
@@ -1326,7 +1268,7 @@ font-family: "Roboto-Medium";
 
 .earning-Date {
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
   display: block;
   padding: 10px 15px 2px;
 }
@@ -1352,7 +1294,7 @@ font-family: "Roboto-Medium";
   padding: 10px;
   label {
     font-size: 14px;
-    font-family: "Roboto-Regular";
+    
     margin: 5px;
   }
 }
@@ -1392,7 +1334,7 @@ font-family: "Roboto-Medium";
 .ionSlider {
   .ion-record:before {
     font-size: 10px!important;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -1423,16 +1365,16 @@ font-family: "Roboto-Medium";
 
 .browse-col502lbl {
   font-size: 30px;
-  font-family: "Roboto-Regular";
+  
   color: #0dbabe;
 }
 
 .browse-col502aqua {
   display: block;
   font-size: 20px;
-  font-family: "Roboto-Regular";
+  
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   padding-top: 2px;
   color: #3d619b;
 }
@@ -1440,27 +1382,27 @@ font-family: "Roboto-Medium";
 .browse-col502ltrcolor {
   color: #979798;
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   vertical-align: middle;
 }
 
 .browse-col502slash {
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   vertical-align: middle;
   color: #979798;
 }
 
 .browse-col502rupeesymb {
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   color: #979798;
   vertical-align: middle;
 }
 
 .browse-col502rupees {
   font-size: 24px;
-  font-family: "Roboto-Regular";
+  
 }
 
 .browse-grid {
@@ -1474,7 +1416,7 @@ font-family: "Roboto-Medium";
   display: block;
   font-size: 20px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   padding-bottom: 10px;
 }
 
@@ -1504,7 +1446,7 @@ font-family: "Roboto-Medium";
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
     font-weight: 500!important;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -1512,7 +1454,7 @@ font-family: "Roboto-Medium";
   height: 52px!important;
   line-height: 52px!important;
   font-size: 22px!important;
-  font-family: "Roboto-Regular";
+  
 }
 
 .bar-footer {
@@ -1542,7 +1484,7 @@ font-family: "Roboto-Medium";
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
     font-weight: 500!important;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -1571,7 +1513,7 @@ font-family: "Roboto-Medium";
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
     font-weight: 500!important;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -1616,7 +1558,7 @@ font-family: "Roboto-Medium";
 .browse-aqualbl {
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .mbt {
@@ -1638,7 +1580,7 @@ font-family: "Roboto-Medium";
   padding: 12px 0 0 14px;
   i {
     font-size: 26px;
-    font-family: "Roboto-Regular";
+    
     color: white;
   }
 }
@@ -1679,7 +1621,7 @@ font-family: "Roboto-Medium";
     color: #002d40;
     display: inline;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
   .name {
     color: #3d619b;
@@ -1702,7 +1644,7 @@ font-family: "Roboto-Medium";
   i {
     margin: 5px;
     font-size: 14px;
-    font-family: "Roboto-Regular";
+    
     background: #ff414d;
     padding: 4px;
     border-radius: 50%;
@@ -1717,7 +1659,7 @@ font-family: "Roboto-Medium";
   span {
     font-size: 28px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     vertical-align: middle;
     margin: 5px;
   }
@@ -1746,7 +1688,7 @@ font-family: "Roboto-Medium";
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   font-size: 19px;
   color: #54535c;
 }
@@ -1756,7 +1698,7 @@ font-family: "Roboto-Medium";
   border: transparent;
   padding: 0;
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   margin: 20px 0;
   border-bottom: 1px solid lightgrey;
 }
@@ -1764,7 +1706,7 @@ font-family: "Roboto-Medium";
 .auth-custipPlc {
   font-size: 16px!important;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   font-size: 16px;
   padding: 0px!important;
 }
@@ -1775,7 +1717,7 @@ font-family: "Roboto-Medium";
   min-height: 40px;
   width: 42%;
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
   z-index: 2;
   box-shadow: 0 2px 0 0 lightgrey;
 }
@@ -1787,7 +1729,7 @@ font-family: "Roboto-Medium";
   float: right;
   width: 42%;
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
   box-shadow: 0 2px 0 0 lightgrey;
 }
 
@@ -1817,7 +1759,7 @@ font-family: "Roboto-Medium";
 
     color: #6b6b6b;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -1835,7 +1777,7 @@ font-family: "Roboto-Medium";
 .cartbadge {
   margin: 5px;
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
   background: #ff414d;
   padding: 0 5px;
   border-radius: 50%;
@@ -1856,7 +1798,7 @@ font-family: "Roboto-Medium";
 .nav-height .bar.bar-stable .title {
   line-height: 52px!important;
   font-size: 22px!important;
-  font-family: "Roboto-Regular";
+  
 }
 
 .bar .title+.buttons {
@@ -1886,7 +1828,7 @@ font-family: "Roboto-Medium";
 .auth-col2btn {
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .auth-sharebtn {
@@ -1895,7 +1837,7 @@ font-family: "Roboto-Medium";
   background: #0dbabe!important;
   font-size: 19px!important;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 //menu
@@ -1918,7 +1860,7 @@ font-family: "Roboto-Medium";
   left: 8%;
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .menu-settings {
@@ -1927,7 +1869,7 @@ font-family: "Roboto-Medium";
   left: 8%;
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .menu-bgcolor {
@@ -1945,7 +1887,7 @@ font-family: "Roboto-Medium";
 .menu-label {
   font-size: 16px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .menu-hr {
@@ -1956,7 +1898,7 @@ font-family: "Roboto-Medium";
 .shipping-label {
   margin: 40px 0 0 5px !important;
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   padding: 6px;
   border-bottom: 1px solid lightgrey!important;
 }
@@ -1965,7 +1907,7 @@ font-family: "Roboto-Medium";
   margin: 0;
   padding: 0;
   font-size: 12px;
-  font-family: "Roboto-Regular";
+  
   color: #ff414d;
   width: 100%;
 }
@@ -2000,7 +1942,7 @@ font-family: "Roboto-Medium";
   .label {
     font-size: 16px;
     font-weight: 400;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -2035,7 +1977,7 @@ font-family: "Roboto-Medium";
   top: 4px;
   &:before {
     font-size: 25px!important;
-    font-family: "Roboto-Regular";
+    
 
   }
 }
@@ -2053,7 +1995,7 @@ font-family: "Roboto-Medium";
 
 .chkout-fontsize {
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   margin: 0 !important;
 }
 
@@ -2092,12 +2034,12 @@ font-family: "Roboto-Medium";
     padding-left: 5px;
     line-height: 40px;
     font-size: 13x;
-    font-family: "Roboto-Regular";
+    
   }
   input {
     border-bottom: 1px solid lightgray;
     font-size: 13px;
-    font-family: "Roboto-Regular";
+    
     width: 100%;
     height: auto;
   }
@@ -2110,7 +2052,7 @@ font-family: "Roboto-Medium";
   label {
     color: #6d797e;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -2120,7 +2062,7 @@ font-family: "Roboto-Medium";
   padding-top: 10px;
   label {
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -2135,7 +2077,7 @@ font-family: "Roboto-Medium";
   padding: 15px 15px!important;
   label {
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -2146,7 +2088,7 @@ font-family: "Roboto-Medium";
   label {
     font-size: 18px;
     font-weight: 400;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -2155,12 +2097,12 @@ font-family: "Roboto-Medium";
   padding-top: 15px;
   label {
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
     color: #ff414d;
   }
   span {
     font-size: 10px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -2171,12 +2113,12 @@ font-family: "Roboto-Medium";
   label {
     font-size: 18px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
   span {
     font-size: 18px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     color: #ff414d;
   }
 }
@@ -2190,7 +2132,7 @@ font-family: "Roboto-Medium";
     border-bottom: 2px solid red;
     width: 35%;
     font-size: 18px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -2207,7 +2149,7 @@ font-family: "Roboto-Medium";
     padding: 0;
     margin: 0;
     font-size: 18px!important;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -2235,7 +2177,7 @@ font-family: "Roboto-Medium";
   i {
     color: #6d797e;
     font-size: 22px;
-    font-family: "Roboto-Regular";
+    
     position: absolute;
     float: right;
     right: 0;
@@ -2250,7 +2192,7 @@ font-family: "Roboto-Medium";
     color: #009688;
     text-align: center;
     font-size: 17px;
-    font-family: "Roboto-Regular";
+    
     margin: 0;
   }
 }
@@ -2260,12 +2202,12 @@ font-family: "Roboto-Medium";
   .datediv {
     font-size: 26px;
     font-weight: 600;
-    font-family: "Roboto-Medium";
+    
   }
   .monthdiv {
     font-size: 16px;
     font-weight: 600;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -2283,7 +2225,7 @@ font-family: "Roboto-Medium";
   font-size: 18px;
   padding: 50px 0 20px;
   font-weight: 400;
-  font-family: "Roboto-Medium";
+  
   color: #212121;
 }
 
@@ -2313,14 +2255,14 @@ font-family: "Roboto-Medium";
 .jarslbl {
   font-size: 20px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .onceLbl {
   display: block;
   font-size: 18px;
   font-weight: 400;
-  font-family: "Roboto-Medium";
+  
   color: #6d797e;
 }
 
@@ -2329,14 +2271,14 @@ font-family: "Roboto-Medium";
   top: -21px;
   right: 5px;
   font-size: 20px;
-  font-family: "Roboto-Regular";
+  
   text-decoration: line-through;
   color: #6d797e;
 }
 
 .rupsym {
   font-size: 26px;
-  font-family: "Roboto-Regular";
+  
   color: #c8cbc4;
 }
 
@@ -2344,7 +2286,7 @@ font-family: "Roboto-Medium";
   font-size: 22px;
   padding: 0 0 0 5px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: #ff414d;
 }
 
@@ -2369,13 +2311,13 @@ font-family: "Roboto-Medium";
   font-size: 22px; // padding-top: 25px;
   color: #0dbabe;
   font-weight: 600;
-  font-family: "Roboto-Medium";
+  
 }
 
 .needrefill {
   display: block;
   font-size: 15px;
-  font-family: "Roboto-Regular";
+  
   color: #8a9498;
 }
 
@@ -2402,7 +2344,7 @@ font-family: "Roboto-Medium";
   span {
     font-size: 16px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
   }
 }
 
@@ -2411,7 +2353,7 @@ font-family: "Roboto-Medium";
   position: relative;
   z-index: 2;
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   margin-bottom: -1px;
   display: table;
   width: 100%;
@@ -2433,7 +2375,7 @@ font-family: "Roboto-Medium";
     }
     h4 {
       font-size: 20px;
-      font-family: "Roboto-Regular";
+      
     }
   }
 }
@@ -2464,7 +2406,7 @@ font-family: "Roboto-Medium";
   padding-top: 15px;
   label {
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -2474,7 +2416,7 @@ font-family: "Roboto-Medium";
   top: 0;
   &:before {
     font-size: 25px!important;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -2483,7 +2425,7 @@ font-family: "Roboto-Medium";
   width: 100%;
   span {
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     font-size: 16px;
     color: #ff414d;
   }
@@ -2491,7 +2433,7 @@ font-family: "Roboto-Medium";
     margin: 5px 0 0 !important;
     line-height: 1;
     font-size: 12px;
-    font-family: "Roboto-Regular";
+    
   }
   hr {
     color: #dbdbdb;
@@ -2501,7 +2443,7 @@ font-family: "Roboto-Medium";
   }
   input[type="radio"]+label {
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
     font-weight: 700;
   }
   input[type="radio"]+label span {
@@ -2548,7 +2490,7 @@ p.onceLblr {
 
 .lbl-100 {
   font-size: 20px;
-  font-family: "Roboto-Regular";
+  
 }
 
 .light-grey {
@@ -2573,7 +2515,7 @@ p.onceLblr {
 .h4padcol {
   margin: 0 !important;
   font-size: 30px!important;
-  font-family: "Roboto-Regular";
+  
 }
 
 .sub3rowcard {
@@ -2587,14 +2529,14 @@ p.onceLblr {
     margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
-    font-family: "Roboto-Regular";
+    
     line-height: 1;
   }
   span {
     margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
-    font-family: "Roboto-Regular";
+    
     display: block;
   }
 }
@@ -2620,7 +2562,7 @@ p.onceLblr {
   label {
     color: #989fa4;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     font-size: 12px;
   }
 }
@@ -2641,7 +2583,7 @@ p.onceLblr {
   i {
     margin: 5px;
     font-size: 14px;
-    font-family: "Roboto-Regular";
+    
     background: #ff414d;
     padding: 4px;
     border-radius: 50%;
@@ -2656,7 +2598,7 @@ p.onceLblr {
   span {
     font-size: 28px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     vertical-align: middle;
     margin: 5px;
     color: black!important;
@@ -2711,7 +2653,7 @@ p.onceLblr {
   border-width: 1px;
   border-style: solid;
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  
   border: none;
 }
 
@@ -2794,7 +2736,7 @@ p.onceLblr {
   bottom: 8%;
   width: 100%;
   font-size: 13px;
-  font-family: "Roboto-Regular";
+  
   padding-left: 42px!important
 }
 
@@ -2824,7 +2766,7 @@ p.onceLblr {
 .termspr {
   padding: 0 10px;
   font-size: 12px;
-  font-family: "Roboto-Regular";
+  
 }
 
 .termshead {
@@ -2839,7 +2781,7 @@ p.onceLblr {
   white-space: nowrap;
   font-size: 17px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   line-height: 44px;
   background: transparent;
   h1 {
@@ -2858,7 +2800,7 @@ p.onceLblr {
     white-space: nowrap;
     font-size: 17px;
     font-weight: 500;
-    font-family: "Roboto-Medium";
+    
     line-height: 44px;
     padding-top: 10px;
     color: #ff414d;
@@ -2877,7 +2819,7 @@ p.onceLblr {
   font-weight: 600;
   padding: 30px;
   color: #6d797e;
-  font-family: "Roboto-Medium";
+  
 }
 
 .confirm-checkmark {
@@ -2898,13 +2840,13 @@ p.onceLblr {
 .conirfm-orderlbl {
   font-size: 30px;
   font-weight: 600;
-  font-family: "Roboto-Medium";
+  
 }
 
 .confirm-date {
   display: block;
   font-size: 20px;
-  font-family: "Roboto-Regular";
+  
   color: #6d797e;
 }
 
@@ -2912,14 +2854,14 @@ p.onceLblr {
   font-size: 38px;
   color: #0dbabe;
   font-weight: 600;
-  font-family: "Roboto-Medium";
+  
   line-height: 35px;
 }
 
 .confirm-refillphn {
   display: block;
   font-size: 20px;
-  font-family: "Roboto-Regular";
+  
   color: #6d797e;
   margin-top: 5px;
 }
@@ -2938,7 +2880,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: #6d797e;
 }
 
@@ -2989,7 +2931,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 400;
-  font-family: "Roboto-Medium";
+  
   padding-top: 50px;
   color: #6d797e;
 }
@@ -2999,7 +2941,7 @@ p.onceLblr {
   text-align: center;
   font-size: 25px;
   font-weight: 600;
-  font-family: "Roboto-Medium";
+  
   color: #6d797e;
   padding-bottom: 20px;
 }
@@ -3015,7 +2957,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: #6d797e;
 }
 
@@ -3031,7 +2973,7 @@ p.onceLblr {
   color: white;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   padding-top: 15px;
 }
 
@@ -3039,7 +2981,7 @@ p.onceLblr {
   display: block;
   font-size: 60px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: white;
   padding: 0;
   margin: 0;
@@ -3057,7 +2999,7 @@ p.onceLblr {
   color: white;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
 }
 
 .paid-button {
@@ -3074,7 +3016,7 @@ p.onceLblr {
   bottom: 8%;
   width: 100%;
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  
   position: relative;
   margin: 0px;
   padding-left: 30px;
@@ -3094,7 +3036,7 @@ p.onceLblr {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: #6d797e;
 }
 
@@ -3103,7 +3045,7 @@ p.onceLblr {
   text-align: center;
   font-size: 22px;
   font-weight: 500;
-  font-family: "Roboto-Medium";
+  
   color: #ff414d;
   padding-bottom: 20px;
 }
@@ -3177,14 +3119,14 @@ input[type="color"] {
 .sorrymsg{
     padding: 10px;
     font-size: 16px;
-    font-family: "Roboto-Regular";
+    
     color: #6d797e
 
 }
 
  .sorryno{
         font-weight: 500;
-        font-family: "Roboto-Medium";
+        
         color: #6d797e
     }
 
@@ -3202,7 +3144,7 @@ input[type="color"] {
   margin: 15px 0;
   text-align: center;
   font-weight: 500;
-font-family: "Roboto-Medium";
+
 }
 
 
@@ -3215,7 +3157,7 @@ font-family: "Roboto-Medium";
 
 .orderplaced{
     font-size: 21px;
-    font-family: "Roboto-Regular";
+    
     width: 100%;
     padding: 10px 10px 0 10px;
     text-align: center;
@@ -3227,10 +3169,10 @@ font-family: "Roboto-Medium";
 .sameadd{
   padding: 5px 0px 5px 40px;
 font-size: 14px;
-font-family: "Roboto-Regular";
+
 p{
   font-size: 12px;
-  font-family: "Roboto-Regular";
+  
   margin-top: 10px;
 }
 }
@@ -3289,14 +3231,14 @@ p{
 .bottlename {
   color: #454545;
   font-size: 12px;
-  font-family: "Roboto-Regular";
+  
   display: block;
 }
 
 .history-refils {
   color: #454545;
   font-weight: 600;
-  font-family: "Roboto-Medium";
+  
   font-size: 15px;
   margin-top: 12px;
   display: block;
@@ -3308,13 +3250,13 @@ p{
   span {
     color: #505d66;
     font-size: 24px;
-    font-family: "Roboto-Regular";
+    
     padding: 0 5px;
   }
   label {
     color: #505d66;
     font-size: 24px;
-    font-family: "Roboto-Regular";
+    
   }
 }
 
@@ -3327,7 +3269,7 @@ width: 100%;
     font-size: 13px;
     text-align: center;
     background: #ff414d;
-    font-family: "Roboto-Medium";
+    
     border: none;
    position: absolute;
     right: 0;
@@ -3347,7 +3289,7 @@ width: 100%;
 .history-pending{
       margin-top: 50px;
       label{
-        font-family: "Roboto-Regular";
+        
         color: #223c4d;
         position: absolute;
     bottom: 5%;
@@ -3368,7 +3310,7 @@ width: 100%;
     bottom: 1%;
     padding: 5px;
     color: white;
-    font-family: "Roboto-Medium";
+    
 
   }
      
@@ -3379,14 +3321,14 @@ width: 100%;
   margin: 0px 10px 0 0;
   h4 {
     font-size: 15px;
-    font-family: "Roboto-Medium";
+    
     margin: 5px 0;
     color: #454545;
     font-weight: 600;
   }
   label {
     font-size: 12px;
-    font-family: "Roboto-Regular";
+    
     color: #454545;
 
   }
