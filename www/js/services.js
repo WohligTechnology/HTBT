@@ -1,5 +1,5 @@
-// var adminurl = "http://htbt.wohlig.co.in/api/"; //server
-var adminurl = "http://192.168.2.21:1337/api/"; //server
+var adminurl = "http://htbt.wohlig.co.in/api/"; //server
+// var adminurl = "http://192.168.2.21:1337/api/"; //server
 
 // var imgpath = adminurl + "uploadfile/getupload?file=";
 var imgurl = adminurl + "upload/";
@@ -51,6 +51,15 @@ angular.module('starter.services', [])
         };
         $http({
           url: adminurl + 'user/getProfile',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+      getOrderByRM: function (data, callback) {
+
+        $http({
+          url: adminurl + 'order/getOrderByRM',
           method: 'POST',
           withCredentials: true,
           data: data

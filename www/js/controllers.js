@@ -110,10 +110,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     };
 })
 
-.controller('OrderHistoryCtrl', function($scope, $stateParams) {
+.controller('OrderHistoryCtrl', function($scope, $stateParams,MyServices) {
     $scope.goBackHandler = function() {
         window.history.back(); //This works
     };
+    $scope.profile = $.jStorage.get('profile');
+    $scope.proID={};
+    $scope.proID._id=$scope.profile._id;
+    MyServices.getOrderByRM($scope.proID, function(data) {
+        $scope.orders = data.data;
+        console.log($scope.orders);
+    });
 })
 
 
@@ -866,6 +873,17 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             }
         });
+        $scope.otpenable=false;
+
+        $scope.disableotp = function(value) {
+          console.log(value);
+          if(value.first && value.second && value.third && value.forth){
+            $scope.otpenable=true;
+          }else{
+            $scope.otpenable=false;
+          }
+        }
+
         //Function to verify OTP
         $scope.verifyOTP = function(value) {
             reqObj.otp = "" + value.first + value.second + value.third + value.forth;
