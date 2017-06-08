@@ -71,10 +71,28 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             if ($scope.totalQuantity === 0) {
                 $state.go("app.subpage1");
             } else {
-                $ionicPopup.alert({
-                    title: "Product already in Cart",
-                    template: "Please remove all the Products from the cart to proceed with Subscription Products."
+                var myPopup = $ionicPopup.show({
+                    cssClass: 'productspopup',
+                    title: 'Sorry',
+                    subTitle: 'You cannot purchase a 20L Jar plan and other products at the same time.',
+                    buttons: [{
+
+                        text: 'Empty Cart',
+                        onTap: function(e) {
+                            $state.go("app.review");
+                        }
+                    }, {
+                        text: 'View Cart',
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            $state.go("app.browse");
+                        }
+                    }]
                 });
+                // $ionicPopup.alert({
+                //     title: "Product already in Cart",
+                //     template: "Please remove all the Products from the cart to proceed with Subscription Products."
+                // });
             }
         };
     })
@@ -443,7 +461,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                         value.methodofjoin = 'Relationship Partner';
                         value.methodOfOrder = 'Relationship Partner';
                     }
-                    MyServices.saveOrderCheckoutCart(value.customerName, value.methodofjoin,value.methodOfOrder,value.customerMobile, value.methodOfPayment, function(data) {
+                    MyServices.saveOrderCheckoutCart(value.customerName, value.methodofjoin, value.methodOfOrder, value.customerMobile, value.methodOfPayment, function(data) {
                         if (data.status == 200) {
                             $state.go('success');
                         } else {
