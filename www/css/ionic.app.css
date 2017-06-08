@@ -9815,6 +9815,42 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf") format("opentype");
+  font-weight: 600; }
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf") format("opentype");
+  font-weight: 500; }
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 100; }
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 200; }
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 300; }
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-family: "Roboto_med"; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("opentype");
+  font-weight: normal; }
+
 .partDiv {
   display: block;
   float: right;
@@ -9845,12 +9881,14 @@ a.button {
   vertical-align: middle;
   color: #757575;
   font-size: 17px;
+  font-family: "Roboto-Regular";
   padding: 0 0 0 5px; }
 
 .phnText {
   display: inline-block !important;
   background: #f2f4f5;
   font-size: 16px !important;
+  font-family: "Roboto-Regular";
   width: 80%;
   padding: 0 !important; }
 
@@ -9879,7 +9917,8 @@ a.button {
   padding: 0 !important;
   border: transparent;
   font-size: 16px;
-  font-weight: 600; }
+  font-weight: 600;
+  font-family: "Roboto-Medium"; }
 
 .bar-footer {
   height: 55px !important; }
@@ -9890,6 +9929,7 @@ a.button {
   width: 100%;
   font-size: 18px !important;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding: 2px; }
 
 .otpDiv {
@@ -9909,7 +9949,8 @@ a.button {
   font-weight: 600;
   border-radius: 0;
   line-height: 22px;
-  min-height: 42px; }
+  min-height: 42px;
+  font-family: "Roboto-Regular"; }
 
 .resendBtn {
   top: 160%;
@@ -9920,7 +9961,8 @@ a.button {
   padding: 0;
   min-height: 17px;
   line-height: 30px;
-  font-size: 15px !important; }
+  font-size: 15px !important;
+  font-family: "Roboto-Regular"; }
   .resendBtn button {
     border: transparent;
     line-height: 20px !important;
@@ -9936,6 +9978,7 @@ a.button {
 .sigupIconLeft {
   color: #091b27 !important;
   font-size: 24px !important;
+  font-family: "Roboto-Regular";
   padding: 0 0 0 12px !important; }
 
 .nameSignup {
@@ -9965,6 +10008,7 @@ a.button {
 .nav-height .bar.bar-stable .title {
   line-height: 52px !important;
   font-size: 22px !important;
+  font-family: "Roboto-Regular";
   height: 100%;
   left: 40px !important;
   right: 60px !important; }
@@ -9985,6 +10029,7 @@ a.button {
   background: #f2f4f5; }
   .signUpCard .camcon {
     font-size: 30px;
+    font-family: "Roboto-Regular";
     position: absolute;
     right: 5px;
     color: #4f5d65; }
@@ -9996,7 +10041,8 @@ a.button {
     border-bottom: none !important;
     color: #a1a8ab;
     font-weight: 600 !important;
-    font-size: 14px; }
+    font-size: 14px;
+    font-family: "Roboto-Regular"; }
 
 .signUpFooter {
   width: 100%;
@@ -10022,7 +10068,8 @@ a.button {
   left: 35%;
   padding: 5px 9px; }
   .signUpAdd .plus {
-    font-size: 20px; }
+    font-size: 20px;
+    font-family: "Roboto-Regular"; }
 
 .mt-10 {
   margin-top: 10px !important; }
@@ -10035,6 +10082,7 @@ a.button {
   padding-top: 6%; }
   .dashboardLabel label {
     font-weight: 500;
+    font-family: "Roboto-Medium";
     font-size: 20px; }
 
 .roundePrgBar {
@@ -10060,6 +10108,7 @@ a.button {
 
 .info {
   font-size: 25px;
+  font-family: "Roboto-Regular";
   color: lightgrey;
   position: absolute;
   top: 9%;
@@ -10074,7 +10123,8 @@ a.button {
 
 .rupeeFont {
   font-size: 50px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .sinceDateDiv {
   position: absolute;
@@ -10082,7 +10132,8 @@ a.button {
   text-align: center;
   bottom: 38%; }
   .sinceDateDiv label {
-    font-size: 12px; }
+    font-size: 12px;
+    font-family: "Roboto-Regular"; }
 
 .bottomTopMarRow {
   border-top: 1px solid lightgrey !important;
@@ -10104,6 +10155,7 @@ a.button {
 .rankLabel {
   font-size: 24px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #212121;
   width: 100%;
   text-align: center; }
@@ -10112,11 +10164,13 @@ a.button {
   text-align: center; }
   .numberDiv i {
     font-size: 18px;
+    font-family: "Roboto-Regular";
     color: #0dbabe;
     padding: 0;
     margin: 0; }
   .numberDiv span {
     font-size: 12px;
+    font-family: "Roboto-Regular";
     padding: 0; }
 
 .rankDiv {
@@ -10124,19 +10178,22 @@ a.button {
   .rankDiv pr {
     font-size: 12px;
     color: black;
-    font-weight: 500; }
+    font-weight: 500;
+    font-family: "Roboto-Medium"; }
 
 .lastMonth {
   text-align: center; }
   .lastMonth label {
     font-size: 24px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     color: #212121;
     width: 100%; }
   .lastMonth pr {
     font-size: 12px;
     color: black;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     display: block; }
 
 .newCustomer {
@@ -10144,12 +10201,14 @@ a.button {
   .newCustomer label {
     font-size: 24px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     color: #212121;
     width: 100%; }
   .newCustomer pr {
     font-size: 12px;
     color: black;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     display: block; }
 
 .item-complex .item-content,
@@ -10167,11 +10226,13 @@ a.button {
     border: 0px !important;
     background: #ff414d !important;
     font-size: 18px !important;
+    font-family: "Roboto-Regular";
     min-height: 35px !important;
     margin: 10px;
     box-shadow: 1px 2px 0 0 lightgrey; }
   .newCust label {
-    font-size: 18px !important; }
+    font-size: 18px !important;
+    font-family: "Roboto-Regular"; }
   .newCust .button.icon-left:before {
     padding-right: 10px !important; }
 
@@ -10186,12 +10247,14 @@ a.button {
   margin: 0 auto; }
   .oldCust label {
     margin-left: 8px;
-    font-size: 18px !important; }
+    font-size: 18px !important;
+    font-family: "Roboto-Regular"; }
   .oldCust button {
     color: #7a7b7c !important;
     border: 0px !important;
     background: #f2f4f5 !important;
     font-size: 16px !important;
+    font-family: "Roboto-Regular";
     min-height: 35px !important;
     box-shadow: 1px 2px 0 0 lightgrey; }
 
@@ -10201,6 +10264,7 @@ a.button {
   width: 14px;
   vertical-align: middle;
   font-size: 10px;
+  font-family: "Roboto-Regular";
   display: inline-block;
   margin-top: -18px; }
 
@@ -10229,6 +10293,7 @@ a.button {
   .notify-card label {
     margin: 5px 0;
     font-size: 16px;
+    font-family: "Roboto-Regular";
     display: block; }
   .notify-card p {
     color: #6b6b6b;
@@ -10241,7 +10306,8 @@ a.button {
   background: white; }
   .notify-header .bar.bar-stable i {
     padding: 5px 15px;
-    font-size: 24px; }
+    font-size: 24px;
+    font-family: "Roboto-Regular"; }
   .notify-header .bar.bar-stable h1 {
     margin-left: 0; }
 
@@ -10274,7 +10340,8 @@ a.button {
 .medl-div .button.icon-left:before,
 .medl-div .button.icon-right:before,
 .medl-div .button.icon:before {
-  font-size: 24px !important; }
+  font-size: 24px !important;
+  font-family: "Roboto-Regular"; }
 
 .slide-div {
   padding: 10px;
@@ -10315,15 +10382,16 @@ a.button {
 .button.icon-left:before,
 .button.icon-right:before,
 .button.icon:before {
-  font-size: 24px !important; }
+  font-size: 24px !important;
+  font-family: "Roboto-Regular"; }
 
 .popupDiv {
-  text-align: center;
-  padding: 10px; }
+  text-align: center; }
   .popupDiv label {
     color: #ff414d;
-    font-size: 16px;
-    font-weight: 500; }
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Roboto-Medium"; }
 
 .popupImg {
   text-align: center; }
@@ -10347,12 +10415,12 @@ a.button {
   padding: 0 !important; }
 
 .popupDiv {
-  text-align: center;
-  padding: 10px; }
+  text-align: center; }
   .popupDiv label {
     color: #ff414d;
-    font-size: 16px;
-    font-weight: 500; }
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Roboto-Medium"; }
 
 .popupImg {
   text-align: center; }
@@ -10362,14 +10430,16 @@ a.button {
 
 .popupText {
   text-align: center;
-  display: grid;
-  margin: 10px; }
+  display: grid; }
 
 .popupColor {
-  color: #727577; }
+  color: #727577;
+  font-size: 14px;
+  font-family: "Roboto-Regular"; }
 
 .popupTextColor {
-  font-size: 11px;
+  font-size: 14px;
+  font-family: "Roboto-Regular";
   color: #727577; }
 
 .otpin {
@@ -10394,6 +10464,7 @@ a.button {
   .help-bk .hlp-txt {
     color: white;
     font-size: 16px;
+    font-family: "Roboto-Regular";
     display: block;
     text-align: center; }
   .help-bk .search-div {
@@ -10413,7 +10484,8 @@ a.button {
   color: #ff414d;
   margin: 0 15px;
   display: block;
-  font-size: 16px; }
+  font-size: 16px;
+  font-family: "Roboto-Regular"; }
 
 .helpcard {
   background: white;
@@ -10441,6 +10513,7 @@ a.button {
     color: white !important; }
     .nonav .bar.bar-stable .title {
       font-size: 20px;
+      font-family: "Roboto-Regular";
       line-height: 48px;
       text-align: left !important;
       padding-top: 1px !important; }
@@ -10450,6 +10523,7 @@ a.button {
   box-shadow: 1px 2px 0 0 lightgrey; }
   .nav-height .bar.bar-stable .title {
     font-size: 20px;
+    font-family: "Roboto-Regular";
     line-height: 48px;
     text-align: left !important;
     padding-top: 1px !important; }
@@ -10458,21 +10532,25 @@ a.button {
   height: 46px; }
 
 .bar.bar-stable .title {
-  font-size: 20px; }
+  font-size: 20px;
+  font-family: "Roboto-Regular"; }
 
 .footer-font {
   font-size: 16px !important;
-  font-weight: 500 !important; }
+  font-weight: 500 !important;
+  font-family: "Roboto-Medium"; }
 
 .sigupRight {
   color: #091b27 !important;
   font-size: 24px !important;
+  font-family: "Roboto-Regular";
   padding: 0 12px 0 0 !important;
   display: block; }
 
 .header-bellFont {
   color: #091b27 !important;
   font-size: 32px !important;
+  font-family: "Roboto-Regular";
   padding: 0 !important;
   display: block; }
 
@@ -10492,14 +10570,16 @@ a.button {
   bottom: 25%;
   left: 8%;
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .menu-settings {
   position: absolute;
   bottom: 13%;
   left: 8%;
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .menu-bgcolor {
   background: #f2f4f5; }
@@ -10512,7 +10592,8 @@ a.button {
 
 .menu-label {
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .menu-hr {
   margin: 20px;
@@ -10565,6 +10646,7 @@ a.button {
     border: none; }
   .cust-search .item-note {
     font-size: 20px;
+    font-family: "Roboto-Regular";
     color: #c5cbdf; }
 
 .custimg {
@@ -10579,15 +10661,18 @@ a.button {
   .custlist h5 {
     margin: 5px 0;
     font-size: 14px;
+    font-family: "Roboto-Regular";
     color: #6d797e; }
   .custlist h4 {
     margin: 5px 0;
     color: #212121;
-    font-size: 15px; }
+    font-size: 15px;
+    font-family: "Roboto-Regular"; }
   .custlist h6 {
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 14px !important;
+    font-family: "Roboto-Regular";
     color: #ff414d; }
 
 .pad0 {
@@ -10601,6 +10686,7 @@ a.button {
   .custlistarr i {
     color: #c7cde0;
     font-size: 22px;
+    font-family: "Roboto-Regular";
     position: absolute; }
 
 .custgear {
@@ -10611,6 +10697,7 @@ a.button {
   .custgear i {
     color: #c7cde0;
     font-size: 22px;
+    font-family: "Roboto-Regular";
     position: absolute;
     z-index: 20; }
 
@@ -10623,7 +10710,8 @@ a.button {
 .order-refilllbl {
   color: black;
   font-size: 18px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .bgearn {
   background: #f2f4f5; }
@@ -10632,6 +10720,7 @@ a.button {
   display: block;
   font-size: 60px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: black;
   padding: 0;
   margin: 0;
@@ -10646,7 +10735,7 @@ a.button {
   font-size: 14px !important;
   line-height: 8px;
   height: 40px;
-  font-weight: 500; }
+  font-family: "Roboto-Medium"; }
 
 .order-row {
   margin: 5px !important;
@@ -10669,7 +10758,8 @@ a.button {
 
 .order-jarslbl {
   font-size: 18px;
-  font-weight: 500 !important; }
+  font-weight: 500 !important;
+  font-family: "Roboto-Medium"; }
 
 .order-date {
   font-size: 14px;
@@ -10692,6 +10782,7 @@ a.button {
 .order-dateProgress {
   margin-top: 5px;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   display: block;
   padding: 5px 15px; }
 
@@ -10711,29 +10802,36 @@ a.button {
   .rscol span {
     color: #6d797e;
     font-size: 24px;
+    font-family: "Roboto-Regular";
     padding: 0 5px; }
   .rscol label {
     color: #ff414d;
     padding: 0 5px;
-    font-size: 24px; }
+    font-size: 24px;
+    font-family: "Roboto-Regular"; }
 
 .refils {
+  text-align: center;
   color: #454545;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
+  font-family: "Roboto-Regular";
   margin-top: 12px;
-  text-align: center;
   display: block; }
 
-.descTrans h4 {
-  font-size: 18px;
-  margin: 5px 0;
-  color: #454545;
-  font-weight: 600; }
-
-.descTrans label {
-  font-size: 16px;
-  color: #454545; }
+.descTrans {
+  border-right: 1px solid #d2d2d2;
+  margin: 0px 10px 0 0; }
+  .descTrans h4 {
+    font-size: 18px;
+    font-family: "Roboto-Regular";
+    margin: 5px 0;
+    color: #454545;
+    font-weight: 600; }
+  .descTrans label {
+    font-size: 16px;
+    font-family: "Roboto-Regular";
+    color: #454545; }
 
 .pastlabel {
   margin: 20px 0 0; }
@@ -10751,6 +10849,7 @@ a.button {
   display: block;
   font-size: 60px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: black;
   padding: 0;
   margin: 0;
@@ -10759,6 +10858,7 @@ a.button {
 
 .earning-Date {
   font-size: 14px;
+  font-family: "Roboto-Regular";
   display: block;
   padding: 10px 15px 2px; }
 
@@ -10780,6 +10880,7 @@ a.button {
   padding: 10px; }
   .popcard label {
     font-size: 14px;
+    font-family: "Roboto-Regular";
     margin: 5px; }
 
 .menupop {
@@ -10810,7 +10911,8 @@ a.button {
   background: #f2f4f5; }
 
 .ionSlider .ion-record:before {
-  font-size: 10px !important; }
+  font-size: 10px !important;
+  font-family: "Roboto-Regular"; }
 
 .col50-width {
   max-width: none !important; }
@@ -10834,32 +10936,39 @@ a.button {
 
 .browse-col502lbl {
   font-size: 30px;
+  font-family: "Roboto-Regular";
   color: #0dbabe; }
 
 .browse-col502aqua {
   display: block;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding-top: 2px;
   color: #3d619b; }
 
 .browse-col502ltrcolor {
   color: #979798;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   vertical-align: middle; }
 
 .browse-col502slash {
   font-size: 16px;
+  font-family: "Roboto-Regular";
   vertical-align: middle;
   color: #979798; }
 
 .browse-col502rupeesymb {
   font-size: 16px;
+  font-family: "Roboto-Regular";
   color: #979798;
   vertical-align: middle; }
 
 .browse-col502rupees {
-  font-size: 24px; }
+  font-size: 24px;
+  font-family: "Roboto-Regular"; }
 
 .browse-grid {
   padding: 20px 0 0;
@@ -10871,6 +10980,7 @@ a.button {
   display: block;
   font-size: 20px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding-bottom: 10px; }
 
 .browse-card1 {
@@ -10896,12 +11006,14 @@ a.button {
     line-height: 47px;
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
-    font-weight: 500 !important; }
+    font-weight: 500 !important;
+    font-family: "Roboto-Medium"; }
 
 .bar-footer .title {
   height: 52px !important;
   line-height: 52px !important;
-  font-size: 22px !important; }
+  font-size: 22px !important;
+  font-family: "Roboto-Regular"; }
 
 .bar-footer {
   height: 50px !important; }
@@ -10926,7 +11038,8 @@ a.button {
     line-height: 47px;
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
-    font-weight: 500 !important; }
+    font-weight: 500 !important;
+    font-family: "Roboto-Medium"; }
 
 .oneliter-pack {
   padding: 1.5px;
@@ -10950,7 +11063,8 @@ a.button {
     line-height: 47px;
     font-size: 16px;
     box-shadow: 0 2px 0 0 lightgrey;
-    font-weight: 500 !important; }
+    font-weight: 500 !important;
+    font-family: "Roboto-Medium"; }
 
 .m10 {
   margin: 10px !important; }
@@ -10983,7 +11097,8 @@ a.button {
 
 .browse-aqualbl {
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .mbt {
   margin-bottom: 30px; }
@@ -11002,6 +11117,7 @@ a.button {
   padding: 12px 0 0 14px; }
   .search-fix i {
     font-size: 26px;
+    font-family: "Roboto-Regular";
     color: white; }
 
 .colorpure {
@@ -11035,7 +11151,8 @@ a.button {
   .details-div h2 {
     color: #002d40;
     display: inline;
-    font-weight: 500; }
+    font-weight: 500;
+    font-family: "Roboto-Medium"; }
   .details-div .name {
     color: #3d619b; }
   .details-div .desc {
@@ -11052,6 +11169,7 @@ a.button {
   .addrm i {
     margin: 5px;
     font-size: 14px;
+    font-family: "Roboto-Regular";
     background: #ff414d;
     padding: 4px;
     border-radius: 50%;
@@ -11064,6 +11182,7 @@ a.button {
   .addrm span {
     font-size: 28px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     vertical-align: middle;
     margin: 5px; }
 
@@ -11084,6 +11203,7 @@ a.button {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   font-size: 19px;
   color: #54535c; }
 
@@ -11092,12 +11212,14 @@ a.button {
   border: transparent;
   padding: 0;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   margin: 20px 0;
   border-bottom: 1px solid lightgrey; }
 
 .auth-custipPlc {
   font-size: 16px !important;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   font-size: 16px;
   padding: 0px !important; }
 
@@ -11107,6 +11229,7 @@ a.button {
   min-height: 40px;
   width: 42%;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   z-index: 2;
   box-shadow: 0 2px 0 0 lightgrey; }
 
@@ -11117,6 +11240,7 @@ a.button {
   float: right;
   width: 42%;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   box-shadow: 0 2px 0 0 lightgrey; }
 
 .auth-btnalign {
@@ -11140,7 +11264,8 @@ a.button {
     padding-right: 0;
     font-size: 16px;
     color: #6b6b6b;
-    font-weight: 500; }
+    font-weight: 500;
+    font-family: "Roboto-Medium"; }
 
 .cartbtn {
   height: 35px;
@@ -11154,6 +11279,7 @@ a.button {
 .cartbadge {
   margin: 5px;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   background: #ff414d;
   padding: 0 5px;
   border-radius: 50%;
@@ -11171,7 +11297,8 @@ a.button {
 
 .nav-height .bar.bar-stable .title {
   line-height: 52px !important;
-  font-size: 22px !important; }
+  font-size: 22px !important;
+  font-family: "Roboto-Regular"; }
 
 .bar .title + .buttons {
   position: absolute !important;
@@ -11192,14 +11319,16 @@ a.button {
 
 .auth-col2btn {
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .auth-sharebtn {
   width: 100% !important;
   margin: 20px auto !important;
   background: #0dbabe !important;
   font-size: 19px !important;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .menu-displaypic {
   width: 72px;
@@ -11217,14 +11346,16 @@ a.button {
   bottom: 25%;
   left: 8%;
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .menu-settings {
   position: absolute;
   bottom: 13%;
   left: 8%;
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .menu-bgcolor {
   background: #f2f4f5; }
@@ -11237,7 +11368,8 @@ a.button {
 
 .menu-label {
   font-size: 16px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .menu-hr {
   margin: 20px;
@@ -11246,6 +11378,7 @@ a.button {
 .shipping-label {
   margin: 40px 0 0 5px !important;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   padding: 6px;
   border-bottom: 1px solid lightgrey !important; }
 
@@ -11253,6 +11386,7 @@ a.button {
   margin: 0;
   padding: 0;
   font-size: 12px;
+  font-family: "Roboto-Regular";
   color: #ff414d;
   width: 100%; }
 
@@ -11280,7 +11414,8 @@ a.button {
   margin: 15px 10px 0; }
   .chkout-planDiv .label {
     font-size: 16px;
-    font-weight: 400; }
+    font-weight: 400;
+    font-family: "Roboto-Medium"; }
 
 .chkout-image {
   height: 120px;
@@ -11309,7 +11444,8 @@ a.button {
   right: 25px;
   top: 4px; }
   .chkout-closebutton:before {
-    font-size: 25px !important; }
+    font-size: 25px !important;
+    font-family: "Roboto-Regular"; }
 
 .chkout-subheight {
   height: 150px;
@@ -11322,6 +11458,7 @@ a.button {
 
 .chkout-fontsize {
   font-size: 16px;
+  font-family: "Roboto-Regular";
   margin: 0 !important; }
 
 .chkout-align {
@@ -11353,10 +11490,12 @@ a.button {
     height: auto;
     padding-left: 5px;
     line-height: 40px;
-    font-size: 13x; }
+    font-size: 13x;
+    font-family: "Roboto-Regular"; }
   .chkoutcoupon input {
     border-bottom: 1px solid lightgray;
     font-size: 13px;
+    font-family: "Roboto-Regular";
     width: 100%;
     height: auto; }
 
@@ -11365,14 +11504,16 @@ a.button {
 
 .chkpadip label {
   color: #6d797e;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .bgchkoutcol50Quant {
   color: #6d797e;
   padding-left: 10px;
   padding-top: 10px; }
   .bgchkoutcol50Quant label {
-    font-size: 16px; }
+    font-size: 16px;
+    font-family: "Roboto-Regular"; }
 
 .bgrowQuant {
   background: white;
@@ -11383,7 +11524,8 @@ a.button {
   text-align: right;
   padding: 15px 15px !important; }
   .bgchkoutcol502 label {
-    font-size: 16px; }
+    font-size: 16px;
+    font-family: "Roboto-Regular"; }
 
 .savingscol501 {
   padding-left: 10px;
@@ -11391,26 +11533,31 @@ a.button {
   padding-bottom: 15px; }
   .savingscol501 label {
     font-size: 18px;
-    font-weight: 400; }
+    font-weight: 400;
+    font-family: "Roboto-Medium"; }
 
 .savingamtdiv {
   text-align: right;
   padding-top: 15px; }
   .savingamtdiv label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
     color: #ff414d; }
   .savingamtdiv span {
-    font-size: 10px; }
+    font-size: 10px;
+    font-family: "Roboto-Regular"; }
 
 .mainmar25-50 {
   text-align: center;
   padding: 50px 23px 0; }
   .mainmar25-50 label {
     font-size: 18px;
-    font-weight: 500; }
+    font-weight: 500;
+    font-family: "Roboto-Medium"; }
   .mainmar25-50 span {
     font-size: 18px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     color: #ff414d; }
 
 .inputarea {
@@ -11421,7 +11568,8 @@ a.button {
     background: none;
     border-bottom: 2px solid red;
     width: 35%;
-    font-size: 18px; }
+    font-size: 18px;
+    font-family: "Roboto-Regular"; }
 
 .nextFooter {
   width: 100%;
@@ -11435,7 +11583,8 @@ a.button {
     background: transparent !important;
     padding: 0;
     margin: 0;
-    font-size: 18px !important; }
+    font-size: 18px !important;
+    font-family: "Roboto-Regular"; }
 
 .avgTxt {
   text-align: center;
@@ -11457,6 +11606,7 @@ a.button {
 .custarr i {
   color: #6d797e;
   font-size: 22px;
+  font-family: "Roboto-Regular";
   position: absolute;
   float: right;
   right: 0;
@@ -11469,16 +11619,19 @@ a.button {
     color: #009688;
     text-align: center;
     font-size: 17px;
+    font-family: "Roboto-Regular";
     margin: 0; }
 
 .datemonth {
   margin: 8px 13px; }
   .datemonth .datediv {
     font-size: 26px;
-    font-weight: 600; }
+    font-weight: 600;
+    font-family: "Roboto-Medium"; }
   .datemonth .monthdiv {
     font-size: 16px;
-    font-weight: 600; }
+    font-weight: 600;
+    font-family: "Roboto-Medium"; }
 
 .hidedate {
   opacity: 0;
@@ -11492,6 +11645,7 @@ a.button {
   font-size: 18px;
   padding: 50px 0 20px;
   font-weight: 400;
+  font-family: "Roboto-Medium";
   color: #212121; }
 
 .onceweekDiv {
@@ -11514,12 +11668,14 @@ a.button {
 
 .jarslbl {
   font-size: 20px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .onceLbl {
   display: block;
   font-size: 18px;
   font-weight: 400;
+  font-family: "Roboto-Medium";
   color: #6d797e; }
 
 .lbl90 {
@@ -11527,17 +11683,20 @@ a.button {
   top: -21px;
   right: 5px;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   text-decoration: line-through;
   color: #6d797e; }
 
 .rupsym {
   font-size: 26px;
+  font-family: "Roboto-Regular";
   color: #c8cbc4; }
 
 .lbl88 {
   font-size: 22px;
   padding: 0 0 0 5px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #ff414d; }
 
 .perjar {
@@ -11557,11 +11716,13 @@ a.button {
   display: block;
   font-size: 22px;
   color: #0dbabe;
-  font-weight: 600; }
+  font-weight: 600;
+  font-family: "Roboto-Medium"; }
 
 .needrefill {
   display: block;
   font-size: 15px;
+  font-family: "Roboto-Regular";
   color: #8a9498; }
 
 .depositDiv {
@@ -11583,13 +11744,15 @@ a.button {
   background: white; }
   .title-addons span {
     font-size: 16px;
-    font-weight: 500; }
+    font-weight: 500;
+    font-family: "Roboto-Medium"; }
 
 .add-ons-item {
   color: #444;
   position: relative;
   z-index: 2;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   margin-bottom: -1px;
   display: table;
   width: 100%;
@@ -11608,7 +11771,8 @@ a.button {
       padding: 8px 0;
       margin-bottom: 0; }
     .add-ons-item .cont-addon h4 {
-      font-size: 20px; }
+      font-size: 20px;
+      font-family: "Roboto-Regular"; }
 
 .review-height {
   height: 150px;
@@ -11631,32 +11795,37 @@ a.button {
   padding-left: 10px;
   padding-top: 15px; }
   .bgreviewcol50Quant label {
-    font-size: 16px; }
+    font-size: 16px;
+    font-family: "Roboto-Regular"; }
 
 .review-closebutton {
   position: absolute;
   right: 15px !important;
   top: 0; }
   .review-closebutton:before {
-    font-size: 25px !important; }
+    font-size: 25px !important;
+    font-family: "Roboto-Regular"; }
 
 .custom {
   padding: 20px 20px 0;
   width: 100%; }
   .custom span {
     font-weight: 500;
+    font-family: "Roboto-Medium";
     font-size: 16px;
     color: #ff414d; }
   .custom p {
     margin: 5px 0 0 !important;
     line-height: 1;
-    font-size: 12px; }
+    font-size: 12px;
+    font-family: "Roboto-Regular"; }
   .custom hr {
     color: #dbdbdb; }
   .custom input[type="radio"] {
     display: none; }
   .custom input[type="radio"] + label {
     font-size: 16px;
+    font-family: "Roboto-Regular";
     font-weight: 700; }
   .custom input[type="radio"] + label span {
     display: inline-block;
@@ -11694,7 +11863,8 @@ p.onceLblr {
   color: #6d797e; }
 
 .lbl-100 {
-  font-size: 20px; }
+  font-size: 20px;
+  font-family: "Roboto-Regular"; }
 
 .light-grey {
   color: #c8cbc4; }
@@ -11713,7 +11883,8 @@ p.onceLblr {
 
 .h4padcol {
   margin: 0 !important;
-  font-size: 30px !important; }
+  font-size: 30px !important;
+  font-family: "Roboto-Regular"; }
 
 .sub3rowcard {
   background: #ff414d;
@@ -11725,11 +11896,13 @@ p.onceLblr {
     margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
+    font-family: "Roboto-Regular";
     line-height: 1; }
   .sub3rowcard span {
     margin: 0 0 0 10px !important;
     color: white;
     font-size: 12px;
+    font-family: "Roboto-Regular";
     display: block; }
 
 .rowimgdiv {
@@ -11749,6 +11922,7 @@ p.onceLblr {
 .stand label {
   color: #989fa4;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   font-size: 12px; }
 
 .steel {
@@ -11765,6 +11939,7 @@ p.onceLblr {
   .add i {
     margin: 5px;
     font-size: 14px;
+    font-family: "Roboto-Regular";
     background: #ff414d;
     padding: 4px;
     border-radius: 50%;
@@ -11777,6 +11952,7 @@ p.onceLblr {
   .add span {
     font-size: 28px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     vertical-align: middle;
     margin: 5px;
     color: black !important; }
@@ -11824,6 +12000,7 @@ p.onceLblr {
   border-width: 1px;
   border-style: solid;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   border: none; }
 
 .noborder {
@@ -11896,6 +12073,7 @@ p.onceLblr {
   bottom: 8%;
   width: 100%;
   font-size: 13px;
+  font-family: "Roboto-Regular";
   padding-left: 42px !important; }
 
 .termspopover {
@@ -11920,7 +12098,8 @@ p.onceLblr {
 
 .termspr {
   padding: 0 10px;
-  font-size: 12px; }
+  font-size: 12px;
+  font-family: "Roboto-Regular"; }
 
 .termshead {
   display: block;
@@ -11934,6 +12113,7 @@ p.onceLblr {
   white-space: nowrap;
   font-size: 17px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   line-height: 44px;
   background: transparent; }
   .termshead h1 {
@@ -11952,6 +12132,7 @@ p.onceLblr {
     white-space: nowrap;
     font-size: 17px;
     font-weight: 500;
+    font-family: "Roboto-Medium";
     line-height: 44px;
     padding-top: 10px;
     color: #ff414d; }
@@ -11965,7 +12146,8 @@ p.onceLblr {
   font-size: 30px;
   font-weight: 600;
   padding: 30px;
-  color: #6d797e; }
+  color: #6d797e;
+  font-family: "Roboto-Medium"; }
 
 .confirm-checkmark {
   margin: 70px 30px 0;
@@ -11981,22 +12163,26 @@ p.onceLblr {
 
 .conirfm-orderlbl {
   font-size: 30px;
-  font-weight: 600; }
+  font-weight: 600;
+  font-family: "Roboto-Medium"; }
 
 .confirm-date {
   display: block;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   color: #6d797e; }
 
 .confirm-successlbl {
   font-size: 38px;
   color: #0dbabe;
   font-weight: 600;
+  font-family: "Roboto-Medium";
   line-height: 35px; }
 
 .confirm-refillphn {
   display: block;
   font-size: 20px;
+  font-family: "Roboto-Regular";
   color: #6d797e;
   margin-top: 5px; }
 
@@ -12012,6 +12198,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #6d797e; }
 
 .disblock {
@@ -12051,6 +12238,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 400;
+  font-family: "Roboto-Medium";
   padding-top: 50px;
   color: #6d797e; }
 
@@ -12059,6 +12247,7 @@ p.onceLblr {
   text-align: center;
   font-size: 25px;
   font-weight: 600;
+  font-family: "Roboto-Medium";
   color: #6d797e;
   padding-bottom: 20px; }
 
@@ -12067,6 +12256,7 @@ p.onceLblr {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #6d797e; }
 
 .backdropImg {
@@ -12079,12 +12269,14 @@ p.onceLblr {
   color: white;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   padding-top: 15px; }
 
 .credits-rup {
   display: block;
   font-size: 60px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: white;
   padding: 0;
   margin: 0;
@@ -12099,7 +12291,8 @@ p.onceLblr {
 .credit-date {
   color: white;
   font-size: 18px;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .paid-button {
   padding: 30px;
@@ -12112,6 +12305,7 @@ p.onceLblr {
   bottom: 8%;
   width: 100%;
   font-size: 14px;
+  font-family: "Roboto-Regular";
   position: relative;
   margin: 0px;
   padding-left: 30px; }
@@ -12127,6 +12321,7 @@ p.onceLblr {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #6d797e; }
 
 .large-no {
@@ -12134,6 +12329,7 @@ p.onceLblr {
   text-align: center;
   font-size: 22px;
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #ff414d;
   padding-bottom: 20px; }
 
@@ -12176,7 +12372,8 @@ input[type="color"] {
   transform: translate(-50%, -50%);
   position: absolute;
   left: 50%;
-  top: 50%; }
+  top: 50%;
+  width: 100%; }
 
 .card-no {
   padding: 20%;
@@ -12190,10 +12387,12 @@ input[type="color"] {
 .sorrymsg {
   padding: 10px;
   font-size: 16px;
+  font-family: "Roboto-Regular";
   color: #6d797e; }
 
 .sorryno {
   font-weight: 500;
+  font-family: "Roboto-Medium";
   color: #6d797e; }
 
 .position-center {
@@ -12208,7 +12407,8 @@ input[type="color"] {
   /* margin: 10px; */
   margin: 15px 0;
   text-align: center;
-  font-weight: 500; }
+  font-weight: 500;
+  font-family: "Roboto-Medium"; }
 
 .img-div {
   text-align: center; }
@@ -12217,6 +12417,7 @@ input[type="color"] {
 
 .orderplaced {
   font-size: 21px;
+  font-family: "Roboto-Regular";
   width: 100%;
   padding: 10px 10px 0 10px;
   text-align: center;
@@ -12227,9 +12428,11 @@ input[type="color"] {
 
 .sameadd {
   padding: 5px 0px 5px 40px;
-  font-size: 14px; }
+  font-size: 14px;
+  font-family: "Roboto-Regular"; }
   .sameadd p {
     font-size: 12px;
+    font-family: "Roboto-Regular";
     margin-top: 10px; }
 
 @-webkit-keyframes fadeIn {
@@ -12264,3 +12467,43 @@ input[type="color"] {
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   animation-duration: 0.5s; }
+
+.bottlename {
+  color: #454545;
+  font-size: 12px;
+  font-family: "Roboto-Regular";
+  display: block; }
+
+.history-refils {
+  color: #454545;
+  font-weight: 600;
+  font-family: "Roboto-Medium";
+  font-size: 15px;
+  margin-top: 12px;
+  display: block; }
+
+.order-histrscol {
+  text-align: center;
+  margin-top: 5px; }
+  .order-histrscol span {
+    color: #6d797e;
+    font-size: 24px;
+    font-family: "Roboto-Regular";
+    padding: 0 5px; }
+  .order-histrscol label {
+    color: #ff414d;
+    font-size: 24px;
+    font-family: "Roboto-Regular"; }
+
+.order-histrscol1 {
+  text-align: center;
+  margin-top: 5px; }
+  .order-histrscol1 span {
+    color: #6d797e;
+    font-size: 24px;
+    font-family: "Roboto-Regular";
+    padding: 0 5px; }
+  .order-histrscol1 label {
+    color: #ff414d;
+    font-size: 24px;
+    font-family: "Roboto-Regular"; }
