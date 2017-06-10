@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -66,9 +66,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             }
         })
-        
 
-        
+
+
 
         .state('app.confirm', {
             cache: false,
@@ -232,6 +232,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         })
 
         .state('app.subpage1', {
+          cache:false,
             url: '/subpage1',
             views: {
                 'menuContent': {

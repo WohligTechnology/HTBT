@@ -7,13 +7,28 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.htbt46753956"
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.htbt46753956"
         },
-        "cordova-plugin-splashscreen": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
+        },
+        "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "com.ionicframework.htbt46753956"
         },
         "cordova-plugin-statusbar": {
@@ -25,25 +40,9 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.htbt46753956"
         },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
-        },
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
-        },
-        "cordova-plugin-image-picker": {
+        "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.htbt46753956"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.htbt46753956"
-        }
-    }
+    "dependent_plugins": {}
 }

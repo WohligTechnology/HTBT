@@ -17,7 +17,7 @@
       <label class="earnings-count" for="">₹ 500</label>
       <label class="order-refilllbl" for="">Since February 1, 2017</label>
     </div>-->
-    <div class="row order-row ion-contentcolor" ng-init="show=1">
+    <!-- <div class="row order-row ion-contentcolor" ng-init="show=1">
       <div class="col-33 order-thismonth" ng-click="show=1" ng-class="{'highlight' : show == 1}">
         This Month
       </div>
@@ -27,53 +27,35 @@
       <div class="col-33 order-thismonth" ng-click="show=3" ng-class="{'highlight' : show == 3}">
         Last 3 Months
       </div>
-    </div>
-    <div ng-if="show==1">
+    </div> -->
+    <div >
       <div class="text-center">
         <h4 class="earnings-past">Past Transaction</h4>
       </div>
-      <div class="">
-        <label class="earning-Date" for="">February 17, 2017</label>
+      <div class="" ng-repeat="earn in earningsList">
+        <label class="earning-Date" for="">{{earn.deliverdate | date:'LLLL dd,yyyy'}}</label>
         <div class="whtback">
           <div class="row order-jarRow">
-            <div class="col-50">
+            <div class="col-33">
               <div class="descTrans">
-                <h4>Name</h4>
-                <label for="">Contact Number</label>
+                <h4>{{earn.customer.name}}</h4>
+                <label for="">{{earn.customer.mobile}}</label>
               </div>
             </div>
-            <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
+            <div class="col-40">
+              <label for="" class="refils">{{earn.product.name}}</label>
+              <label for="" class="refils" ng-if="earn.QuantityDelivered == 1">{{earn.QuantityDelivered}} {{earn.product.unit}}</label>
+              <label for="" class="refils" ng-if="earn.QuantityDelivered > 1">{{earn.QuantityDelivered}} {{earn.product.unit}}s</label>
             </div>
-            <div class="col-25">
+            <div class="col">
               <div class="rscol">
-                <span>₹</span><label for="">10</label>
+                <span>₹</span><label for="">{{earn.earnings}}</label>
               </div>
             </div>
           </div>
-          <div class="borbtm">
-          </div>
-          <div class="row order-jarRow">
-            <div class="col-50">
-              <div class="descTrans">
-                <h4>Name</h4>
-                <label for="">Contact Number</label>
-              </div>
-            </div>
-            <div class="col-25">
-              <label for="" class="refils">2 Refills</label>
-            </div>
-            <div class="col-25">
-              <div class="rscol">
-                <span>₹</span><label for="">10</label>
-              </div>
-            </div>
-          </div>
-          <div class="borbtm">
-          </div>
-        </div>
+
       </div>
-      <div class="">
+      <!-- <div class="">
         <label class="earning-Date" for="">February 17, 2017</label>
         <div class="row order-jarRow">
           <div class="col-50">
@@ -93,7 +75,28 @@
         </div>
         <div class="borbtm">
         </div>
+        <div class="borbtm">
+        </div>
+        <div class="row order-jarRow">
+          <div class="col-50">
+            <div class="descTrans">
+              <h4>Name</h4>
+              <label for="">Contact Number</label>
+            </div>
+          </div>
+          <div class="col-25">
+            <label for="" class="refils">2 Refills</label>
+          </div>
+          <div class="col-25">
+            <div class="rscol">
+              <span>₹</span><label for="">10</label>
+            </div>
+          </div>
+        </div>
+        <div class="borbtm">
+        </div>
       </div>
+      </div> -->
     </div>
     <div ng-if="show==2">
       <div class="text-center">

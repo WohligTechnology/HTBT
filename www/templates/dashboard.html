@@ -12,13 +12,13 @@
   <ion-content class="has-header">
     <div class="row bottomTopMarRow2">
 
-      <div class="col col-50 colPad ">
+      <!-- <div class="col col-50 colPad ">
         <div class="lastMonth">
           <label for=" ">₹ {{dashboardData.credits||0}}
           <pr>Credits</pr>
         </div>
-      </div>
-      <div class="col col-50 colPad">
+      </div> -->
+      <div class="col colPad">
         <div class="newCustomer">
           <label for=" ">₹ {{dashboardData.currentMonthEarnings||0}}</label>
           <pr>Earnings</pr>
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="newCust">
-      <button class="button  ion-plus-circled button-positive" ui-sref="app.browse">
+      <button class="button  ion-plus-circled button-positive" ng-click="NewCust()">
  <label class="oldCustLabel"  >New Customer</label>
           </button>
 

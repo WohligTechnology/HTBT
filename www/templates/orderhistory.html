@@ -35,8 +35,11 @@
                         <label for="" class="history-refils">5 Jars</label>
                         <label for="" class="bottlename">Kinley 20L</label> -->
                         <div class="history-pending">
-                            <label for="" ng-if="order.status == 'paid'">Pending</label>
-                            <label for="" ng-if="order.status != 'paid'">Pending</label>
+                            <label for="" ng-if="order.status == 'Paid'">
+                              <span ng-if="order.methodOfPayment == 'Customer'">Paid: Online</span>
+                              <span ng-if="order.methodOfPayment != 'Customer'">Paid: {{order.methodOfPayment}}</span>
+                            </label>
+                            <label for="" ng-if="order.status != 'Paid'">{{order.status}}</label>
                         </div>
 
                     </div>
@@ -46,15 +49,15 @@
 
                             <span>₹</span>
                             <label for="">{{order.totalAmount}}</label>
-                            <div class="order-resend">
+                            <div class="order-resend" ng-if="order.status == 'Processing'" ng-click="resendLinkFun(order)">
                                 <button>Resend Link</button>
                             </div>
-                            <!-- <div class="order-Pay">
+                            <div class="order-Pay" ng-if="order.status == 'Confirmed'" ng-click="payRp(order)">
                                 <button class="">Pay</button>
                             </div>
-                            <div class="order-resend">
+                            <div class="order-resend" ng-if="order.status == 'Paid'">
                                 <button>Repeat Order</button>
-                            </div> -->
+                            </div>
 
                         </div>
                     </div>

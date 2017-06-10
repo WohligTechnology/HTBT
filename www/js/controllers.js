@@ -1,50 +1,30 @@
 angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter.services', "starter.subscription", 'ionic-datepicker', 'ngCordova'])
-
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout, $state, MyServices) {
-
+    .controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout, $state, MyServices) {
         // Form data for the login modal
         $scope.loginData = {};
-
         // Create the login modal that we will use later
         $ionicModal.fromTemplateUrl('templates/login.html', {
             scope: $scope
         }).then(function(modal) {
             $scope.modal = modal;
         });
-
         // Triggered in the login modal to close it
         $scope.closeLogin = function() {
             $scope.modal.hide();
         };
-
         $ionicPopover.fromTemplateUrl('templates/modal/popover.html', {
             scope: $scope,
             cssClass: 'menupop',
-
         }).then(function(popover) {
             $scope.popover = popover;
         });
-
         $scope.closePopover = function() {
             $scope.popover.hide();
         };
-
         // Open the login modal
         $scope.login = function() {
             $scope.modal.show();
         };
-
-        // Perform the login action when the user submits the login form
-        $scope.doLogin = function() {
-            console.log('Doing login', $scope.loginData);
-
-            // Simulate a login delay. Remove this and replace with your login
-            // code if using a login system
-            $timeout(function() {
-                $scope.closeLogin();
-            }, 1000);
-        };
-
         $scope.getName = function() {
             return $.jStorage.get("profile").name;
         };
@@ -65,27 +45,44 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         }, function(data) {
             $scope.products = data.data;
         });
+        $scope.emptyCartFun = function() {
+            $scope.emptyCart = {};
+            $scope.emptyCart._id = $.jStorage.get('profile')._id;
+            $scope.emptyCart.cartProducts = [];
+            MyServices.saveData($scope.emptyCart, function(data) {
+                console.log(data);
+                if (data.value) {
+                    MyServices.showCardQuantity(function(num) {
+                        $scope.totalQuantity = num;
+                    });
+                }
+
+            });
+
+        }
+
         $scope.productTap = function(product) {
             $scope.subscription.product[0].product = product._id;
             $scope.subscription.productDetail = product;
+
             if ($scope.totalQuantity === 0) {
                 $state.go("app.subpage1");
             } else {
                 var myPopup = $ionicPopup.show({
                     cssClass: 'productspopup',
-                    title:  '<img src="img/sorry.png">',
+                    title: '<img src="img/sorry.png">',
                     subTitle: 'You cannot purchase a 20L Jar plan and other products at the same time.',
                     buttons: [{
 
                         text: 'Empty Cart',
                         onTap: function(e) {
-                            $state.go("app.review");
+                            $scope.emptyCartFun();
                         }
                     }, {
                         text: 'View Cart',
                         type: 'button-positive',
                         onTap: function(e) {
-                            $state.go("app.browse");
+                            $state.go("app.review");
                         }
                     }]
                 });
@@ -96,65 +93,95 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         };
     })
-
-.controller('SorryCtrl', function($scope, $stateParams) {
-    $scope.goBackHandler = function() {
-        window.history.back(); //This works
-    };
-})
-
-
-.controller('PaymentSuccessfulCtrl', function($scope, $stateParams) {
-    $scope.goBackHandler = function() {
-        window.history.back(); //This works
-    };
-})
-
-.controller('OrderHistoryCtrl', function($scope, $stateParams,MyServices) {
-    $scope.goBackHandler = function() {
-        window.history.back(); //This works
-    };
-    $scope.profile = $.jStorage.get('profile');
-    $scope.proID={};
-    $scope.proID._id=$scope.profile._id;
-    MyServices.getOrderByRM($scope.proID, function(data) {
-        $scope.orders = data.data;
-        console.log($scope.orders);
-    });
-})
-
-
-.controller('WrongCtrl', function($scope, $stateParams) {
-    $scope.goBackHandler = function() {
-        window.history.back(); //This works
-    };
-})
-
-
-.controller('SuccessCtrl', function($scope, $stateParams) {
-    $scope.goBackHandler = function() {
-        window.history.back(); //This works
-    };
-})
-
-.controller('LinkExpireCtrl', function($scope, $stateParams) {
-    $scope.goBackHandler = function() {
-        window.history.back(); //This works
-    };
-})
-
-.controller('CreditsCtrl', function($scope, $stateParams, $ionicSideMenuDelegate) {
+    .controller('SorryCtrl', function($scope, $stateParams) {
         $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
+    })
+    .controller('PaymentSuccessfulCtrl', function($scope, $stateParams) {
+        $scope.goBackHandler = function() {
+            window.history.back(); //This works
+        };
+    })
+    .controller('OrderHistoryCtrl', function($scope, $ionicPopup, $stateParams, MyServices) {
+        $scope.goBackHandler = function() {
+            window.history.back(); //This works
+        };
+        $scope.profile = $.jStorage.get('profile');
+        $scope.proID = {};
+        $scope.proID._id = $scope.profile._id;
+        MyServices.getOrderByRM($scope.proID, function(data) {
+            $scope.orders = data.data;
+            console.log($scope.orders);
+        });
+        $scope.resendLinkFun = function(order) {
+            console.log(order);
+            $scope.order = {};
+            $scope.order.orderId = order._id;
+            $scope.order.mobile = order.customer.mobile;
 
+            MyServices.resendLink($scope.order, function(data) {
+                if (data.value) {
+                    $ionicPopup.alert({
+                        cssClass: 'removedpopup',
+                        title: '<img src="img/tick.png">',
+                        template: "Order link has been sent to " + $scope.order.mobile + " successfully!"
+                    });
+                }
 
+            });
+        };
+
+        $scope.payRp = function(order) {
+            console.log(order);
+            var options = "location=no,toolbar=yes";
+            var target = "_blank";
+            var url = "";
+            $scope.finalURL = 'http://htbt.wohlig.co.in/payment/' + order._id + '/123';
+            var ref = cordova.InAppBrowser.open($scope.finalURL, target, options);
+            ref.addEventListener('loadstop', function(event) {
+                var url = event.url;
+                console.log(url);
+                if (url == "http://htbt.wohlig.co.in/sorry") {
+                    ref.close();
+                    var alertPopup = $ionicPopup.alert({
+                        template: '<h4 style="text-align:center;">Some Error Occurred. Payment Failed</h4>'
+                    });
+                    alertPopup.then(function(res) {
+                        alertPopup.close();
+                        $state.go('wrong');
+                    });
+                } else if (url == "http://htbt.wohlig.co.in/thankyou") {
+                    ref.close();
+                    $state.go('paymentsuccess');
+                }
+            });
+
+        };
+    })
+    .controller('WrongCtrl', function($scope, $stateParams) {
+        $scope.goBackHandler = function() {
+            window.history.back(); //This works
+        };
+    })
+    .controller('SuccessCtrl', function($scope, $stateParams) {
+        $scope.goBackHandler = function() {
+            window.history.back(); //This works
+        };
+    })
+    .controller('LinkExpireCtrl', function($scope, $stateParams) {
+        $scope.goBackHandler = function() {
+            window.history.back(); //This works
+        };
+    })
+    .controller('CreditsCtrl', function($scope, $stateParams, $ionicSideMenuDelegate) {
+        $scope.goBackHandler = function() {
+            window.history.back(); //This works
+        };
         $ionicSideMenuDelegate.canDragContent(false);
     })
     .controller('VerificationCtrl', function($scope, $stateParams, MyServices, $timeout, $state) {
-
-        $scope.profile = $.jStorage.get('profile');
-
+        $scope.profile = $.jStorage.get('profile')._id;
         MyServices.getProfile($scope.profile, function(data) {
             $scope.signupForm = data.data;
             if (data.data.verification == 'Verified') {
@@ -171,7 +198,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
     })
     .controller('ReviewCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $ionicPopover) {
-
         $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
             scope: $scope,
             cssClass: 'menupop',
@@ -214,21 +240,21 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 showCart();
                 if (data.status == 200) {
                     $ionicPopup.alert({
-                        cssClass:'removedpopup',
-                        title:  '<img src="img/tick.png">',
+                        cssClass: 'removedpopup',
+                        title: '<img src="img/tick.png">',
                         template: "Products Removed Successfully!"
                     });
                 } else {
                     $ionicPopup.alert({
-                       cssClass:'productspopup',
-                        title:  '<img src="img/linkexpire.png">',
+                        cssClass: 'productspopup',
+                        title: '<img src="img/linkexpire.png">',
                         template: "Error Occured while Removing Products to Cart"
                     });
                 }
             });
         };
     })
-    .controller('CheckoutCtrl', function($scope, $stateParams, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
+    .controller('CheckoutCtrl', function($scope, $stateParams, $ionicPopup, $state, $ionicPopover, ionicDatePicker, MyServices, Subscription) {
 
         $ionicPopover.fromTemplateUrl('templates/modal/terms.html', {
             scope: $scope,
@@ -279,6 +305,43 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             return total;
         };
 
+        $scope.cancelSubscription = function() {
+
+            $ionicPopup.alert({
+                cssClass: 'productspopup',
+                title: 'Cancel Subscription',
+                template: "Are you sure ?",
+                buttons: [{
+
+                    text: 'Yes',
+                    onTap: function(e) {
+                        $scope.subscription = {
+                            product: [{
+                                product: null,
+                                quantity: null
+                            }],
+                            productDetail: null,
+                            productQuantity: 0,
+                            otherProducts: [],
+                            customerName: null,
+                            customerMobile: null,
+                            totalQuantity: null,
+                            totalAmt: null,
+                            user: null
+                        };
+                        Subscription.setObj($scope.subscription);
+                        console.log(Subscription.getObj());
+                        $state.go('app.browse')
+                    }
+                }, {
+                    text: 'No',
+                    type: 'button-positive',
+                    onTap: function(e) {}
+                }]
+            });
+
+        }
+
         $scope.authenticatePayment = function() {
 
             $scope.subscription.totalAmt = $scope.totalAmt;
@@ -315,8 +378,8 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             } else {
                 $ionicPopup.alert({
-                   cssClass:'productspopup',
-                        title:  '<img src="img/linkexpire.png">',
+                    cssClass: 'productspopup',
+                    title: '<img src="img/linkexpire.png">',
                     template: "Error Occured while retriving Products"
                 });
             }
@@ -403,27 +466,37 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             }
         };
     })
-    .controller('AuthPaymentCtrl', function($scope, $stateParams, $state, MyServices, Subscription, $ionicPopover) {
+    .controller('AuthPaymentCtrl', function($scope, $stateParams, $ionicPopup, $state, MyServices, Subscription, $ionicPopover) {
         $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
-
+        if ($.jStorage.get("NewOrder")) {
+          $scope.custId={};
+          $scope.custId._id=$.jStorage.get("NewOrder");
+          MyServices.getCust($scope.custId, function(data) {
+            if (data.value) {
+              $scope.userData={}
+              $scope.userData.customerName=data.data.name;
+              $scope.userData.customerMobile=data.data.mobile;
+            }
+          });
+        }
         // if (data.status == 200) {
-        //             $ionicPopup.alert({
-        //                 cssClass:'productspopup',
-        //                 title:  '<img src="img/sorry.png">',
-        //                 template: "This customer is already registered with another partner."
-        //             });
-        //         } else {
-        //             $ionicPopup.alert({
-            // cssClass:'productspopup',
-            //"Error Occured"
-        //                 title: '<img src="img/linkexpire.png">',
-        //                 template: "Error Occured while Removing Products to Cart"
-        //             });
-        //         }
+        //     $ionicPopup.alert({
+        //         cssClass: 'productspopup',
+        //         title: '<img src="img/sorry.png">',
+        //         template: "This customer is already registered with another partner."
+        //     });
+        // } else {$ionicPopup
+        //     $ionicPopup.alert({
+        //         cssClass: 'productspopup',
+        //         "Error Occured"
+        //         title: '<img src="img/linkexpire.png">',
+        //         template: "Error Occured while Removing Products to Cart"
+        //     });
+        // }
 
- $ionicPopover.fromTemplateUrl('templates/modal/pincode.html', {
+        $ionicPopover.fromTemplateUrl('templates/modal/pincode.html', {
             scope: $scope,
             cssClass: 'menupop',
 
@@ -451,6 +524,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         // console.log("$scope.subscription AuthPaymentCtrl", $scope.subscription);
 
         $scope.submitData = function(value) {
+
             $scope.subscription.customerName = value.customerName;
             $scope.subscription.customerMobile = value.customerMobile;
             $scope.subscription.methodOfPayment = value.methodOfPayment;
@@ -459,23 +533,45 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.profile = $.jStorage.get('profile');
             $scope.getProfield = {};
             $scope.getProfield._id = $scope.profile._id;
-            MyServices.getProfile($scope.getProfield, function(data) {
+            $scope.checkuser = {};
+            $scope.checkuser.user = $scope.profile._id;
+            $scope.checkuser.mobile = value.customerMobile;
+
+            MyServices.getByMobileNo($scope.checkuser, function(data) {
                 if (data.value) {
-                    $scope.profile = data.data;
-                    if ($scope.profile.earningsBlock == 'Yes') {
-                        $scope.subscription.methodofjoin = 'Customer Representative';
-                        $scope.subscription.methodOfOrder = 'Customer Representative';
-                    } else {
-                        $scope.subscription.methodofjoin = 'Relationship Partner';
-                        $scope.subscription.methodOfOrder = 'Relationship Partner';
-                    }
-                    MyServices.saveOrderCheckout($scope.subscription, function(data) {
-                        if (data.status == 200) {
-                            console.log("$scope.subscription data.data", data.data);
-                            $state.go('success');
-                        } else {
-                            $state.go('wrong');
+                    MyServices.getProfile($scope.getProfield, function(data) {
+                        if (data.value) {
+                            $scope.profile = data.data;
+                            if ($scope.profile.earningsBlock == 'Yes') {
+                                $scope.subscription.methodofjoin = 'Customer Representative';
+                                $scope.subscription.methodOfOrder = 'Customer Representative';
+                            } else {
+                                $scope.subscription.methodofjoin = 'Relationship Partner';
+                                $scope.subscription.methodOfOrder = 'Relationship Partner';
+                            }
+                            MyServices.saveOrderCheckout($scope.subscription, function(data) {
+                              $.jStorage.set("NewOrder",null);
+                                if (data.status == 200) {
+                                    console.log("$scope.subscription data.data", data.data);
+                                    $state.go('success');
+                                } else {
+                                    $state.go('wrong');
+                                }
+                            });
                         }
+                    });
+                } else {
+                    $ionicPopup.alert({
+                        cssClass: 'productspopup',
+                        title: '<img src="img/sorry.png">',
+                        template: "This customer is already registered with another partner.",
+                        buttons: [{
+                            text: 'ok',
+                            onTap: function(e) {}
+                        }, {
+                            text: 'cancel',
+                            onTap: function(e) {}
+                        }]
                     });
                 }
             });
@@ -483,11 +579,21 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         };
     })
-    .controller('AuthPaymentCtrlCart', function($scope, $stateParams, $state, MyServices, Subscription) {
+    .controller('AuthPaymentCtrlCart', function($scope,$ionicPopup, $stateParams, $state, MyServices, Subscription) {
         $scope.goBackHandler = function() {
             window.history.back(); //This works
         };
-
+        if ($.jStorage.get("NewOrder")) {
+          $scope.custId={};
+          $scope.custId._id=$.jStorage.get("NewOrder");
+          MyServices.getCust($scope.custId, function(data) {
+            if (data.value) {
+              $scope.userData={}
+              $scope.userData.customerName=data.data.name;
+              $scope.userData.customerMobile=data.data.mobile;
+            }
+          });
+        }
         $scope.userData = {};
 
         $scope.submitData = function(value) {
@@ -495,30 +601,57 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             $scope.profile = $.jStorage.get('profile');
             $scope.getProfield = {};
             $scope.getProfield._id = $scope.profile._id;
-            MyServices.getProfile($scope.getProfield, function(data) {
-                if (data.value) {
-                    $scope.profile = data.data;
+            $scope.checkuser = {};
+            $scope.checkuser.user = $scope.profile._id;
+            $scope.checkuser.mobile = value.customerMobile;
 
-                    if ($scope.profile.earningsBlock == 'Yes') {
-                        value.methodofjoin = 'Customer Representative';
-                        value.methodOfOrder = 'Customer Representative';
-                    } else {
-                        value.methodofjoin = 'Relationship Partner';
-                        value.methodOfOrder = 'Relationship Partner';
-                    }
-                    MyServices.saveOrderCheckoutCart(value.customerName, value.methodofjoin, value.methodOfOrder, value.customerMobile, value.methodOfPayment, function(data) {
-                        if (data.status == 200) {
-                            $state.go('success');
-                        } else {
-                            $state.go('wrong');
+            MyServices.getByMobileNo($scope.checkuser, function(data) {
+                if (data.value) {
+                    MyServices.getProfile($scope.getProfield, function(data) {
+                        if (data.value) {
+                            $scope.profile = data.data;
+
+                            if ($scope.profile.earningsBlock == 'Yes') {
+                                value.methodofjoin = 'Customer Representative';
+                                value.methodOfOrder = 'Customer Representative';
+                            } else {
+                                value.methodofjoin = 'Relationship Partner';
+                                value.methodOfOrder = 'Relationship Partner';
+                            }
+                            MyServices.saveOrderCheckoutCart(value.customerName, value.methodofjoin, value.methodOfOrder, value.customerMobile, value.methodOfPayment, function(data) {
+                              $.jStorage.set("NewOrder",null);
+                                if (data.status == 200) {
+                                    $state.go('success');
+                                } else {
+                                    $state.go('wrong');
+                                }
+                            });
                         }
+                    });
+                } else {
+                    $ionicPopup.alert({
+                        cssClass: 'productspopup',
+                        title: '<img src="img/sorry.png">',
+                        template: "This customer is already registered with another partner.",
+                        buttons: [{
+                            text: 'Ok',
+                            onTap: function(e) {}
+                        }, {
+                            text: 'Cancel',
+                            onTap: function(e) {}
+                        }]
                     });
                 }
             });
+
+
         };
     })
     .controller('BrowseCtrl', function($scope, $stateParams, $ionicLoading, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();
+        MyServices.showCardQuantity(function(num) {
+            $scope.totalQuantity = num;
+        });
         // $ionicLoading.show({
         //     content: '<img src="img/loading.gif" alt="">',
         //     animation: 'fade-in',
@@ -635,7 +768,9 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
             window.history.back();
         };
         $scope.userDetails = MyServices.getAppDetails();
-
+        MyServices.showCardQuantity(function(num) {
+            $scope.totalQuantity = num;
+        });
         $scope.profile = $.jStorage.get('profile');
         MyServices.products({
             category: $stateParams.category
@@ -702,7 +837,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                         });
                     } else {
                         $ionicPopup.alert({
-                            cssClass:'productspopup',
+                            cssClass: 'productspopup',
                             title: '<img src="img/linkexpire.png">',
                             template: "Error Occured while adding Products to Cart"
                         });
@@ -820,6 +955,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         $scope.closePopover = function() {
             $scope.dropdown.hide();
         };
+        $scope.addNewOrder = function(customerId) {
+          $.jStorage.set("NewOrder",customerId);
+          $state.go('app.browse');
+        };
         $scope.profile = $.jStorage.get('profile');
         $scope.getProfield = {};
         console.log($scope.profile);
@@ -830,13 +969,13 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 $scope.custlist = data.data.customer;
                 $scope.custlist = _.groupBy(data.data.customer, "status");
                 $scope.pending = $scope.custlist["pending"];
-                $scope.existing = $scope.custlist["existing"];
+                $scope.existing = $scope.custlist["Existing"];
                 console.log($scope.pending);
             }
         });
 
     })
-    .controller('EarningCtrl', function($scope, $stateParams, $ionicPopover, $ionicSideMenuDelegate) {
+    .controller('EarningCtrl', function($scope, $stateParams, MyServices, $ionicPopover, $ionicSideMenuDelegate) {
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -847,10 +986,20 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         }).then(function(popover) {
             $scope.popover = popover;
         });
-
         $scope.closePopover = function() {
             $scope.popover.hide();
         };
+
+        $scope.user = {};
+        $scope.user.user = $.jStorage.get('profile')._id;
+
+        MyServices.getAllDeliveryReqByRP($scope.user, function(data) {
+            console.log(data);
+            if (data.value) {
+                $scope.earningsList = data.data;
+                console.log($scope.earningsList);
+            }
+        });
 
     })
     .controller('VerifyCtrl', function($scope, $stateParams, MyServices, $timeout, $state, $ionicLoading, $ionicPopup) {
@@ -873,15 +1022,15 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
                 }
             }
         });
-        $scope.otpenable=false;
+        $scope.otpenable = false;
 
         $scope.disableotp = function(value) {
-          console.log(value);
-          if(value.first && value.second && value.third && value.forth){
-            $scope.otpenable=true;
-          }else{
-            $scope.otpenable=false;
-          }
+            console.log(value);
+            if (value.first >= 0 && value.second >= 0 && value.third >= 0 && value.forth >= 0) {
+                $scope.otpenable = true;
+            } else {
+                $scope.otpenable = false;
+            }
         }
 
         //Function to verify OTP
@@ -987,9 +1136,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
 
         };
     })
-    .controller('DashboardCtrl', function($scope, $stateParams, $ionicPopup, MyServices, $ionicHistory, $ionicSlideBoxDelegate) {
+    .controller('DashboardCtrl', function($scope,$state, $stateParams, $ionicPopup, MyServices, $ionicHistory, $ionicSlideBoxDelegate) {
         $scope.profile = $.jStorage.get('profile');
         $ionicHistory.clearHistory();
+        $scope.NewCust = function() {
+          $.jStorage.set("NewOrder",null);
+          $state.go('app.browse');
+        }
+
         $scope.showPopup = function() {
             $scope.show = $ionicPopup.show({
                 templateUrl: 'templates/modal/price.html',
@@ -1034,8 +1188,6 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     .controller('SignUpCtrl', function($scope, $ionicPopup, $stateParams, $ionicActionSheet, $cordovaFileTransfer, $cordovaCamera, $ionicPopover, $state, MyServices, $cordovaImagePicker) {
         $scope.signup = {}
         $scope.show = '';
-
-
         $ionicPopover.fromTemplateUrl('templates/modal/terms2.html', {
             scope: $scope,
             cssClass: 'menupop',

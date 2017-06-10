@@ -10679,7 +10679,7 @@ a.button {
 
 .order-jarRow {
   background: white;
-  padding: 15px; }
+  padding: 10px; }
 
 .order-tickDiv {
   width: 30px;
@@ -12368,8 +12368,7 @@ input[type="color"] {
   bottom: 0;
   width: 50%;
   border-radius: 0px;
-  font-size: 14px;
-  font-family: "Roboto-Regular"; }
+  font-size: 14px; }
 
 .productspopup .popup-buttons .button:last-child {
   height: 20px;
@@ -12379,8 +12378,7 @@ input[type="color"] {
   width: 50%;
   border-radius: 0px;
   background: #ff414d;
-  font-size: 14px;
-  font-family: "Roboto-Regular"; }
+  font-size: 14px; }
 
 .successpopup .popup-sub-title {
   margin: 5px 0 0 0;
@@ -12410,8 +12408,7 @@ input[type="color"] {
   bottom: 0;
   width: 50%;
   border-radius: 0px;
-  font-size: 14px;
-  font-family: "Roboto-Regular"; }
+  font-size: 14px; }
 
 .successpopup .popup-buttons .button:last-child {
   height: 20px;
@@ -12421,8 +12418,11 @@ input[type="color"] {
   width: 50%;
   border-radius: 0px;
   background: #ff414d;
-  font-size: 14px;
-  font-family: "Roboto-Regular"; }
+  font-size: 14px; }
+
+.removedpopup h3 img {
+  max-width: 50px;
+  max-height: 50px; }
 
 .removedpopup .popup-head {
   padding: 15px 10px;

@@ -1,11 +1,9 @@
 var adminurl = "http://htbt.wohlig.co.in/api/"; //server
-// var adminurl = "http://192.168.2.21:1337/api/"; //server
-
+// var adminurl = "http://192.168.0.119:1337/api/"; //server
 // var imgpath = adminurl + "uploadfile/getupload?file=";
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile?file=";
 // var uploadurl = imgurl;
-
 angular.module('starter.services', [])
   .factory('MyServices', function ($http) {
     var appDetails = {};
@@ -60,6 +58,22 @@ angular.module('starter.services', [])
 
         $http({
           url: adminurl + 'order/getOrderByRM',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+      getAllDeliveryReqByRP: function (data, callback) {
+        $http({
+          url: adminurl + 'DeliveryRequest/getAllDeliveryReqByRP',
+          method: 'POST',
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+      getByMobileNo: function (data, callback) {
+        $http({
+          url: adminurl + 'user/getByMobileNo',
           method: 'POST',
           withCredentials: true,
           data: data
@@ -121,6 +135,14 @@ angular.module('starter.services', [])
           url: adminurl + 'Categories/getCategories',
           method: 'POST',
           withCredentials: true,
+        }).success(callback);
+      },
+      resendLink: function (data,callback) {
+        $http({
+          url: adminurl + 'order/resendLink',
+          method: 'POST',
+          withCredentials: true,
+          data: data
         }).success(callback);
       },
       featureprods: function (callback) {

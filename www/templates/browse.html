@@ -1,7 +1,7 @@
 <ion-view title="Browse">
     <ion-nav-bar class="bar-stable schedule-bar  nav-height">
         <ion-nav-buttons side="left">
-            <button class="button button-clear ion-android-arrow-back sigupIconLeft" ng-click="goBackHandler()">
+            <button class="button button-clear ion-android-arrow-back sigupIconLeft" ui-sref="app.dashboard">
         </button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
@@ -12,7 +12,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="has-header browse-backgrndcolor">
-      <div class=""  ng-if="!loader">
+      <div class=""  >
         <ion-slide-box options="homeSlider.sliderOptions" slider="homeSlider.sliderDelegate" does-continue="true" animation='fade'
             auto-play="true" effect='fade' slide-interval="{{interval}}" show-pager="true" pager-click="changeSlide(index)" on-slide-changed="slideHasChanged(index)">
             <ion-slide ng-if="feaprods.length>0" ng-repeat="data in feaprods" [options]="{pager:true}">
