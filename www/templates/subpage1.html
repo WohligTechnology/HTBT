@@ -1,26 +1,26 @@
 <ion-view title="Step 1 of 3">
-    <ion-nav-bar class="bar-stable nav-height">
+    <ion-nav-bar class="bar-stable schedule-bar  nav-height">
         <ion-nav-buttons side="left">
-            <button class="button button-clear ion-android-arrow-back sigupIconLeft" ng-click="goToProduct()">
+            <button class="button button-clear ion-android-arrow-back sigupIconLeft" ui-sref="app.browse">
         </button>
         </ion-nav-buttons>
-
+        <!--<ion-nav-buttons side="right">
+            <div class="cartbtn">
+                <img src="img/9.png" alt="" ui-sref="app.review">
+            </div>
+            <span class="cartbadge">{{userDetails.cartQuantity}}</span>
+        </ion-nav-buttons>-->
     </ion-nav-bar>
-    <ion-content class="has-header chkout-bgcolor has-footer">
-        <div class="mainmar25-50">
-            <label for="">How many jars do you need</label>
-            <span>Per Week</span>
-            <label for="">?</label>
+    <ion-content>
+        <div class="mbt">
+            <div class="browse-moredivalign" ng-click="productTap(product);" ng-repeat="product in products">
+                <div class="browse-moreImgDiv">
+                    <img class="browse-moreImg " ng-src="{{product.smallImage | uploadpath}}" alt="">
+                </div>
+                <div class="browse-aqualbl" for="">{{product.name}}</div>
+                <div for="" class="colorpure">{{product.tag}} <i class="ion ion-information-circled"></i></div>
+                <label class="browse-morerupee" for="">₹ {{product.price}}</label>
+            </div>
         </div>
-        <div class="inputarea">
-            <input type="number" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                autofocus focusMe ng-model="subscription.product[0].quantity">
-        </div>
-        <div class="avgTxt">On average , 4 people need 3 jars per week.</div>
     </ion-content>
-    <div class="bar bar-footer nextFooter footer-height">
-        <button class="button button-block button-positive footer-font" ng-disabled="!subscription.product[0].quantity" ng-click="takeToNext();">
-  Next
-</button>
-    </div>
 </ion-view>

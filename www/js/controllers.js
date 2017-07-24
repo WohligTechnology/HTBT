@@ -205,7 +205,30 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         }).then(function(terms) {
             $scope.terms = terms;
         });
-
+    $scope.checkMinProduct = function (product) {
+            if (!product.productQuantity || product.productQuantity <= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.checkMaxProduct = function (product) {
+            if (product.productQuantity >= parseInt(product.quantity)) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        $scope.changeProductQuantity = function (product, change) {
+            if (_.isNaN(parseInt(product.productQuantity))) {
+                product.productQuantity = 0;
+            }
+            if (change) {
+                product.productQuantity++;
+            } else {
+                product.productQuantity--;
+            }
+        };
         $scope.closePopover = function() {
             $scope.terms.hide();
         };
@@ -372,9 +395,10 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         MyServices.getOtherProducts(function(data) {
             if (data.status == 200) {
                 if (data.data && data.data.data && data.data.data.results) {
-                    $scope.otherProducts = _.groupBy(data.data.data.results, "addones");
-                    $scope.saveSpace = $scope.otherProducts["Save Space"];
-                    $scope.saveTime = $scope.otherProducts["Save Time"];
+                      $scope.otherProduct = data.data.data.results;
+                    // $scope.otherProducts = _.groupBy(data.data.data.results, "addones");
+                    // $scope.saveSpace = $scope.otherProducts["Save Space"];
+                    // $scope.saveTime = $scope.otherProducts["Save Time"];
                 }
             } else {
                 $ionicPopup.alert({
@@ -649,6 +673,7 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
     })
     .controller('BrowseCtrl', function($scope, $stateParams, $ionicLoading, $ionicSlideBoxDelegate, MyServices, $state, $timeout) {
         $scope.userDetails = MyServices.getAppDetails();
+        console.log("dsad",$scope.userDetails);
         MyServices.showCardQuantity(function(num) {
             $scope.totalQuantity = num;
         });
@@ -740,11 +765,14 @@ angular.module('starter.controllers', ['angular-svg-round-progressbar', 'starter
         };
         MyServices.categories(function(data) {
             // $ionicLoading.hide();
-            $scope.loader = false;
+           $scope.loader = false;
 
             console.log(data);
-            $scope.category = _.chunk(data.data, 2);
-            console.log($scope.category);
+            $scope.category = _.groupBy(data.data, "subscription");
+            $scope.subscription = $scope.category["Yes"];
+            $scope.notSubscription = $scope.category["No"];
+            $scope.notSubscription = _.chunk($scope.notSubscription, 2);
+            console.log($scope.notSubscription);
 
         });
         $scope.profile = $.jStorage.get('profile');

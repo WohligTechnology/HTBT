@@ -10862,8 +10862,7 @@ a.button {
 
 .browse-grid {
   padding: 20px 0 0;
-  text-align: center;
-  background: white; }
+  text-align: center; }
 
 .browse-text {
   margin: 0 15px;
@@ -10875,11 +10874,11 @@ a.button {
 .browse-card1 {
   padding: 1.5px;
   margin: 1.5px;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 215px; }
   .browse-card1 .icondiv {
     height: auto;
     width: 100%;
-    padding: 15px 0;
     display: block;
     text-align: center;
     background: #e7e9ea;
@@ -10907,11 +10906,11 @@ a.button {
 
 .browse-card2 {
   padding: 1.5px;
-  margin: 1.5px; }
+  margin: 1.5px;
+  height: 215px; }
   .browse-card2 .icondiv {
     height: auto;
     width: 100%;
-    padding: 15px 0;
     display: block;
     text-align: center;
     background: #fafafa; }
@@ -12446,3 +12445,30 @@ input[type="color"] {
   padding: 10px;
   min-height: 65px;
   background: white; }
+
+.deposittext {
+  text-align: left; }
+  .deposittext label:nth-child(1) {
+    color: #223c4d;
+    display: block;
+    font-size: 14px;
+    font-weight: 600; }
+  .deposittext label:nth-child(2) {
+    color: #223c4d;
+    display: block;
+    font-size: 12px; }
+
+.img-bottle {
+  height: 50px;
+  width: 100%;
+  text-align: right; }
+  .img-bottle img {
+    height: 100%; }
+
+.pad10 {
+  padding: 10px !important; }
+
+.buyJar {
+  color: #6d797e;
+  text-align: center;
+  display: block; }
